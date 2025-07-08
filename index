@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お姉様が案内する日本の「秋」ショッピング旅行</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Shippori+Mincho:wght@700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="guru-selection-container">
+
+    <header class="intro-header">
+        <div class="intro-content">
+            <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/450201440_25790834523893691_8746826967770698278_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=VBU1fZq6zewQ7kNvwEWy9TW&_nc_oc=Adk9UH8hRnKlmuLlWI_gkbq0IOmdT-dweALGwmzCQgMbyvExxY2s-a3fFbYdgEuyJb0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=-4G1O-dLKt-uTfBIUAyYmw&oh=00_AfQYCVW47TPE_jC8_mLmhRzRQKbPmIFkajwuuIDExykZWg&oe=6872ACB1" alt="오네에 구루" class="guru-avatar-large" data-aos="zoom-in">
+            <div class="intro-typography" data-aos="fade-left">
+                <p class="intro-line-1">2024秋の日本旅行で</p>
+                <p class="intro-line-2">アナタが<span class="highlight">絶対買うべき</span></p>
+                <p class="intro-line-3">逸品たちを</p>
+                <p class="intro-line-4">紹介してあげるわ！</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-contents">
+        <section class="category-section">
+            <h2 class="category-title" data-aos="fade-right">🌟 お姉様の特選コレクション 🌟</h2>
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="cosmetics">💄 コスメ</button>
+                <button class="tab-btn" data-tab="pharma">💊 医薬品</button>
+                <button class="tab-btn" data-tab="goods">🛍️ 雑貨・食品</button>
+            </div>
+            <div class="tab-content-wrapper">
+                <div id="cosmetics" class="tab-content active">
+                    <div class="product-grid-compact">
+                        <article class="product-card-compact" data-aos="fade-up">
+                            <div class="approval-stamp">お墨付き</div>
+                            <a href="#" class="coupon-tag-compact"><i class="fa-solid fa-ticket"></i> クーポン有り</a>
+                            <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/487691437_1034291012064081_7634732099112972315_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ccqqhIlt-KoQ7kNvwHlh1QW&_nc_oc=AdnWGS0lL2PTYlmEA1zPBoeJGikIk5_U791-42lk7SYnIZVSdraUcSJ6tNc8FTlxtR0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=pGObLfHZsNS7184jPfLVKA&oh=00_AfSXeXR_M3o4MJjY7J5ksZYGbudDyJ6mZiyi6k8-bZzoIg&oe=6872A738" alt="コスメ" class="product-image-compact">
+                            <h4 class="product-name-compact">トランシーノ 薬用クリアクレンジングn</h4>
+                            <p class="product-desc-compact">くすみ※も毛穴も一掃よ！<span class="small-note">※古い角質</span></p>
+                            <div class="retailer-logos-compact">
+                                <img src="https://via.placeholder.com/80x30.png?text=マツキヨ" alt="マツキヨ">
+                            </div>
+                        </article>
+                        <article class="product-card-compact" data-aos="fade-up" data-aos-delay="100">
+                            <div class="approval-stamp">お墨付き</div>
+                            <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/481986314_1015303623962820_2230683353026885991_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wM-AX93U1VUQ7kNvwH-FUnx&_nc_oc=Adl0tMWegsf7jaDVhPy3D7g9uOwqVQMb4BjaMEQTaMxjei3IjF-InP9iJfu-AESjjXo&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=nQUJHSDDUrHH6EGvM-NnFw&oh=00_AfRA9vGd27HxiBaZoGLSz8L8ia9LSTAbP1GBzkIXPVQmSg&oe=68729F3B" alt="コスメ" class="product-image-compact">
+                            <h4 class="product-name-compact">KANEBO スクラビング マッド ウォッシュ</h4>
+                            <p class="product-desc-compact">週2回のスペシャルケア。毛穴つるん！</p>
+                            <div class="retailer-logos-compact">
+                                <span class="retailer-text-compact">百貨店</span>
+                            </div>
+                        </article>
+                         <article class="product-card-compact" data-aos="fade-up" data-aos-delay="200">
+                            <div class="approval-stamp">お墨付き</div>
+                            <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/482207616_1015089893984193_5205752561002227023_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7ZQ7uBchaU8Q7kNvwGyZYDK&_nc_oc=AdlefAo5w6VmV8rjXbHpLo00lS23PQqJZHD4cwkbsvSM7nI6eGRyuKEM3_xg21H2Z4Y&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=0RagP9LusYGgbjfPT_yVPQ&oh=00_AfQK-JQPS1_QQBoT-lb7L-UEud0M8LcrfPEKuMy2xoV43w&oe=6872BE93" alt="コスメ" class="product-image-compact">
+                            <h4 class="product-name-compact">ミノン アミノモイスト チャージミルク</h4>
+                            <p class="product-desc-compact">乾燥で揺らぐ肌の絶対的救世主。</p>
+                            <div class="retailer-logos-compact">
+                                 <img src="https://via.placeholder.com/80x30.png?text=ドンキ" alt="ドンキ">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div id="pharma" class="tab-content">
+                    <div class="product-grid-compact">
+                        <article class="product-card-compact">
+                            <div class="approval-stamp">お墨付き</div>
+                            <img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC13-800x533.jpg" alt="医薬品" class="product-image-compact">
+                            <h4 class="product-name-compact">EVEクイック頭痛薬DX</h4>
+                            <p class="product-desc-compact">旅先で頭が痛いなんて時間の無駄！</p>
+                             <div class="retailer-logos-compact">
+                                 <span class="retailer-text-compact">全ドラッグストア</span>
+                            </div>
+                        </article>
+                        <article class="product-card-compact">
+                            <div class="approval-stamp">お墨付き</div>
+                            <a href="#" class="coupon-tag-compact"><i class="fa-solid fa-ticket"></i> クーポン有り</a>
+                            <img src="https://japankuru.com/gld-kanri/data/uploads/2025/04/D05_5331-800x533.jpg" alt="医薬品" class="product-image-compact">
+                            <h4 class="product-name-compact">龍角散ダイレクト</h4>
+                            <p class="product-desc-compact">ホテルの乾燥でのどがイガイガ…即ケア！</p>
+                             <div class="retailer-logos-compact">
+                                 <img src="https://via.placeholder.com/80x30.png?text=ドンキ" alt="ドンキ">
+                                 <img src="https://via.placeholder.com/80x30.png?text=マツキヨ" alt="マツキヨ">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div id="goods" class="tab-content">
+                     <div class="product-grid-compact">
+                        <article class="product-card-compact">
+                            <div class="approval-stamp">お墨付き</div>
+                            <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/501464221_1078078024352046_5896758067377718787_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9TKBfmic7rEQ7kNvwH-45N3&_nc_oc=AdmqOxNbUv-BVvbb83_m-RlnQQyAEoiOc1ceDaYgk0RI5XLO7fKZB2mx9cfwfu41Lx0&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=b11S5SvXarf5LgeDbZSoDg&oh=00_AfRlukYKK3XueO-8Yjvfch-gazRnCaY5ATBGTQK3ajXJHw&oe=68729361" alt="雑貨" class="product-image-compact">
+                            <h4 class="product-name-compact">めぐりズム 蒸気でホットアイマスク</h4>
+                            <p class="product-desc-compact">一日の終わりにこれで目元を温めれば天国…。</p>
+                             <div class="retailer-logos-compact">
+                                 <span class="retailer-text-compact">全ドラッグストア</span>
+                                 <span class="retailer-text-compact">コンビニ</span>
+                            </div>
+                        </article>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-banner-section" data-aos="zoom-in-up">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <span class="banner-subtitle">お姉様の今月のイチオシ！</span>
+                    <h2 class="banner-title">EVEクイック頭痛薬DX</h2>
+                    <p>「痛い！」と感じてからじゃ遅いのよ。日本製の鎮痛剤は効き目が優しくて速いの。旅先での頭痛、生理痛はこれで「なかったこと」にしなさい。ポーチのスタメン確定よ！</p>
+                </div>
+                <img src="https://japankuru.com/gld-kanri/data/uploads/2025/04/D05_5323-800x533.jpg" alt="EVE" class="banner-image">
+            </div>
+        </section>
+
+        <section class="strategy-section-v3">
+            <h2 class="category-title" data-aos="fade-right">🗺️ ドラッグストア別・完全攻略マップ 🗺️</h2>
+            <div class="store-feature-wrapper">
+                <article class="store-feature" data-aos="fade-left">
+                    <div class="store-image"><img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/D05_8037-%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC-800x533.jpg" alt="マツモトキヨシ"></div>
+                    <div class="store-details">
+                        <h3 class="store-name-v2">マツモトキヨシ</h3>
+                        <p><strong>狙い目：</strong>「matsukiyo」PB商品、資生堂やカネボウの限定セット。美容部員さんがいる店舗も多く、専門的な相談が可能よ。</p>
+                        <p class="onee-tip-v3"><strong>耳打ち：</strong>公式アプリの10%OFFクーポンはマスト！旅の初日にダウンロードしておきなさい。</p>
+                    </div>
+                </article>
+                <article class="store-feature reverse" data-aos="fade-right">
+                     <div class="store-image"><img src="https://img.japankuru.com/prg_img/thumbnail1/img2024020818392500320700.jpg" alt="ドン・キホーテ"></div>
+                    <div class="store-details">
+                        <h3 class="store-name-v2">ドン・キホーテ</h3>
+                        <p><strong>狙い目：</strong>激安の韓国コスメ、面白いデザインのパック、大袋のお菓子。深夜営業も魅力よね。</p>
+                        <p class="onee-tip-v3"><strong>耳打ち：</strong>とにかく迷路！欲しいものは画像を店員さんに見せるのが一番速いわ！あと、レジ近くのセール品は要チェック！</p>
+                    </div>
+                </article>
+                 <article class="store-feature" data-aos="fade-left">
+                    <div class="store-image"><img src="https://via.placeholder.com/500x350.png?text=ウエルシア店舗写真" alt="ウエルシア"></div>
+                    <div class="store-details">
+                        <h3 class="store-name-v2">ウエルシア</h3>
+                        <p><strong>狙い目：</strong>調剤薬局併設ならではの専門的な医薬品、ベビー用品、介護用品まで揃うわ。食品も充実。</p>
+                        <p class="onee-tip-v3"><strong>耳打ち：</strong>毎月20日はTポイントで1.5倍分のお買い物ができる「ウエル活」の日！タイミングが合えば奇跡よ。</p>
+                    </div>
+                </article>
+                 <article class="store-feature reverse" data-aos="fade-right">
+                     <div class="store-image"><img src="https://via.placeholder.com/500x350.png?text=サンドラッグ店舗写真" alt="サンドラッグ"></div>
+                    <div class="store-details">
+                        <h3 class="store-name-v2">サンドラッグ</h3>
+                        <p><strong>狙い目：</strong>医薬品、健康食品のセール品。都心から少し離れた店舗で、思わぬ掘り出し物が見つかることも。</p>
+                        <p class="onee-tip-v3"><strong>耳打ち：</strong>ポイント10倍デーなどを頻繁に開催するから、お店の前ののぼりをチェックしなさい！</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="course-section-v2">
+            <h2 class="category-title" data-aos="fade-right">📍 エリア別・時短ショッピングコース 📍</h2>
+            <div class="tab-buttons area-tabs">
+                <button class="tab-btn-area active" data-area="shibuya">渋谷</button>
+                <button class="tab-btn-area" data-area="shinjuku">新宿</button>
+                <button class="tab-btn-area" data-area="harajuku">原宿・表参道</button>
+                <button class="tab-btn-area" data-area="ueno">上野</button>
+            </div>
+            <div class="tab-content-wrapper-area">
+                <div id="shibuya" class="tab-content-area active">
+                    <div class="course-card">
+                        <h3>渋谷90分・電撃コース (Shibuya 90-Min Blitz Course)</h3>
+                        <p>流行の最先端を駆け抜ける、時間がない子猫ちゃんのためのコースよ！</p>
+                        <ol class="course-steps">
+                            <li><span>1️⃣</span> <strong>MEGAドンキ (30分):</strong> まずはここで、かさばるお菓子や面白い雑貨をまとめてゲット！</li>
+                            <li><span>2️⃣</span> <strong>マツキヨ渋谷Part1店 (40分):</strong> スクランブル交差点の目の前！コスメと医薬品はここで集中して選ぶの。</li>
+                            <li><span>3️⃣</span> <strong>渋谷ロフト (20分):</strong> 最新の文房具や限定キャラクターグッズをチェック。お土産はここで差をつけなさい！</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="shinjuku" class="tab-content-area">
+                    <div class="course-card">
+                        <h3>新宿・百貨店＆ドラッグストア攻略コース</h3>
+                        <p>大人買いしたいアナタへ。百貨店の高級コスメからドラッグストアの実用品まで一網打尽！</p>
+                    </div>
+                </div>
+                <div id="harajuku" class="tab-content-area">
+                    <div class="course-card">
+                        <h3>原宿・表参道きらめきコスメハント</h3>
+                        <p>カワイイもキレイも全部欲しい！竹下通りのプチプラから表参道のブランドまで巡るわよ。</p>
+                    </div>
+                </div>
+                <div id="ueno" class="tab-content-area">
+                     <div class="course-card">
+                        <h3>上野・アメ横 実用重視ショッピング</h3>
+                        <p>アメ横の活気を感じながら、激安コスメや健康食品を賢くゲットするコースよ。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="final-footer" data-aos="fade-up" data-aos-offset="200">
+            <div class="footer-content">
+                <div class="guru-profile">
+                    <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/491976990_29024520673858377_9200271926203562735_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vyM4q5V_5OQQ7kNvwFo3GtQ&_nc_oc=AdkaxCly8JflKBJB2CLKFyfiNWsEWteA1_b4sMviIEjEHGUW3hRXgJLkL_H1cZcP-Fk&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=E5DxqsrSwB4T-w2RyQRG5g&oh=00_AfTGY4rwGXW-5CBwey6gxqq9sud9eYjDs6QiC9fnOCz_Og&oe=6872B682" alt="오네에 구루" class="guru-avatar-footer">
+                    <h3 class="guru-name-footer">ビューティーグル お姉様</h3>
+                    <p class="guru-bio-footer">
+                        美は一日にしてならず。でも、正しい知識があれば、その近道は見つかるのよ。アナタの日本旅行が、最高に美しく輝くものになりますように。
+                    </p>
+                    <div class="guru-social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="useful-content">
+                    <h3 class="useful-title">これだけは覚えて！<br>ショッピングで使える日本語</h3>
+                    <ul class="phrase-list">
+                        <li>
+                            <span class="phrase-jp">これはいくらですか？</span>
+                            <span class="phrase-tr">(이거 얼마예요? / This is how much?)</span>
+                        </li>
+                        <li>
+                            <span class="phrase-jp">免税、できますか？</span>
+                            <span class="phrase-tr">(면세, 되나요? / Can I get it tax-free?)</span>
+                        </li>
+                        <li>
+                            <span class="phrase-jp">試してもいいですか？</span>
+                            <span class="phrase-tr">(테스트해봐도 될까요? / May I try this?)</span>
+                        </li>
+                        <li>
+                            <span class="phrase-jp">おすすめはどれですか？</span>
+                            <span class="phrase-tr">(추천 상품은 어떤 건가요? / Which one do you recommend?)</span>
+                        </li>
+                        <li>
+                            <span class="phrase-jp">袋、いりません。</span>
+                            <span class="phrase-tr">(봉투, 필요 없어요. / I don't need a bag.)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 Japan-Kuru. All Rights Reserved.
+            </div>
+        </footer>
+
+    </main>
+</div>
+</div>
+
+</body>
+<style>
+    /* --- Web Fonts & General Styles --- */
+body {
+    background-color: #FEFBF6;
+    margin: 0;
+    padding: 0;
+}
+.guru-selection-container {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #3D3D3D;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/* --- 1. Intro Header --- */
+.intro-header {
+    padding: 60px 20px;
+    background-color: #F7EFE5;
+    border-bottom: 5px solid #fff;
+}
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.guru-avatar-large {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.intro-typography p {
+    margin: 0;
+    line-height: 1.3;
+    color: #5C3D2E;
+}
+.intro-line-1 { font-size: 1.8rem; font-weight: 700; }
+.intro-line-2 { font-family: 'Shippori Mincho', serif; font-size: 3rem; }
+.intro-line-2 .highlight { color: #E06469; font-family: 'Mochiy Pop One', sans-serif;}
+.intro-line-3 { font-size: 1.5rem; text-align: right; }
+.intro-line-4 { font-family: 'Mochiy Pop One', sans-serif; font-size: 2.8rem; text-align: right; color: #333;}
+
+
+/* --- 2. Main Contents & Section Titles --- */
+.main-contents { padding: 20px; }
+.category-title {
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    padding: 10px;
+    margin: 80px 0 40px 0;
+    border-top: 3px solid #E06469;
+    border-bottom: 3px solid #E06469;
+}
+.subcategory-title {
+    text-align: center;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.5rem;
+    color: #5C3D2E;
+    margin-bottom: 30px;
+}
+
+/* --- 3. Product Tab UI --- */
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    padding: 12px 25px;
+    border: 2px solid #ddd;
+    background: #fff;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.tab-btn:hover {
+    background: #F7EFE5;
+}
+.tab-btn.active {
+    background: #E06469;
+    color: #fff;
+    border-color: #E06469;
+}
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+.tab-content.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 4. Compact Product Grid --- */
+.product-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.product-card-compact {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 15px;
+    position: relative;
+    border: 1px solid #eee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.product-image-compact {
+    width: 60%;
+    margin: 15px auto 10px auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+.product-name-compact {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 0 5px 0;
+    color: #333;
+    height: 40px; /* 2줄 높이 확보 */
+    overflow: hidden;
+}
+.product-desc-compact {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+.small-note { font-size: 0.7rem; }
+.approval-stamp {
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    background: #E06469;
+    color: #fff;
+    padding: 5px 30px;
+    font-family: 'Mochiy Pop One', sans-serif;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+}
+.coupon-tag-compact {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #4CAF50;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 2;
+}
+.retailer-logos-compact {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    min-height: 25px;
+}
+.retailer-logos-compact img {
+    height: 20px;
+    filter: grayscale(80%);
+    opacity: 0.8;
+}
+.retailer-text-compact {
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* --- 5. Special Banner --- */
+.special-banner-section { margin: 80px 0; }
+.banner-content {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #5C3D2E, #8D6E63);
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.banner-text { flex: 1; min-width: 300px; }
+.banner-subtitle {
+    font-weight: 700;
+    background: #E06469;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.banner-title {
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+.banner-image { max-width: 250px; margin: 0 auto; }
+
+/* --- 6. Store Strategy --- */
+.strategy-section-v3 { /* ... */ }
+.store-feature-wrapper { display: flex; flex-direction: column; gap: 50px; }
+.store-feature {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+.store-feature.reverse { flex-direction: row-reverse; }
+.store-image { flex: 1; min-width: 300px; }
+.store-image img { width: 100%; border-radius: 10px; }
+.store-details { flex: 1.2; }
+.store-name-v2 {
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 2rem;
+    color: #E06469;
+    margin-top: 0;
+}
+.onee-tip-v3 {
+    margin-top: 15px;
+    padding: 15px;
+    background: #F7EFE5;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-left: 5px solid #E06469;
+}
+
+/* --- 7. Area Course Tab UI --- */
+.area-tabs {
+    flex-wrap: wrap;
+}
+.tab-btn-area {
+    padding: 10px 20px;
+    border: 2px solid #5C3D2E;
+    color: #5C3D2E;
+    background: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+.tab-btn-area:hover { background: #F7EFE5; }
+.tab-btn-area.active { background: #5C3D2E; color: #fff; }
+.tab-content-wrapper-area { margin-top: 20px; }
+.tab-content-area { display: none; animation: fadeIn 0.5s; }
+.tab-content-area.active { display: block; }
+.course-card {
+    background: #fff;
+    border: 3px solid #333;
+    padding: 30px;
+    border-radius: 15px;
+}
+.course-card h3 { font-family: 'Mochiy Pop One', sans-serif; text-align: center; margin-top: 0; }
+.course-steps { list-style: none; padding: 0; }
+.course-steps li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+.course-steps span {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    font-weight: 900;
+    color: #E06469;
+}
+
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .intro-content { flex-direction: column; }
+    .intro-typography { text-align: center; }
+    .intro-line-3, .intro-line-4 { text-align: center; }
+    .banner-content { flex-direction: column; }
+    .store-feature, .store-feature.reverse { flex-direction: column; }
+    .category-title { font-size: 1.8rem; }
+    .banner-title { font-size: 2rem; }
+    .store-name-v2 { font-size: 1.5rem; }
+}
+/* --- [NEW] 7. Final Footer --- */
+.final-footer {
+    background-color: #5C3D2E; /* 진한 갈색 배경 */
+    color: #F7EFE5; /* 부드러운 텍스트 색상 */
+    padding: 60px 40px;
+    margin-top: 80px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* 왼쪽: 프로필 */
+.guru-profile {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+.guru-avatar-footer {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #E06469;
+}
+.guru-name-footer {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin: 20px 0 10px 0;
+}
+.guru-bio-footer {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    opacity: 0.9;
+}
+.guru-social-links a {
+    color: #F7EFE5;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+.guru-social-links a:hover {
+    color: #E06469;
+    transform: scale(1.2);
+}
+
+/* 오른쪽: 유용한 콘텐츠 */
+.useful-content {
+    flex: 1.2;
+    min-width: 320px;
+}
+.useful-title {
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-top: 0;
+    line-height: 1.4;
+    border-left: 5px solid #E06469;
+    padding-left: 15px;
+}
+.phrase-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.phrase-list li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.phrase-jp {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.phrase-tr {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 카피라이트 */
+.footer-copyright {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .useful-title {
+        border-left: none;
+        border-bottom: 3px solid #E06469;
+        display: inline-block;
+        padding-left: 0;
+        padding-bottom: 10px;
+    }
+}
+</style>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+// AOS Animation Library Initialization
+AOS.init({
+    duration: 800, // 애니메이션 지속 시간
+    once: true, // 한 번만 실행
+    offset: 50, // 화면 하단에서 50px 위에서 애니메이션 시작
+});
+
+/**
+ * 탭 UI 기능을 설정하는 범용 함수
+ * @param {string} buttonsSelector - 탭 버튼들의 CSS 선택자
+ * @param {string} contentsWrapperSelector - 탭 콘텐츠들을 감싸는 부모 요소의 CSS 선택자
+ * @param {string} activeClass - 활성화 상태를 나타내는 CSS 클래스 이름
+ */
+function setupTabs(buttonsSelector, contentsWrapperSelector, activeClass) {
+    const tabButtons = document.querySelectorAll(buttonsSelector);
+    const tabContentsWrapper = document.querySelector(contentsWrapperSelector);
+    if (!tabButtons.length || !tabContentsWrapper) return; // 요소가 없으면 함수 종료
+
+    const tabContents = tabContentsWrapper.children;
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 모든 버튼과 콘텐츠에서 active 클래스 제거
+            tabButtons.forEach(btn => btn.classList.remove(activeClass));
+            for (let content of tabContents) {
+                content.classList.remove(activeClass);
+            }
+            
+            // 클릭된 버튼과 그에 해당하는 콘텐츠에 active 클래스 추가
+            button.classList.add(activeClass);
+            const targetId = button.dataset.tab || button.dataset.area;
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+                targetContent.classList.add(activeClass);
+            }
+        });
+    });
+}
+
+// 제품 소개 탭 초기화
+setupTabs('.tab-btn', '.tab-content-wrapper', 'active');
+
+// 지역별 쇼핑 코스 탭 초기화
+setupTabs('.tab-btn-area', '.tab-content-wrapper-area', 'active');
+
+</script>
