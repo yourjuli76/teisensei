@@ -15,18 +15,22 @@
 
 <div class="guru-selection-container">
 
-    <header class="intro-header">
-        <div class="intro-content">
-            <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/450201440_25790834523893691_8746826967770698278_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=VBU1fZq6zewQ7kNvwEWy9TW&_nc_oc=Adk9UH8hRnKlmuLlWI_gkbq0IOmdT-dweALGwmzCQgMbyvExxY2s-a3fFbYdgEuyJb0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=-4G1O-dLKt-uTfBIUAyYmw&oh=00_AfQYCVW47TPE_jC8_mLmhRzRQKbPmIFkajwuuIDExykZWg&oe=6872ACB1" alt="오네에 구루" class="guru-avatar-large" data-aos="zoom-in">
-            <div class="intro-typography" data-aos="fade-left">
-                <p class="intro-line-1">2024秋の日本旅行で</p>
-                <p class="intro-line-2">アナタが<span class="highlight">絶対買うべき</span></p>
-                <p class="intro-line-3">逸品たちを</p>
-                <p class="intro-line-4">紹介してあげるわ！</p>
-            </div>
-        </div>
-    </header>
+    <header class="intro-header video-hero-section">
+    <video playsinline autoplay muted loop poster="YOUR_POSTER_IMAGE.jpg" class="hero-background-video">
+        <source src="videos/hero-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
+    <div class="intro-content">
+        <img src="https://via.placeholder.com/240x240.png?text=お姉様" alt="오네에 구루" class="guru-avatar-large" data-aos="zoom-in">
+        <div class="intro-typography" data-aos="fade-left">
+            <p class="intro-line-1">秋の日本旅行で</p>
+            <p class="intro-line-2">アナタが<span class="highlight">絶対買うべき</span></p>
+            <p class="intro-line-3">逸品たちを</p>
+            <p class="intro-line-4">紹介してあげるわ！</p>
+        </div>
+    </div>
+</header>
     <main class="main-contents">
         <section class="category-section">
             <h2 class="category-title" data-aos="fade-right">🌟 お姉様の特選コレクション 🌟</h2>
@@ -660,6 +664,43 @@ body {
         padding-bottom: 10px;
     }
 }
+/* --- [NEW] Video Hero Section Styles --- */
+.video-hero-section {
+    position: relative; /* 자식 요소(video, content)의 기준점 역할 */
+    overflow: hidden; /* 영역 밖으로 나가는 요소 숨기기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 영상을 영역에 꽉 채우고, 비율에 맞게 잘라냄 */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* 콘텐츠보다 뒤에 있도록 함 */
+}
+
+.video-hero-section::after { /* 영상 위에 어두운 오버레이 추가 (선택사항) */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 오버레이 색상 및 투명도 조절 */
+    z-index: 2;
+}
+
+/* 기존 콘텐츠가 영상 위로 올라오도록 z-index 설정 */
+.intro-header .intro-content {
+    position: relative;
+    z-index: 3;
+    /* 기존 스타일은 그대로 유지 */
+}    
 </style>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
