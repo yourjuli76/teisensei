@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Shippori+Mincho:wght@700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,12 +23,10 @@
 
     <div class="intro-content">
         <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/450201440_25790834523893691_8746826967770698278_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=VBU1fZq6zewQ7kNvwEWy9TW&_nc_oc=Adk9UH8hRnKlmuLlWI_gkbq0IOmdT-dweALGwmzCQgMbyvExxY2s-a3fFbYdgEuyJb0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=ksF-dZu1OtzZuKiyUXfobw&oh=00_AfTUL2tTqvSldC8LPwq7EvRFCcf_AaNhZlds787yDGW1jw&oe=6872ACB1" alt="오네에 구루" class="guru-avatar-large" data-aos="zoom-in">
-        <div class="intro-typography" data-aos="fade-left">
-            <p class="intro-line-1">秋の日本旅行で</p>
-            <p class="intro-line-2">アナタが<span class="highlight">絶対買うべき</span></p>
-            <p class="intro-line-3">逸品たちを</p>
-            <p class="intro-line-4">紹介してあげるわ！</p>
-        </div>
+       <div class="intro-typography" data-aos="fade-left">
+    <p class="intro-line-travel-1">心ときめく、秋の旅へ。</p>
+    <p class="intro-line-travel-2">最高のショッピングを！</p>
+    <p class="intro-line-travel-3">アナタの旅を輝かせる逸品たち、<br>お姉様が全部教えてあげる！</p>
     </div>
 </header>
     <main class="main-contents">
@@ -288,17 +286,46 @@ body {
     border: 8px solid #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-.intro-typography p {
-    margin: 0;
-    line-height: 1.3;
-    color: #5C3D2E;
-}
-.intro-line-1 { font-size: 1.8rem; font-weight: 700; }
-.intro-line-2 { font-family: 'Shippori Mincho', serif; font-size: 3rem; }
-.intro-line-2 .highlight { color: #E06469; font-family: 'Mochiy Pop One', sans-serif;}
-.intro-line-3 { font-size: 1.5rem; text-align: right; }
-.intro-line-4 { font-family: 'Mochiy Pop One', sans-serif; font-size: 2.8rem; text-align: right; color: #333;}
+/* --- 1. Intro Header --- */
+/* .intro-header, .guru-avatar-large 등 다른 부분은 그대로 유지 */
 
+/* [UPDATED] 히어로 섹션 타이포그래피 스타일 */
+.intro-typography {
+    text-align: center;
+}
+
+.intro-typography p {
+    color: #FFFFFF; /* 모든 텍스트를 흰색으로 변경 */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* 가독성을 위한 그림자 효과 */
+    margin: 0;
+    padding: 0;
+}
+
+.intro-line-travel-1 {
+    font-family: 'Cormorant Garamond', serif; /* 새롭게 추가한 폰트 */
+    font-style: italic; /* 이탤릭체 적용 */
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.intro-line-travel-2 {
+    font-family: 'Mochiy Pop One', sans-serif; /* 기존 포인트 폰트 */
+    font-size: 3.5rem;
+    color: #FFD700; /* 골드 컬러로 포인트 */
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.intro-line-travel-3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.7;
+    background: rgba(0, 0, 0, 0.4); /* 텍스트 뒷배경 살짝 추가 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block; /* 박스 형태를 위해 */
+}
 
 /* --- 2. Main Contents & Section Titles --- */
 .main-contents { padding: 20px; }
