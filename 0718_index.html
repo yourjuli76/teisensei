@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【2025 최종본】 테이 센세가 제안하는 대만인을 위한 일본 쇼핑 완전정복 가이드</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- 기본 및 웹폰트 설정 --- */
+    :root {
+        --primary-color: #E06469; /* 메인 포인트 색상 */
+        --secondary-color: #5C3D2E; /* 서브 포인트 색상 (진한 갈색) */
+        --background-color: #FEFBF6; /* 배경색 */
+        --text-color: #3D3D3D; /* 기본 텍스트 색상 */
+        --font-jp: 'Noto Sans JP', sans-serif;
+        --font-tc: 'Noto Sans TC', sans-serif; /* 대만어(번체) 폰트 추가 */
+        --font-pop: 'Mochiy Pop One', sans-serif; /* 포인트 폰트 */
+        --font-serif: 'Cormorant Garamond', serif; /* 세리프 폰트 */
+    }
+
+    body {
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-tc), var(--font-jp), sans-serif;
+        color: var(--text-color);
+        overflow-x: hidden;
+    }
+
+    /* --- 히어로 섹션 (수정 및 강화) --- */
+    .stylish-hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 60px 40px;
+        overflow: hidden;
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://japankuru.com/gld-kanri/data/uploads/2024/09/Canmake_Autumn_CC14-2048x1365.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+    }
+
+    .floating-elements { /* 기존 애니메이션 유지 */
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden;
+    }
+    .floating-item { position: absolute; animation-iteration-count: infinite; animation-timing-function: linear; will-change: transform; }
+    .leaf { width: 30px; height: 30px; background: linear-gradient(to bottom right, rgba(231, 111, 81, 0.8), rgba(244, 162, 97, 0.8)); top: -50px; border-radius: 5% 40%; animation-name: fall-animation; transition: transform 0.3s ease-out; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+    @keyframes fall-animation { 100% { transform: translateY(105vh) rotate(720deg); } }
+    .deco-icon { color: rgba(255, 255, 255, 0.5); text-shadow: 0 0 5px rgba(0, 0, 0, 0.3); animation-name: float-animation; animation-timing-function: ease-in-out; }
+    @keyframes float-animation { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-25px) rotate(10deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+
+    .intro-content-v2 {
+        position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1400px; padding: 0 40px; margin: 0 auto; gap: 60px; flex-wrap: wrap;
+    }
+    .intro-typography { flex: 1; min-width: 320px; text-align: left; }
+    .intro-typography p, .intro-typography h3 { text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6); }
+
+    .influencer-profile { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+    .profile-avatar { width: 70px; height: 70px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.7); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+    .profile-text p { margin: 0; font-size: 1rem; font-weight: 400; opacity: 0.9; }
+    .profile-text h3 { margin: 0; font-size: 2rem; font-weight: 700; line-height: 1.2; font-family: var(--font-pop); }
+    .collaboration-logo { display: flex; align-items: center; padding-left: 15px; margin-left: 15px; border-left: 1px solid rgba(255, 255, 255, 0.3); }
+    .collaboration-logo span { font-size: 1rem; font-weight: 300; opacity: 0.8; margin-right: 15px; }
+    .collaboration-logo img { height: 25px; opacity: 0.9; filter: brightness(0) invert(1); }
+
+    .hero-subtitle { font-family: var(--font-serif); font-size: 1.8rem; font-style: italic; opacity: 0.9; }
+    .hero-title { font-size: 3.2rem; line-height: 1.25; margin: 10px 0 20px 0; font-family: var(--font-pop); }
+    .hero-description { font-size: 1.1rem; background: rgba(0, 0, 0, 0.3); border-radius: 5px; padding: 10px 15px; display: inline-block; }
+    
+    .cta-button { display: inline-block; margin-top: 30px; padding: 14px 35px; background: var(--primary-color); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    .cta-button:hover { background: #E76F51; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+    .line-qr-box { display:flex; align-items:center; gap:15px; margin-top: 25px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; max-width: 300px; }
+    .line-qr-box img { width: 80px; height: 80px; border-radius: 8px; }
+    .line-qr-box p { margin: 0; font-size: 0.9rem; }
+    
+    .phone-mockup-wrapper { flex: 1; display: flex; justify-content: center; min-width: 320px; perspective: 1000px; }
+    .phone-mockup { position: relative; width: 100%; max-width: 300px; padding: 12px; background: rgba(34, 34, 34, 0.8); backdrop-filter: blur(5px); border-radius: 45px; box-shadow: 0 25px 60px rgba(0,0,0,0.4); border: 1px solid rgba(255, 255, 255, 0.1); transform: rotateY(-10deg) rotateX(5deg); transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .phone-mockup-wrapper:hover .phone-mockup { transform: rotateY(0deg) rotateX(0deg) scale(1.05); }
+    .phone-screen { background: #000; border-radius: 33px; overflow: hidden; aspect-ratio: 9 / 19.5; }
+    .image-slideshow { position: relative; width: 100%; height: 100%; }
+    .image-slideshow img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fade-slideshow 12s infinite; }
+    .image-slideshow img:nth-child(2) { animation-delay: 4s; }
+    .image-slideshow img:nth-child(3) { animation-delay: 8s; }
+    @keyframes fade-slideshow { 0% { opacity: 0; } 8.33% { opacity: 1; } 33.33% { opacity: 1; } 41.66% { opacity: 0; } 100% { opacity: 0; } }
+
+    /* --- 공통 콘텐츠 스타일 --- */
+    .content-container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { font-family: var(--font-pop); font-size: 2.2rem; text-align: center; color: var(--text-color); padding-bottom: 15px; margin: 0 auto 50px auto; border-bottom: 4px solid var(--primary-color); display: inline-block; }
+    .section-title-wrapper { text-align: center; }
+
+    /* 탭 버튼 스타일 */
+    .tab-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+    .tab-btn { padding: 12px 25px; border: 2px solid #ddd; background: #fff; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+    .tab-btn:hover { background: #F7EFE5; transform: translateY(-3px); }
+    .tab-btn.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+    .tab-content { display: none; animation: fadeIn 0.5s; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* --- WHAT TO BUY 섹션 --- */
+    .product-grid-compact { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .product-card-compact { background: #fff; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.07); padding: 20px; position: relative; border: 1px solid #eee; text-align: center; display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease; }
+    .product-card-compact:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+    
+    .product-image-compact { width: 60%; margin: 15px auto 10px auto; aspect-ratio: 1 / 1; object-fit: contain; }
+    .product-name-compact { font-size: 1.05rem; font-weight: 700; margin: 10px 0 5px 0; color: var(--text-color); height: 44px; overflow: hidden; }
+    .product-desc-compact { font-size: 0.85rem; color: #777; margin-bottom: 15px; flex-grow: 1; line-height: 1.6; }
+    .small-note { font-size: 0.7rem; }
+    
+    /* 카드 장식 요소 */
+    .approval-stamp { position: absolute; top: 15px; right: -30px; background: var(--primary-color); color: #fff; padding: 5px 35px; font-family: var(--font-pop); transform: rotate(45deg); font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); line-height: 1.3; text-align: center; }
+    .coupon-tag-compact { position: absolute; top: 15px; left: -10px; background: #4CAF50; color: #fff; padding: 5px 15px 5px 20px; border-radius: 0 20px 20px 0; font-size: 0.8rem; font-weight: 700; text-decoration: none; z-index: 2; box-shadow: 2px 2px 8px rgba(0,0,0,0.15); }
+    .retailer-logos-compact { margin-top: auto; padding-top: 15px; border-top: 1px dashed #ddd; min-height: 25px; }
+    .retailer-logos-compact img { height: 20px; filter: grayscale(80%); opacity: 0.8; margin: 0 5px; }
+    .retailer-text-compact { background: #eee; padding: 3px 10px; border-radius: 5px; font-size: 0.75rem; font-weight: 700; margin: 0 2px; display: inline-block; }
+    
+    /* 랭킹 뱃지 (신규) */
+    .rank-badge { position: absolute; top: -10px; left: -10px; width: 60px; height: 60px; background-color: var(--primary-color); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; z-index: 3; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 3px solid white; }
+    .rank-badge.gold { background: linear-gradient(135deg, #FFD700, #FBB034); }
+    .rank-badge.silver { background: linear-gradient(135deg, #C0C0C0, #A9A9A9); }
+    .rank-badge.bronze { background: linear-gradient(135deg, #CD7F32, #A0522D); }
+    .rank-badge span:first-child { font-size: 0.7rem; font-weight: 400; line-height: 1; }
+    .rank-badge span:last-child { font-size: 1.5rem; font-weight: 700; font-family: var(--font-pop); line-height: 1; }
+
+    /* --- WHERE/HOW TO BUY 섹션 --- */
+    .strategy-section { margin-bottom: 60px; }
+    .store-feature-wrapper { display: flex; flex-direction: column; gap: 50px; }
+    .store-feature { display: flex; align-items: center; gap: 40px; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .store-feature.reverse { flex-direction: row-reverse; }
+    .store-image { flex: 1; min-width: 300px; }
+    .store-image img { width: 100%; border-radius: 10px; }
+    .store-details { flex: 1.2; }
+    .store-name-v2 { font-family: var(--font-pop); font-size: 2rem; color: var(--primary-color); margin-top: 0; }
+    .store-tip { margin-top: 20px; padding: 15px; background: #F7EFE5; border-radius: 8px; font-size: 1rem; border-left: 5px solid var(--primary-color); }
+    .store-tip strong { color: var(--primary-color); }
+
+    /* 지역별 쇼핑 코스 */
+    .course-section .tab-buttons { gap: 15px; }
+    .course-section .tab-btn { background: #fff; border-color: var(--secondary-color); color: var(--secondary-color); }
+    .course-section .tab-btn:hover { background: #F7EFE5; }
+    .course-section .tab-btn.active { background: var(--secondary-color); color: #fff; border-color: var(--secondary-color); }
+    
+    .course-card { background: #fff; border: 1px solid #ddd; padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    .course-card h3 { font-family: var(--font-pop); text-align: center; margin-top: 0; font-size: 1.5rem; color: var(--secondary-color); }
+    .course-card p { text-align: center; margin-bottom: 30px; }
+    .course-steps { list-style: none; padding: 0; }
+    .course-steps li { display: flex; align-items: flex-start; margin-bottom: 20px; font-size: 1.1rem; }
+    .course-steps .step-number { font-size: 1.5rem; margin-right: 15px; font-weight: 900; color: var(--primary-color); background-color: #fdeeee; width: 40px; height: 40px; min-width: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+    .map-link { text-align: center; margin-top: 30px; }
+    .map-link a { color: var(--secondary-color); text-decoration: underline; font-weight: bold; }
+
+    /* --- FINAL CTA 섹션 (신규) --- */
+    #final-cta { background: linear-gradient(135deg, #5C3D2E, #8D6E63); color: #fff; text-align: center; }
+    #final-cta .section-title { color: #fff; border-color: var(--primary-color); }
+    #final-cta p { font-size: 1.2rem; margin-bottom: 30px; }
+
+    /* --- 푸터 --- */
+    .final-footer { background-color: var(--secondary-color); color: #F7EFE5; padding: 60px 40px; margin-top: 0; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 50px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .guru-profile { flex: 1; min-width: 300px; text-align: center; }
+    .guru-avatar-footer { width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--primary-color); }
+    .guru-name-footer { font-family: var(--font-pop); font-size: 2rem; color: #fff; margin: 20px 0 10px 0; }
+    .guru-bio-footer { font-size: 0.95rem; line-height: 1.7; max-width: 400px; margin: 0 auto 20px auto; opacity: 0.9; }
+    .guru-social-links a { color: #F7EFE5; font-size: 1.5rem; margin: 0 15px; text-decoration: none; transition: color 0.3s, transform 0.3s; }
+    .guru-social-links a:hover { color: var(--primary-color); transform: scale(1.2); }
+    .useful-content { flex: 1.2; min-width: 320px; }
+    .useful-title { font-family: var(--font-pop); font-size: 1.8rem; color: #fff; margin-top: 0; line-height: 1.4; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+    .phrase-list { list-style: none; padding: 0; margin: 0; }
+    .phrase-list li { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+    .phrase-jp { display: block; font-size: 1.2rem; font-weight: 700; font-family: var(--font-jp); }
+    .phrase-tr { display: block; font-size: 0.9rem; opacity: 0.8; font-family: var(--font-tc); }
+    .footer-copyright { text-align: center; padding-top: 30px; font-size: 0.8rem; opacity: 0.6; }
+    
+    /* --- 반응형 디자인 --- */
+    @media (max-width: 768px) {
+        .intro-content-v2 { flex-direction: column-reverse; gap: 40px; }
+        .intro-typography { text-align: center; }
+        .hero-title { font-size: 2.5rem; }
+        .section-title { font-size: 1.8rem; }
+        .store-feature, .store-feature.reverse { flex-direction: column; }
+        .store-name-v2 { font-size: 1.5rem; }
+        .footer-content { flex-direction: column; text-align: center; }
+        .useful-title { border-left: none; border-bottom: 3px solid var(--primary-color); display: inline-block; padding-left: 0; padding-bottom: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="stylish-hero">
+    <div class="floating-elements"></div>
+    <div class="intro-content-v2">
+        <div class="intro-typography" data-aos="fade-up">
+            <div class="influencer-profile">
+                <img src="https://placehold.co/140x140/E06469/white?text=TEI" alt="テイ老師プロフィール" class="profile-avatar">
+                <div class="profile-text">
+                    <p>Japan Shopping Guru</p>
+                    <h3>テイ老師</h3>
+                </div>
+                <div class="collaboration-logo">
+                    <span>x</span>
+                    <img src="https://placehold.co/200x50/FFFFFF/000000?text=Japankuru" alt="Japankuru.com">
+                </div>
+            </div>
+            
+            <p class="hero-subtitle">10년 경력의 뷰티 전문가가 선정한</p>
+            <h1 class="hero-title">台灣人必買！<br>日本必敗購物清單</h1>
+            <p class="hero-description">加入LINE好友，即可獲得獨家折扣券！</p>
+            
+            <a href="#final-cta" class="cta-button"><i class="fa-solid fa-gift"></i> 立即索取專屬折扣</a>
+            
+            <div class="line-qr-box">
+                <img src="https://placehold.co/160x160/ffffff/000000?text=LINE+QR" alt="LINE QR Code">
+                <p>加入好友，獲得更多優惠<br>친구 추가하고 더 많은 혜택 받기!</p>
+            </div>
+        </div>
+        
+        <div class="phone-mockup-wrapper" data-aos="fade-left">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="image-slideshow">
+                        <img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC09-2048x1365.jpg" alt="쇼핑 아이템 1">
+                        <img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC03-2048x1365.jpg" alt="쇼핑 아이템 2">
+                        <img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC10-2048x1365.jpg" alt="쇼핑 아이템 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="what-to-buy" class="content-container">
+    <div class="section-title-wrapper">
+        <h2 class="section-title" data-aos="fade-up">🌟 테이 센세의 특선 컬렉션 (What to Buy)</h2>
+    </div>
+
+    <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
+        <button class="tab-btn active" data-tab="tab-ranking">🏆 랭킹 TOP 5</button>
+        <button class="tab-btn" data-tab="tab-cosme">💄 코스메틱</button>
+        <button class="tab-btn" data-tab="tab-pharma">💊 의약품</button>
+        <button class="tab-btn" data-tab="tab-goods">🛍️ 잡화・식품</button>
+    </div>
+
+    <div class="tab-content-wrapper">
+        <div id="tab-ranking" class="tab-content active">
+            <div class="product-grid-compact">
+                <article class="product-card-compact" data-aos="fade-up">
+                    <div class="rank-badge gold"><span>TOP</span><span>1</span></div>
+                    <img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/487691437_1034291012064081_7634732099112972315_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ccqqhIlt-KoQ7kNvwHlh1QW&_nc_oc=AdnWGS0lL2PTYlmEA1zPBoeJGikIk5_U791-42lk7SYnIZVSdraUcSJ6tNc8FTlxtR0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=pGObLfHZsNS7184jPfLVKA&oh=00_AfSXeXR_M3o4MJjY7J5ksZYGbudDyJ6mZiyi6k8-bZzoIg&oe=6872A738" alt="コスメ" class="product-image-compact">
+                    <h4 class="product-name-compact">トランシーノ 薬用クリアクレンジングn</h4>
+                    <p class="product-desc-compact">くすみ※も毛穴汚れもすっきり落とします。<span class="small-note">※古い角質</span></p>
+                    <div class="retailer-logos-compact"><span class="retailer-text-compact">전국 드럭스토어</span></div>
+                </article>
+                <article class="product-card-compact" data-aos="fade-up" data-aos-delay="100">
+                    <div class="rank-badge silver"><span>TOP</span><span>2</span></div>
+                     <img src="https://japankuru.com/gld-kanri/data/uploads/2025/04/D05_5331-800x533.jpg" alt="医薬品" class="product-image-compact">
+                    <h4 class="product-name-compact">龍角散ダイレクト (용각산 다이렉트)</h4>
+                    <p class="product-desc-compact">호텔의 건조함 등으로 인한 목의 불쾌감을 즉시 케어.</p>
+                     <div class="retailer-logos-compact"><img src="https://placehold.co/160x60/f1f1f1/777777?text=ドンキ" alt="돈키호테"><img src="https://placehold.co/160x60/f1f1f1/777777?text=マツキヨ" alt="마츠모토키요시"></div>
+                </article>
+                <article class="product-card-compact" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rank-badge bronze"><span>TOP</span><span>3</span></div>
+                     <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/501464221_1078078024352046_5896758067377718787_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9TKBfmic7rEQ7kNvwH-45N3&_nc_oc=AdmqOxNbUv-BVvbb83_m-RlnQQyAEoiOc1ceDaYgk0RI5XLO7fKZB2mx9cfwfu41Lx0&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=b11S5SvXarf5LgeDbZSoDg&oh=00_AfRlukYKK3XueO-8Yjvfch-gazRnCaY5ATBGTQK3ajXJHw&oe=68729361" alt="雑貨" class="product-image-compact">
+                    <h4 class="product-name-compact">めぐりズム 蒸気でホットアイマスク</h4>
+                    <p class="product-desc-compact">하루의 끝, 따뜻한 증기로 눈가를 편안하게.</p>
+                     <div class="retailer-logos-compact"><span class="retailer-text-compact">드럭스토어</span><span class="retailer-text-compact">편의점</span></div>
+                </article>
+                <article class="product-card-compact" data-aos="fade-up" data-aos-delay="300">
+                     <div class="approval-stamp">強力<br>推薦</div>
+                     <img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/481986314_1015303623962820_2230683353026885991_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wM-AX93U1VUQ7kNvwH-FUnx&_nc_oc=Adl0tMWegsf7jaDVhPy3D7g9uOwqVQMb4BjaMEQTaMxjei3IjF-InP9iJfu-AESjjXo&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=nQUJHSDDUrHH6EGvM-NnFw&oh=00_AfRA9vGd27HxiBaZoGLSz8L8ia9LSTAbP1GBzkIXPVQmSg&oe=68729F3B" alt="コスメ" class="product-image-compact">
+                     <h4 class="product-name-compact">KANEBO スクラビング マッド ウォッシュ</h4>
+                     <p class="product-desc-compact">주 2회 스페셜 케어. 모공이 눈에 띄지 않는 피부로.</p>
+                     <div class="retailer-logos-compact"><span class="retailer-text-compact">백화점</span></div>
+                </article>
+                <article class="product-card-compact" data-aos="fade-up" data-aos-delay="400">
+                    <div class="approval-stamp">強力<br>推薦</div>
+                    <img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC13-800x533.jpg" alt="医薬品" class="product-image-compact">
+                    <h4 class="product-name-compact">EVEクイック頭痛薬DX</h4>
+                    <p class="product-desc-compact">여행 중 갑작스러운 두통, 이것으로 빠르게 대처.</p>
+                     <div class="retailer-logos-compact"><span class="retailer-text-compact">전국 드럭스토어</span></div>
+                </article>
+            </div>
+        </div>
+        <div id="tab-cosme" class="tab-content">
+            <div class="product-grid-compact">
+                <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><a href="#final-cta" class="coupon-tag-compact"><i class="fa-solid fa-ticket"></i> 쿠폰 있음</a><img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/487691437_1034291012064081_7634732099112972315_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ccqqhIlt-KoQ7kNvwHlh1QW&_nc_oc=AdnWGS0lL2PTYlmEA1zPBoeJGikIk5_U791-42lk7SYnIZVSdraUcSJ6tNc8FTlxtR0&_nc_zt=23&_nc_ht=scontent-nrt1-1.xx&_nc_gid=pGObLfHZsNS7184jPfLVKA&oh=00_AfSXeXR_M3o4MJjY7J5ksZYGbudDyJ6mZiyi6k8-bZzoIg&oe=6872A738" alt="コスメ" class="product-image-compact"><h4 class="product-name-compact">トランシーノ 薬用クリアクレンジングn</h4><p class="product-desc-compact">くすみ※も毛穴汚れもすっきり落とします。<span class="small-note">※古い角質</span></p><div class="retailer-logos-compact"><img src="https://placehold.co/160x60/f1f1f1/777777?text=マツキヨ" alt="마츠모토키요시"></div></article>
+                 <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/481986314_1015303623962820_2230683353026885991_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wM-AX93U1VUQ7kNvwH-FUnx&_nc_oc=Adl0tMWegsf7jaDVhPy3D7g9uOwqVQMb4BjaMEQTaMxjei3IjF-InP9iJfu-AESjjXo&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=nQUJHSDDUrHH6EGvM-NnFw&oh=00_AfRA9vGd27HxiBaZoGLSz8L8ia9LSTAbP1GBzkIXPVQmSg&oe=68729F3B" alt="コスメ" class="product-image-compact"><h4 class="product-name-compact">KANEBO スクラビング マッド ウォッシュ</h4><p class="product-desc-compact">週2回のスペシャルケア。毛穴の目立たない肌へ。</p><div class="retailer-logos-compact"><span class="retailer-text-compact">百貨店</span></div></article>
+                 <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/482207616_1015089893984193_5205752561002227023_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7ZQ7uBchaU8Q7kNvwGyZYDK&_nc_oc=AdlefAo5w6VmV8rjXbHpLo00lS23PQqJZHD4cwkbsvSM7nI6eGRyuKEM3_xg21H2Z4Y&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=0RagP9LusYGgbjfPT_yVPQ&oh=00_AfQK-JQPS1_QQBoT-lb7L-UEud0M8LcrfPEKuMy2xoV43w&oe=6872BE93" alt="コスメ" class="product-image-compact"><h4 class="product-name-compact">ミノン アミノモイスト チャージミルク</h4><p class="product-desc-compact">乾燥による敏感肌の、頼れる味方です。</p><div class="retailer-logos-compact"><img src="https://placehold.co/160x60/f1f1f1/777777?text=ドンキ" alt="돈키호테"></div></article>
+                 <article class="product-card-compact"><div class="approval-stamp">限定<br>セット</div><img src="https://japankuru.com/gld-kanri/data/uploads/2024/09/Canmake_Autumn_CC14-2048x1365.jpg?auto=compress&cs=tinysrgb&w=800" alt="限定セット" class="product-image-compact"><h4 class="product-name-compact">資生堂 限定トラベルセット</h4><p class="product-desc-compact">오직 일본에서만! 대만 관광객에게 인기 있는 한정판 스킨케어 세트를 놓치지 마세요.</p><div class="retailer-logos-compact"><span class="retailer-text-compact">공항 면세점</span><span class="retailer-text-compact">주요 드럭스토어</span></div></article>
+            </div>
+        </div>
+        <div id="tab-pharma" class="tab-content">
+            <div class="product-grid-compact">
+                <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/Alinamin_CC13-800x533.jpg" alt="医薬品" class="product-image-compact"><h4 class="product-name-compact">EVEクイック頭痛薬DX</h4><p class="product-desc-compact">旅行中の急な頭痛は、これで素早く対処。</p><div class="retailer-logos-compact"><span class="retailer-text-compact">전국 드럭스토어</span></div></article>
+                <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><a href="#final-cta" class="coupon-tag-compact"><i class="fa-solid fa-ticket"></i> 쿠폰 있음</a><img src="https://japankuru.com/gld-kanri/data/uploads/2025/04/D05_5331-800x533.jpg" alt="医薬品" class="product-image-compact"><h4 class="product-name-compact">龍角散ダイレクト</h4><p class="product-desc-compact">ホテルの乾燥などによる喉の不快感をすぐにケア。</p><div class="retailer-logos-compact"><img src="https://placehold.co/160x60/f1f1f1/777777?text=ドンキ" alt="돈키호테"><img src="https://placehold.co/160x60/f1f1f1/777777?text=マツキヨ" alt="마츠모토키요시"></div></article>
+            </div>
+        </div>
+        <div id="tab-goods" class="tab-content">
+            <div class="product-grid-compact">
+                <article class="product-card-compact"><div class="approval-stamp">お墨付き</div><img src="https://scontent-nrt1-2.xx.fbcdn.net/v/t39.30808-6/501464221_1078078024352046_5896758067377718787_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9TKBfmic7rEQ7kNvwH-45N3&_nc_oc=AdmqOxNbUv-BVvbb83_m-RlnQQyAEoiOc1ceDaYgk0RI5XLO7fKZB2mx9cfwfu41Lx0&_nc_zt=23&_nc_ht=scontent-nrt1-2.xx&_nc_gid=b11S5SvXarf5LgeDbZSoDg&oh=00_AfRlukYKK3XueO-8Yjvfch-gazRnCaY5ATBGTQK3ajXJHw&oe=68729361" alt="雑貨" class="product-image-compact"><h4 class="product-name-compact">めぐりズム 蒸気でホットアイマスク</h4><p class="product-desc-compact">一日の終わりに、温かい蒸気で目元を癒やします。</p><div class="retailer-logos-compact"><span class="retailer-text-compact">드럭스토어</span><span class="retailer-text-compact">편의점</span></div></article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="where-and-how" class="content-container" style="background-color: #f9f9f9; border-radius: 20px;">
+    <div class="section-title-wrapper">
+        <h2 class="section-title" data-aos="fade-up">🗺️ 쇼핑 완전 공략! (Where & How)</h2>
+    </div>
+
+    <div class="strategy-section">
+        <div class="store-feature-wrapper">
+            <article class="store-feature" data-aos="fade-left">
+                <div class="store-image"><img src="https://japankuru.com/gld-kanri/data/uploads/2025/06/D05_8037-%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC-800x533.jpg" alt="マツモトキヨシ"></div>
+                <div class="store-details">
+                    <h3 class="store-name-v2">マツモトキヨシ</h3>
+                    <p><strong>특징:</strong> PB상품 'matsukiyo'와 시세이도/가네보 한정 세트가 강점. 뷰티 어드바이저가 상주하는 매장이 많아 전문적인 상담이 가능합니다.</p>
+                    <div class="store-tip"><strong>テイ先生の耳打ち：</strong>공식 앱의 10% OFF 쿠폰은 필수! 여행 첫날 다운로드하는 것을 추천합니다.</div>
+                </div>
+            </article>
+            <article class="store-feature reverse" data-aos="fade-right">
+                 <div class="store-image"><img src="https://img.japankuru.com/prg_img/thumbnail1/img2024020818392500320700.jpg" alt="ドン・キホーテ"></div>
+                <div class="store-details">
+                    <h3 class="store-name-v2">ドン・キホーテ</h3>
+                    <p><strong>특징:</strong> 저렴한 한국 코스메틱, 재미있는 디자인의 팩, 대용량 과자 등 '없는 게 없는' 잡화점. 심야 영업도 큰 매력입니다.</p>
+                    <div class="store-tip"><strong>テイ先生の耳打ち：</strong>매장이 넓으니 원하는 상품 사진을 점원에게 보여주는 것이 효율적! 계산대 근처의 세일 상품도 꼭 확인하세요.</div>
+                </div>
+            </article>
+            <article class="store-feature" data-aos="fade-left">
+                <div class="store-image"><img src="https://placehold.co/800x533/2E7D32/white?text=ウエルシア" alt="ウエルシア"></div>
+                <div class="store-details">
+                    <h3 class="store-name-v2">ウエルシア</h3>
+                    <p><strong>특징:</strong> 조제 약국이 함께 있어 전문 의약품, 베이비 용품, 간병 용품까지 다양하게 구비. 식품 코너도 잘 되어 있습니다.</p>
+                    <div class="store-tip"><strong>テイ先生の耳打ち：</strong>매월 20일은 T포인트 1.5배 사용이 가능한 '웰活'의 날! 타이밍이 맞으면 엄청난 이득입니다.</div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <div class="course-section" style="margin-top: 80px;">
+        <div class="tab-buttons area-tabs" data-aos="fade-up">
+            <button class="tab-btn active" data-area="tokyo-shibuya">도쿄 (시부야)</button>
+            <button class="tab-btn" data-area="tokyo-shinjuku">도쿄 (신주쿠)</button>
+            <button class="tab-btn" data-area="osaka">오사카 (준비중)</button>
+            <button class="tab-btn" data-area="kyoto">교토 (준비중)</button>
+        </div>
+        <div class="tab-content-wrapper-area">
+            <div id="tokyo-shibuya" class="tab-content-area active">
+                <div class="course-card" data-aos="zoom-in">
+                    <h3>渋谷90分・電撃コース (시부야 90분 속성 코스)</h3>
+                    <p>유행의 최첨단을 달리는, 시간이 없는 분을 위한 초효율 코스입니다!</p>
+                    <ol class="course-steps">
+                        <li><span class="step-number">1️⃣</span> <div><strong>MEGA돈키 (30분):</strong> 부피가 큰 과자나 재미있는 잡화를 한 번에 구매.</div></li>
+                        <li><span class="step-number">2️⃣</span> <div><strong>마츠키요 시부야 Part1점 (40분):</strong> 스크램블 교차로 바로 앞. 코스메틱과 의약품을 집중 공략.</div></li>
+                        <li><span class="step-number">3️⃣</span> <div><strong>시부야 로프트 (20분):</strong> 최신 문구와 한정 캐릭터 굿즈를 체크. 기념품 쇼핑에 최적.</div></li>
+                    </ol>
+                    <div class="map-link"><a href="#" target="_blank"><i class="fa-solid fa-map-location-dot"></i> Google Map에서 코스 보기</a></div>
+                </div>
+            </div>
+            <div id="tokyo-shinjuku" class="tab-content-area">
+                 <div class="course-card">
+                    <h3>新宿・百貨店＆ドラッグストア攻略コース</h3>
+                    <p>백화점의 고급 코스메틱부터 드럭스토어 실용품까지 모두 공략하는 코스.</p>
+                 </div>
+            </div>
+            <div id="osaka" class="tab-content-area">
+                <div class="course-card"><p>오사카 지역의 쇼핑 코스는 현재 준비 중입니다. 잠시만 기다려주세요!</p></div>
+            </div>
+            <div id="kyoto" class="tab-content-area">
+                <div class="course-card"><p>교토 지역의 쇼핑 코스는 현재 준비 중입니다. 잠시만 기다려주세요!</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="final-cta" class="content-container">
+    <div class="section-title-wrapper">
+        <h2 class="section-title" data-aos="fade-up">🎁 한정 쿠폰 & LINE 친구 혜택</h2>
+    </div>
+    <p data-aos="fade-up" data-aos-delay="100">아래 버튼을 클릭하여 LINE 친구를 추가하고<br>간단한 설문에 참여하면, 추첨을 통해 10분께 일본 기념품을 선물로 드립니다!</p>
+    <a href="#" class="cta-button" data-aos="fade-up" data-aos-delay="200"><i class="fa-brands fa-line"></i> LINE으로 참여하고 쿠폰 받기</a>
+</section>
+
+<footer class="final-footer">
+    <div class="footer-content">
+        <div class="guru-profile">
+            <img src="https://placehold.co/300x300/E06469/white?text=TEI" alt="テイ先生" class="guru-avatar-footer">
+            <h3 class="guru-name-footer">テイ先生</h3>
+            <p class="guru-bio-footer">
+                아름다움과 건강은 하루아침에 이루어지지 않지만, 올바른 지식이 있다면 지름길을 찾을 수 있습니다. 당신의 일본 여행이 최고로 빛날 수 있도록, 이 테이 센세가 서포트하겠습니다.
+            </p>
+            <div class="guru-social-links">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="useful-content">
+            <h3 class="useful-title">이것만은 외우자!<br>쇼핑 필수 일본어</h3>
+            <ul class="phrase-list">
+                <li><span class="phrase-jp">これはいくらですか？</span><span class="phrase-tr">(이거 얼마예요? / Zhege duoshao qian?)</span></li>
+                <li><span class="phrase-jp">免税、できますか？</span><span class="phrase-tr">(면세 되나요? / Keyi mianshui ma?)</span></li>
+                <li><span class="phrase-jp">試してもいいですか？</span><span class="phrase-tr">(테스트해봐도 될까요? / Keyi shishi kan ma?)</span></li>
+                <li><span class="phrase-jp">おすすめはどれですか？</span><span class="phrase-tr">(추천 상품은 어떤 건가요? / Tuijian de shi nage?)</span></li>
+                <li><span class="phrase-jp">袋は不要です。</span><span class="phrase-tr">(봉투는 필요 없어요 / Wo buyao daizi.)</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        &copy; 2025 Japan-Kuru. All Rights Reserved.
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // AOS 애니메이션 초기화
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+    });
+
+    // 탭 UI 설정 함수 (통합)
+    function setupTabs(containerSelector) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+
+        const tabButtons = container.querySelectorAll('.tab-btn');
+        const tabContents = container.querySelectorAll('.tab-content, .tab-content-area');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // 모든 버튼과 컨텐츠에서 active 클래스 제거
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // 클릭된 버튼과 해당 컨텐츠에 active 클래스 추가
+                button.classList.add('active');
+                const targetId = button.dataset.tab || button.dataset.area;
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // 탭 기능 실행
+    setupTabs('#what-to-buy');
+    setupTabs('.course-section');
+
+    // 히어로 섹션 플로팅 요소 애니메이션 (기존 코드 유지)
+    const floatingContainer = document.querySelector('.floating-elements');
+    if (floatingContainer) {
+        const elementConfig = [
+            { type: 'icon', class: 'fas fa-yen-sign', size: 40, duration: 20, delay: 0 },
+            { type: 'icon', class: 'fas fa-shopping-bag', size: 60, duration: 15, delay: 2 },
+            { type: 'icon', class: 'fas fa-landmark', size: 50, duration: 25, delay: 1 },
+            { type: 'icon', class: 'fas fa-gift', size: 35, duration: 18, delay: 4 },
+            { type: 'leaf', size: 30, duration: 15, delay: 0 }, { type: 'leaf', size: 20, duration: 12, delay: 3 },
+            { type: 'leaf', size: 30, duration: 18, delay: 5 }, { type: 'leaf', size: 25, duration: 20, delay: 1 },
+        ];
+        elementConfig.forEach(config => {
+            const el = document.createElement(config.type === 'icon' ? 'i' : 'div');
+            el.className = `floating-item ${config.type === 'icon' ? config.class + ' deco-icon' : 'leaf'}`;
+            el.style.left = `${Math.random() * 100}%`;
+            el.style.fontSize = config.type === 'icon' ? `${config.size}px` : '';
+            el.style.width = config.type === 'leaf' ? `${config.size}px` : '';
+            el.style.height = config.type === 'leaf' ? `${config.size}px` : '';
+            el.style.animationDuration = `${config.duration}s`;
+            el.style.animationDelay = `${config.delay}s`;
+            floatingContainer.appendChild(el);
+        });
+    }
+});
+</script>
+
+</body>
+</html>
