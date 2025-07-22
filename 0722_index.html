@@ -1460,6 +1460,148 @@ h1.magazine-title .line-1 {
     transform: translateY(0);
   }
 }
+
+/* ========== 시작: 스토어 쇼케이스 스타일 ========== */
+.store-showcase {
+  padding: 80px 0;
+  background-color: var(--light-gray);
+  position: relative;
+  overflow: hidden;
+}
+.showcase-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.showcase-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.showcase-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+.showcase-header h2 span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+.showcase-header p {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.showcase-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.showcase-tab {
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.showcase-tab:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+.showcase-tab.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
+}
+.showcase-tab img {
+  height: 24px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.showcase-tab:hover img, .showcase-tab.active img {
+  opacity: 1;
+}
+.showcase-tab.active img {
+  filter: brightness(0) invert(1);
+}
+.showcase-panels {
+  position: relative;
+  min-height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+.showcase-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.showcase-panel.active {
+  opacity: 1;
+  visibility: visible;
+}
+.panel-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+}
+.panel-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  padding: 50px;
+  max-width: 55%;
+}
+.panel-content h3 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+.panel-content > p { font-size: 1rem; line-height: 1.7; margin-bottom: 30px; }
+.panel-details { margin-bottom: 30px; }
+.panel-details h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; border-left: 3px solid var(--gold-color); padding-left: 10px; }
+.panel-details ul { list-style: none; padding-left: 15px; }
+.panel-details li { margin-bottom: 8px; position: relative; }
+.panel-details li::before { content: '✓'; color: var(--gold-color); position: absolute; left: -18px; }
+.teacher-tip {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 20px;
+}
+.teacher-tip h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--gold-color); display: flex; align-items: center; gap: 8px; }
+.teacher-tip p { margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+@media (max-width: 992px) {
+  .panel-content { max-width: 70%; padding: 40px; }
+  .panel-content h3 { font-size: 2rem; }
+}
+@media (max-width: 768px) {
+  .panel-content { max-width: 100%; padding: 30px; }
+  .panel-content h3 { font-size: 1.8rem; }
+  .showcase-panels { min-height: 600px; }
+}
+/* ========== 종료: 스토어 쇼케이스 스타일 ========== */
   </style>
 </head>
 <body>
@@ -1795,6 +1937,115 @@ h1.magazine-title .line-1 {
     </div>
   </section>
 
+  <section class="store-showcase">
+    <div class="showcase-container" data-aos="fade-up">
+      <div class="showcase-header">
+        <h2><span>購入場所ガイド</span>テイ先生おすすめの店</h2>
+        <p>どこで買うのが一番いい？目的別に最適のショッピングスポットをご紹介します。</p>
+      </div>
+  
+      <div class="showcase-nav">
+        <button class="showcase-tab active" data-target="store-donki">
+          <img src="https://i.imgur.com/L4zB6aH.png" alt="ドン・キホーテ">
+          <span>ドン・キホーテ</span>
+        </button>
+        <button class="showcase-tab" data-target="store-drugstore">
+           <img src="https://i.imgur.com/GzF2a1T.png" alt="ドラッグストア">
+          <span>ドラッグストア</span>
+        </button>
+        <button class="showcase-tab" data-target="store-department">
+           <img src="https://i.imgur.com/c234a4z.png" alt="百貨店">
+          <span>百貨店</span>
+        </button>
+        <button class="showcase-tab" data-target="store-muji">
+           <img src="https://i.imgur.com/zV8V3fJ.png" alt="無印良品">
+          <span>無印良品</span>
+        </button>
+      </div>
+  
+      <div class="showcase-panels">
+        <div class="showcase-panel active" id="store-donki" style="background-image: url('https://images.unsplash.com/photo-1582213454662-a5e3a34a331a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERvbiBRdWlqb3RlfHx8fHx8MTY5MjYxMzMxMA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>ドン・キホーテ (Don Quijote)</h3>
+            <p>「驚安の殿堂」として知られる、何でも揃うディスカウントストア。深夜まで営業している店舗が多く、観光客にとって最高の味方です。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>限定版のお菓子</li>
+                <li>格安の医薬品・化粧品</li>
+                <li>面白い雑貨・お土産</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>免税手続きは専用カウンターでまとめて行いましょう。クーポンを使えばさらにお得になることが多いので、アプリのチェックは忘れずに！</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="showcase-panel" id="store-drugstore" style="background-image: url('https://images.unsplash.com/photo-1594817112276-857de3b2c6d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERydWdzdG9yZXx8fHx8fDE2OTI2MTM0MjE&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>ドラッグストア (Drugstore)</h3>
+            <p>マツモトキヨシ、ウエルシアなど。医薬品だけでなく、高品質な日本ブランドの化粧品や日用品が豊富に揃っています。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>有名ブランドの限定処方化粧品</li>
+                <li>日本国内専用の医薬品</li>
+                <li>高機能の日用品</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>各チェーンごとに限定商品やセール品が異なります。特に資生堂やコーセーなどのカウンセリング化粧品は、割引率が高い店舗を狙いましょう。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="showcase-panel" id="store-department" style="background-image: url('https://images.unsplash.com/photo-1563196231-9a74fa904a6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERlcGFydG1lbnQgU3RvcmV8fHx8fHwxNjkyNjEzNDU5&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>百貨店 (Department Store)</h3>
+            <p>伊勢丹、高島屋など。最高級の品質とサービスを誇ります。デパコス（デパートコスメ）の限定品や高級ブランド品を探すならここです。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>ブランド化粧品の限定コフレ</li>
+                <li>高級ファッションブランドの日本限定モデル</li>
+                <li>デパ地下の限定スイーツ</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>外国人観光客向けの優待カードを発行していることが多いです。パスポートを提示すれば5%割引などの特典が受けられます。</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="showcase-panel" id="store-muji" style="background-image: url('https://images.unsplash.com/photo-1620786280399-5ed465b1b423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIE11aml8fHx8fHwxNjkyNjEzNTA0&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>無印良品 (MUJI)</h3>
+            <p>シンプルで質の良い商品を展開するライフスタイルブランド。台湾より品揃えが豊富で、食品や化粧品には日本限定商品が多くあります。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>日本産原料を使用したスキンケア用品</li>
+                <li>限定フレーバーのレトルトカレーや菓子</li>
+                <li>Found MUJIの地域限定商品</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>大型店では限定の冷凍食品やベーカリーも楽しめます。特に化粧品は、成分がシンプルで敏感肌の方へのお土産にも最適です。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 一般商品セクション -->
   <section id="products" class="products-section">
@@ -2424,6 +2675,31 @@ h1.magazine-title .line-1 {
     document.addEventListener('change', e => { if (e.target.matches('.card-checkbox input')) updateListCount(); });
     document.getElementById('listModal')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // [추가] 스토어 쇼케이스 탭 기능
+const showcaseNav = document.querySelector('.showcase-nav');
+const showcaseTabs = document.querySelectorAll('.showcase-tab');
+const showcasePanels = document.querySelectorAll('.showcase-panel');
+
+if (showcaseNav) {
+  showcaseNav.addEventListener('click', (e) => {
+    const clickedTab = e.target.closest('.showcase-tab');
+    if (!clickedTab) return;
+
+    // 모든 탭과 패널에서 active 클래스 제거
+    showcaseTabs.forEach(tab => tab.classList.remove('active'));
+    showcasePanels.forEach(panel => panel.classList.remove('active'));
+
+    // 클릭된 탭에 active 클래스 추가
+    clickedTab.classList.add('active');
+    
+    // 연결된 패널을 찾아서 active 클래스 추가
+    const targetPanel = document.querySelector(`#${clickedTab.dataset.target}`);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
+  });
+}
     
     // 초기화 함수 호출
     loadListFromUrl();
