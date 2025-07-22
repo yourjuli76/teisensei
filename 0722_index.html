@@ -1540,9 +1540,11 @@ h1.magazine-title .line-1 {
 .showcase-tab.active img {
   filter: brightness(0) invert(1);
 }
+/* ========== [교체] 아래 코드로 수정해주세요 ========== */
 .showcase-panels {
   position: relative;
-  min-height: 500px;
+  /* min-height를 제거하고, JS에서 높이를 제어합니다. */
+  transition: height 0.4s ease-in-out; /* 높이 변경 시 부드러운 애니메이션 효과 */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
@@ -1552,7 +1554,7 @@ h1.magazine-title .line-1 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%를 제거하여 콘텐츠의 실제 높이를 측정할 수 있게 합니다. */
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -1563,10 +1565,20 @@ h1.magazine-title .line-1 {
   opacity: 1;
   visibility: visible;
 }
+/* ========== [교체] 아래 코드로 수정해주세요 ========== */
 .panel-overlay {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  /* 사이트의 메인 컬러를 사용해 왼쪽은 어둡게, 오른쪽은 투명하게 처리합니다. */
+  background: linear-gradient(to right, 
+    rgba(44, 62, 80, 0.85) 0%,  /* 왼쪽 (어둡게) */
+    rgba(44, 62, 80, 0.5) 50%,  /* 중간 */
+    rgba(44, 62, 80, 0) 100%    /* 오른쪽 (투명하게) */
+  );
+  border-radius: 15px; /* 부모 요소의 둥근 모서리에 맞춰줍니다. */
 }
 .panel-content {
   position: relative;
@@ -1964,7 +1976,7 @@ h1.magazine-title .line-1 {
       </div>
   
       <div class="showcase-panels">
-        <div class="showcase-panel active" id="store-donki" style="background-image: url('https://images.unsplash.com/photo-1582213454662-a5e3a34a331a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERvbiBRdWlqb3RlfHx8fHx8MTY5MjYxMzMxMA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+        <div class="showcase-panel active" id="store-donki" style="background-image: url('https://img.japankuru.com/prg_img/img/img2023011708564754722300.jpg');">
           <div class="panel-overlay"></div>
           <div class="panel-content">
             <h3>ドン・キホーテ (Don Quijote)</h3>
@@ -2676,30 +2688,46 @@ h1.magazine-title .line-1 {
     document.getElementById('listModal')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // [추가] 스토어 쇼케이스 탭 기능
+/* ========== [교체] 아래 코드로 업그레이드해주세요 ========== */
+// [업그레이드] 스토어 쇼케이스 탭 기능 (동적 높이 조절 포함)
 const showcaseNav = document.querySelector('.showcase-nav');
 const showcaseTabs = document.querySelectorAll('.showcase-tab');
 const showcasePanels = document.querySelectorAll('.showcase-panel');
+const panelsContainer = document.querySelector('.showcase-panels');
 
+// 컨테이너 높이를 활성화된 패널에 맞게 조절하는 함수
+function adjustShowcaseHeight() {
+  if (!panelsContainer) return;
+  const activePanel = document.querySelector('.showcase-panel.active');
+  if (activePanel) {
+    // 활성화된 패널의 실제 내용 높이를 측정하여 컨테이너 높이로 설정
+    panelsContainer.style.height = activePanel.scrollHeight + 'px';
+  }
+}
+
+// 탭 클릭 이벤트
 if (showcaseNav) {
   showcaseNav.addEventListener('click', (e) => {
     const clickedTab = e.target.closest('.showcase-tab');
     if (!clickedTab) return;
 
-    // 모든 탭과 패널에서 active 클래스 제거
     showcaseTabs.forEach(tab => tab.classList.remove('active'));
     showcasePanels.forEach(panel => panel.classList.remove('active'));
 
-    // 클릭된 탭에 active 클래스 추가
     clickedTab.classList.add('active');
-    
-    // 연결된 패널을 찾아서 active 클래스 추가
     const targetPanel = document.querySelector(`#${clickedTab.dataset.target}`);
     if (targetPanel) {
       targetPanel.classList.add('active');
     }
+
+    // 탭 전환 후 높이 조절 함수 호출
+    adjustShowcaseHeight();
   });
 }
+
+// 페이지 로드 시, 처음 보이는 패널에 맞게 높이를 한 번 조절
+// 이미지가 로드된 후 정확한 높이를 측정하기 위해 약간의 지연을 줍니다.
+setTimeout(adjustShowcaseHeight, 300);
     
     // 초기화 함수 호출
     loadListFromUrl();
