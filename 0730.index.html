@@ -1,0 +1,3404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テイ先生の日本限定ショッピングガイド | 台湾人のための完全攻略</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #1A1A2E;
+      --secondary-color: #16213E;
+      --accent-color: #D4AF37;
+      --accent-secondary: #B8860B;
+      --luxury-gold: #F4E6C7;
+      --dark-charcoal: #2C2C2C;
+      --light-cream: #FAFAF9;
+      --medium-gray: #E8E8E6;
+      --dark-gray: #6B6B6B;
+      --white: #FFFFFF;
+      --text-color: #2C2C2C;
+      --border-color: #E8E8E6;
+      --shadow-light: rgba(0,0,0,0.08);
+      --shadow-medium: rgba(0,0,0,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Noto Sans JP', sans-serif; 
+      line-height: 1.7; 
+      color: var(--text-color);
+      background-color: var(--light-cream);
+    }
+
+    /* === ヘッダー === */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .japankuru-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .magazine-info {
+      border-left: 2px solid var(--border-color);
+      padding-left: 20px;
+    }
+
+    .magazine-info h2 {
+      font-size: 1.1rem;
+      margin-bottom: 3px;
+      color: var(--primary-color);
+    }
+
+    .magazine-info p {
+      font-size: 0.85rem;
+      color: var(--dark-gray);
+    }
+
+    .issue-badge {
+      background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+      color: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.2);
+    }
+
+    /* === 히어로 섹션 전문성 강화 === */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .hero-background-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212,175,55,0.05) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.02) 50%, transparent 51%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 500px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-text-content {
+      color: var(--white);
+    }
+
+    /* 전문성 배지 */
+    .expert-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .expert-badge {
+      background: rgba(212,175,55,0.2);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: var(--accent-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-tagline {
+      background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+      color: var(--primary-color);
+      padding: 10px 25px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 25px;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+
+    .magazine-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--luxury-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .magazine-title .line-1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+      color: var(--luxury-gold);
+    }
+
+    /* 통계 및 성과 표시 */
+    .achievement-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .author-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .credential-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .credential-badge:hover {
+      background: rgba(212,175,55,0.2);
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+      color: var(--primary-color);
+      padding: 18px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212,175,55,0.5);
+    }
+
+    /* === 프리미엄 제품 쇼케이스 === */
+    .hero-showcase {
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .premium-showcase {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      transform-style: preserve-3d;
+    }
+
+    .featured-product {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--luxury-gold) 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border: 2px solid rgba(212,175,55,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s ease;
+      animation: premiumFloat 6s ease-in-out infinite;
+    }
+
+    .featured-product:nth-child(1) {
+      top: 50px;
+      left: 50px;
+      animation-delay: 0s;
+    }
+
+    .featured-product:nth-child(2) {
+      top: 150px;
+      right: 30px;
+      animation-delay: 2s;
+    }
+
+    .featured-product:nth-child(3) {
+      bottom: 100px;
+      left: 80px;
+      animation-delay: 4s;
+    }
+
+    .featured-product:nth-child(4) {
+      top: 20px;
+      right: 120px;
+      animation-delay: 1s;
+    }
+
+    @keyframes premiumFloat {
+      0%, 100% { transform: translateY(0px) rotateY(0deg); }
+      25% { transform: translateY(-15px) rotateY(5deg); }
+      50% { transform: translateY(0px) rotateY(0deg); }
+      75% { transform: translateY(-8px) rotateY(-5deg); }
+    }
+
+    .featured-product:hover {
+      transform: scale(1.1) translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    .product-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .product-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    .product-price {
+      font-size: 0.75rem;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .expert-tested {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+
+    /* === 일본 한정 코너 섹션 === */
+    .japan-exclusive-corner {
+      background: linear-gradient(135deg, var(--light-cream) 0%, var(--medium-gray) 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .japan-exclusive-corner::before {
+      content: '🇯🇵';
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.03;
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%) rotate(15deg);
+      z-index: 1;
+    }
+
+    .corner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .corner-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .corner-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .corner-subtitle {
+      font-size: 1.2rem;
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .exclusive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .exclusive-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px var(--shadow-light);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .exclusive-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px var(--shadow-medium);
+    }
+
+    .card-image {
+      height: 200px;
+      background: linear-gradient(45deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-image .product-emoji {
+      font-size: 4rem;
+    }
+
+    /* === 고급 태그 시스템 === */
+    
+    /* 카테고리 태그 - 색상으로 구분 */
+    .category-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .category-tag.cosmetics {
+      background: linear-gradient(45deg, #FF6B9D, #FF8E8E);
+      color: white;
+    }
+
+    .category-tag.medicine {
+      background: linear-gradient(45deg, #4ECDC4, #44A08D);
+      color: white;
+    }
+
+    .category-tag.food {
+      background: linear-gradient(45deg, #F093FB, #F5576C);
+      color: white;
+    }
+
+    .category-tag.goods {
+      background: linear-gradient(45deg, #4481EB, #04BEFE);
+      color: white;
+    }
+
+    /* 속성 태그 - 형태로 구분 */
+    .attribute-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .attribute-tag.exclusive {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(212,175,55,0.3);
+    }
+
+    .attribute-tag.premium {
+      background: var(--primary-color);
+      color: var(--accent-color);
+      border-radius: 4px;
+      border: 2px solid var(--accent-color);
+    }
+
+    .attribute-tag.limited {
+      background: transparent;
+      color: var(--accent-color);
+      border: 2px dashed var(--accent-color);
+      border-radius: 8px;
+    }
+
+    .attribute-tag.popular {
+      background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+      color: var(--primary-color);
+      border-radius: 15px;
+      transform: skew(-10deg);
+    }
+
+    .attribute-tag.rare {
+      background: var(--dark-charcoal);
+      color: var(--accent-color);
+      border-radius: 0;
+      position: relative;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+    }
+
+    /* 가격 태그 */
+    .price-tag {
+      background: var(--luxury-gold);
+      color: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.2);
+    }
+
+    .price-tag.discount {
+      background: linear-gradient(45deg, #FF416C, #FF4B2B);
+      color: white;
+      position: relative;
+    }
+
+    .price-tag.discount::before {
+      content: '割引';
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 브랜드 태그 */
+    .brand-tag {
+      background: var(--white);
+      color: var(--dark-charcoal);
+      border: 1px solid var(--border-color);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      box-shadow: 0 2px 4px var(--shadow-light);
+    }
+
+    /* 스토어 태그 */
+    .store-tag {
+      background: var(--medium-gray);
+      color: var(--dark-charcoal);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .store-tag:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      transform: translateY(-1px);
+    }
+
+    /* 전문가 추천 배지 */
+    .expert-badge-card {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .card-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .exclusive-reason {
+      background: rgba(212,175,55,0.1);
+      border-left: 4px solid var(--accent-color);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .reason-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .reason-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    .store-info {
+      margin-bottom: 20px;
+    }
+
+    .store-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .store-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .add-to-list-btn {
+      width: 100%;
+      background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+      color: var(--primary-color);
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-list-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+    }
+
+    .add-to-list-btn.added {
+      background: var(--dark-charcoal);
+      color: var(--accent-color);
+    }
+
+    /* === 검색 섹션 === */
+    .search-section {
+      background: var(--white);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 85px;
+      z-index: 990;
+      box-shadow: 0 4px 12px var(--shadow-light);
+    }
+
+    .search-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .teacher-bubble {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .teacher-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 2px 10px rgba(212,175,55,0.2);
+    }
+
+    .bubble-content {
+      position: relative;
+      background: var(--luxury-gold);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 15px;
+      padding: 15px 20px;
+      flex: 1;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      color: var(--primary-color);
+    }
+
+    .bubble-arrow {
+      position: absolute;
+      top: 18px;
+      left: -10px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid rgba(212,175,55,0.3);
+    }
+
+    .bubble-arrow::after {
+      content: '';
+      position: absolute;
+      top: -9px;
+      left: 1px;
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-right: 9px solid var(--luxury-gold);
+    }
+
+    .search-bar {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 15px 50px 15px 20px;
+      border: 2px solid var(--border-color);
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dark-gray);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-tab {
+      background: var(--medium-gray);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      color: var(--dark-charcoal);
+    }
+
+    .filter-tab.active {
+      background: var(--primary-color);
+      color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--shadow-medium);
+    }
+
+    .filter-tab:hover:not(.active) {
+      background: var(--dark-gray);
+      color: var(--white);
+    }
+
+    /* === 푸터 === */
+    .site-footer {
+      background: var(--primary-color);
+      color: var(--luxury-gold);
+      padding: 60px 0 20px 0;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .footer-section h3 {
+      font-size: 1.5rem;
+    }
+
+    .footer-section p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: rgba(244,230,199,0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(212,175,55,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(212,175,55,0.2);
+      margin-top: 40px;
+      padding-top: 20px;
+    }
+
+    .footer-bottom-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(244,230,199,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* === 추천 상품 섹션 === */
+    .recommended-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      height: 220px;
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image .product-emoji {
+      font-size: 4rem;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 6px 15px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card-checkbox {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .card-checkbox:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .expert-comment {
+      background: #F8F9FA;
+      border-left: 4px solid var(--accent-color);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .comment-header {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .comment-text {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .store-locations {
+      margin-bottom: 20px;
+    }
+
+    .store-locations h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-detail {
+      flex: 1;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-detail:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    /* === 플로팅 리스트 버튼 === */
+    .floating-list {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .list-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .list-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(231, 76, 60, 0.5);
+    }
+
+    .list-count {
+      background: white;
+      color: var(--accent-color);
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* === 모달 === */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1.5rem;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .list-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .list-item-info h4 {
+      margin-bottom: 5px;
+      color: var(--primary-color);
+    }
+
+    .list-item-info p {
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    .share-section {
+      margin-top: 30px;
+      padding: 20px;
+      background: var(--light-gray);
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .share-url {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin: 10px 0;
+      font-family: monospace;
+    }
+
+    .btn-copy {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-copy:hover {
+      background: var(--secondary-color);
+    }
+
+    /* === 푸터 === */
+    .site-footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 60px 0 20px 0;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-section p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      padding-top: 20px;
+    }
+
+    .footer-bottom-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* === 스토어 쇼케이스 스타일 === */
+    .store-showcase {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .showcase-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .showcase-header h2 span {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent-color);
+      margin-bottom: 5px;
+      letter-spacing: 2px;
+    }
+
+    .showcase-header p {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .showcase-nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .showcase-tab {
+      background: var(--white);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .showcase-tab:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+
+    .showcase-tab.active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--white);
+      box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
+    }
+
+    .showcase-tab img {
+      height: 24px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .showcase-tab:hover img,
+    .showcase-tab.active img {
+      opacity: 1;
+    }
+
+    .showcase-tab.active img {
+      filter: brightness(0) invert(1);
+    }
+
+    .showcase-panels {
+      position: relative;
+      transition: height 0.4s ease-in-out;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      min-height: 500px;
+    }
+
+    .showcase-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .showcase-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .panel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, 
+        rgba(44, 62, 80, 0.85) 0%,
+        rgba(44, 62, 80, 0.5) 50%,
+        rgba(44, 62, 80, 0) 100%
+      );
+      border-radius: 15px;
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      padding: 50px;
+      max-width: 55%;
+    }
+
+    .panel-content h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .panel-content > p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .panel-details {
+      margin-bottom: 30px;
+    }
+
+    .panel-details h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      border-left: 3px solid var(--gold-color);
+      padding-left: 10px;
+    }
+
+    .panel-details ul {
+      list-style: none;
+      padding-left: 15px;
+    }
+
+    .panel-details li {
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .panel-details li::before {
+      content: '✓';
+      color: var(--gold-color);
+      position: absolute;
+      left: -18px;
+    }
+
+    .teacher-tip {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .teacher-tip h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--gold-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .teacher-tip p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* === 테이 선생님 버츄얼 가이드 === */
+    .virtual-teacher {
+      position: fixed;
+      right: 30px;
+      bottom: 120px;
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+
+    .teacher-avatar-float {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: teacherFloat 3s ease-in-out infinite;
+    }
+
+    .teacher-avatar-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+
+    @keyframes teacherFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .teacher-bubble-guide {
+      position: absolute;
+      right: 85px;
+      bottom: 0;
+      background: var(--white);
+      border: 2px solid var(--accent-color);
+      border-radius: 20px;
+      padding: 15px 20px;
+      max-width: 280px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+    }
+
+    .teacher-bubble-guide.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .teacher-bubble-guide::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      bottom: 25px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid var(--white);
+    }
+
+    .bubble-guide-content {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-color);
+    }
+
+    .bubble-guide-title {
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .guide-actions {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-guide {
+      background: var(--accent-color);
+      color: var(--white);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-guide:hover {
+      background: #c0392b;
+    }
+
+    .btn-guide.secondary {
+      background: var(--light-gray);
+      color: var(--primary-color);
+    }
+
+    .btn-guide.secondary:hover {
+      background: var(--medium-gray);
+    }
+
+    /* 스크롤 기반 팁 표시 */
+    .scroll-tip {
+      position: absolute;
+      left: -320px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      border-radius: 15px;
+      padding: 15px 20px;
+      max-width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .scroll-tip.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .scroll-tip::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid rgba(255,255,255,0.95);
+    }
+
+    /* 상품별 리뷰 모달 */
+    .review-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .review-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .review-content {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .review-teacher-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-color);
+    }
+
+    .review-title {
+      flex: 1;
+    }
+
+    .review-title h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    .review-title p {
+      color: var(--dark-gray);
+      font-size: 0.9rem;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 3rem;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-placeholder::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-placeholder::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 52%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .review-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .review-highlights {
+      background: #FFF5F5;
+      border-left: 4px solid var(--accent-color);
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 20px;
+    }
+
+    .review-highlights h4 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .review-highlights ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .review-highlights li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .review-highlights li::before {
+      content: '💡';
+      position: absolute;
+      left: 0;
+    }
+
+    /* 반응형 스타일 업데이트 */
+    @media (max-width: 992px) {
+      .panel-content {
+        max-width: 70%;
+        padding: 40px;
+      }
+
+      .panel-content h3 {
+        font-size: 2rem;
+      }
+
+      .virtual-teacher {
+        right: 20px;
+        bottom: 100px;
+      }
+
+      .teacher-avatar-float {
+        width: 60px;
+        height: 60px;
+      }
+
+      .teacher-bubble-guide {
+        right: 75px;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .panel-content {
+        max-width: 100%;
+        padding: 30px;
+      }
+
+      .panel-content h3 {
+        font-size: 1.8rem;
+      }
+
+      .showcase-panels {
+        min-height: 400px;
+      }
+
+      .virtual-teacher {
+        right: 15px;
+        bottom: 90px;
+      }
+
+      .teacher-avatar-float {
+        width: 55px;
+        height: 55px;
+      }
+
+      .teacher-bubble-guide {
+        right: 70px;
+        max-width: 220px;
+        font-size: 0.85rem;
+      }
+
+      .scroll-tip {
+        left: -280px;
+        max-width: 260px;
+        font-size: 0.85rem;
+      }
+    }
+    @media (max-width: 992px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .magazine-title {
+        font-size: 2.5rem;
+      }
+
+      .showcase-container {
+        height: 400px;
+      }
+
+      .floating-product {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+      }
+
+      .product-icon {
+        font-size: 1.5rem;
+      }
+
+      .product-name {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .hero-section {
+        min-height: 80vh;
+        padding: 40px 20px;
+      }
+
+      .magazine-title {
+        font-size: 2.2rem;
+      }
+
+      .magazine-title .line-1 {
+        font-size: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .author-credentials {
+        justify-content: center;
+      }
+
+      .corner-title {
+        font-size: 2.2rem;
+      }
+
+      .exclusive-grid,
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-tabs {
+        justify-content: center;
+      }
+
+      .teacher-bubble {
+        display: none;
+      }
+
+      .search-section {
+        position: static;
+        top: auto;
+      }
+
+      .floating-product {
+        width: 80px;
+        height: 80px;
+        padding: 8px;
+      }
+
+      .product-icon {
+        font-size: 1.2rem;
+      }
+
+      .product-name {
+        font-size: 0.6rem;
+      }
+
+      .product-price {
+        font-size: 0.55rem;
+      }
+
+      .showcase-container {
+        height: 300px;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-container {
+        height: 250px;
+      }
+
+      .floating-product {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU Logo" class="japankuru-logo-img">
+        <div class="magazine-info">
+          <h2>テイ先生の日本限定ガイド</h2>
+          <p>台湾では絶対に買えない特別な商品たち</p>
+        </div>
+      </div>
+      <div class="issue-badge">2025年9月号 特別版</div>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero-section">
+    <div class="hero-background-pattern"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text-content" data-aos="fade-right">
+        <!-- 전문성 배지 -->
+        <div class="expert-badges">
+          <div class="expert-badge">
+            <i class="fas fa-certificate"></i>
+            化粧品成分検定1級
+          </div>
+          <div class="expert-badge">
+            <i class="fas fa-microscope"></i>
+            成分分析専門家
+          </div>
+          <div class="expert-badge">
+            <i class="fas fa-video"></i>
+            YouTube登録者15万人
+          </div>
+        </div>
+
+        <span class="hero-tagline">信頼の専門家が徹底検証</span>
+        <h1 class="magazine-title">
+          <span class="line-1">1,000品以上を実際に試した</span>
+          <span class="line-2">日本限定の本当の価値</span>
+        </h1>
+        <p class="hero-subtitle">
+          台湾で8年間、延べ3,000時間の成分研究と実地検証。<br>
+          美容業界のプロが認めた、真に価値ある商品だけを厳選。
+        </p>
+
+        <!-- 성과 통계 -->
+        <div class="achievement-stats">
+          <div class="stat-item">
+            <div class="stat-number">1,000+</div>
+            <div class="stat-label">検証済み商品</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15万</div>
+            <div class="stat-label">フォロワー</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">満足度</div>
+          </div>
+        </div>
+
+        <div class="author-credentials">
+          <div class="credential-badge">
+            <i class="fas fa-medal"></i>
+            <span>台湾美容業界賞受賞</span>
+          </div>
+          <div class="credential-badge">
+            <i class="fas fa-users"></i>
+            <span>月間相談件数500件</span>
+          </div>
+          <div class="credential-badge">
+            <i class="fas fa-star"></i>
+            <span>平均評価4.9/5.0</span>
+          </div>
+        </div>
+
+        <a href="#japan-exclusive" class="cta-button">
+          <i class="fas fa-crown"></i>
+          実証済み商品を見る
+        </a>
+      </div>
+
+      <div class="hero-showcase" data-aos="fade-left" data-aos-delay="300">
+        <div class="premium-showcase">
+          <div class="featured-product">
+            <div class="expert-tested">✓</div>
+            <div class="product-icon">💄</div>
+            <div class="product-name">資生堂限定</div>
+            <div class="product-price">実証済み</div>
+          </div>
+          <div class="featured-product">
+            <div class="expert-tested">✓</div>
+            <div class="product-icon">💊</div>
+            <div class="product-name">医薬品</div>
+            <div class="product-price">成分分析済み</div>
+          </div>
+          <div class="featured-product">
+            <div class="expert-tested">✓</div>
+            <div class="product-icon">🍫</div>
+            <div class="product-name">限定食品</div>
+            <div class="product-price">テイ推薦</div>
+          </div>
+          <div class="featured-product">
+            <div class="expert-tested">✓</div>
+            <div class="product-icon">🧴</div>
+            <div class="product-name">SK-II限定</div>
+            <div class="product-price">効果実証</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 검색 섹션 -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="teacher-bubble" data-aos="fade-up">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="テイ先生" class="teacher-avatar">
+        <div class="bubble-content">
+          <div class="bubble-arrow"></div>
+          <p>
+            「このフィルターはとっても便利ですよ！キーワード一つで、このページにある全ての掲載商品を一括で検索できます。例えば「美白」や「限定」と入力してみてくださいね！」
+          </p>
+        </div>
+      </div>
+      
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="商品名・ブランド名・効果で検索（例：美白、保湿、限定、日本のみ）" id="searchInput">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-category="all">すべて</button>
+        <button class="filter-tab" data-category="cosmetics">コスメ・美容</button>
+        <button class="filter-tab" data-category="medicine">医薬品・健康</button>
+        <button class="filter-tab" data-category="food">食品・お菓子</button>
+        <button class="filter-tab" data-category="goods">雑貨・日用品</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 일본 한정 코너 -->
+  <section id="japan-exclusive" class="japan-exclusive-corner">
+    <div class="corner-content">
+      <div class="corner-header" data-aos="fade-up">
+        <h2 class="corner-title">🇯🇵 日本限定コーナー</h2>
+        <p class="corner-subtitle">台湾では絶対に手に入らない、本当に価値のある日本だけの特別な商品たち</p>
+      </div>
+      
+      <div class="exclusive-grid">
+        <!-- 한정 상품 1 -->
+        <article class="exclusive-card" data-category="cosmetics" data-aos="fade-up">
+          <div class="card-image">
+            <div class="product-emoji">💄</div>
+            <div class="exclusive-badge">日本限定</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">資生堂 日本人専用ファンデーション</h3>
+            <p class="card-price">¥4,500 <span style="font-size: 0.8rem; color: #7F8C8D;">（台湾では販売禁止）</span></p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                日本の薬機法に基づいた特殊な紫外線防止成分を配合。アジア人の肌色に最適化された色調整技術は、日本国内でのみ製造・販売が許可されています。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">資生堂直営店</span>
+                <span class="store-tag">高級百貨店</span>
+                <span class="store-tag">免税店</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('shiseido-foundation')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+
+        <!-- 한정 상품 2 -->
+        <article class="exclusive-card" data-category="medicine" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-image">
+            <div class="product-emoji">💊</div>
+            <div class="exclusive-badge">医薬品</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">大正製薬 胃腸薬プレミアム</h3>
+            <p class="card-price">¥2,800</p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                日本独自の医薬品承認システムで認可された成分配合。海外への医薬品輸出は薬機法により厳格に制限されており、日本国内でのみ購入可能です。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">全国のドラッグストア</span>
+                <span class="store-tag">薬局</span>
+                <span class="store-tag">ドン・キホーテ</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('taisho-medicine')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+
+        <!-- 한정 상품 3 -->
+        <article class="exclusive-card" data-category="food" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-image">
+            <div class="product-emoji">🍫</div>
+            <div class="exclusive-badge">食品</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">ネスレ キットカット 京都宇治抹茶</h3>
+            <p class="card-price">¥680</p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                京都府宇治市の特定農家から仕入れた抹茶を使用。この抹茶は輸出規制があり、また製造工程も日本国内の工場でのみ可能な特殊技術を使用しています。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">コンビニ</span>
+                <span class="store-tag">スーパー</span>
+                <span class="store-tag">空港</span>
+                <span class="store-tag">土産物店</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('kitkat-matcha')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+
+        <!-- 한정 상품 4 -->
+        <article class="exclusive-card" data-category="cosmetics" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-image">
+            <div class="product-emoji">🧴</div>
+            <div class="exclusive-badge">限定成分</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">SK-II ピテラ™ フルライン 日本限定濃度</h3>
+            <p class="card-price">¥25,000〜</p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                ピテラ™の濃度が他国版より30%高く配合。日本の化粧品基準でのみ許可された高濃度処方で、滋賀県の専用工場でのみ製造されています。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">SK-II専門店</span>
+                <span class="store-tag">百貨店</span>
+                <span class="store-tag">免税店</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('sk2-pitera')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+
+        <!-- 한정 상품 5 -->
+        <article class="exclusive-card" data-category="goods" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-image">
+            <div class="product-emoji">👕</div>
+            <div class="exclusive-badge">企業限定</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">無印良品 日本製オーガニックコットン</h3>
+            <p class="card-price">¥1,200〜</p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                日本国内の契約農家でのみ栽培されたオーガニックコットンを使用。無印良品の品質基準と日本の有機認証制度に基づいた商品は国内販売のみです。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">無印良品</span>
+                <span class="store-tag">ロフト</span>
+                <span class="store-tag">東急ハンズ</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('muji-cotton')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+
+        <!-- 한정 상품 6 -->
+        <article class="exclusive-card" data-category="medicine" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-image">
+            <div class="product-emoji">👁️</div>
+            <div class="exclusive-badge">医薬品</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">ロート製薬 V・ロートプレミアム</h3>
+            <p class="card-price">¥1,800</p>
+            
+            <div class="exclusive-reason">
+              <div class="reason-title">
+                <i class="fas fa-lock"></i>
+                なぜ日本限定？
+              </div>
+              <div class="reason-text">
+                日本人の目の構造と涙の成分に最適化された点眼薬。使用されている成分の一部は日本の医薬品医療機器等法でのみ使用が認められています。
+              </div>
+            </div>
+            
+            <div class="store-info">
+              <div class="store-title">
+                <i class="fas fa-map-marker-alt"></i>
+                購入できる場所
+              </div>
+              <div class="store-tags">
+                <span class="store-tag">薬局</span>
+                <span class="store-tag">ドラッグストア</span>
+                <span class="store-tag">ドン・キホーテ</span>
+              </div>
+            </div>
+            
+            <button class="add-to-list-btn" onclick="addToList('rohto-premium')">
+              <i class="fas fa-plus"></i>
+              リストに追加
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 스토어 쇼케이스 섹션 -->
+  <section class="store-showcase">
+    <div class="showcase-container" data-aos="fade-up">
+      <div class="showcase-header">
+        <h2><span>購入場所ガイド</span>テイ先生おすすめの店</h2>
+        <p>どこで買うのが一番いい？目的別に最適のショッピングスポットをご紹介します。</p>
+      </div>
+
+      <div class="showcase-nav">
+        <button class="showcase-tab active" data-target="store-donki">
+          <img src="https://i.imgur.com/L4zB6aH.png" alt="ドン・キホーテ">
+          <span>ドン・キホーテ</span>
+        </button>
+        <button class="showcase-tab" data-target="store-drugstore">
+           <img src="https://i.imgur.com/GzF2a1T.png" alt="ドラッグストア">
+          <span>ドラッグストア</span>
+        </button>
+        <button class="showcase-tab" data-target="store-department">
+           <img src="https://i.imgur.com/c234a4z.png" alt="百貨店">
+          <span>百貨店</span>
+        </button>
+        <button class="showcase-tab" data-target="store-muji">
+           <img src="https://i.imgur.com/zV8V3fJ.png" alt="無印良品">
+          <span>無印良品</span>
+        </button>
+      </div>
+
+      <div class="showcase-panels">
+        <div class="showcase-panel active" id="store-donki" style="background-image: url('https://img.japankuru.com/prg_img/img/img2023011708564754722300.jpg');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>ドン・キホーテ (Don Quijote)</h3>
+            <p>「驚安の殿堂」として知られる、何でも揃うディスカウントストア。深夜まで営業している店舗が多く、観光客にとって最高の味方です。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>限定版のお菓子</li>
+                <li>格安の医薬品・化粧品</li>
+                <li>面白い雑貨・お土産</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>免税手続きは専用カウンターでまとめて行いましょう。クーポンを使えばさらにお得になることが多いので、アプリのチェックは忘れずに！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-panel" id="store-drugstore" style="background-image: url('https://images.unsplash.com/photo-1594817112276-857de3b2c6d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERydWdzdG9yZXx8fHx8fDE2OTI2MTM0MjE&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>ドラッグストア (Drugstore)</h3>
+            <p>マツモトキヨシ、ウエルシアなど。医薬品だけでなく、高品質な日本ブランドの化粧品や日用品が豊富に揃っています。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>有名ブランドの限定処方化粧品</li>
+                <li>日本国内専用の医薬品</li>
+                <li>高機能の日用品</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>各チェーンごとに限定商品やセール品が異なります。特に資生堂やコーセーなどのカウンセリング化粧品は、割引率が高い店舗を狙いましょう。</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="showcase-panel" id="store-department" style="background-image: url('https://images.unsplash.com/photo-1563196231-9a74fa904a6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIERlcGFydG1lbnQgU3RvcmV8fHx8fHwxNjkyNjEzNDU5&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>百貨店 (Department Store)</h3>
+            <p>伊勢丹、高島屋など。最高級の品質とサービスを誇ります。デパコス（デパートコスメ）の限定品や高級ブランド품を探すならここです。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>ブランド化粧品の限定コフレ</li>
+                <li>高級ファッションブランドの日本限定モデル</li>
+                <li>デパ地下の限定スイーツ</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>外国人観光客向けの優待カードを発行していることが多いです。パスポートを提示すれば5%割引などの特典が受けられます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-panel" id="store-muji" style="background-image: url('https://images.unsplash.com/photo-1620786280399-5ed465b1b423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8SmFwYW4sIE11aml8fHx8fHwxNjkyNjEzNTA0&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080');">
+          <div class="panel-overlay"></div>
+          <div class="panel-content">
+            <h3>無印良品 (MUJI)</h3>
+            <p>シンプルで質の良い商品を展開するライフスタイルブランド。台湾より品揃えが豊富で、食品や化粧品には日本限定商品が多くあります。</p>
+            <div class="panel-details">
+              <h4>ここで見つかる限定品</h4>
+              <ul>
+                <li>日本産原料を使用したスキンケア用品</li>
+                <li>限定フレーバーのレトルトカレーや菓子</li>
+                <li>Found MUJIの地域限定商品</li>
+              </ul>
+            </div>
+            <div class="teacher-tip">
+              <h4><i class="fas fa-lightbulb"></i> テイ先生のワンポイント</h4>
+              <p>大型店では限定の冷凍食品やベーカリーも楽しめます。特に化粧品は、成分がシンプルで敏感肌の方へのお土産にも最適です。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 추천 상품 섹션 -->
+  <section class="recommended-section">
+    <h2 class="section-title">
+      <i class="fas fa-star"></i>
+      テイ先生のおすすめ商品
+    </h2>
+    
+    <div class="products-grid">
+      
+      <!-- 상품 카드 1 -->
+      <article class="product-card" data-category="cosmetics" data-aos="fade-up">
+        <div class="card-checkbox">
+          <input type="checkbox" id="product-sk2">
+          <label for="product-sk2">リスト追加</label>
+        </div>
+        <div class="product-image">
+          <div class="product-emoji">✨</div>
+          <div class="product-badge price-tag discount">台湾より30%安</div>
+        </div>
+        <div class="product-content">
+          <div style="margin-bottom: 15px;">
+            <span class="category-tag cosmetics">コスメ</span>
+            <span class="attribute-tag premium">高級品</span>
+            <span class="brand-tag">SK-II</span>
+          </div>
+          
+          <h3 class="product-title">SK-II フェイシャルトリートメントエッセンス 230ml</h3>
+          <p class="product-price price-tag">¥18,000 <span style="font-size: 0.8rem; color: #7F8C8D;">（台湾価格: NT$8,500）</span></p>
+          
+          <div class="expert-comment">
+            <div class="comment-header">
+              <i class="fas fa-user-graduate"></i>
+              テイ先生のコメント
+            </div>
+            <div class="comment-text">
+              ピテラ成分90%以上配合。台湾で買うより確実に安く、偽物の心配もありません。空港免税店より市内の方が実は安いことが多いです。
+            </div>
+          </div>
+          
+          <div class="store-locations">
+            <h4><i class="fas fa-map-marker-alt"></i> 購入できる場所</h4>
+            <div class="store-tags">
+              <span class="store-tag">松本清</span>
+              <span class="store-tag">コクミン</span>
+              <span class="store-tag">ツルハ</span>
+              <span class="store-tag">百貨店</span>
+            </div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn-detail" onclick="openProductDetail('sk2-essence')">詳細を見る</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 상품 카드 2 -->
+      <article class="product-card" data-category="medicine" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-checkbox">
+          <input type="checkbox" id="product-eve">
+          <label for="product-eve">リスト追加</label>
+        </div>
+        <div class="product-image">
+          <div class="product-emoji">💊</div>
+          <div class="product-badge attribute-tag exclusive">台湾未発売</div>
+        </div>
+        <div class="product-content">
+          <div style="margin-bottom: 15px;">
+            <span class="category-tag medicine">医薬品</span>
+            <span class="attribute-tag rare">入手困難</span>
+            <span class="brand-tag">EVE</span>
+          </div>
+          
+          <h3 class="product-title">EVE クイック頭痛薬DX 40錠</h3>
+          <p class="product-price price-tag">¥1,200</p>
+          
+          <div class="expert-comment">
+            <div class="comment-header">
+              <i class="fas fa-user-graduate"></i>
+              テイ先生のコメント
+            </div>
+            <div class="comment-text">
+              イブプロフェンにアセトアミノフェンを配合した、日本独自の処方。生理痛や頭痛に即効性があり、胃を保護する成分も入っています。
+            </div>
+          </div>
+          
+          <div class="store-locations">
+            <h4><i class="fas fa-map-marker-alt"></i> 購入できる場所</h4>
+            <div class="store-tags">
+              <span class="store-tag">マツキヨ</span>
+              <span class="store-tag">ドン・キホーテ</span>
+              <span class="store-tag">ウエルシア</span>
+              <span class="store-tag">サンドラッグ</span>
+            </div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn-detail" onclick="openProductDetail('eve-quick')">詳細を見る</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 상품 카드 3 -->
+      <article class="product-card" data-category="cosmetics" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-checkbox">
+          <input type="checkbox" id="product-transino">
+          <label for="product-transino">リスト追加</label>
+        </div>
+        <div class="product-image">
+          <div class="product-emoji">🌟</div>
+          <div class="product-badge attribute-tag premium">美白効果認定</div>
+        </div>
+        <div class="product-content">
+          <div style="margin-bottom: 15px;">
+            <span class="category-tag cosmetics">コスメ</span>
+            <span class="attribute-tag popular">人気商品</span>
+            <span class="brand-tag">トランシーノ</span>
+          </div>
+          
+          <h3 class="product-title">トランシーノ 薬用ホワイトニングシリーズ</h3>
+          <p class="product-price price-tag">¥3,500〜</p>
+          
+          <div class="expert-comment">
+            <div class="comment-header">
+              <i class="fas fa-user-graduate"></i>
+              テイ先生のコメント
+            </div>
+            <div class="comment-text">
+              トラネキサム酸配合で、肝斑治療薬の技術を応用したスキンケア。台湾では医師の処方箋が必要な成分が、化粧品として購入できます。
+            </div>
+          </div>
+          
+          <div class="store-locations">
+            <h4><i class="fas fa-map-marker-alt"></i> 購入できる場所</h4>
+            <div class="store-tags">
+              <span class="store-tag">全国のドラッグストア</span>
+              <span class="store-tag">アマゾン</span>
+              <span class="store-tag">ロフト</span>
+            </div>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn-detail" onclick="openProductDetail('transino')">詳細を見る</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 테이 선생님 버츄얼 가이드 -->
+  <div class="virtual-teacher" id="virtualTeacher">
+    <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" 
+         alt="テイ先生" class="teacher-avatar-float" onclick="toggleTeacherGuide()">
+    
+    <div class="teacher-bubble-guide" id="teacherBubble">
+      <div class="bubble-guide-content">
+        <div class="bubble-guide-title">
+          <i class="fas fa-sparkles"></i>
+          テイ先生のガイド
+        </div>
+        <p>こんにちは！商品について詳しく知りたいですか？クリックして私の詳細レビューを見てくださいね！</p>
+        <div class="guide-actions">
+          <button class="btn-guide" onclick="showRandomTip()">
+            <i class="fas fa-lightbulb"></i> ヒント
+          </button>
+          <button class="btn-guide secondary" onclick="hideTeacherGuide()">
+            <i class="fas fa-times"></i> 閉じる
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 스크롤 기반 팁들 -->
+    <div class="scroll-tip" id="scrollTip">
+      <div class="bubble-guide-title">
+        <i class="fas fa-info-circle"></i>
+        <span id="tipTitle">ショッピングのコツ</span>
+      </div>
+      <p id="tipContent">この商品は台湾では手に入らない特別なアイテムです！</p>
+    </div>
+  </div>
+
+  <!-- 상품별 리뷰 모달 -->
+  <div class="review-modal" id="reviewModal">
+    <div class="review-content">
+      <button class="modal-close" onclick="closeReviewModal()">&times;</button>
+      
+      <div class="review-header">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" 
+             alt="テイ先生" class="review-teacher-avatar">
+        <div class="review-title">
+          <h3 id="reviewProductTitle">商品の詳細レビュー</h3>
+          <p>テイ先生による専門的な分析と購入ガイド</p>
+        </div>
+      </div>
+
+      <div class="video-placeholder" onclick="playReviewVideo()">
+        <span style="position: absolute; bottom: 20px; left: 20px; font-size: 1rem;">
+          クリックして動画を再生
+        </span>
+      </div>
+
+      <div class="review-text" id="reviewText">
+        <p>この商品について詳しく説明いたします...</p>
+      </div>
+
+      <div class="review-highlights">
+        <h4>🎯 テイ先生のポイント</h4>
+        <ul id="reviewHighlights">
+          <li>台湾では入手困難な限定商品</li>
+          <li>成分分析による安全性確認済み</li>
+          <li>コストパフォーマンス抜群</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 플로팅 리스트 버튼 -->
+  <div class="floating-list">
+    <button class="list-btn" onclick="openMyList()">
+      <i class="fas fa-list"></i>
+      <span>マイリスト</span>
+      <span class="list-count" id="listCount">0</span>
+    </button>
+  </div>
+
+  <!-- 리스트 모달 -->
+  <div class="modal-overlay" id="listModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      
+      <h2 class="modal-title">
+        <i class="fas fa-heart"></i>
+        私の日本ショッピングリスト
+      </h2>
+      
+      <div id="listItems">
+        <!-- 동적으로 추가될 리스트 아이템들 -->
+      </div>
+      
+      <div class="share-section">
+        <h3><i class="fas fa-share-alt"></i> リストを共有</h3>
+        <p>このリンクを保存・共有して、どこからでもアクセスできます</p>
+        <input type="text" class="share-url" id="shareUrl" readonly>
+        <button class="btn-copy" onclick="copyShareUrl()">
+          <i class="fas fa-copy"></i> リンクをコピー
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>JAPANKURU</h3>
+        <p>台湾人のための日本情報メディア</p>
+        <div class="social-links">
+          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LINE"><i class="fab fa-line"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>ショッピングガイド</h4>
+        <ul>
+          <li><a href="#japan-exclusive">日本限定商品</a></li>
+          <li><a href="#products">おすすめ商品</a></li>
+          <li><a href="#">エリア別ガイド</a></li>
+          <li><a href="#">季節別特集</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="#">マイリスト機能</a></li>
+          <li><a href="#">商品検索</a></li>
+          <li><a href="#">購入ガイド</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>テイ先生について</h4>
+        <ul>
+          <li><a href="#">プロフィール</a></li>
+          <li><a href="#">レビュー方法</a></li>
+          <li><a href="#">お仕事依頼</a></li>
+          <li><a href="#">メディア出演</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>企業様向け</h4>
+        <ul>
+          <li><a href="#">広告掲載</a></li>
+          <li><a href="#">商品レビュー依頼</a></li>
+          <li><a href="#">データ分析レポート</a></li>
+          <li><a href="#">パートナーシップ</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2025 JAPANKURU. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">特定商取引法</a>
+          <a href="#">サイトマップ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos/dist/aos.js"></script>
+  <script>
+    // DOM 로드 후 실행
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // AOS 초기화
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 100
+      });
+
+      // 전역 변수
+      let myList = [];
+      const exclusiveProducts = {
+        'shiseido-foundation': { 
+          name: '資生堂 日本人専用ファンデーション', 
+          price: '¥4,500', 
+          category: 'cosmetics', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=💄' 
+        },
+        'taisho-medicine': { 
+          name: '大正製薬 胃腸薬プレミアム', 
+          price: '¥2,800', 
+          category: 'medicine', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=💊' 
+        },
+        'kitkat-matcha': { 
+          name: 'キットカット 京都宇治抹茶', 
+          price: '¥680', 
+          category: 'food', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=🍫' 
+        },
+        'sk2-pitera': { 
+          name: 'SK-II ピテラ™ 日本限定濃度', 
+          price: '¥25,000〜', 
+          category: 'cosmetics', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=🧴' 
+        },
+        'muji-cotton': { 
+          name: '無印良品 日本製オーガニックコットン', 
+          price: '¥1,200〜', 
+          category: 'goods', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=👕' 
+        },
+        'rohto-premium': { 
+          name: 'ロート製薬 V・ロートプレミアム', 
+          price: '¥1,800', 
+          category: 'medicine', 
+          image: 'https://placehold.co/100x100/E8E8E8/666?text=👁️' 
+        }
+      };
+
+      // 필터 기능
+      document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          filterProducts(this.dataset.category);
+        });
+      });
+
+      function filterProducts(category) {
+        const cards = document.querySelectorAll('.product-card, .exclusive-card');
+        cards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      // 검색 기능
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        const debouncedSearch = debounce(searchProducts, 300);
+        searchInput.addEventListener('input', function() {
+          debouncedSearch(this.value);
+        });
+      }
+
+      function searchProducts(query) {
+        const searchTerm = query.toLowerCase();
+        document.querySelectorAll('.product-card, .exclusive-card').forEach(card => {
+          const title = card.querySelector('.product-title, .card-title')?.textContent.toLowerCase() || '';
+          const comment = card.querySelector('.comment-text, .reason-text')?.textContent.toLowerCase() || '';
+          const isVisible = title.includes(searchTerm) || comment.includes(searchTerm);
+          card.style.display = isVisible ? 'block' : 'none';
+        });
+      }
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // 리스트 관리 기능
+      window.addToList = function(productId) {
+        if (myList.includes(productId)) {
+          showToast('すでにリストに追加されています');
+          return;
+        }
+        
+        myList.push(productId);
+        updateListCount();
+        
+        const button = event.target.closest('button');
+        if (button) {
+          button.classList.add('added');
+          button.innerHTML = '<i class="fas fa-check"></i> 追加済み';
+        }
+        
+        showToast('リストに追加しました！');
+      };
+
+      function updateListCount() {
+        const checkedProducts = getCheckedProducts();
+        const count = myList.length + checkedProducts.length;
+        document.getElementById('listCount').textContent = count;
+      }
+
+      function getCheckedProducts() {
+        return Array.from(document.querySelectorAll('.card-checkbox input:checked'));
+      }
+
+      window.openMyList = function() {
+        generateListContent();
+        document.getElementById('listModal').classList.add('active');
+      };
+
+      window.closeModal = function() {
+        document.getElementById('listModal').classList.remove('active');
+      };
+
+      function generateListContent() {
+        const listContainer = document.getElementById('listItems');
+        let listHTML = '';
+        
+        myList.forEach(productId => {
+          const product = exclusiveProducts[productId];
+          if (product) {
+            listHTML += `
+              <div class="list-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="list-item-info">
+                  <h4>${product.name}</h4>
+                  <p>${product.price}</p>
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        if (listHTML === '') {
+          listHTML = '<p style="text-align: center; color: #7F8C8D; padding: 40px;">まだ商品が追加されていません</p>';
+        }
+
+        listContainer.innerHTML = listHTML;
+        generateShareUrl();
+        updateListCount();
+      }
+
+      function generateShareUrl() {
+        const checkedIds = getCheckedProducts().map(cb => cb.id);
+        const allIds = [...myList, ...checkedIds];
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?list=${allIds.join(',')}`;
+        const shareUrlInput = document.getElementById('shareUrl');
+        if (shareUrlInput) shareUrlInput.value = shareUrl;
+      }
+
+      window.copyShareUrl = function() {
+        const shareUrl = document.getElementById('shareUrl');
+        if (!shareUrl) return;
+        
+        shareUrl.select();
+        shareUrl.setSelectionRange(0, 99999);
+        
+        try {
+          document.execCommand('copy');
+          showToast('リンクをコピーしました！');
+        } catch (err) {
+          console.error('コピーに失敗しました:', err);
+          showToast('リンクをコピーできませんでした');
+        }
+      };
+
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+          position: fixed; 
+          top: 20px; 
+          right: 20px; 
+          background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary)); 
+          color: var(--primary-color); 
+          padding: 15px 25px; 
+          border-radius: 12px; 
+          box-shadow: 0 8px 25px rgba(212,175,55,0.3); 
+          z-index: 3000; 
+          font-weight: 700; 
+          transition: all 0.3s ease;
+          border: 1px solid rgba(212,175,55,0.2);
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(-20px)';
+          setTimeout(() => document.body.removeChild(toast), 300);
+        }, 3000);
+      }
+
+      // URL에서 리스트 로드
+      function loadListFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const listParam = urlParams.get('list');
+        if (listParam) {
+          const itemIds = listParam.split(',');
+          itemIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (checkbox) checkbox.checked = true;
+            
+            if (exclusiveProducts[id] && !myList.includes(id)) {
+              myList.push(id);
+              const button = document.querySelector(`[onclick="addToList('${id}')"]`);
+              if (button) {
+                button.classList.add('added');
+                button.innerHTML = '<i class="fas fa-check"></i> 追加済み';
+              }
+            }
+          });
+          updateListCount();
+          setTimeout(() => { openMyList(); }, 1000);
+        }
+      }
+
+      // 이벤트 리스너
+      document.addEventListener('change', e => {
+        if (e.target.matches('.card-checkbox input')) {
+          updateListCount();
+        }
+      });
+
+      document.getElementById('listModal')?.addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // 플로팅 제품 애니메이션 개선
+      const floatingProducts = document.querySelectorAll('.floating-product');
+      floatingProducts.forEach((product, index) => {
+        product.addEventListener('mouseenter', () => {
+          product.style.animationPlayState = 'paused';
+        });
+        
+        product.addEventListener('mouseleave', () => {
+          product.style.animationPlayState = 'running';
+        });
+      });
+
+      // 스토어 쇼케이스 탭 기능
+      const showcaseTabs = document.querySelectorAll('.showcase-tab');
+      const showcasePanels = document.querySelectorAll('.showcase-panel');
+      const panelsContainer = document.querySelector('.showcase-panels');
+
+      function adjustShowcaseHeight() {
+        if (!panelsContainer) return;
+        const activePanel = document.querySelector('.showcase-panel.active');
+        if (activePanel) {
+          panelsContainer.style.height = activePanel.scrollHeight + 'px';
+        }
+      }
+
+      showcaseTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          showcaseTabs.forEach(t => t.classList.remove('active'));
+          showcasePanels.forEach(p => p.classList.remove('active'));
+          
+          this.classList.add('active');
+          const targetPanel = document.querySelector(`#${this.dataset.target}`);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+          
+          setTimeout(adjustShowcaseHeight, 100);
+        });
+      });
+
+      setTimeout(adjustShowcaseHeight, 300);
+
+      // 테이 선생님 버츄얼 가이드 시스템
+      let teacherGuideVisible = false;
+      let currentScrollTip = null;
+      
+      const virtualTeacher = document.getElementById('virtualTeacher');
+      const teacherBubble = document.getElementById('teacherBubble');
+      const scrollTip = document.getElementById('scrollTip');
+      
+      // 스크롤 기반 팁 데이터
+      const scrollTips = [
+        {
+          trigger: '.japan-exclusive-corner',
+          title: '🇯🇵 日本限定の秘密',
+          content: 'これらの商品は法律や技術的な理由で日本でしか買えません。見逃すと後悔しますよ！'
+        },
+        {
+          trigger: '.store-showcase',
+          title: '💡 お得な購入法',
+          content: 'ドラッグストアは夜遅くまで開いているので、観光の最後に立ち寄るのがおすすめです！'
+        },
+        {
+          trigger: '.products-grid',
+          title: '⭐ 選び方のコツ',
+          content: '私のコメントをしっかり読んで、成分や効果を理解してから購入しましょうね。'
+        }
+      ];
+
+      // 상품별 리뷰 데이터
+      const productReviews = {
+        'sk2-essence': {
+          title: 'SK-II フェイシャルトリートメントエッセンス',
+          content: 'ピテラという特殊な酵母由来成分が90%以上配合されています。この濃度は日本版だけの特徴で、肌のターンオーバーを正常化し、透明感のある肌へと導きます。台湾で同じ商品を買うより30%以上安く購入できるのも大きなメリットです。',
+          highlights: [
+            '日本限定の高濃度ピテラ配合',
+            '台湾価格より30%以上お得',
+            '偽物の心配がない正規品',
+            '免税店より市内店舗が安い場合が多い'
+          ]
+        },
+        'eve-quick': {
+          title: 'EVE クイック頭痛薬DX',
+          content: 'イブプロフェンとアセトアミノフェンのダブル処方で、頭痛や生理痛に素早く効果を発揮します。さらに胃を保護する成分も配合されているため、空腹時でも安心して服用できます。この組み合わせは日本の医薬品基準でのみ認可された特別な処方です。',
+          highlights: [
+            '日本独自のダブル有効成分',
+            '胃保護成分配合で安心',
+            '台湾では入手できない処方',
+            'コンビニでも購入可能'
+          ]
+        },
+        'transino': {
+          title: 'トランシーノ 薬用ホワイトニング',
+          content: 'トラネキサム酸という美白有効成分を配合したスキンケアシリーズです。もともと肝斑治療に使われていた医薬品の技術を化粧品に応用したもので、シミ・そばかすの予防に高い効果が期待できます。台湾では医師の処方箋が必要な成分を、日本では化粧品として気軽に購入できます。',
+          highlights: [
+            '医薬品レベルの美白成分',
+            '肝斑治療技術を応用',
+            '台湾では処方箋が必要な成分',
+            'ドラッグストアで手軽に購入'
+          ]
+        }
+      };
+
+      // 스크롤 이벤트로 팁 표시
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // 스크롤 기반 팁 표시 로직
+        scrollTips.forEach((tip, index) => {
+          const element = document.querySelector(tip.trigger);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const isVisible = rect.top <= window.innerHeight * 0.7 && rect.bottom >= 0;
+            
+            if (isVisible && currentScrollTip !== index) {
+              showScrollTip(tip, index);
+            }
+          }
+        });
+
+        // 기존 스크롤 이벤트들...
+        const delta = 5;
+        const floatingBtn = document.querySelector('.floating-list');
+        const japanExclusiveSection = document.querySelector('.japan-exclusive-corner');
+        const header = document.querySelector('.site-header');
+        const body = document.body;
+
+        // 패럴랙스 효과
+        if (japanExclusiveSection) {
+          const scrollFraction = (scrollTop - japanExclusiveSection.offsetTop) * 0.2;
+          japanExclusiveSection.style.setProperty('--scroll-y', `${scrollFraction}px`);
+        }
+
+        // 플로팅 버튼 제어
+        if (floatingBtn) {
+          if (scrollTop > lastScrollTop) {
+            floatingBtn.style.transform = 'translateY(100px)';
+          } else {
+            floatingBtn.style.transform = 'translateY(0)';
+          }
+        }
+
+        // PC에서 헤더/필터 숨김 로직
+        if (window.innerWidth > 768 && header) {
+          const headerHeight = header.offsetHeight;
+          if (Math.abs(lastScrollTop - scrollTop) > delta) {
+            if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+              body.classList.add('ui-hidden');
+            } else if (scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
+              body.classList.remove('ui-hidden');
+            }
+          }
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }, { passive: true });
+
+      function showScrollTip(tip, index) {
+        currentScrollTip = index;
+        document.getElementById('tipTitle').textContent = tip.title;
+        document.getElementById('tipContent').textContent = tip.content;
+        scrollTip.classList.add('show');
+        
+        // 3초 후 자동으로 숨김
+        setTimeout(() => {
+          scrollTip.classList.remove('show');
+          currentScrollTip = null;
+        }, 4000);
+      }
+
+      // 테이 선생님 가이드 토글
+      window.toggleTeacherGuide = function() {
+        teacherGuideVisible = !teacherGuideVisible;
+        if (teacherGuideVisible) {
+          teacherBubble.classList.add('show');
+        } else {
+          teacherBubble.classList.remove('show');
+        }
+      };
+
+      window.hideTeacherGuide = function() {
+        teacherBubble.classList.remove('show');
+        teacherGuideVisible = false;
+      };
+
+      // 랜덤 팁 표시
+      window.showRandomTip = function() {
+        const tips = [
+          '💰 免税手続きは8,000円以上から可能です！',
+          '🕙 ドラッグストアは朝10時開店が多いので、計画的に！',
+          '⚡ 限定品は売り切れが早いので、見つけたらすぐ購入を！',
+          '📱 マツキヨアプリでクーポンをゲットしてからお買い物を！',
+          '🗼 渋谷・新宿・銀座エリアが品揃え豊富でおすすめです！',
+          '✨ 百貨店では外国人優待カードで5%割引が受けられます！',
+          '🎯 成分表をチェックして、台湾版との違いを確認しましょう！'
+        ];
+        
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        showToast(randomTip);
+        hideTeacherGuide();
+      };
+
+      // 상품별 리뷰 모달 기능
+      window.openProductReview = function(productId) {
+        const review = productReviews[productId];
+        if (!review) {
+          showToast('レビューは準備中です');
+          return;
+        }
+
+        document.getElementById('reviewProductTitle').textContent = review.title;
+        document.getElementById('reviewText').innerHTML = `<p>${review.content}</p>`;
+        
+        const highlightsList = document.getElementById('reviewHighlights');
+        highlightsList.innerHTML = review.highlights.map(highlight => `<li>${highlight}</li>`).join('');
+        
+        document.getElementById('reviewModal').classList.add('active');
+      };
+
+      window.closeReviewModal = function() {
+        document.getElementById('reviewModal').classList.remove('active');
+      };
+
+      window.playReviewVideo = function() {
+        showToast('動画機能は準備中です。近日公開予定！');
+      };
+
+      // 상품 카드에 리뷰 버튼 추가 (기존 상품들)
+      document.querySelectorAll('.product-card').forEach((card, index) => {
+        const actions = card.querySelector('.product-actions');
+        if (actions) {
+          const productIds = ['sk2-essence', 'eve-quick', 'transino'];
+          const productId = productIds[index] || 'sk2-essence';
+          
+          const reviewBtn = document.createElement('button');
+          reviewBtn.className = 'btn-detail';
+          reviewBtn.style.background = 'linear-gradient(45deg, var(--accent-color), var(--accent-secondary))';
+          reviewBtn.style.color = 'var(--primary-color)';
+          reviewBtn.innerHTML = '<i class="fas fa-video"></i> テイ先生のレビュー';
+          reviewBtn.onclick = () => openProductReview(productId);
+          
+          actions.appendChild(reviewBtn);
+        }
+      });
+
+      // 모달 외부 클릭 시 닫기
+      document.getElementById('reviewModal')?.addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeReviewModal();
+      });
+
+      // ESC 키로 모달 닫기
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          closeModal();
+          closeReviewModal();
+        }
+      });
+
+      // 초기화
+      loadListFromUrl();
+    });
+
+    // 기타 전역 함수들
+    window.openProductDetail = function(productId) {
+      // 상품 상세 대신 리뷰 모달 열기
+      window.openProductReview(productId);
+    };
+  </script>
+</body>
+</html>
