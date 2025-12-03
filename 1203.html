@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鄭先生のおすすめ 2026春 | JAPANKURU × 日本藥妝研究室</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --sakura: #FFB7C5;
+      --sakura-deep: #E8879B;
+      --sakura-light: #FFF0F3;
+      --teal: #2D9A8C;
+      --teal-light: #E6F5F3;
+      --gold: #D4A853;
+      --gold-light: #FDF8E8;
+      --purple: #9B7BB8;
+      --purple-light: #F3EBF8;
+      --blue: #5B8DB8;
+      --blue-light: #EBF2F8;
+      --green: #7A9A7E;
+      --green-light: #EDF3EE;
+      --text-dark: #2a2a2a;
+      --text-body: #555;
+      --text-light: #999;
+      --bg: #FFFBFC;
+      --white: #fff;
+      --transition: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text-body); line-height: 1.8; }
+    .serif { font-family: 'Noto Serif JP', serif; }
+
+    /* === 헤더 === */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      transition: all 0.3s var(--transition);
+    }
+
+    .header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .collab-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .collab-logo img {
+      height: 20px;
+    }
+
+    .collab-x {
+      color: var(--sakura);
+      font-weight: 300;
+    }
+
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .partner-logo-img {
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .partner-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .header-season {
+      font-size: 0.75rem;
+      color: var(--sakura-deep);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* === 히어로 === */
+    .hero {
+      margin-top: 52px;
+      min-height: 90vh;
+      background: linear-gradient(180deg, #FFE8ED 0%, #FFF5F7 50%, #FFFBFC 100%);
+      position: relative;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1400') center top/cover;
+      opacity: 0.3;
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    .sakura-petal {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--sakura) 0%, #FFD6E0 100%);
+      border-radius: 150% 0 150% 0;
+      opacity: 0;
+      animation: fall linear infinite;
+      pointer-events: none;
+      box-shadow: 0 2px 10px rgba(255,183,197,0.3);
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(100vh) rotate(720deg) translateX(100px); opacity: 0; }
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-season {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--sakura-deep);
+      margin-bottom: 30px;
+      box-shadow: 0 4px 30px rgba(232,135,155,0.2);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.35;
+      color: var(--text-dark);
+      margin-bottom: 25px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--sakura-deep);
+      position: relative;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-body);
+      margin-bottom: 40px;
+      max-width: 520px;
+      line-height: 1.9;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--sakura-deep);
+      font-size: 0.8rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .scroll-indicator:hover { transform: translateY(5px); }
+    .scroll-indicator i { animation: bounce 2s infinite; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* 호외 카드 */
+    .gogai-float {
+      position: absolute;
+      bottom: -60px;
+      right: 10%;
+      z-index: 10;
+      animation: gogaiFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes gogaiFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-8px) rotate(-2deg); }
+    }
+
+    .gogai-card {
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 
+        0 15px 50px rgba(0,0,0,0.15),
+        0 5px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      width: 200px;
+      position: relative;
+      transform: rotate(-3deg);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .gogai-ribbon {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--sakura) 0%, var(--sakura-deep) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(232,135,155,0.4);
+      transform: rotate(15deg);
+      z-index: 2;
+    }
+
+    .gogai-header {
+      background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    .gogai-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 12px;
+      margin-left: 12px;
+    }
+
+    .gogai-title {
+      background: linear-gradient(135deg, var(--sakura-light) 0%, #fff 100%);
+      padding: 12px;
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sakura-deep);
+      border-bottom: 2px solid var(--sakura-light);
+    }
+
+    .gogai-body {
+      padding: 15px;
+      background: #fff;
+    }
+
+    .gogai-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .gogai-item {
+      background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+      padding: 10px 8px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    .gogai-city {
+      display: block;
+      font-size: 0.7rem;
+      color: #888;
+      margin-bottom: 3px;
+    }
+
+    .gogai-date {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--sakura-deep);
+    }
+
+    .gogai-note {
+      text-align: center;
+      font-size: 0.65rem;
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .gogai-float {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        animation: none;
+      }
+      
+      .gogai-card {
+        transform: rotate(-2deg);
+        width: 180px;
+      }
+    }
+
+    /* === 인트로 섹션 === */
+    .intro-section {
+      background: var(--white);
+      padding: 120px 24px 100px;
+    }
+
+    .intro-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .profile-area { position: relative; }
+
+    .profile-label {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      color: var(--sakura-deep);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .profile-photo-wrap {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .profile-photo-frame {
+      position: relative;
+      width: 280px;
+      height: 350px;
+    }
+
+    .profile-photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      right: 12px;
+      bottom: 12px;
+      border: 2px solid var(--sakura);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .profile-photo-frame:hover::before {
+      top: -8px;
+      left: -8px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-badge {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: linear-gradient(135deg, var(--gold) 0%, #E8BC5A 100%);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(212,168,83,0.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .profile-typo { text-align: center; }
+
+    .profile-name-en {
+      font-size: 0.65rem;
+      letter-spacing: 5px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .profile-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--text-dark);
+    }
+
+    .profile-name-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .profile-sns-mini {
+      display: flex;
+      gap: 6px;
+    }
+
+    .profile-sns-mini a {
+      width: 26px;
+      height: 26px;
+      background: #f5f5f5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.7rem;
+      transition: all 0.2s;
+    }
+
+    .profile-sns-mini a:hover {
+      background: var(--sakura-deep);
+      color: var(--white);
+    }
+
+    .profile-title-jp {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .profile-title-jp::before,
+    .profile-title-jp::after {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--sakura);
+    }
+
+    .profile-expert {
+      font-size: 0.85rem;
+      color: var(--sakura-deep);
+      font-weight: 700;
+      margin-bottom: 25px;
+      padding: 8px 16px;
+      background: var(--sakura-light);
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 12px 16px;
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      min-width: 75px;
+    }
+
+    .stat-num {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--sakura-deep);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      color: var(--text-light);
+    }
+
+    /* 책 슬라이더 */
+    .books-slider {
+      margin-bottom: 15px;
+    }
+
+    .books-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .books-label i {
+      color: var(--sakura);
+    }
+
+    .books-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 5px 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .books-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .book-item {
+      flex-shrink: 0;
+      width: 60px;
+      height: 85px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+
+    .book-item:hover {
+      transform: scale(1.05);
+    }
+
+    .book-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 미디어 섹션 */
+    .media-section {
+      background: #FAFAFA;
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+
+    .media-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .media-label i {
+      color: var(--sakura);
+    }
+
+    .media-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .media-logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+
+    .media-logo-item:hover {
+      opacity: 1;
+    }
+
+    .media-logo-item img {
+      height: 100%;
+      width: auto;
+      max-width: 70px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.2s;
+    }
+
+    .media-logo-item:hover img {
+      filter: grayscale(0%);
+    }
+
+    .media-text-logo {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .media-logo-item:hover .media-text-logo {
+      color: var(--text-dark);
+    }
+
+    .greeting-area { position: relative; }
+
+    .greeting-hello {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .greeting-hello .highlight {
+      display: inline;
+      background: linear-gradient(transparent 60%, var(--sakura-light) 60%);
+      padding: 0 5px;
+    }
+
+    .greeting-hello .sub {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-body);
+      margin-top: 10px;
+    }
+
+    .greeting-text {
+      font-size: 1rem;
+      line-height: 2.2;
+      color: var(--text-body);
+      margin-bottom: 25px;
+    }
+
+    .greeting-text strong {
+      color: var(--sakura-deep);
+      font-weight: 700;
+    }
+
+    .greeting-intro {
+      margin-bottom: 30px;
+    }
+
+    .greeting-intro p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-body);
+      margin-bottom: 12px;
+    }
+
+    .expert-story {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+      border: 1px solid #f0f0f0;
+    }
+
+    .expert-story-text p {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-body);
+      margin-bottom: 15px;
+    }
+
+    .expert-story-text strong {
+      color: var(--sakura-deep);
+    }
+
+    .guide-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .guide-categories span {
+      background: var(--bg);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    .guide-bubble {
+      position: relative;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 20px;
+      box-shadow: 0 2px 15px rgba(232,135,155,0.1);
+      border: 1px solid var(--sakura-light);
+    }
+
+    .bubble-content p {
+      font-size: 0.85rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 10px !important;
+      padding-left: 10px;
+      border-left: 2px solid var(--sakura);
+    }
+
+    .bubble-content p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .bubble-content strong {
+      color: var(--sakura-deep);
+    }
+
+    .guide-features-list {
+      background: linear-gradient(135deg, var(--sakura-light) 0%, #FFF8F9 100%);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-body);
+      padding: 8px 0;
+    }
+
+    .feature-item:not(:last-child) {
+      border-bottom: 1px dashed rgba(232,135,155,0.2);
+    }
+
+    .feature-item i {
+      color: var(--sakura-deep);
+      width: 20px;
+      text-align: center;
+    }
+
+    .feature-item strong {
+      color: var(--sakura-deep);
+    }
+
+    .guide-cta-text {
+      background: var(--sakura-deep);
+      color: #fff !important;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.85rem !important;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .guide-cta-text strong {
+      color: #fff;
+    }
+
+    .expert-sign {
+      font-weight: 600;
+      color: var(--sakura-deep);
+      font-size: 0.85rem !important;
+      padding-top: 15px;
+      border-top: 1px dashed var(--sakura);
+      margin-bottom: 0 !important;
+      text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      .expert-story {
+        padding: 20px;
+      }
+
+      .guide-categories {
+        justify-content: center;
+      }
+    }
+
+    .greeting-signature {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 16px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .greeting-signature img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--white);
+    }
+
+    .greeting-signature-text { font-size: 0.95rem; }
+    .greeting-signature-text strong { color: var(--text-dark); display: block; font-size: 1.1rem; }
+    .greeting-signature-text span { font-size: 0.8rem; color: var(--sakura-deep); }
+
+    .social-links { display: flex; gap: 12px; }
+
+    .social-links a {
+      width: 42px;
+      height: 42px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s var(--transition);
+      font-size: 1rem;
+    }
+
+    .social-links a:hover {
+      background: var(--sakura-deep);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    /* === 상품 섹션 === */
+    .products-section {
+      padding: 80px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* 탭 */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--white);
+      border: 2px solid #eee;
+      padding: 14px 28px;
+      border-radius: 35px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--sakura);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .tab-btn[data-tab="cosme"].active { background: var(--sakura-deep); border-color: var(--sakura-deep); }
+    .tab-btn[data-tab="medicine"].active { background: var(--blue); border-color: var(--blue); }
+    .tab-btn[data-tab="health"].active { background: var(--green); border-color: var(--green); }
+    .tab-btn[data-tab="daily"].active { background: var(--purple); border-color: var(--purple); }
+
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeSlideIn 0.4s var(--transition) forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab-intro {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 25px 30px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    }
+
+    .tab-intro-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    [data-theme="cosme"] .tab-intro-icon { background: var(--sakura-light); }
+    [data-theme="medicine"] .tab-intro-icon { background: var(--blue-light); }
+    [data-theme="health"] .tab-intro-icon { background: var(--green-light); }
+    [data-theme="daily"] .tab-intro-icon { background: var(--purple-light); }
+
+    .tab-intro-text h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; }
+    .tab-intro-text p { font-size: 0.85rem; color: var(--text-light); }
+
+    /* 상품 그리드 */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all 0.4s var(--transition);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="cosme"] .product-img { background: linear-gradient(135deg, var(--sakura-light), #fff); }
+    [data-theme="medicine"] .product-img { background: linear-gradient(135deg, var(--blue-light), #fff); }
+    [data-theme="health"] .product-img { background: linear-gradient(135deg, var(--green-light), #fff); }
+    [data-theme="daily"] .product-img { background: linear-gradient(135deg, var(--purple-light), #fff); }
+
+    .product-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover .product-photo { transform: scale(1.08); }
+
+    .modal-product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    /* 용도 태그 */
+    .use-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .use-tag.omiyage { background: var(--gold); color: #fff; }
+    .use-tag.compact { background: var(--teal); color: #fff; }
+    .use-tag.taiwan { background: #E67E22; color: #fff; }
+    .use-tag.spring { background: var(--sakura-deep); color: #fff; }
+
+    /* 배지들 */
+    .badge-row {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .mini-badge {
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .mini-badge.video { background: rgba(231,76,60,0.9); color: #fff; }
+    .mini-badge.coupon { background: rgba(212,168,83,0.9); color: #fff; }
+    .mini-badge.column { background: rgba(52,152,219,0.9); color: #fff; }
+
+    .product-body { padding: 20px; }
+
+    .product-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .product-price {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    [data-theme="cosme"] .product-price { color: var(--sakura-deep); }
+    [data-theme="medicine"] .product-price { color: var(--blue); }
+    [data-theme="health"] .product-price { color: var(--green); }
+    [data-theme="daily"] .product-price { color: var(--purple); }
+
+    .product-tip {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-tip i { color: var(--sakura); }
+
+    .add-to-list-btn {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--bg);
+      border: none;
+      border-top: 1px solid #f0f0f0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      transition: all 0.3s;
+    }
+
+    .add-to-list-btn:hover {
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+    }
+
+    .add-to-list-btn.added {
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+    }
+
+    .add-to-list-btn.added i {
+      color: var(--sakura-deep);
+    }
+
+    .add-to-list-btn i {
+      font-size: 1rem;
+      transition: transform 0.3s;
+    }
+
+    .add-to-list-btn:hover i {
+      transform: scale(1.2);
+    }
+
+    /* === 드럭스토어 가이드 === */
+    .store-guide {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
+    }
+
+    .store-guide-inner { max-width: 1100px; margin: 0 auto; }
+
+    .store-guide-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .store-guide-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .store-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .store-tab {
+      background: var(--white);
+      border: 2px solid #eee;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+      color: var(--text-body);
+    }
+
+    .store-tab:hover { border-color: var(--sakura); }
+    .store-tab.active { background: var(--text-dark); border-color: var(--text-dark); color: var(--white); }
+
+    .store-panel {
+      display: none;
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .store-panel.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      animation: fadeSlideIn 0.4s var(--transition) forwards;
+    }
+
+    .store-panel-img {
+      position: relative;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .store-panel-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+    }
+
+    .store-panel-content {
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .store-panel-content h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .store-panel-content > p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+
+    .store-features { list-style: none; margin-bottom: 30px; }
+
+    .store-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+
+    .store-features li:last-child { border-bottom: none; }
+    .store-features li i { color: var(--sakura-deep); font-size: 0.85rem; }
+
+    .che-store-tip {
+      background: var(--sakura-light);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .che-store-tip img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .che-store-tip-content { flex: 1; }
+    .che-store-tip-content strong { display: block; font-size: 0.8rem; color: var(--sakura-deep); margin-bottom: 5px; }
+    .che-store-tip-content p { font-size: 0.85rem; color: var(--text-body); line-height: 1.6; }
+
+    /* === 마무리 섹션 === */
+    .outro-section {
+      padding: 100px 24px;
+      background: var(--white);
+    }
+
+    .outro-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 관련 기사 */
+    .related-articles {
+      margin-bottom: 80px;
+    }
+
+    .related-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .related-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .related-header p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .article-card {
+      background: var(--bg);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s var(--transition);
+      text-decoration: none;
+    }
+
+    .article-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .article-img {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .article-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, rgba(0,0,0,0.4) 100%);
+    }
+
+    .article-category {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--sakura-deep);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .article-body { padding: 20px; }
+
+    .article-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .article-meta {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* 마무리 CTA */
+    .outro-section {
+      text-align: center;
+      padding: 50px 30px;
+      background: linear-gradient(135deg, #FAFAFA 0%, var(--sakura-light) 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(232,135,155,0.15);
+    }
+
+    .outro-message {
+      margin-bottom: 25px;
+    }
+
+    .outro-greeting {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .outro-text {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      margin-bottom: 15px;
+    }
+
+    .outro-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      background: var(--white);
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .next-badge {
+      background: linear-gradient(135deg, #FFB347 0%, #FFCC70 100%);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 15px;
+    }
+
+    .outro-sign-inline {
+      font-size: 0.9rem !important;
+      color: var(--sakura-deep);
+      font-weight: 600;
+      margin-top: 15px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .outro-follow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .follow-label {
+      font-size: 0.8rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    .follow-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .follow-buttons a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+
+    .follow-buttons a:first-child {
+      background: #1877F2;
+    }
+
+    .follow-buttons a:last-child {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    .follow-buttons a:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .follow-collab {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .follow-collab img {
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    .follow-collab span:first-of-type {
+      opacity: 0.4;
+    }
+
+    /* === 상세 모달 === */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .detail-modal {
+      background: var(--white);
+      border-radius: 28px;
+      max-width: 480px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(30px) scale(0.95);
+      transition: transform 0.4s var(--transition);
+    }
+
+    .modal-overlay.active .detail-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.1);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--text-body);
+      z-index: 10;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+
+    .modal-close:hover { background: rgba(0,0,0,0.2); }
+
+    /* 모달 헤더 (영상 또는 이미지) */
+    .modal-visual {
+      position: relative;
+      background: linear-gradient(135deg, var(--sakura-light), #fff);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-visual.has-video {
+      min-height: auto;
+      background: #000;
+    }
+
+    .modal-visual iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    .modal-emoji {
+      font-size: 5rem;
+    }
+
+    .modal-use-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* 모달 바디 */
+    .modal-body { padding: 30px; }
+
+    .modal-product-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .modal-product-price {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--sakura-deep);
+      margin-bottom: 20px;
+    }
+
+    /* 鄭先生's Point */
+    .che-point-box {
+      background: #FAFAFA;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .che-point-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .che-point-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .che-point-header strong {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .che-point-text {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+
+    /* 쿠폰 박스 */
+    .modal-coupon {
+      background: var(--gold-light);
+      border: 2px dashed var(--gold);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-coupon-info { display: flex; align-items: center; gap: 10px; }
+    .modal-coupon-info i { color: var(--gold); font-size: 1.2rem; }
+    .modal-coupon-discount { font-weight: 900; color: var(--gold); font-size: 1.1rem; }
+    .modal-coupon-code { font-family: monospace; background: var(--white); padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; letter-spacing: 2px; }
+
+    /* 모달 액션 버튼 */
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--white);
+      border: 2px solid var(--sakura);
+      color: var(--sakura-deep);
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+    }
+
+    .modal-add-btn:hover {
+      background: var(--sakura-light);
+      transform: translateY(-2px);
+    }
+
+    .modal-add-btn.added {
+      background: var(--sakura-deep);
+      border-color: var(--sakura-deep);
+      color: #fff;
+    }
+
+    .modal-add-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* CTA 버튼 */
+    .modal-cta {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--sakura-deep), #D7768A);
+      color: #fff;
+      border: none;
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s var(--transition);
+    }
+
+    .modal-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(232,135,155,0.4);
+    }
+
+    .modal-cta i { margin-right: 8px; }
+
+    /* 스티키 바 */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid #eee;
+      padding: 14px 20px;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s var(--transition);
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+
+    .sticky-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .sticky-info { flex: 1; }
+    .sticky-count { font-weight: 700; color: var(--text-dark); font-size: 0.95rem; }
+    .sticky-hint { font-size: 0.7rem; color: var(--text-light); }
+
+    .sticky-btn {
+      background: var(--sakura-deep);
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .sticky-btn:hover { background: #D7768A; transform: translateY(-2px); }
+
+    /* 리스트 모달 */
+    .list-modal {
+      background: var(--white);
+      border-radius: 28px;
+      max-width: 420px;
+      width: 100%;
+      max-height: 80vh;
+      overflow: hidden;
+    }
+
+    .list-header {
+      padding: 25px 30px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .list-header h3 {
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .list-items {
+      padding: 20px 30px;
+      max-height: 50vh;
+      overflow-y: auto;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+    .list-item-img { 
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .list-item-info { flex: 1; }
+    .list-item-info h4 { font-size: 0.9rem; color: var(--text-dark); }
+    .list-item-info p { font-size: 0.85rem; color: var(--sakura-deep); font-weight: 600; }
+
+    .list-item-remove {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .list-empty {
+      text-align: center;
+      padding: 50px 30px;
+      color: var(--text-light);
+    }
+
+    .list-empty i { font-size: 3rem; margin-bottom: 15px; color: var(--sakura-light); }
+
+    .list-footer {
+      padding: 20px 30px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 12px;
+    }
+
+    .share-btn {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .share-btn.line { background: #06C755; color: white; }
+    .share-btn.copy { background: #f5f5f5; color: var(--text-dark); }
+
+    /* === 푸터 === */
+    .footer {
+      background: var(--text-dark);
+      color: #fff;
+      padding: 60px 24px 40px;
+    }
+
+    .footer-inner { max-width: 1000px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .footer-collab {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-collab img {
+      height: 24px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-collab > span { opacity: 0.5; }
+
+    .footer-partner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-partner-img {
+      height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-partner span {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .footer-links { display: flex; gap: 30px; flex-wrap: wrap; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--sakura); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 30px;
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    body { padding-bottom: 80px; }
+
+    /* === 반응형 === */
+    @media (max-width: 1000px) {
+      .intro-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+      }
+
+      .profile-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-photo-frame { width: 250px; height: 320px; }
+
+      .greeting-hello { font-size: 2.2rem; }
+      .greeting-signature { justify-content: center; }
+      .social-links { justify-content: center; }
+
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .store-panel.active { grid-template-columns: 1fr; }
+      .store-panel-img { min-height: 250px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { min-height: 75vh; }
+      .hero h1 { font-size: 1.9rem; }
+
+      .intro-section { padding: 60px 20px; }
+      .profile-photo-frame { width: 200px; height: 260px; }
+      .profile-name { font-size: 1.5rem; }
+      
+      .profile-name-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .profile-stats {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .stat-item {
+        padding: 10px 12px;
+        min-width: 65px;
+      }
+      
+      .stat-num { font-size: 1.2rem; }
+      
+      .books-track {
+        justify-content: flex-start;
+        padding-left: 10px;
+      }
+      
+      .book-item {
+        width: 50px;
+        height: 70px;
+      }
+      
+      .media-logos {
+        gap: 8px;
+      }
+
+      .greeting-hello { font-size: 1.8rem; }
+      .greeting-hello .sub { font-size: 1.1rem; }
+      
+      .greeting-quote {
+        padding: 20px;
+      }
+      
+      .greeting-quote p {
+        font-size: 0.95rem;
+      }
+
+      .products-section { padding: 50px 16px; }
+      .products-grid { grid-template-columns: 1fr; gap: 20px; }
+      .articles-grid { grid-template-columns: 1fr; }
+
+      .tabs-nav, .store-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tab-btn, .store-tab {
+        flex-shrink: 0;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+      }
+
+      .tab-intro { flex-direction: column; text-align: center; }
+
+      .store-panel-content { padding: 30px 25px; }
+
+      .footer-top { flex-direction: column; text-align: center; }
+      .header-season { display: none; }
+
+      .sns-che { flex-direction: column; text-align: center; }
+      .sns-che-text { text-align: center; }
+      .sns-buttons { flex-direction: column; }
+      .sns-btn { justify-content: center; }
+
+      .detail-modal { border-radius: 20px 20px 0 0; max-height: 95vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="collab-logo">
+        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+        <span class="collab-x">×</span>
+        <div class="partner-logo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
+          <span class="partner-name">日本藥妝研究室</span>
+        </div>
+      </div>
+      <span class="header-season"><i class="fas fa-spa"></i> 2026 SPRING</span>
+    </div>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-season">
+        <i class="fas fa-spa"></i>
+        2026年 春
+      </div>
+      <h1 class="serif">2026年の<span>花見</span>、<br>準備はできていますか？</h1>
+      <p class="hero-sub">迷わず買える！鄭先生が厳選した<br>お買い物リストをお届けします</p>
+      <div class="scroll-indicator" onclick="document.querySelector('.intro-section').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-chevron-down"></i>
+        <span>スクロール</span>
+      </div>
+    </div>
+    
+    <!-- 호외 카드 -->
+    <div class="gogai-float">
+      <div class="gogai-card">
+        <div class="gogai-ribbon">🌸</div>
+        <div class="gogai-header">
+          <span class="gogai-label">號外</span>
+        </div>
+        <div class="gogai-title">
+          桜前線 2026
+        </div>
+        <div class="gogai-body">
+          <div class="gogai-grid">
+            <div class="gogai-item">
+              <span class="gogai-city">福岡</span>
+              <span class="gogai-date">3/20</span>
+            </div>
+            <div class="gogai-item">
+              <span class="gogai-city">東京</span>
+              <span class="gogai-date">3/24</span>
+            </div>
+            <div class="gogai-item">
+              <span class="gogai-city">大阪</span>
+              <span class="gogai-date">3/27</span>
+            </div>
+            <div class="gogai-item">
+              <span class="gogai-city">京都</span>
+              <span class="gogai-date">3/28</span>
+            </div>
+          </div>
+          <p class="gogai-note">※開花予想日（平年値）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 인트로 -->
+  <section class="intro-section">
+    <div class="intro-inner">
+      <div class="profile-area">
+        <p class="profile-label">YOUR SHOPPING GUIDE</p>
+        <div class="profile-photo-wrap">
+          <div class="profile-photo-frame">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg" alt="鄭世彬" class="profile-photo">
+          </div>
+          <span class="profile-badge"><i class="fas fa-crown"></i> No.1</span>
+        </div>
+        <div class="profile-typo">
+          <p class="profile-name-en">Cheng Spencer</p>
+          <div class="profile-name-row">
+            <h2 class="profile-name">鄭世彬</h2>
+            <div class="profile-sns-mini">
+              <a href="https://www.facebook.com/JapanCosmeLab" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/japancosmelab/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <p class="profile-title-jp">薬粧研究家</p>
+          <p class="profile-expert">台湾No.1 日本薬粧エキスパート</p>
+          
+          <div class="profile-stats">
+            <div class="stat-item">
+              <span class="stat-num">18</span>
+              <span class="stat-label">冊の著書</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">14</span>
+              <span class="stat-label">年の研究</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">11万+</span>
+              <span class="stat-label">フォロワー</span>
+            </div>
+          </div>
+
+          <!-- 책 슬라이더 -->
+          <div class="books-slider">
+            <p class="books-label"><i class="fas fa-book"></i> 著書</p>
+            <div class="books-track">
+              <div class="book-item">
+                <img src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/096/08/0010960896.jpg" alt="Book 1">
+              </div>
+              <div class="book-item">
+                <img src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/090/07/0010900744.jpg" alt="Book 2">
+              </div>
+              <div class="book-item">
+                <img src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/51/0010845165.jpg" alt="Book 3">
+              </div>
+              <div class="book-item">
+                <img src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/078/58/0010785895.jpg" alt="Book 4">
+              </div>
+              <div class="book-item">
+                <img src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/070/93/0010709356.jpg" alt="Book 5">
+              </div>
+            </div>
+          </div>
+
+          <!-- 미디어 출연 (로고 + 링크) -->
+          <div class="media-section">
+            <p class="media-label"><i class="fas fa-tv"></i> メディア掲載</p>
+            <div class="media-logos">
+              <a href="https://www.tv-tokyo.co.jp/wbs/" target="_blank" class="media-logo-item" title="WBS">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/WBS_logo.svg/200px-WBS_logo.svg.png" alt="WBS">
+              </a>
+              <a href="https://toyokeizai.net/" target="_blank" class="media-logo-item" title="東洋経済">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Toyo_Keizai_logo.svg/200px-Toyo_Keizai_logo.svg.png" alt="東洋経済">
+              </a>
+              <a href="https://president.jp/" target="_blank" class="media-logo-item" title="President">
+                <img src="https://president.jp/assets/images/common/logo_president.svg" alt="President">
+              </a>
+              <a href="https://www.tbs.co.jp/n-st/" target="_blank" class="media-logo-item" title="Nスタ">
+                <span class="media-text-logo">Nスタ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="greeting-area">
+        <h2 class="greeting-hello">
+          <span class="highlight">みんな、待ってたよ！</span>
+          <span class="sub">今年も一緒に買い物しよう</span>
+        </h2>
+        
+        <div class="greeting-intro">
+          <p>
+            2026年の桜シーズン、日本を訪れるみんなのために今年も本気でリストを作りました。
+          </p>
+          <p>
+            「何を買えばいいかわからない」「お土産選びが大変」「キャリアに入らない」...そんな悩み、<strong>全部解決</strong>します！
+          </p>
+        </div>
+
+        <div class="expert-story">
+          <div class="expert-story-text">
+            <p>
+              私は14年間、毎年100商品以上の日本コスメ・医薬品を実際に試してきました。日本の製薬・美容企業100社以上を直接取材し、その知見を台湾で18冊の専門書として出版。WBS、東洋経済、Nスタなど日本の主要メディアにも出演してきました。
+            </p>
+            <p>
+              JAPANKURUとの出会いは、日本旅行ガイドブックの共同出版がきっかけ。その縁で今回、<strong>台湾からの観光客のための最高のショッピングガイド</strong>を一緒にお届けすることになりました。
+            </p>
+            <p>
+              <strong>台湾人が日本旅行で最も購入する商品</strong>を4つのカテゴリーに分けて厳選しました。
+            </p>
+            
+            <div class="guide-categories">
+              <span>💄 コスメ・美容</span>
+              <span>💊 医薬品</span>
+              <span>🌿 健康食品</span>
+              <span>🏠 日常品</span>
+            </div>
+
+            <div class="guide-bubble">
+              <div class="bubble-content">
+                <p>
+                  <strong>📌 カード左上のタグ</strong>は「🎁 お土産向け」「✈️ コンパクト」など目的別に探せるキュレーションタグ。
+                </p>
+                <p>
+                  <strong>📌 画像左下のアイコン</strong>（🎬・🎫）がある商品は、カードをクリックすると動画解説やクーポン情報が見られます。
+                </p>
+                <p>
+                  <strong>📌 カード下の「♡」</strong>で気になる商品をマイリストに保存。自分だけの買い物リストを作れます！
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 상품 섹션 -->
+  <section class="products-section">
+    <div class="section-header">
+      <h2 class="serif">鄭先生のおすすめ</h2>
+      <p>カテゴリーを選んで、おすすめをチェック！</p>
+    </div>
+
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="cosme">💄 コスメ・美容</button>
+      <button class="tab-btn" data-tab="medicine">💊 医薬品</button>
+      <button class="tab-btn" data-tab="health">🌿 健康食品</button>
+      <button class="tab-btn" data-tab="daily">🏠 日常品</button>
+    </div>
+
+    <div id="tabContents"></div>
+  </section>
+
+  <!-- 드럭스토어 가이드 -->
+  <section class="store-guide">
+    <div class="store-guide-inner">
+      <div class="store-guide-header">
+        <h2 class="serif">購入場所ガイド</h2>
+        <p>どこで買うのがベスト？目的別のおすすめスポット</p>
+      </div>
+
+      <div class="store-tabs">
+        <button class="store-tab active" data-store="donki">ドン・キホーテ</button>
+        <button class="store-tab" data-store="drugstore">ドラッグストア</button>
+        <button class="store-tab" data-store="department">百貨店</button>
+        <button class="store-tab" data-store="muji">無印良品</button>
+      </div>
+
+      <div class="store-panels">
+        <div class="store-panel active" id="store-donki">
+          <div class="store-panel-img" style="background-image: url('https://img.japankuru.com/prg_img/img/img2023011708564754722300.jpg');"></div>
+          <div class="store-panel-content">
+            <h3>ドン・キホーテ</h3>
+            <p>「驚安の殿堂」として知られる、何でも揃うディスカウントストア。深夜まで営業しているので、夜の買い物にも便利。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> 限定版のお菓子・日用品が豊富</li>
+              <li><i class="fas fa-check"></i> 格安の医薬品・化粧品</li>
+              <li><i class="fas fa-check"></i> 免税対応・外国人クーポンあり</li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong><i class="fas fa-lightbulb"></i> 鄭先生のコツ</strong>
+                <p>アプリクーポンで追加割引！免税カウンターでまとめて手続きすると楽ですよ。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-panel" id="store-drugstore">
+          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1631006235196-de1606aad0cf?w=800');"></div>
+          <div class="store-panel-content">
+            <h3>ドラッグストア</h3>
+            <p>マツモトキヨシ、ウエルシア、サンドラッグなど。日本ブランドの化粧品や医薬品が最も充実しています。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> 日本限定処方の化粧品</li>
+              <li><i class="fas fa-check"></i> 日本国内専用の医薬品</li>
+              <li><i class="fas fa-check"></i> ポイントカード特典あり</li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong><i class="fas fa-lightbulb"></i> 鄭先生のコツ</strong>
+                <p>店舗によって割引率が違います。マツキヨアプリも忘れずに！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-panel" id="store-department">
+          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800');"></div>
+          <div class="store-panel-content">
+            <h3>百貨店</h3>
+            <p>伊勢丹、高島屋、三越など。デパコスの限定品や高級ブランドはここで。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> ブランド限定コフレ</li>
+              <li><i class="fas fa-check"></i> 日本限定モデル多数</li>
+              <li><i class="fas fa-check"></i> 丁寧なカウンセリング</li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong><i class="fas fa-lightbulb"></i> 鄭先生のコツ</strong>
+                <p>パスポート提示で5%割引の優待カードがもらえることも！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-panel" id="store-muji">
+          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1620786280399-5ed465b1b423?w=800');"></div>
+          <div class="store-panel-content">
+            <h3>無印良品</h3>
+            <p>シンプルで質の良い商品。台湾より品揃えが豊富で、日本限定品も多数。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> 日本産原料のスキンケア</li>
+              <li><i class="fas fa-check"></i> 限定フレーバーのお菓子</li>
+              <li><i class="fas fa-check"></i> Found MUJIの地域限定品</li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong><i class="fas fa-lightbulb"></i> 鄭先生のコツ</strong>
+                <p>銀座や渋谷の大型店では冷凍食品やベーカリーも楽しめますよ！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 마무리 섹션 -->
+  <section class="outro-section">
+    <div class="outro-inner">
+      <!-- 관련 기사 -->
+      <div class="related-articles">
+        <div class="related-header">
+          <h2 class="serif">もっと読みたい？</h2>
+          <p>JAPANKURUのおすすめ記事をチェック</p>
+        </div>
+        <div class="articles-grid">
+          <a href="https://japankuru.com/" class="article-card" target="_blank">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600');"></div>
+            <div class="article-category">ホテル</div>
+            <div class="article-body">
+              <h3 class="article-title">東京の人気ホテル10選｜2026年最新版</h3>
+              <p class="article-meta"><i class="far fa-clock"></i> 5分で読める</p>
+            </div>
+          </a>
+          <a href="https://japankuru.com/" class="article-card" target="_blank">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600');"></div>
+            <div class="article-category">グルメ</div>
+            <div class="article-body">
+              <h3 class="article-title">絶対食べたい！日本グルメBEST15</h3>
+              <p class="article-meta"><i class="far fa-clock"></i> 7分で読める</p>
+            </div>
+          </a>
+          <a href="https://japankuru.com/" class="article-card" target="_blank">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');"></div>
+            <div class="article-category">観光</div>
+            <div class="article-body">
+              <h3 class="article-title">桜シーズンのインスタ映えスポット</h3>
+              <p class="article-meta"><i class="far fa-clock"></i> 6分で読める</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 마무리 CTA -->
+      <div class="outro-section">
+        <div class="outro-message">
+          <p class="outro-greeting">日本でのお買い物、楽しんでいただけましたか？</p>
+          <p class="outro-text">このガイドが皆さんの旅を少しでも楽しくできたら嬉しいです。</p>
+          <p class="outro-next">
+            <span class="next-badge">🌻 NEXT</span>
+            次回は<strong>「夏号」</strong>でお届け予定。お楽しみに！
+          </p>
+          <p class="outro-sign-inline">── 鄭世彬</p>
+        </div>
+
+        <div class="outro-follow">
+          <p class="follow-label">📬 次号のお知らせを受け取る</p>
+          <div class="follow-buttons">
+            <a href="https://www.facebook.com/japankurutw" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/japankuru_tc/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="follow-collab">
+            <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+            <span>×</span>
+            <span>日本藥妝研究室</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-collab">
+          <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+          <span>×</span>
+          <div class="footer-partner">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="footer-partner-img">
+            <span>日本藥妝研究室</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/JapanCosmeLab" target="_blank">日本藥妝研究室 Facebook</a>
+          <a href="https://www.facebook.com/japankurutw" target="_blank">JAPANKURU台湾</a>
+          <a href="https://www.instagram.com/japankuru_tc/" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 JAPANKURU × JapanCosmeLab. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- 스티키 바 -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-inner">
+      <div class="sticky-info">
+        <div class="sticky-count"><span id="listCount">0</span>件をリストに追加中</div>
+        <div class="sticky-hint">タップしてリストを確認</div>
+      </div>
+      <button class="sticky-btn" onclick="openListModal()">
+        <i class="fas fa-heart"></i> リストを見る
+      </button>
+    </div>
+  </div>
+
+  <!-- 상세 모달 -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="detail-modal">
+      <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-visual" id="modalVisual">
+        <span class="modal-emoji" id="modalEmoji">💄</span>
+        <span class="modal-use-tag" id="modalUseTag"></span>
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-product-name" id="modalName">商品名</h2>
+        <div class="modal-product-price" id="modalPrice">¥0</div>
+        
+        <div class="che-point-box">
+          <div class="che-point-header">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+            <strong>鄭先生のポイント</strong>
+          </div>
+          <p class="che-point-text" id="modalPoint">ポイント説明</p>
+        </div>
+
+        <div class="modal-coupon" id="modalCoupon" style="display: none;">
+          <div class="modal-coupon-info">
+            <i class="fas fa-ticket-alt"></i>
+            <span class="modal-coupon-discount" id="modalCouponDiscount">10%OFF</span>
+          </div>
+          <span class="modal-coupon-code" id="modalCouponCode">CODE</span>
+        </div>
+
+        <div class="modal-actions">
+          <button class="modal-add-btn" id="modalAddBtn" onclick="toggleListFromModal()">
+            <i class="far fa-heart"></i> リストに追加
+          </button>
+          <a href="#" class="modal-cta" id="modalCta" target="_blank">
+            <i class="fas fa-arrow-right"></i> 詳しいコラムを読む
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 리스트 모달 -->
+  <div class="modal-overlay" id="listModal">
+    <div class="list-modal">
+      <div class="list-header">
+        <h3><i class="fas fa-heart" style="color: var(--sakura-deep);"></i> マイリスト</h3>
+        <button class="modal-close" onclick="closeListModal()" style="position:static;"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="list-items" id="listItems"></div>
+      <div class="list-footer" id="listFooter" style="display: none;">
+        <button class="share-btn line" onclick="shareToLine()"><i class="fab fa-line"></i> LINE</button>
+        <button class="share-btn copy" onclick="copyUrl()"><i class="fas fa-copy"></i> URLコピー</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chePhoto = 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg';
+
+    // 벚꽃 애니메이션
+    function createSakuraPetals() {
+      const hero = document.getElementById('hero');
+      for (let i = 0; i < 25; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'sakura-petal';
+        petal.style.left = Math.random() * 100 + '%';
+        petal.style.animationDuration = (Math.random() * 6 + 10) + 's';
+        petal.style.animationDelay = (Math.random() * 15) + 's';
+        petal.style.width = (Math.random() * 8 + 8) + 'px';
+        petal.style.height = petal.style.width;
+        hero.appendChild(petal);
+      }
+    }
+
+    // 스크롤 효과
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      const stickyBar = document.getElementById('stickyBar');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        stickyBar.classList.add('visible');
+      } else {
+        header.classList.remove('scrolled');
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    // 상품 데이터 (4 카테고리 × 6개)
+    const tabData = {
+      cosme: {
+        title: 'コスメ・美容',
+        icon: '💄',
+        intro: '日本でしか買えない限定コスメ、台湾より安いデパコスを厳選！',
+        products: [
+          { id: 1, name: 'SK-II フェイシャルトリートメントエッセンス', price: 18000, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=SK-II', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['百貨店'], tip: '台湾より約30%安い！ピテラ90%以上配合の高濃度処方。大切な人へのギフトに最適です。', coupon: { discount: '10%OFF', code: 'SKII2026' }, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 2, name: 'KATE リップモンスター', price: 1540, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=KATE', useTag: 'taiwan', useLabel: '🌴 台湾向け', stores: ['ドラッグストア'], tip: '湿度80%でも落ちない！台湾の蒸し暑い気候でも16時間キープ。私の妻も愛用中です。', coupon: { discount: '15%OFF', code: 'KATE15' }, video: null, column: 'https://japankuru.com/' },
+          { id: 3, name: 'メラノCC 美容液', price: 1200, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=メラノCC', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '20mlでコンパクトなのに効果絶大！ビタミンC誘導体高濃度配合でシミ予防に。', coupon: { discount: '15%OFF', code: 'MELANO15' }, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 4, name: 'キャンメイク リップ', price: 660, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=CANMAKE', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['ドラッグストア'], tip: 'ばらまき土産の定番！女性の同僚に配るならこれで間違いなし。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 5, name: 'プリマヴィスタ 下地', price: 2800, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=Primavista', useTag: 'taiwan', useLabel: '🌴 台湾向け', stores: ['ドラッグストア'], tip: '皮脂崩れ防止の代名詞。台湾の夏でもサラサラをキープ！', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 6, name: 'HAKU 美白美容液', price: 10000, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=HAKU', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ドラッグストア'], tip: '春の紫外線対策に！資生堂の美白テクノロジーが詰まった一本。', coupon: { discount: '10%OFF', code: 'HAKU10' }, video: null, column: 'https://japankuru.com/' }
+        ]
+      },
+      medicine: {
+        title: '医薬品',
+        icon: '💊',
+        intro: '桜シーズン＝花粉シーズン。旅行中も快適に過ごすための必需品。',
+        products: [
+          { id: 7, name: 'アレグラFX', price: 1980, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アレグラ', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ドラッグストア'], tip: '眠くなりにくい花粉薬の決定版！桜シーズンには必須です。', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 8, name: 'EVE クイック頭痛薬', price: 1200, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=EVE', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '胃に優しい処方。旅行中の頭痛に素早く効きます。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 9, name: 'アリナミンEXプラス', price: 4500, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アリナミン', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['ドラッグストア'], tip: '親への贈り物No.1！疲労回復のビタミン剤として日本で大人気。', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 10, name: 'ロート アルガード', price: 980, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アルガード', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ドラッグストア'], tip: '目のかゆみに最強！花粉シーズンの必需品です。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 11, name: 'トランシーノ ホワイトC', price: 2800, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=トランシーノ', useTag: 'taiwan', useLabel: '🌴 台湾向け', stores: ['ドラッグストア'], tip: 'シミ対策の医薬品。台湾では処方箋が必要ですが、日本では市販で買えます！', coupon: { discount: '¥300引', code: 'TRANS300' }, video: null, column: 'https://japankuru.com/' },
+          { id: 12, name: '太田胃散', price: 980, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=太田胃散', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['コンビニ'], tip: '食べ過ぎた夜に。日本の定番胃腸薬です。', coupon: null, video: null, column: 'https://japankuru.com/' }
+        ]
+      },
+      health: {
+        title: '健康食品',
+        icon: '🌿',
+        intro: '日本品質のサプリメント・健康食品。自分用にもお土産にも。',
+        products: [
+          { id: 13, name: 'DHC ビタミンCパウダー', price: 1200, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=DHC+VitC', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '高濃度ビタミンC。日本品質のサプリメントです。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 14, name: 'ファンケル カロリミット', price: 1563, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=カロリミット', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['ドラッグストア'], tip: '食事の糖・脂肪の吸収を抑える。ダイエット中の方へのギフトに！', coupon: { discount: '20%OFF', code: 'FANCL20' }, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 15, name: 'キューピー ヒアルロン酸', price: 2200, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ヒアルロン酸', useTag: 'taiwan', useLabel: '🌴 台湾向け', stores: ['ドラッグストア'], tip: '飲むヒアルロン酸。内側から潤いをチャージ！', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 16, name: 'アサヒ ディアナチュラ', price: 980, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ディアナチュラ', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '総合ビタミン＆ミネラル。コスパ抜群です。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 17, name: 'DHC コラーゲン', price: 1500, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=コラーゲン', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['ドラッグストア'], tip: '美容意識の高い方へのギフトに。日本で大人気のサプリ。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 18, name: '明治 プロテイン', price: 3500, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=SAVAS', useTag: null, useLabel: null, stores: ['ドラッグストア'], tip: '日本品質のプロテイン。筋トレ好きの方に。', coupon: null, video: null, column: 'https://japankuru.com/' }
+        ]
+      },
+      daily: {
+        title: '日常品',
+        icon: '🏠',
+        intro: '日本でしか買えない便利で高品質な日用品を厳選。',
+        products: [
+          { id: 19, name: 'ユニクロ ヒートテック', price: 1500, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=HEATTECH', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ユニクロ'], tip: '桜シーズンはまだ肌寒い！軽くて暖かいインナーは必需品。', coupon: { discount: '¥200引', code: 'UQ200' }, video: null, column: 'https://japankuru.com/' },
+          { id: 20, name: 'ダイソー コスメグッズ', price: 110, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=DAISO', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['ダイソー'], tip: 'パフ・ブラシは買い溜め必須！100円とは思えないクオリティ。', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
+          { id: 21, name: 'サーモス 水筒', price: 3000, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=THERMOS', useTag: 'taiwan', useLabel: '🌴 台湾向け', stores: ['ロフト'], tip: '保温力が段違い！台湾より安く買えます。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 22, name: '蒸気でホットアイマスク', price: 500, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=めぐりズム', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '飛行機で使うと最高！旅の疲れを癒します。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 23, name: '休足時間', price: 600, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=休足時間', useTag: 'compact', useLabel: '✈️ 部屋節約', stores: ['ドラッグストア'], tip: '歩き疲れた夜に。観光で疲れた足に最適！', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 24, name: 'フリクション ペン', price: 230, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=FRIXION', useTag: 'omiyage', useLabel: '🎁 お土産', stores: ['コンビニ'], tip: '消せるペン！同僚へのばらまき土産に最適。', coupon: null, video: null, column: 'https://japankuru.com/' }
+        ]
+      }
+    };
+
+    let myList = JSON.parse(localStorage.getItem('cheGuide2026') || '[]');
+    let currentTab = 'cosme';
+
+    function renderTabs() {
+      const container = document.getElementById('tabContents');
+      container.innerHTML = '';
+
+      Object.keys(tabData).forEach(key => {
+        const data = tabData[key];
+        const isActive = key === currentTab;
+
+        const html = `
+          <div class="tab-content ${isActive ? 'active' : ''}" data-theme="${key}" id="tab-${key}">
+            <div class="tab-intro">
+              <div class="tab-intro-icon">${data.icon}</div>
+              <div class="tab-intro-text">
+                <h3>${data.title}</h3>
+                <p>${data.intro}</p>
+              </div>
+            </div>
+            <div class="products-grid">
+              ${data.products.map(p => renderProduct(p, key)).join('')}
+            </div>
+          </div>
+        `;
+        container.innerHTML += html;
+      });
+    }
+
+    function renderProduct(p, theme) {
+      const badges = [];
+      if (p.video) badges.push('<span class="mini-badge video"><i class="fas fa-play"></i></span>');
+      if (p.coupon) badges.push('<span class="mini-badge coupon"><i class="fas fa-ticket-alt"></i></span>');
+      const isInList = myList.includes(p.id);
+
+      return `
+        <div class="product-card">
+          <div class="product-img" onclick="openDetailModal(${p.id})">
+            ${p.useTag ? `<span class="use-tag ${p.useTag}">${p.useLabel}</span>` : ''}
+            ${badges.length ? `<div class="badge-row">${badges.join('')}</div>` : ''}
+            <img src="${p.image}" alt="${p.name}" class="product-photo">
+          </div>
+          <div class="product-body" onclick="openDetailModal(${p.id})">
+            <h3 class="product-name">${p.name}</h3>
+            <div class="product-price">¥${p.price.toLocaleString()}</div>
+            <p class="product-tip"><i class="fas fa-quote-left"></i> ${p.tip.substring(0, 30)}...</p>
+          </div>
+          <button class="add-to-list-btn ${isInList ? 'added' : ''}" onclick="toggleList(${p.id}, event)">
+            <i class="${isInList ? 'fas' : 'far'} fa-heart"></i>
+            <span>${isInList ? 'リストに追加済み' : 'リストに追加'}</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(`tab-${tab}`).classList.add('active');
+    }
+
+    function getAllProducts() {
+      let all = [];
+      Object.values(tabData).forEach(t => all = all.concat(t.products));
+      return all;
+    }
+
+    // 상세 모달
+    function openDetailModal(id) {
+      const all = getAllProducts();
+      const p = all.find(x => x.id === id);
+      if (!p) return;
+
+      const modal = document.getElementById('detailModal');
+      const visual = document.getElementById('modalVisual');
+      const useTag = document.getElementById('modalUseTag');
+
+      // 영상 있으면 임베드, 없으면 상품 이미지
+      if (p.video) {
+        visual.classList.add('has-video');
+        visual.innerHTML = `<iframe src="${p.video}" allowfullscreen></iframe>`;
+        if (p.useTag) {
+          visual.innerHTML += `<span class="modal-use-tag use-tag ${p.useTag}">${p.useLabel}</span>`;
+        }
+      } else {
+        visual.classList.remove('has-video');
+        visual.innerHTML = `<img src="${p.image}" alt="${p.name}" class="modal-product-img">`;
+        if (p.useTag) {
+          visual.innerHTML += `<span class="modal-use-tag use-tag ${p.useTag}">${p.useLabel}</span>`;
+        }
+      }
+
+      document.getElementById('modalName').textContent = p.name;
+      document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
+      document.getElementById('modalPoint').textContent = p.tip;
+
+      const couponBox = document.getElementById('modalCoupon');
+      if (p.coupon) {
+        couponBox.style.display = 'flex';
+        document.getElementById('modalCouponDiscount').textContent = p.coupon.discount;
+        document.getElementById('modalCouponCode').textContent = p.coupon.code;
+      } else {
+        couponBox.style.display = 'none';
+      }
+
+      document.getElementById('modalCta').href = p.column || 'https://japankuru.com/';
+
+      // 리스트 추가 버튼 상태 업데이트
+      currentModalId = p.id;
+      updateModalAddBtn();
+
+      modal.classList.add('active');
+    }
+
+    let currentModalId = null;
+
+    function updateModalAddBtn() {
+      const btn = document.getElementById('modalAddBtn');
+      const isInList = myList.includes(currentModalId);
+      if (isInList) {
+        btn.classList.add('added');
+        btn.innerHTML = '<i class="fas fa-heart"></i> リストに追加済み';
+      } else {
+        btn.classList.remove('added');
+        btn.innerHTML = '<i class="far fa-heart"></i> リストに追加';
+      }
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.remove('active');
+      currentModalId = null;
+    }
+
+    // 상품 카드에서 리스트 토글
+    function toggleList(id, event) {
+      event.stopPropagation();
+      if (myList.includes(id)) {
+        myList = myList.filter(x => x !== id);
+      } else {
+        myList.push(id);
+      }
+      localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+      updateCount();
+      renderTabs();
+    }
+
+    // 모달에서 리스트 토글
+    function toggleListFromModal() {
+      if (!currentModalId) return;
+      if (myList.includes(currentModalId)) {
+        myList = myList.filter(x => x !== currentModalId);
+      } else {
+        myList.push(currentModalId);
+      }
+      localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+      updateCount();
+      updateModalAddBtn();
+      renderTabs();
+    }
+
+    // 리스트 모달
+    function openListModal() {
+      renderListItems();
+      document.getElementById('listModal').classList.add('active');
+    }
+
+    function closeListModal() {
+      document.getElementById('listModal').classList.remove('active');
+    }
+
+    function renderListItems() {
+      const container = document.getElementById('listItems');
+      const footer = document.getElementById('listFooter');
+      const all = getAllProducts();
+
+      if (!myList.length) {
+        container.innerHTML = '<div class="list-empty"><i class="far fa-heart"></i><p>リストが空です</p><p style="font-size:0.8rem;">商品をタップして追加！</p></div>';
+        footer.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = myList.map(id => {
+        const p = all.find(x => x.id === id);
+        if (!p) return '';
+        return `
+          <div class="list-item">
+            <img src="${p.image}" alt="${p.name}" class="list-item-img">
+            <div class="list-item-info">
+              <h4>${p.name}</h4>
+              <p>¥${p.price.toLocaleString()}</p>
+            </div>
+            <button class="list-item-remove" onclick="removeFromList(${p.id})"><i class="fas fa-times"></i></button>
+          </div>
+        `;
+      }).join('');
+      footer.style.display = 'flex';
+    }
+
+    function removeFromList(id) {
+      myList.splice(myList.indexOf(id), 1);
+      localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+      updateCount();
+      renderListItems();
+    }
+
+    function updateCount() {
+      document.getElementById('listCount').textContent = myList.length;
+    }
+
+    function shareToLine() {
+      const url = location.origin + location.pathname + '?list=' + myList.join(',');
+      window.open('https://line.me/R/msg/text/?' + encodeURIComponent('鄭先生のおすすめ 2026春\n' + url));
+    }
+
+    function copyUrl() {
+      const url = location.origin + location.pathname + '?list=' + myList.join(',');
+      navigator.clipboard.writeText(url);
+      showToast('URLをコピーしました！');
+    }
+
+    function showToast(msg) {
+      const t = document.createElement('div');
+      t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#2a2a2a;color:#fff;padding:12px 28px;border-radius:30px;font-size:0.85rem;font-weight:600;z-index:3000;';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2000);
+    }
+
+    // 스토어 탭
+    document.querySelectorAll('.store-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.store-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.store-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('store-' + tab.dataset.store).classList.add('active');
+      });
+    });
+
+    // 상품 탭
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    // 모달 외부 클릭
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+        }
+      });
+    });
+
+    // 초기화
+    createSakuraPetals();
+    renderTabs();
+    updateCount();
+  </script>
+</body>
+</html>
