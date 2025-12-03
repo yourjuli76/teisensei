@@ -1750,6 +1750,27 @@
     .modal-add-btn i {
       font-size: 1.1rem;
     }
+    
+    .modal-share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #f5f5f5;
+      border: none;
+      color: var(--text-body);
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+    }
+    
+    .modal-share-btn:hover {
+      background: #eee;
+    }
 
     /* CTA 버튼 */
     .modal-cta {
@@ -1766,6 +1787,7 @@
       text-align: center;
       text-decoration: none;
       transition: all 0.3s var(--transition);
+      margin-top: 15px;
     }
 
     .modal-cta:hover {
@@ -1819,6 +1841,32 @@
     }
 
     .sticky-btn:hover { background: #D7768A; transform: translateY(-2px); }
+    
+    .sticky-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .sticky-share-btn {
+      background: #f5f5f5;
+      color: var(--text-body);
+      border: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .sticky-share-btn:hover {
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+    }
 
     /* 리스트 모달 */
     .list-modal {
@@ -2090,7 +2138,42 @@
       .sns-buttons { flex-direction: column; }
       .sns-btn { justify-content: center; }
 
-      .detail-modal { border-radius: 20px 20px 0 0; max-height: 95vh; }
+      .modal-overlay {
+        padding: 20px;
+        align-items: center;
+      }
+      
+      .detail-modal { 
+        border-radius: 20px;
+        max-height: 85vh;
+        margin: auto;
+      }
+      
+      .modal-actions {
+        flex-direction: column;
+      }
+    }
+    
+    /* 토스트 알림 */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(0,0,0,0.85);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
@@ -2545,9 +2628,14 @@
         <div class="sticky-count"><span id="listCount">0</span>件をリストに追加中</div>
         <div class="sticky-hint">タップしてリストを確認</div>
       </div>
-      <button class="sticky-btn" onclick="openListModal()">
-        <i class="fas fa-heart"></i> リストを見る
-      </button>
+      <div class="sticky-btns">
+        <button class="sticky-share-btn" onclick="sharePageNative()">
+          <i class="fas fa-share-alt"></i>
+        </button>
+        <button class="sticky-btn" onclick="openListModal()">
+          <i class="fas fa-heart"></i> リストを見る
+        </button>
+      </div>
     </div>
   </div>
 
@@ -2583,10 +2671,14 @@
           <button class="modal-add-btn" id="modalAddBtn" onclick="toggleListFromModal()">
             <i class="far fa-heart"></i> リストに追加
           </button>
-          <a href="#" class="modal-cta" id="modalCta" target="_blank">
-            <i class="fas fa-arrow-right"></i> 詳しいコラムを読む
-          </a>
+          <button class="modal-share-btn" onclick="shareProductNative()">
+            <i class="fas fa-share-alt"></i> この商品をシェア
+          </button>
         </div>
+        
+        <a href="#" class="modal-cta" id="modalCta" target="_blank">
+          <i class="fas fa-arrow-right"></i> 詳しいコラムを読む
+        </a>
         
         <button class="modal-close-bottom" onclick="closeDetailModal()">
           <i class="fas fa-times"></i> 閉じる
@@ -2811,6 +2903,9 @@
       updateModalAddBtn();
 
       modal.classList.add('active');
+      
+      // URL 해시 업데이트
+      history.replaceState(null, '', '#product-' + id);
     }
 
     let currentModalId = null;
@@ -2830,6 +2925,9 @@
     function closeDetailModal() {
       document.getElementById('detailModal').classList.remove('active');
       currentModalId = null;
+      
+      // URL 해시 제거
+      history.replaceState(null, '', window.location.pathname);
     }
 
     // 상품 카드에서 리스트 토글
@@ -2951,10 +3049,101 @@
       });
     });
 
+    // 페이지 공유 (네이티브)
+    async function sharePageNative() {
+      const shareData = {
+        title: '鄭先生のおすすめ 2026春',
+        text: '日本旅行14年の専門家が厳選したお買い物リスト！',
+        url: window.location.origin + window.location.pathname
+      };
+      
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          // 사용자가 취소한 경우 무시
+        }
+      } else {
+        // Web Share API 미지원 → URL 복사
+        copyToClipboard(shareData.url);
+      }
+    }
+    
+    // 상품 공유 (네이티브)
+    async function shareProductNative() {
+      if (!currentModalId) return;
+      
+      const all = getAllProducts();
+      const p = all.find(x => x.id === currentModalId);
+      if (!p) return;
+      
+      const productUrl = window.location.origin + window.location.pathname + '#product-' + p.id;
+      const shareData = {
+        title: p.name + ' | 鄭先生のおすすめ',
+        text: '鄭先生のポイント: ' + p.tip.substring(0, 50) + '...',
+        url: productUrl
+      };
+      
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          // 사용자가 취소한 경우 무시
+        }
+      } else {
+        // Web Share API 미지원 → URL 복사
+        copyToClipboard(productUrl);
+      }
+    }
+    
+    // 클립보드 복사
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('URLをコピーしました！');
+      }).catch(() => {
+        // fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('URLをコピーしました！');
+      });
+    }
+    
+    // 토스트 표시
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+    
+    // 페이지 로드 시 해시 체크
+    function checkHashOnLoad() {
+      const hash = window.location.hash;
+      if (hash.startsWith('#product-')) {
+        const productId = parseInt(hash.replace('#product-', ''));
+        if (productId) {
+          setTimeout(() => {
+            openDetailModal(productId);
+          }, 500);
+        }
+      }
+    }
+    
+    window.addEventListener('load', checkHashOnLoad);
+
     // 초기화
     createSakuraPetals();
     renderTabs();
     updateCount();
   </script>
+  
+  <!-- 토스트 알림 -->
+  <div class="toast" id="toast">URLをコピーしました！</div>
 </body>
 </html>
