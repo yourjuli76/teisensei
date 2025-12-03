@@ -5,8 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>鄭先生のおすすめ 2026春 | JAPANKURU × 日本藥妝研究室</title>
   
+  <!-- SEO & OG Tags -->
+  <meta name="description" content="日本旅行14年のエキスパート・鄭世彬が厳選！2026年春、桜シーズンに買うべきコスメ・医薬品・日用品24選。台湾より安い商品、日本限定アイテムをご紹介。">
+  <meta name="keywords" content="日本旅行,お土産,ドラッグストア,コスメ,医薬品,花見,桜,2026,台湾,ショッピング">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="鄭先生のおすすめ 2026春 | 日本お買い物ガイド">
+  <meta property="og:description" content="日本旅行14年のエキスパートが厳選した、桜シーズンに買うべきアイテム24選！">
+  <meta property="og:image" content="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg">
+  <meta property="og:url" content="https://japankuru.com/tei-sensei-2026-spring">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="鄭先生のおすすめ 2026春">
+  <meta name="twitter:description" content="日本旅行14年のエキスパートが厳選した、桜シーズンに買うべきアイテム24選！">
+  <meta name="twitter:image" content="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    
+    // 이벤트 추적 함수
+    function trackEvent(action, category, label, value) {
+      gtag('event', action, {
+        'event_category': category,
+        'event_label': label,
+        'value': value
+      });
+    }
+  </script>
   
   <style>
     :root {
@@ -1710,7 +1746,20 @@
     .modal-coupon-info { display: flex; align-items: center; gap: 10px; }
     .modal-coupon-info i { color: var(--gold); font-size: 1.2rem; }
     .modal-coupon-discount { font-weight: 900; color: var(--gold); font-size: 1.1rem; }
-    .modal-coupon-code { font-family: monospace; background: var(--white); padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; letter-spacing: 2px; }
+    .modal-coupon-code { 
+      font-family: monospace; 
+      background: var(--white); 
+      padding: 6px 12px; 
+      border-radius: 8px; 
+      font-size: 0.85rem; 
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .modal-coupon-code:hover {
+      background: var(--sakura-light);
+    }
 
     /* 모달 액션 버튼 */
     .modal-actions {
@@ -1941,6 +1990,12 @@
       padding: 20px 30px;
       border-top: 1px solid #eee;
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .list-footer-row {
+      display: flex;
       gap: 12px;
     }
 
@@ -1953,10 +2008,51 @@
       cursor: pointer;
       font-size: 0.85rem;
       transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .share-btn.line { background: #06C755; color: white; }
     .share-btn.copy { background: #f5f5f5; color: var(--text-dark); }
+    
+    .print-list-btn {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: white;
+      color: var(--text-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .print-list-btn:hover {
+      background: #f5f5f5;
+    }
+    
+    /* 인쇄용 스타일 */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .print-area, .print-area * {
+        visibility: visible;
+      }
+      .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
 
     /* === 푸터 === */
     .footer {
@@ -2696,8 +2792,11 @@
       </div>
       <div class="list-items" id="listItems"></div>
       <div class="list-footer" id="listFooter" style="display: none;">
-        <button class="share-btn line" onclick="shareToLine()"><i class="fab fa-line"></i> LINE</button>
-        <button class="share-btn copy" onclick="copyUrl()"><i class="fas fa-copy"></i> URLコピー</button>
+        <div class="list-footer-row">
+          <button class="share-btn line" onclick="shareListToLine()"><i class="fab fa-line"></i> LINE</button>
+          <button class="share-btn copy" onclick="shareListNative()"><i class="fas fa-share-alt"></i> シェア</button>
+        </div>
+        <button class="print-list-btn" onclick="printMyList()"><i class="fas fa-print"></i> リストを印刷</button>
       </div>
     </div>
   </div>
@@ -2829,7 +2928,7 @@
           <div class="product-img" onclick="openDetailModal(${p.id})">
             ${p.useTag ? `<span class="use-tag ${p.useTag}">${p.useLabel}</span>` : ''}
             ${badges.length ? `<div class="badge-row">${badges.join('')}</div>` : ''}
-            <img src="${p.image}" alt="${p.name}" class="product-photo">
+            <img src="${p.image}" alt="${p.name}" class="product-photo" loading="lazy">
           </div>
           <div class="product-body" onclick="openDetailModal(${p.id})">
             <h3 class="product-name">${p.name}</h3>
@@ -2903,9 +3002,6 @@
       updateModalAddBtn();
 
       modal.classList.add('active');
-      
-      // URL 해시 업데이트
-      history.replaceState(null, '', '#product-' + id);
     }
 
     let currentModalId = null;
@@ -2923,11 +3019,14 @@
     }
 
     function closeDetailModal() {
-      document.getElementById('detailModal').classList.remove('active');
-      currentModalId = null;
-      
-      // URL 해시 제거
-      history.replaceState(null, '', window.location.pathname);
+      // 히스토리 뒤로가기 (popstate에서 모달 닫힘)
+      if (window.history.state && window.history.state.modal === 'detail') {
+        history.back();
+      } else {
+        // 직접 URL 접속 등의 경우
+        document.getElementById('detailModal').classList.remove('active');
+        currentModalId = null;
+      }
     }
 
     // 상품 카드에서 리스트 토글
@@ -2964,7 +3063,12 @@
     }
 
     function closeListModal() {
-      document.getElementById('listModal').classList.remove('active');
+      // 히스토리 뒤로가기 (popstate에서 모달 닫힘)
+      if (window.history.state && window.history.state.modal === 'list') {
+        history.back();
+      } else {
+        document.getElementById('listModal').classList.remove('active');
+      }
     }
 
     function renderListItems() {
@@ -3136,6 +3240,188 @@
     }
     
     window.addEventListener('load', checkHashOnLoad);
+    
+    // 뒤로가기 처리 (모달 열린 상태에서 뒤로가기 → 모달 닫기)
+    window.addEventListener('popstate', function(e) {
+      const detailModal = document.getElementById('detailModal');
+      const listModal = document.getElementById('listModal');
+      
+      if (detailModal.classList.contains('active')) {
+        detailModal.classList.remove('active');
+        currentModalId = null;
+      }
+      if (listModal.classList.contains('active')) {
+        listModal.classList.remove('active');
+      }
+      
+      // 해시가 남아있으면 제거
+      if (window.location.hash && !e.state) {
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+    
+    // 모달 열 때 history에 state 추가
+    const originalOpenDetailModal = openDetailModal;
+    openDetailModal = function(id) {
+      history.pushState({ modal: 'detail', id: id }, '', '#product-' + id);
+      originalOpenDetailModal(id);
+      
+      // GA 이벤트 추적
+      const all = getAllProducts();
+      const p = all.find(x => x.id === id);
+      if (p && typeof trackEvent === 'function') {
+        trackEvent('view_product', 'Product', p.name, p.price);
+      }
+    };
+    
+    const originalOpenListModal = openListModal;
+    openListModal = function() {
+      history.pushState({ modal: 'list' }, '');
+      originalOpenListModal();
+      
+      // GA 이벤트 추적
+      if (typeof trackEvent === 'function') {
+        trackEvent('view_list', 'MyList', 'open', myList.length);
+      }
+    };
+    
+    // 마이리스트 LINE 공유
+    function shareListToLine() {
+      const all = getAllProducts();
+      const items = myList.map(id => {
+        const p = all.find(x => x.id === id);
+        return p ? `・${p.name} (¥${p.price.toLocaleString()})` : '';
+      }).filter(x => x).join('\n');
+      
+      const text = `🌸 鄭先生のおすすめ 2026春 マイリスト\n\n${items}\n\n詳しくはこちら👇\n${window.location.origin + window.location.pathname}`;
+      
+      window.open('https://line.me/R/msg/text/?' + encodeURIComponent(text));
+      
+      // GA 이벤트 추적
+      if (typeof trackEvent === 'function') {
+        trackEvent('share_list', 'MyList', 'LINE', myList.length);
+      }
+    }
+    
+    // 마이리스트 네이티브 공유
+    async function shareListNative() {
+      const all = getAllProducts();
+      const items = myList.map(id => {
+        const p = all.find(x => x.id === id);
+        return p ? `${p.name} (¥${p.price.toLocaleString()})` : '';
+      }).filter(x => x).join(', ');
+      
+      const shareData = {
+        title: '鄭先生のおすすめ マイリスト',
+        text: `私のお買い物リスト: ${items}`,
+        url: window.location.origin + window.location.pathname
+      };
+      
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          if (typeof trackEvent === 'function') {
+            trackEvent('share_list', 'MyList', 'native', myList.length);
+          }
+        } catch (err) {
+          // 사용자가 취소한 경우 무시
+        }
+      } else {
+        copyToClipboard(shareData.url);
+      }
+    }
+    
+    // 마이리스트 인쇄
+    function printMyList() {
+      const all = getAllProducts();
+      const items = myList.map(id => {
+        const p = all.find(x => x.id === id);
+        return p ? `
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">☐</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${p.name}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">¥${p.price.toLocaleString()}</td>
+          </tr>
+        ` : '';
+      }).filter(x => x).join('');
+      
+      const total = myList.reduce((sum, id) => {
+        const p = all.find(x => x.id === id);
+        return sum + (p ? p.price : 0);
+      }, 0);
+      
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>マイリスト - 鄭先生のおすすめ 2026春</title>
+          <style>
+            body { font-family: 'Noto Sans JP', sans-serif; padding: 40px; max-width: 600px; margin: 0 auto; }
+            h1 { font-size: 1.5rem; color: #E8879B; margin-bottom: 10px; }
+            .subtitle { color: #999; font-size: 0.9rem; margin-bottom: 30px; }
+            table { width: 100%; border-collapse: collapse; }
+            th { text-align: left; padding: 10px; background: #f5f5f5; }
+            .total { margin-top: 20px; text-align: right; font-size: 1.2rem; font-weight: bold; }
+            .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 0.8rem; }
+          </style>
+        </head>
+        <body>
+          <h1>🌸 マイリスト</h1>
+          <p class="subtitle">鄭先生のおすすめ 2026春</p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 40px;">✓</th>
+                <th>商品名</th>
+                <th style="text-align: right;">価格</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${items}
+            </tbody>
+          </table>
+          <div class="total">合計: ¥${total.toLocaleString()}</div>
+          <div class="footer">
+            JAPANKURU × 日本藥妝研究室<br>
+            ${window.location.href}
+          </div>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
+      
+      // GA 이벤트 추적
+      if (typeof trackEvent === 'function') {
+        trackEvent('print_list', 'MyList', 'print', myList.length);
+      }
+    }
+    
+    // 리스트 토글 시 GA 이벤트
+    const originalToggleList = toggleList;
+    toggleList = function(id, event) {
+      originalToggleList(id, event);
+      const all = getAllProducts();
+      const p = all.find(x => x.id === id);
+      if (p && typeof trackEvent === 'function') {
+        const action = myList.includes(id) ? 'add_to_list' : 'remove_from_list';
+        trackEvent(action, 'MyList', p.name, p.price);
+      }
+    };
+    
+    // 쿠폰 복사 시 GA 이벤트
+    const originalCouponCopy = document.getElementById('modalCouponCode');
+    if (originalCouponCopy) {
+      originalCouponCopy.addEventListener('click', function() {
+        const code = this.textContent;
+        copyToClipboard(code);
+        showToast('クーポンコードをコピーしました！');
+        if (typeof trackEvent === 'function') {
+          trackEvent('copy_coupon', 'Coupon', code);
+        }
+      });
+    }
 
     // 초기화
     createSakuraPetals();
