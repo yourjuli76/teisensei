@@ -168,25 +168,6 @@
       letter-spacing: 0.03em;
     }
 
-    .hero-flight {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      letter-spacing: 8px;
-      animation: flyIn 2s ease-out;
-    }
-
-    @keyframes flyIn {
-      0% { 
-        opacity: 0;
-        letter-spacing: 30px;
-      }
-      100% { 
-        opacity: 1;
-        letter-spacing: 8px;
-      }
-    }
-
     .hero-intro .highlight-text {
       color: var(--sakura-deep);
       font-weight: 600;
@@ -261,6 +242,10 @@
       right: 10%;
       z-index: 10;
       animation: gogaiFloat 3s ease-in-out infinite;
+    }
+    
+    .gogai-mobile {
+      display: none;
     }
 
     @keyframes gogaiFloat {
@@ -366,16 +351,16 @@
 
     @media (max-width: 768px) {
       .gogai-float {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        animation: none;
+        display: none;
       }
       
-      .gogai-card {
+      .gogai-mobile {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0 20px;
+      }
+      
+      .gogai-mobile .gogai-card {
         transform: rotate(-2deg);
         width: 180px;
       }
@@ -928,6 +913,28 @@
     .section-header p {
       font-size: 0.95rem;
       color: var(--text-light);
+    }
+    
+    .card-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #FFF0F3 0%, #FFEEF5 100%);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.85rem !important;
+      color: var(--sakura-deep) !important;
+      margin-top: 15px;
+      border: 1px solid rgba(232,135,155,0.2);
+    }
+    
+    .card-hint i {
+      animation: pointPulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pointPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
 
     /* 탭 */
@@ -1559,19 +1566,48 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      background: rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.95);
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       cursor: pointer;
-      color: var(--text-body);
+      color: var(--sakura-deep);
       z-index: 10;
       transition: all 0.2s;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .modal-close:hover { background: rgba(0,0,0,0.2); }
+    .modal-close:hover { 
+      background: var(--sakura-deep);
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    .modal-close-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .modal-close-bottom:hover {
+      background: #eee;
+    }
 
     /* 모달 헤더 (영상 또는 이미지) */
     .modal-visual {
@@ -2079,7 +2115,6 @@
   <section class="hero" id="hero">
     <div class="hero-inner">
       <p class="hero-intro">
-        <span class="hero-flight">🇹🇼 ✈️ 🇯🇵</span>
         毎年、世界中から人々が訪れる<br>日本の<span class="highlight-text">花見</span>シーズン。
       </p>
       <h1 class="serif">2026年春、<br>あなたも<span>来日</span>予定ですか？</h1>
@@ -2087,13 +2122,48 @@
         <p class="hero-question">「何を買えばいい？」「お土産は？」</p>
         <p class="hero-answer">そんな悩み、<strong>鄭先生</strong>が全部解決します。</p>
       </div>
+      
+      <!-- 호외 카드 (모바일에서는 여기에 표시) -->
+      <div class="gogai-mobile">
+        <div class="gogai-card">
+          <div class="gogai-ribbon">🌸</div>
+          <div class="gogai-header">
+            <span class="gogai-label">號外</span>
+          </div>
+          <div class="gogai-title">
+            桜前線 2026
+          </div>
+          <div class="gogai-body">
+            <div class="gogai-grid">
+              <div class="gogai-item">
+                <span class="gogai-city">福岡</span>
+                <span class="gogai-date">3/20</span>
+              </div>
+              <div class="gogai-item">
+                <span class="gogai-city">東京</span>
+                <span class="gogai-date">3/24</span>
+              </div>
+              <div class="gogai-item">
+                <span class="gogai-city">大阪</span>
+                <span class="gogai-date">3/27</span>
+              </div>
+              <div class="gogai-item">
+                <span class="gogai-city">京都</span>
+                <span class="gogai-date">3/28</span>
+              </div>
+            </div>
+            <p class="gogai-note">※開花予想日（平年値）</p>
+          </div>
+        </div>
+      </div>
+      
       <div class="scroll-indicator" onclick="document.querySelector('.intro-section').scrollIntoView({behavior: 'smooth'})">
         <i class="fas fa-chevron-down"></i>
         <span>もっと見る</span>
       </div>
     </div>
     
-    <!-- 호외 카드 -->
+    <!-- 호외 카드 (PC에서는 오른쪽에 표시) -->
     <div class="gogai-float">
       <div class="gogai-card">
         <div class="gogai-ribbon">🌸</div>
@@ -2269,6 +2339,7 @@
     <div class="section-header">
       <h2 class="serif">鄭先生のおすすめ</h2>
       <p>カテゴリーを選んで、おすすめをチェック！</p>
+      <p class="card-hint"><i class="fas fa-hand-pointer"></i> カードをクリック（タップ）すると、詳細情報・動画・クーポンが見られます</p>
     </div>
 
     <div class="tabs-nav">
@@ -2516,6 +2587,10 @@
             <i class="fas fa-arrow-right"></i> 詳しいコラムを読む
           </a>
         </div>
+        
+        <button class="modal-close-bottom" onclick="closeDetailModal()">
+          <i class="fas fa-times"></i> 閉じる
+        </button>
       </div>
     </div>
   </div>
@@ -2571,7 +2646,7 @@
       cosme: {
         title: 'コスメ・美容',
         icon: '💄',
-        intro: '日本でしか買えない限定コスメ、台湾より安いデパコスを厳選！',
+        intro: '日本限定アイテムやお得なデパコスなど、おすすめをピックアップ',
         products: [
           { id: 1, name: 'SK-II フェイシャルトリートメントエッセンス', price: 18000, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=SK-II', useTag: 'cheaper', useLabel: '💰 台湾より安い', stores: ['百貨店'], tip: '台湾より約30%安い！ピテラ90%以上配合の高濃度処方。大切な人へのギフトに最適です。', coupon: { discount: '10%OFF', code: 'SKII2026' }, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
           { id: 2, name: 'KATE リップモンスター', price: 1540, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=KATE', useTag: 'hit', useLabel: '🔥 SNSで話題', stores: ['ドラッグストア'], tip: '湿度80%でも落ちない！台湾の蒸し暑い気候でも16時間キープ。私の妻も愛用中です。', coupon: { discount: '15%OFF', code: 'KATE15' }, video: null, column: 'https://japankuru.com/' },
@@ -2584,7 +2659,7 @@
       medicine: {
         title: '医薬品',
         icon: '💊',
-        intro: '桜シーズン＝花粉シーズン。旅行中も快適に過ごすための必需品。',
+        intro: '花粉シーズンの対策アイテムや旅行に便利な常備薬など',
         products: [
           { id: 7, name: 'アレグラFX', price: 1980, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アレグラ', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ドラッグストア'], tip: '眠くなりにくい花粉薬の決定版！桜シーズンには必須です。', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
           { id: 8, name: 'EVE クイック頭痛薬', price: 1200, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=EVE', useTag: 'compact', useLabel: '✈️ コンパクト', stores: ['ドラッグストア'], tip: '胃に優しい処方。旅行中の頭痛に素早く効きます。', coupon: null, video: null, column: 'https://japankuru.com/' },
@@ -2597,7 +2672,7 @@
       health: {
         title: '健康食品',
         icon: '🌿',
-        intro: '日本品質のサプリメント・健康食品。自分用にもお土産にも。',
+        intro: '日本品質のサプリメント・健康食品をご紹介',
         products: [
           { id: 13, name: 'DHC ビタミンCパウダー', price: 1200, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=DHC+VitC', useTag: 'hit', useLabel: '🔥 SNSで話題', stores: ['ドラッグストア'], tip: 'SNSで大バズり中！高濃度ビタミンCで美肌効果抜群。', coupon: null, video: null, column: 'https://japankuru.com/' },
           { id: 14, name: 'ファンケル カロリミット', price: 1563, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=カロリミット', useTag: 'omiyage', useLabel: '🎁 お土産に', stores: ['ドラッグストア'], tip: '食事の糖・脂肪の吸収を抑える。ダイエット中の方へのギフトに！', coupon: { discount: '20%OFF', code: 'FANCL20' }, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
@@ -2610,7 +2685,7 @@
       daily: {
         title: '日常品',
         icon: '🏠',
-        intro: '日本でしか買えない便利で高品質な日用品を厳選。',
+        intro: '便利で高品質な日用品をピックアップ',
         products: [
           { id: 19, name: 'ユニクロ ヒートテック', price: 1500, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=HEATTECH', useTag: 'spring', useLabel: '🌸 春限定', stores: ['ユニクロ'], tip: '桜シーズンはまだ肌寒い！軽くて暖かいインナーは必需品。', coupon: { discount: '¥200引', code: 'UQ200' }, video: null, column: 'https://japankuru.com/' },
           { id: 20, name: 'ダイソー コスメグッズ', price: 110, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=DAISO', useTag: 'omiyage', useLabel: '🎁 お土産に', stores: ['ダイソー'], tip: 'パフ・ブラシは買い溜め必須！100円とは思えないクオリティ。', coupon: null, video: 'https://www.youtube.com/embed/dQw4w9WgXcQ', column: 'https://japankuru.com/' },
