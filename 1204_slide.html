@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAPANKURU × 日本藥妝研究室 2026春 企画書</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #1a1a2e;
+      color: #333;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .slides-container {
+      height: 100vh;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slide-content {
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 1100px;
+      height: calc(100vh - 120px);
+      max-height: 720px;
+      padding: 40px 55px 40px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* スライドフッター (PDF用) */
+    .slide-footer {
+      position: absolute;
+      bottom: 12px;
+      left: 55px;
+      right: 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: #bbb;
+      padding-top: 8px;
+      background: #fff;
+      z-index: 10;
+    }
+    .slide-footer .footer-copyright {
+      color: #bbb;
+    }
+    .slide-footer .footer-page {
+      color: #E8879B;
+      font-weight: 600;
+    }
+    /* 다크 배경 슬라이드용 푸터 */
+    .cover-slide .slide-footer,
+    .slide-whynow-hero .slide-footer,
+    .slide-impact .slide-footer {
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+    }
+    .cover-slide .slide-footer .footer-copyright,
+    .slide-whynow-hero .slide-footer .footer-copyright,
+    .slide-impact .slide-footer .footer-copyright {
+      color: rgba(255,255,255,0.5);
+    }
+    .cover-slide .slide-footer .footer-page,
+    .slide-whynow-hero .slide-footer .footer-page,
+    .slide-impact .slide-footer .footer-page {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ナビゲーション */
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #333;
+      z-index: 100;
+      transition: all 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-arrow:hover {
+      background: #E8879B;
+      color: #fff;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-arrow.prev { left: 20px; }
+    .nav-arrow.next { right: 20px; }
+    .nav-arrow:disabled { opacity: 0.3; pointer-events: none; }
+
+    .slide-indicator {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: #E8879B;
+      transform: scale(1.3);
+    }
+
+    .page-num {
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      z-index: 100;
+    }
+
+    /* 共通 */
+    .slide-header {
+      margin-bottom: 30px;
+      padding-bottom: 18px;
+      border-bottom: 3px solid #f0f0f0;
+    }
+
+    .slide-num {
+      font-size: 0.75rem;
+      color: #E8879B;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .slide-header h2 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1.4;
+    }
+
+    .slide-header p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    /* 表紙 */
+    .cover-slide .slide-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: 
+        linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(45,45,68,0.9) 100%),
+        url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1200&q=80') center/cover;
+      color: #fff;
+      padding-bottom: 50px;
+    }
+
+    .cover-badge {
+      background: #E8879B;
+      padding: 8px 22px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cover-logos {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+    .cover-logo-jk, .cover-logo-tei {
+      height: 38px;
+      border-radius: 6px;
+    }
+    .cover-logos-x {
+      font-size: 1.3rem;
+      opacity: 0.5;
+    }
+
+    /* 鄭先生 소개 */
+    .cover-expert-intro {
+      margin-bottom: 22px;
+    }
+    .cover-expert-title {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+    .cover-expert-title strong {
+      color: #4ECDC4;
+      font-size: 1.05rem;
+    }
+    .cover-expert-stats {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .cover-expert-stats span {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+    }
+
+    .cover-main-title {
+      margin-bottom: 18px;
+    }
+
+    .cover-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      line-height: 1.3;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-what {
+      font-size: 1rem;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .cover-what strong {
+      display: block;
+      color: #FFB7C5;
+      font-size: 1.15rem;
+      margin-top: 8px;
+    }
+
+    .cover-season-box {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.1);
+      padding: 15px 40px;
+      border-radius: 40px;
+      backdrop-filter: blur(10px);
+    }
+    .cover-sakura {
+      font-size: 2rem;
+      color: #FFB7C5;
+    }
+    .cover-year {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 2px 15px rgba(255,183,197,0.5);
+    }
+    .cover-spring {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #FFB7C5;
+    }
+
+    .cover-target {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(232,135,155,0.3);
+      border: 1px solid rgba(232,135,155,0.5);
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .cover-flag {
+      font-size: 1.5rem;
+    }
+
+    .cover-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      margin-bottom: 20px;
+    }
+
+    .cover-company {
+      margin-top: auto;
+    }
+
+    .cover-logo {
+      height: 26px;
+      opacity: 0.9;
+      filter: brightness(0) invert(1);
+    }
+
+    /* 旧スタイル削除用 */
+    .cover-collab, .cover-info { display: none; }
+
+    /* グリッド */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    /* カード */
+    .card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card-accent {
+      border-left: 4px solid #E8879B;
+    }
+
+    .card h4 {
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h4 i { color: #E8879B; }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* 数字ボックス */
+    .stat-box {
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px 15px;
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #E8879B;
+      line-height: 1;
+    }
+
+    .stat-box .number small {
+      font-size: 0.85rem;
+      color: #fff;
+      opacity: 0.7;
+    }
+
+    .stat-box .label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    /* フロー */
+    .flow-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 25px 0;
+    }
+
+    .flow-step {
+      flex: 1;
+      text-align: center;
+      padding: 18px 12px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: '→';
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      color: #E8879B;
+    }
+
+    .flow-step:last-child::after { display: none; }
+
+    .flow-num {
+      width: 32px;
+      height: 32px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      margin: 0 auto 10px;
+    }
+
+    .flow-step h4 {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+      color: #1a1a2e;
+    }
+
+    .flow-step p {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    /* 比較テーブル */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .compare-table th {
+      background: #1a1a2e;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .compare-table th:nth-child(2) { background: #666; }
+    .compare-table th:nth-child(3) { background: #E8879B; }
+
+    .compare-table td:nth-child(2) { color: #999; }
+    .compare-table td:nth-child(3) { color: #E8879B; font-weight: 600; }
+
+    /* プランテーブル */
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    .plan-table th,
+    .plan-table td {
+      padding: 18px 15px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    .plan-table thead th {
+      background: #1a1a2e;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .plan-table thead th.recommended { background: #E8879B; }
+
+    .plan-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      background: #f8f9fa;
+      font-size: 1rem;
+    }
+
+    .plan-table .check { 
+      color: #2D9A8C; 
+      font-size: 1.3rem;
+    }
+
+    .plan-table .price-row td {
+      font-weight: 900;
+      font-size: 1.3rem;
+      background: #f8f9fa;
+    }
+
+    /* Plan Slide 전용 */
+    .slide-plan .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-plan .plan-table-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-plan .plan-table {
+      flex: 1;
+    }
+    .slide-plan .plan-table tbody {
+      display: table-row-group;
+    }
+    .slide-plan .plan-table tbody tr {
+      height: calc(100% / 8);
+    }
+    .plan-seminar {
+      margin-top: 25px;
+      padding: 20px 25px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 12px;
+      border: 1px solid #F5D0D8;
+    }
+    .plan-seminar p {
+      font-size: 1.05rem;
+      color: #333;
+    }
+    .plan-seminar strong {
+      color: #E8879B;
+    }
+    .plan-note {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    /* タイムライン */
+    .timeline { margin-top: 15px; }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .timeline-date {
+      min-width: 90px;
+      font-weight: 700;
+      color: #E8879B;
+      font-size: 0.9rem;
+    }
+
+    .timeline-content h4 {
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .timeline-content p {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* SNSアイコン */
+    .sns-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .sns-item:last-child { border-bottom: none; }
+
+    .sns-icon {
+      width: 36px;
+      height: 36px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .sns-icon.fb { background: #1877F2; color: #fff; }
+    .sns-icon.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .sns-icon.yt { background: #FF0000; color: #fff; }
+    .sns-icon.web { background: #1a1a2e; color: #fff; }
+
+    .sns-info { flex: 1; }
+    .sns-info strong { display: block; font-size: 0.85rem; }
+    .sns-info span { font-size: 0.75rem; color: #666; }
+    .sns-reach { font-weight: 900; color: #E8879B; font-size: 1rem; }
+
+    /* ハイライト */
+    .highlight-box {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border: 2px solid #E8879B;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+
+    .highlight-box p {
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      text-align: center;
+    }
+
+    .highlight-box strong { color: #E8879B; }
+
+    /* 注釈 */
+    .note {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 15px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+
+    /* コンタクト */
+    .contact-box {
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .contact-box h3 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item i { color: #E8879B; }
+
+    /* カテゴリカード */
+    .category-card {
+      background: #fff;
+      border: 2px solid #eee;
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .category-card:hover {
+      border-color: #E8879B;
+      transform: translateY(-3px);
+    }
+
+    .category-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .category-card h4 {
+      font-size: 1rem;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .category-card p {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .category-target {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.75rem;
+      color: #E8879B;
+      font-weight: 600;
+    }
+
+    /* LP プレビュー */
+    .lp-preview {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .lp-preview-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lp-preview-title i { color: #E8879B; }
+
+    .lp-mockup {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .lp-card-mock {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      width: 180px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+
+    .lp-card-img {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      height: 100px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .lp-card-img span {
+      font-size: 2rem;
+    }
+
+    .lp-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #E8879B;
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .lp-card-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #1a1a2e;
+    }
+
+    .lp-card-price {
+      font-size: 0.9rem;
+      color: #E8879B;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .lp-card-comment {
+      font-size: 0.7rem;
+      color: #666;
+      line-height: 1.5;
+      padding: 8px;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+
+    .lp-features {
+      flex: 1;
+    }
+
+    .lp-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .lp-feature-num {
+      width: 22px;
+      height: 22px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .lp-feature-text {
+      font-size: 0.8rem;
+      color: #333;
+    }
+
+    .lp-feature-text strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .lp-feature-text span {
+      color: #666;
+      font-size: 0.75rem;
+    }
+
+    /* プロフィール */
+    .profile-box {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #E8879B;
+    }
+
+    .profile-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-info .title {
+      color: #E8879B;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .profile-info ul {
+      font-size: 0.8rem;
+      color: #666;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    /* ========================================
+       各スライド専用スタイル
+       ======================================== */
+
+    /* WHY NOW HERO Slide (서두 임팩트) */
+    .slide-whynow-hero {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%) !important;
+    }
+    .slide-whynow-hero .slide-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: transparent !important;
+      padding: 30px 40px !important;
+    }
+    .slide-whynow-hero .whynow-hero-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-whynow-hero .whynow-hero-top {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .slide-whynow-hero .whynow-hero-label {
+      display: inline-block;
+      background: rgba(232,135,155,0.2);
+      color: #E8879B;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 30px;
+      border-radius: 30px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+    .slide-whynow-hero .whynow-hero-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+    .slide-whynow-hero .whynow-hero-date {
+      color: #4ECDC4;
+      margin-right: 10px;
+    }
+    .slide-whynow-hero .whynow-hero-highlight {
+      background: linear-gradient(135deg, #E8879B, #F5A3B5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-whynow-hero .whynow-hero-middle {
+      display: flex;
+      gap: 40px;
+      flex: 1;
+      align-items: center;
+    }
+    .slide-whynow-hero .whynow-hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 280px;
+      flex-shrink: 0;
+    }
+    .slide-whynow-hero .whynow-hero-stat {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 20px 25px;
+      text-align: center;
+    }
+    .slide-whynow-hero .whynow-hero-stat-num {
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #2D9A8C, #4ECDC4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .slide-whynow-hero .whynow-hero-stat-num small {
+      font-size: 1.5rem;
+    }
+    .slide-whynow-hero .whynow-hero-stat-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+    .slide-whynow-hero .whynow-hero-stat-label span {
+      display: block;
+      color: #4ECDC4;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+    .slide-whynow-hero .whynow-hero-points {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .slide-whynow-hero .whynow-hero-point {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 25px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border-left: 4px solid #E8879B;
+      flex: 1;
+    }
+    .slide-whynow-hero .whynow-hero-point i {
+      color: #E8879B;
+      font-size: 1.3rem;
+      width: 30px;
+    }
+    .slide-whynow-hero .whynow-hero-point span {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .slide-whynow-hero .whynow-hero-conclusion {
+      background: linear-gradient(135deg, rgba(232,135,155,0.2), rgba(232,135,155,0.08));
+      border: 1px solid rgba(232,135,155,0.4);
+      border-radius: 12px;
+      padding: 18px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .slide-whynow-hero .whynow-hero-conclusion p {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .slide-whynow-hero .whynow-hero-conclusion strong {
+      color: #F5A3B5;
+      font-size: 1.1rem;
+    }
+
+    /* IMPACT Slide (期待効果) */
+    .slide-impact {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%) !important;
+    }
+    .slide-impact .slide-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: transparent !important;
+    }
+    .slide-impact .impact-container {
+      text-align: center;
+      width: 100%;
+    }
+    .slide-impact .impact-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #E8879B, #D4728A);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 8px 25px;
+      border-radius: 30px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+    .slide-impact .impact-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 35px;
+    }
+    .slide-impact .impact-title span {
+      background: linear-gradient(135deg, #E8879B, #F5A3B5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-impact .impact-main {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+    .slide-impact .impact-stat {
+      text-align: center;
+    }
+    .slide-impact .impact-num {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #E8879B, #F5A3B5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-impact .impact-num.green {
+      background: linear-gradient(135deg, #2D9A8C, #4ECDC4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-impact .impact-num small {
+      font-size: 2rem;
+    }
+    .slide-impact .impact-stat-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .slide-impact .impact-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .slide-impact .impact-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .slide-impact .impact-point-num {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #E8879B;
+      opacity: 0.7;
+    }
+    .slide-impact .impact-point-text strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .slide-impact .impact-point-text span {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+    }
+
+    /* OVERVIEW Slide */
+    .slide-overview .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-overview .overview-desc {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+    .slide-overview .overview-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+    .slide-overview .overview-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-overview .flow-container {
+      display: flex;
+      gap: 15px;
+      flex: 1;
+    }
+    .slide-overview .flow-step {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 25px 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-overview .flow-num {
+      width: 36px;
+      height: 36px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 12px;
+      font-size: 1rem;
+    }
+    .slide-overview .flow-step h4 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .slide-overview .flow-step p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .slide-overview .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+      flex: 1;
+    }
+    .slide-overview .stat-box {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 14px;
+      padding: 25px 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide-overview .stat-box .number {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .slide-overview .stat-box .number small {
+      font-size: 1.1rem;
+    }
+    .slide-overview .stat-box .label {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 8px;
+    }
+    .slide-overview .overview-img {
+      width: 280px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-overview .overview-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-overview .highlight-box {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border: 2px solid #F5D0D8;
+      border-radius: 14px;
+      padding: 20px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .slide-overview .highlight-box p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .slide-overview .highlight-box strong {
+      color: #E8879B;
+      font-size: 1.15rem;
+    }
+
+    /* KEY PERSON Slide */
+    .slide-keyperson .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-keyperson .keyperson-grid {
+      display: flex;
+      gap: 25px;
+      flex: 1;
+    }
+    .slide-keyperson .keyperson-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-keyperson .keyperson-desc {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-top: 15px;
+    }
+    .slide-keyperson .keyperson-books {
+      flex: 1;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+    }
+    .slide-keyperson .keyperson-books img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-keyperson .keyperson-right {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .slide-keyperson .keyperson-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      gap: 12px;
+      flex: 1;
+    }
+    .slide-keyperson .keyperson-card-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E8879B;
+      flex-shrink: 0;
+    }
+    .slide-keyperson .keyperson-card-content h4 {
+      font-size: 0.85rem;
+      margin-bottom: 3px;
+    }
+    .slide-keyperson .keyperson-card-content p {
+      font-size: 0.75rem;
+      color: #666;
+    }
+    .slide-keyperson .keyperson-card-num {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #E8879B;
+    }
+    .slide-keyperson .keyperson-card-num small {
+      font-size: 0.7rem;
+    }
+    .slide-keyperson .keyperson-card-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #E8879B;
+    }
+
+    /* WHY NOW Slide */
+    .slide-whynow .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-whynow .whynow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      flex: 1;
+    }
+    .slide-whynow .whynow-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-whynow .whynow-card-pink {
+      border: 1px solid #F5D0D8;
+    }
+    .slide-whynow .whynow-card-green {
+      border: 1px solid #C5E5DF;
+    }
+    .slide-whynow .whynow-card-header {
+      padding: 12px 15px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .slide-whynow .whynow-card-pink .whynow-card-header {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      color: #E8879B;
+    }
+    .slide-whynow .whynow-card-green .whynow-card-header {
+      background: linear-gradient(135deg, #E6F5F3, #fff);
+      color: #2D9A8C;
+    }
+    .slide-whynow .whynow-card-body {
+      padding: 15px;
+      flex: 1;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+    .slide-whynow .whynow-card-body p {
+      margin-bottom: 8px;
+    }
+    .slide-whynow .whynow-conclusion {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #E8879B;
+    }
+    .slide-whynow .whynow-conclusion.green {
+      color: #2D9A8C;
+    }
+
+    /* CATEGORY Slide */
+    .slide-category .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-category .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      flex: 1;
+    }
+    .slide-category .category-card-v2 {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-category .category-img {
+      height: 100px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      overflow: hidden;
+    }
+    .slide-category .category-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-category .category-body {
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-category .category-body h4 {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .slide-category .category-body p {
+      font-size: 0.75rem;
+      color: #666;
+      flex: 1;
+    }
+    .slide-category .category-target {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #E8879B;
+      font-weight: 600;
+    }
+    .slide-category .category-footer {
+      margin-top: auto;
+    }
+
+    /* JAPANKURU Slide */
+    .slide-japankuru .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-japankuru .japankuru-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+    .slide-japankuru .japankuru-left {
+      width: 380px;
+      flex-shrink: 0;
+    }
+    .slide-japankuru .japankuru-site-img {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-japankuru .japankuru-site-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-japankuru .japankuru-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .slide-japankuru .japankuru-reach-box {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      padding: 20px 25px;
+      border: 2px solid #F5D0D8;
+    }
+    .slide-japankuru .japankuru-reach-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #E8879B;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .slide-japankuru .japankuru-reach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .slide-japankuru .japankuru-reach-item {
+      text-align: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .slide-japankuru .japankuru-reach-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #E8879B, #D4728A);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin: 0 auto 10px;
+      font-size: 1rem;
+    }
+    .slide-japankuru .japankuru-reach-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #E8879B;
+      line-height: 1;
+    }
+    .slide-japankuru .japankuru-reach-num small {
+      font-size: 0.9rem;
+    }
+    .slide-japankuru .japankuru-reach-label {
+      font-size: 0.7rem;
+      color: #666;
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+    .slide-japankuru .japankuru-merits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .slide-japankuru .japankuru-merit {
+      display: flex;
+      gap: 15px;
+      padding: 18px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      flex: 1;
+      align-items: center;
+    }
+    .slide-japankuru .japankuru-merit-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #2D9A8C, #4ECDC4);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .slide-japankuru .japankuru-merit-content h4 {
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+    .slide-japankuru .japankuru-merit-content p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* LP FEATURES Slide */
+    .slide-lp-features .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-lp-features .lp-features-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+
+    /* LP 미니어처 목업 */
+    .slide-lp-features .lp-mockup-mini {
+      width: 280px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-lp-features .lp-mini-frame {
+      width: 240px;
+      height: 480px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      overflow: hidden;
+      border: 8px solid #1a1a2e;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-lp-features .lp-mini-header {
+      height: 35px;
+      background: linear-gradient(135deg, #E8879B, #D4728A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-lp-features .lp-mini-logo {
+      width: 80px;
+      height: 12px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 6px;
+    }
+    .slide-lp-features .lp-mini-hero {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      padding: 15px 12px;
+      text-align: center;
+    }
+    .slide-lp-features .lp-mini-hero-text {
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1.3;
+    }
+    .slide-lp-features .lp-mini-hero-sub {
+      font-size: 0.65rem;
+      color: #E8879B;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .slide-lp-features .lp-mini-categories {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 6px;
+      background: #f8f9fa;
+    }
+    .slide-lp-features .lp-mini-categories span {
+      font-size: 0.5rem;
+      padding: 3px 6px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 8px;
+    }
+    .slide-lp-features .lp-mini-cards {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      padding: 8px;
+      background: #f5f5f5;
+    }
+    .slide-lp-features .lp-mini-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .slide-lp-features .lp-mini-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-lp-features .lp-mini-list-btn {
+      background: linear-gradient(135deg, #4ECDC4, #3DB8B0);
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .slide-lp-features .lp-mini-list-btn i {
+      font-size: 0.7rem;
+    }
+
+    /* 기능 목록 */
+    .slide-lp-features .lp-features-list {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .slide-lp-features .lp-feature-card {
+      display: flex;
+      gap: 15px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      border: 1px solid #eee;
+      align-items: center;
+    }
+    .slide-lp-features .lp-feature-card.highlight {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-color: #F5D0D8;
+    }
+    .slide-lp-features .lp-feature-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #E8879B, #D4728A);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    .slide-lp-features .lp-feature-content h4 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #1a1a2e;
+    }
+    .slide-lp-features .lp-feature-content p {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* LP CARD STRUCTURE Slide */
+    .slide-lp-card .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-lp-card .lp-card-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+      align-items: stretch;
+    }
+    .slide-lp-card .lp-card-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-lp-card .lp-card-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #E8879B;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .slide-lp-card .lp-card-img-box {
+      flex: 1;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-lp-card .lp-card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-lp-card .lp-card-features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    .slide-lp-card .lp-card-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .slide-lp-card .lp-card-feature span {
+      width: 24px;
+      height: 24px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .slide-lp-card .lp-card-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 70px;
+      flex-shrink: 0;
+    }
+    .slide-lp-card .lp-card-arrow i {
+      font-size: 2rem;
+      color: #E8879B;
+    }
+    .slide-lp-card .lp-card-arrow span {
+      font-size: 0.85rem;
+      color: #E8879B;
+      font-weight: 600;
+    }
+
+    /* DISTRIBUTION Slide */
+    .slide-distribution .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-distribution .distribution-simple {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    .slide-distribution .distribution-sources {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .slide-distribution .distribution-source {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .slide-distribution .distribution-source-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .slide-distribution .distribution-source-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-distribution .distribution-source-icon.boost-icon {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-distribution .distribution-source-icon.boost-icon i {
+      font-size: 2.5rem;
+      color: #4ECDC4;
+    }
+    .slide-distribution .distribution-source-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #333;
+    }
+    .slide-distribution .distribution-plus {
+      font-size: 2rem;
+      color: #E8879B;
+    }
+    .slide-distribution .distribution-arrow {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #E8879B, #D4728A);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-distribution .distribution-arrow i {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+    .slide-distribution .distribution-result {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 20px;
+      padding: 30px 80px;
+      text-align: center;
+    }
+    .slide-distribution .distribution-result-num {
+      font-size: 7rem;
+      font-weight: 900;
+      color: #4ECDC4;
+      line-height: 1;
+    }
+    .slide-distribution .distribution-result-num small {
+      font-size: 3rem;
+    }
+    .slide-distribution .distribution-result-label {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 5px;
+    }
+    .slide-distribution .distribution-result-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 10px;
+    }
+
+    /* COMPARISON Slide */
+    .slide-comparison .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-comparison .comparison-main {
+      display: flex;
+      gap: 25px;
+      flex: 1;
+    }
+    .slide-comparison .compare-table {
+      flex: 1;
+    }
+    .slide-comparison .comparison-img {
+      width: 250px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-comparison .comparison-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SCHEDULE Slide */
+    .slide-schedule .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-schedule .schedule-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+    .slide-schedule .schedule-timeline {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .slide-schedule .timeline-item-v2 {
+      display: flex;
+      gap: 25px;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      flex: 1;
+      align-items: center;
+    }
+    .slide-schedule .timeline-item-v2:last-child {
+      border-bottom: none;
+    }
+    .slide-schedule .timeline-date-v2 {
+      min-width: 100px;
+      font-weight: 700;
+      color: #E8879B;
+      font-size: 1.2rem;
+    }
+    .slide-schedule .timeline-content-v2 h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    .slide-schedule .timeline-content-v2 p {
+      font-size: 1rem;
+      color: #666;
+    }
+    .slide-schedule .timeline-highlight {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 12px;
+      padding: 20px 25px !important;
+      border: none !important;
+    }
+    .slide-schedule .schedule-img {
+      width: 280px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-schedule .schedule-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CONTACT Slide */
+    .slide-contact .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-contact .contact-main {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+      align-items: center;
+    }
+    .slide-contact .contact-left {
+      flex: 1;
+    }
+    .slide-contact .contact-lead {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+    .slide-contact .contact-box {
+      background: #fff;
+      border: 2px solid #E8879B;
+      border-radius: 16px;
+      padding: 30px;
+    }
+    .slide-contact .contact-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+    .slide-contact .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .slide-contact .contact-item {
+      font-size: 1.1rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .slide-contact .contact-item i {
+      width: 25px;
+      color: #E8879B;
+    }
+    .slide-contact .contact-footer {
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .slide-contact .contact-img {
+      width: 320px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      max-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-contact .contact-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Boost Slide 専用スタイル */
+    .slide-boost .slide-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .slide-boost .ad-operation-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .slide-boost .ad-operation-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .slide-boost .ad-operation-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #eee;
+    }
+    .slide-boost .ad-operation-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+    .slide-boost .ad-operation-icon i {
+      font-size: 1.8rem;
+      color: #E8879B;
+    }
+    .slide-boost .ad-operation-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+    .slide-boost .ad-operation-card p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .slide-boost .ad-operation-pricing {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 16px;
+      padding: 25px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-boost .ad-operation-pricing-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .slide-boost .ad-operation-pricing-header i {
+      color: #4ECDC4;
+      font-size: 1.3rem;
+    }
+    .slide-boost .ad-operation-pricing-table {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+      align-items: center;
+    }
+    .slide-boost .ad-operation-pricing-row {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .slide-boost .ad-operation-pricing-row.highlight {
+      background: rgba(78, 205, 196, 0.15);
+      border: 2px solid #4ECDC4;
+    }
+    .slide-boost .ad-pricing-budget {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #E8879B;
+    }
+    .slide-boost .ad-pricing-arrow {
+      color: rgba(255,255,255,0.5);
+      font-size: 1.2rem;
+    }
+    .slide-boost .ad-pricing-reach {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #4ECDC4;
+    }
+    .slide-boost .ad-operation-pricing-note {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    /* LP Structure Slide 専用スタイル */
+    .slide-lp-structure .lp-cards-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .slide-lp-structure .lp-card-section {
+      flex: 1;
+      max-width: 280px;
+    }
+
+    .slide-lp-structure .lp-card-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      background: #f0f0f0;
+      padding: 8px 12px;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .slide-lp-structure .lp-card-mock-v2 {
+      background: #fff;
+      border: 2px solid #eee;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .slide-lp-structure .lp-card-img-v2 {
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .slide-lp-structure .lp-card-img-v2 i {
+      font-size: 2rem;
+      color: #E8879B;
+    }
+
+    .slide-lp-structure .lp-tag-v2 {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #E8879B;
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .slide-lp-structure .lp-card-body-v2 {
+      text-align: center;
+    }
+
+    .slide-lp-structure .lp-card-name-v2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .slide-lp-structure .lp-card-price-v2 {
+      font-size: 1rem;
+      color: #E8879B;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .slide-lp-structure .lp-card-comment-v2 {
+      font-size: 0.7rem;
+      color: #666;
+      background: #f8f9fa;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    .slide-lp-structure .lp-card-features-v2 {
+      margin-top: 12px;
+    }
+
+    .slide-lp-structure .lp-feature-v2 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #333;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .slide-lp-structure .lp-feature-v2:last-child {
+      border-bottom: none;
+    }
+
+    .slide-lp-structure .lp-feature-v2 span {
+      width: 18px;
+      height: 18px;
+      background: #E8879B;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .slide-lp-structure .lp-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 10px;
+      color: #E8879B;
+    }
+
+    .slide-lp-structure .lp-arrow i {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      animation: pointPulse 1.5s ease-in-out infinite;
+    }
+
+    .slide-lp-structure .lp-arrow span {
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    @keyframes pointPulse {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    .slide-lp-structure .lp-modal-mock-v2 {
+      background: #fff;
+      border: 2px solid #eee;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .slide-lp-structure .lp-modal-header-v2 {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 8px;
+    }
+
+    .slide-lp-structure .lp-modal-img-v2 {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #FFF0F3, #fff);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-lp-structure .lp-modal-img-v2 i {
+      font-size: 1.2rem;
+      color: #E8879B;
+    }
+
+    .slide-lp-structure .lp-modal-info-v2 {
+      flex: 1;
+    }
+
+    .slide-lp-structure .lp-modal-name-v2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .slide-lp-structure .lp-modal-price-v2 {
+      font-size: 0.85rem;
+      color: #E8879B;
+      font-weight: 900;
+    }
+
+    .slide-lp-structure .lp-modal-tags-v2 {
+      display: flex;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .slide-lp-structure .lp-modal-tags-v2 span {
+      background: #f8f9fa;
+      font-size: 0.55rem;
+      padding: 2px 6px;
+      border-radius: 8px;
+      color: #666;
+    }
+
+    .slide-lp-structure .lp-modal-section-v2 {
+      margin-bottom: 8px;
+    }
+
+    .slide-lp-structure .lp-modal-label-v2 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #E8879B;
+      margin-bottom: 3px;
+    }
+
+    .slide-lp-structure .lp-modal-text-v2 {
+      font-size: 0.7rem;
+      color: #666;
+      background: #f8f9fa;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    .slide-lp-structure .lp-modal-video-v2 {
+      background: #1a1a2e;
+      height: 40px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .slide-lp-structure .lp-modal-video-v2 i {
+      font-size: 1rem;
+    }
+
+    .slide-lp-structure .lp-modal-coupon-v2 {
+      background: #FDF8E8;
+      border: 1px dashed #D4A853;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #D4A853;
+      text-align: center;
+    }
+
+    .slide-lp-structure .lp-modal-btn-v2 {
+      background: #E8879B;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .slide-lp-structure .lp-cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .slide-lp-structure .lp-card-section {
+        max-width: 100%;
+        width: 100%;
+      }
+      .slide-lp-structure .lp-arrow {
+        transform: rotate(90deg);
+        padding: 10px;
+      }
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .slide { padding: 20px; }
+      .slide-content {
+        padding: 25px;
+        height: calc(100vh - 80px);
+      }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .flow-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .flow-step::after {
+        content: '↓';
+        right: auto;
+        bottom: -15px;
+        top: auto;
+        transform: none;
+      }
+      .nav-arrow { display: none; }
+      .lp-mockup { flex-direction: column; }
+      .profile-box { flex-direction: column; align-items: center; text-align: center; }
+    }
+
+    .keyboard-hint {
+      position: fixed;
+      bottom: 30px;
+      left: 40px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slides-container">
+
+    <!-- 01: 表紙 -->
+    <div class="slide cover-slide active">
+      <div class="slide-content">
+        <div class="cover-badge">ご提案資料</div>
+        
+        <!-- 로고 영역 -->
+        <div class="cover-logos">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/09/JAPANKURU_white-2-1.png" alt="JAPANKURU" class="cover-logo-jk">
+          <span class="cover-logos-x">×</span>
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="cover-logo-tei">
+        </div>
+
+        <!-- 鄭先生 소개 -->
+        <div class="cover-expert-intro">
+          <p class="cover-expert-title">台湾で最も信頼される<strong>日本ドラッグストア商品の専門家</strong></p>
+          <div class="cover-expert-stats">
+            <span>著書18冊</span>
+            <span>ブログ累計1,265万PV</span>
+            <span>作家活動13年</span>
+          </div>
+        </div>
+
+        <!-- 메인 타이틀 -->
+        <div class="cover-main-title">
+          <h1 class="cover-title">鄭先生の日本ショッピングガイド</h1>
+          <p class="cover-what">コスメ・医薬品・健康食品・日用品<br><strong>4カテゴリ厳選アイテムを一挙紹介</strong></p>
+        </div>
+
+        <!-- 시즌 -->
+        <div class="cover-season-box">
+          <span class="cover-sakura"><i class="fas fa-spa"></i></span>
+          <span class="cover-year">2026</span>
+          <span class="cover-spring">春</span>
+        </div>
+
+        <!-- 대만 타겟 -->
+        <div class="cover-target">
+          <span class="cover-flag">🇹🇼</span>
+          <span>台湾向けプロモーション</span>
+        </div>
+
+        <!-- 하단 로고 -->
+        <div class="cover-company">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/GLD_type02_white_1178_785-2-1.png" alt="Global Daily" class="cover-logo">
+        </div>
+      </div>
+    </div>
+
+    <!-- 02: WHY NOW - 서두 임팩트 -->
+    <div class="slide slide-whynow-hero">
+      <div class="slide-content">
+        <div class="whynow-hero-container">
+          <div class="whynow-hero-top">
+            <div class="whynow-hero-label">WHY NOW</div>
+            <h2 class="whynow-hero-title">
+              <span class="whynow-hero-date">2026年3月〜4月</span> 桜シーズンの台湾人観光客を狙うなら、<span class="whynow-hero-highlight">今から</span>準備
+            </h2>
+          </div>
+
+          <div class="whynow-hero-middle">
+            <div class="whynow-hero-stats">
+              <div class="whynow-hero-stat">
+                <div class="whynow-hero-stat-num">52.3<small>万人</small></div>
+                <div class="whynow-hero-stat-label">2025年3月 訪日台湾人<span>3月として過去最高</span></div>
+              </div>
+              <div class="whynow-hero-stat">
+                <div class="whynow-hero-stat-num">604<small>万人</small></div>
+                <div class="whynow-hero-stat-label">2024年 年間訪日台湾人<span>過去最高・消費額1兆円超</span></div>
+              </div>
+            </div>
+
+            <div class="whynow-hero-points">
+              <div class="whynow-hero-point"><i class="fas fa-exclamation-triangle"></i><span>中国の渡航自粛要請で、日本企業の台湾シフトが加速</span></div>
+              <div class="whynow-hero-point"><i class="fas fa-store"></i><span>桜シーズンは各メーカーが新商品・限定パッケージを投入する激戦期</span></div>
+              <div class="whynow-hero-point"><i class="fas fa-search"></i><span>台湾人は訪日前に「何を買うか」を徹底リサーチする習慣がある</span></div>
+            </div>
+          </div>
+
+          <div class="whynow-hero-conclusion">
+            <p>「賢く買いたい」台湾人に向けた<strong>専門家監修のショッピングガイド</strong>を、訪日ピーク前に届けるプロモーション</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: 期待効果 -->
+    <div class="slide slide-impact">
+      <div class="slide-content">
+        <div class="impact-container">
+          <div class="impact-label">EXPECTED RESULTS</div>
+          <h2 class="impact-title">御社が得られる<span>効果</span></h2>
+          
+          <div class="impact-main">
+            <div class="impact-stat">
+              <div class="impact-num">120<small>万+</small></div>
+              <div class="impact-stat-label">台湾人へのリーチ</div>
+            </div>
+            <div class="impact-stat">
+              <div class="impact-num green">永久</div>
+              <div class="impact-stat-label">掲載期間</div>
+            </div>
+          </div>
+
+          <div class="impact-points">
+            <div class="impact-point">
+              <div class="impact-point-num">01</div>
+              <div class="impact-point-text">
+                <strong>広告ではなく「推薦」として届く</strong>
+                <span>専門家のお墨付きで信頼性が段違い</span>
+              </div>
+            </div>
+            <div class="impact-point">
+              <div class="impact-point-num">02</div>
+              <div class="impact-point-text">
+                <strong>「日本で買いたい人」だけに届く</strong>
+                <span>訪日予定の台湾人にピンポイント訴求</span>
+              </div>
+            </div>
+            <div class="impact-point">
+              <div class="impact-point-num">03</div>
+              <div class="impact-point-text">
+                <strong>認知で終わらず、購買まで導く</strong>
+                <span>価格・店舗・クーポンで行動を後押し</span>
+              </div>
+            </div>
+            <div class="impact-point">
+              <div class="impact-point-num">04</div>
+              <div class="impact-point-text">
+                <strong>削除しない限り、届き続ける</strong>
+                <span>LP・コラムが検索流入を永続的に獲得</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: 企画概要 -->
+    <div class="slide slide-overview">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">03 / OVERVIEW</div>
+          <h2>企画の全体像</h2>
+        </div>
+        
+        <p class="overview-desc">
+          台湾で高い信頼を得ている日本薬粧研究家「鄭世彬」と、<br>
+          訪日観光メディア「JAPANKURU」による共同プロモーション企画です。
+        </p>
+
+        <div class="overview-main">
+          <div class="overview-left">
+            <div class="flow-container">
+              <div class="flow-step">
+                <div class="flow-num">1</div>
+                <h4>制作</h4>
+                <p>LP・コラム・動画</p>
+              </div>
+              <div class="flow-step">
+                <div class="flow-num">2</div>
+                <h4>掲載</h4>
+                <p>JAPANKURU.com</p>
+              </div>
+              <div class="flow-step">
+                <div class="flow-num">3</div>
+                <h4>発信</h4>
+                <p>鄭先生+JK SNS</p>
+              </div>
+              <div class="flow-step">
+                <div class="flow-num">4</div>
+                <h4>拡散</h4>
+                <p>広告・イベント</p>
+              </div>
+            </div>
+
+            <div class="overview-stats">
+              <div class="stat-box">
+                <div class="number">24<small>+10</small></div>
+                <div class="label">掲載商品数</div>
+              </div>
+              <div class="stat-box">
+                <div class="number">4</div>
+                <div class="label">カテゴリ</div>
+              </div>
+              <div class="stat-box">
+                <div class="number">永久</div>
+                <div class="label">掲載期間</div>
+              </div>
+              <div class="stat-box">
+                <div class="number">3/9</div>
+                <div class="label">公開予定</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="overview-img">
+            <img src="https://placehold.co/260x380/FFF0F3/E8879B?text=CONCEPT%0AIMAGE" alt="企画イメージ">
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p>LP掲載だけでなく、<strong>SNS発信 + イベント</strong>まで含めた統合プロモーションです</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03: 鄭先生とは -->
+    <div class="slide slide-keyperson">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">04 / KEY PERSON</div>
+          <h2>鄭世彬（チェン・シービン）とは</h2>
+        </div>
+
+        <div class="keyperson-grid">
+          <div class="keyperson-left">
+            <div class="profile-box">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg" alt="鄭世彬" class="profile-img">
+              <div class="profile-info">
+                <h3>鄭世彬</h3>
+                <div class="title">日本コスメ・OTC医薬品情報作家</div>
+                <ul>
+                  <li>日中翻訳家（実務経験20年以上）</li>
+                  <li>2011年 作家デビュー</li>
+                  <li>「日本藥妝研究室」主宰</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="keyperson-desc">
+              <p>日本のコスメおよびOTC医薬品に関する情報書籍を多数手がけるベストセラー作家。現在は執筆活動のほか、台湾各地でセミナーを開催し、日本国内メーカーへの訪日コンサルティングも担当。</p>
+            </div>
+
+            <div class="keyperson-books">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/スクリーンショット-2025-12-04-10.37.06.png" alt="著書">
+            </div>
+          </div>
+          
+          <div class="keyperson-right">
+            <div class="keyperson-card">
+              <div class="keyperson-card-icon"><i class="fas fa-book"></i></div>
+              <div class="keyperson-card-content">
+                <h4>著書</h4>
+                <p>『日本藥妝美研購』シリーズなど</p>
+                <div class="keyperson-card-num">18<small>冊</small></div>
+              </div>
+            </div>
+            <div class="keyperson-card">
+              <div class="keyperson-card-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="keyperson-card-content">
+                <h4>ブログ</h4>
+                <p>累計PV数</p>
+                <div class="keyperson-card-num">1,265<small>万</small></div>
+              </div>
+            </div>
+            <div class="keyperson-card">
+              <div class="keyperson-card-icon"><i class="fas fa-microphone"></i></div>
+              <div class="keyperson-card-content">
+                <h4>セミナー</h4>
+                <p>日本のコスメ商品情報のアンテナとして</p>
+                <div class="keyperson-card-label">台湾各地で開催</div>
+              </div>
+            </div>
+            <div class="keyperson-card">
+              <div class="keyperson-card-icon"><i class="fas fa-briefcase"></i></div>
+              <div class="keyperson-card-content">
+                <h4>コンサルティング</h4>
+                <p>日本国内メーカーへの</p>
+                <div class="keyperson-card-label">訪日コンサルティング</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: JAPANKURU紹介 -->
+    <div class="slide slide-japankuru">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">05 / MEDIA</div>
+          <h2>なぜJAPANKURUに掲載するのか</h2>
+        </div>
+
+        <div class="japankuru-main">
+          <div class="japankuru-left">
+            <div class="japankuru-site-img">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/スクリーンショット-2025-12-04-12.59.31.png" alt="JAPANKURU サイト">
+            </div>
+          </div>
+
+          <div class="japankuru-right">
+            <div class="japankuru-reach-box">
+              <div class="japankuru-reach-title">🇹🇼 台湾市場（繁体字）特化リーチ</div>
+              <div class="japankuru-reach-grid">
+                <div class="japankuru-reach-item">
+                  <div class="japankuru-reach-icon"><i class="fas fa-newspaper"></i></div>
+                  <div class="japankuru-reach-num">15<small>万~</small></div>
+                  <div class="japankuru-reach-label">繁体字記事<br>月間ページビュー</div>
+                </div>
+                <div class="japankuru-reach-item">
+                  <div class="japankuru-reach-icon"><i class="fab fa-facebook-f"></i></div>
+                  <div class="japankuru-reach-num">5<small>万~</small></div>
+                  <div class="japankuru-reach-label">Facebook<br>平均リーチ</div>
+                </div>
+                <div class="japankuru-reach-item">
+                  <div class="japankuru-reach-icon"><i class="fab fa-instagram"></i></div>
+                  <div class="japankuru-reach-num">3<small>万</small></div>
+                  <div class="japankuru-reach-label">Instagram<br>平均リーチ</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="japankuru-merits">
+              <div class="japankuru-merit">
+                <div class="japankuru-merit-icon"><i class="fas fa-bullseye"></i></div>
+                <div class="japankuru-merit-content">
+                  <h4>訪日「予定者」にリーチ</h4>
+                  <p>観光情報を探している＝訪日予定がある人に届く</p>
+                </div>
+              </div>
+              <div class="japankuru-merit">
+                <div class="japankuru-merit-icon"><i class="fas fa-search"></i></div>
+                <div class="japankuru-merit-content">
+                  <h4>SEOで継続流入</h4>
+                  <p>検索上位表示で掲載後も長期間アクセスを獲得</p>
+                </div>
+              </div>
+              <div class="japankuru-merit">
+                <div class="japankuru-merit-icon"><i class="fas fa-handshake"></i></div>
+                <div class="japankuru-merit-content">
+                  <h4>鄭先生との相乗効果</h4>
+                  <p>専門家の信頼性 × メディアの拡散力</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: LP機能紹介 -->
+    <div class="slide slide-lp-features">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">06 / LP FEATURES</div>
+          <h2>ユーザーが使うLP機能</h2>
+        </div>
+
+        <div class="lp-features-main">
+          <!-- 좌측: LP 미니어처 목업 -->
+          <div class="lp-mockup-mini">
+            <div class="lp-mini-frame">
+              <div class="lp-mini-header">
+                <div class="lp-mini-logo"></div>
+              </div>
+              <div class="lp-mini-hero">
+                <div class="lp-mini-hero-text">鄭先生の<br>おすすめ</div>
+                <div class="lp-mini-hero-sub">2026春</div>
+              </div>
+              <div class="lp-mini-categories">
+                <span>コスメ</span><span>医薬品</span><span>健康食品</span><span>日用品</span>
+              </div>
+              <div class="lp-mini-cards">
+                <div class="lp-mini-card"><img src="https://www.japankuru.com/gld-kanri/data/uploads/2025/11/KOWA_new_CC17-1536x1024.jpg" alt="商品1"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=2" alt="商品2"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=3" alt="商品3"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=4" alt="商品4"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=5" alt="商品5"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=6" alt="商品6"></div>
+              </div>
+              <div class="lp-mini-list-btn">
+                <i class="fas fa-clipboard-list"></i> マイリスト
+              </div>
+            </div>
+          </div>
+
+          <!-- 우측: 기능 설명 -->
+          <div class="lp-features-list">
+            <div class="lp-feature-card">
+              <div class="lp-feature-icon"><i class="fas fa-th-large"></i></div>
+              <div class="lp-feature-content">
+                <h4>4カテゴリで探しやすく</h4>
+                <p>コスメ・医薬品・健康食品・日用品の4つに分類</p>
+              </div>
+            </div>
+            <div class="lp-feature-card highlight">
+              <div class="lp-feature-icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="lp-feature-content">
+                <h4>マイ・ショッピングリスト</h4>
+                <p>気になる商品を「リストに追加」で自分だけの買い物リストを作成</p>
+              </div>
+            </div>
+            <div class="lp-feature-card">
+              <div class="lp-feature-icon"><i class="fas fa-comment-dots"></i></div>
+              <div class="lp-feature-content">
+                <h4>鄭先生の推薦コメント</h4>
+                <p>なぜおすすめなのか、専門家目線で分かりやすく解説</p>
+              </div>
+            </div>
+            <div class="lp-feature-card">
+              <div class="lp-feature-icon"><i class="fas fa-play-circle"></i></div>
+              <div class="lp-feature-content">
+                <h4>商品紹介動画（オプション）</h4>
+                <p>使い方・実演を動画で紹介。テキストでは伝わらない魅力を訴求</p>
+              </div>
+            </div>
+            <div class="lp-feature-card">
+              <div class="lp-feature-icon"><i class="fas fa-newspaper"></i></div>
+              <div class="lp-feature-content">
+                <h4>コラム記事連携</h4>
+                <p>JAPANKURU.comの詳細記事にリンクで購買意欲を高める</p>
+              </div>
+            </div>
+            <div class="lp-feature-card">
+              <div class="lp-feature-icon"><i class="fas fa-ticket-alt"></i></div>
+              <div class="lp-feature-content">
+                <h4>クーポン表示</h4>
+                <p>店頭で使えるクーポンコードで「今すぐ買う理由」を提供</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08: 商品カード構成 -->
+    <div class="slide slide-lp-card">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">07 / CARD STRUCTURE</div>
+          <h2>商品カードの構成</h2>
+        </div>
+
+        <div class="lp-card-main">
+          <!-- 앞면 -->
+          <div class="lp-card-section">
+            <div class="lp-card-label">カード表面（一覧表示）</div>
+            <div class="lp-card-img-box">
+              <img src="https://placehold.co/350x420/FFF0F3/E8879B?text=CARD%0AFRONT%0AIMAGE" alt="カード表面">
+            </div>
+            <div class="lp-card-features">
+              <div class="lp-card-feature"><span>1</span>タグ</div>
+              <div class="lp-card-feature"><span>2</span>画像</div>
+              <div class="lp-card-feature"><span>3</span>名前・価格</div>
+              <div class="lp-card-feature"><span>4</span>コメント</div>
+            </div>
+          </div>
+
+          <!-- 화살표 -->
+          <div class="lp-card-arrow">
+            <i class="fas fa-arrow-right"></i>
+            <span>タップ</span>
+          </div>
+
+          <!-- 뒷면 -->
+          <div class="lp-card-section">
+            <div class="lp-card-label">詳細モーダル（タップ後）</div>
+            <div class="lp-card-img-box">
+              <img src="https://placehold.co/350x420/FFF0F3/E8879B?text=MODAL%0ADETAIL%0AIMAGE" alt="詳細モーダル">
+            </div>
+            <div class="lp-card-features">
+              <div class="lp-card-feature"><span>5</span>解説</div>
+              <div class="lp-card-feature"><span>6</span>動画</div>
+              <div class="lp-card-feature"><span>7</span>クーポン</div>
+              <div class="lp-card-feature"><span>8</span>コラム</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07: 発信チャネル -->
+    <div class="slide slide-distribution">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">08 / DISTRIBUTION</div>
+          <h2>発信チャネル</h2>
+        </div>
+
+        <div class="distribution-simple">
+          <div class="distribution-sources">
+            <div class="distribution-source">
+              <div class="distribution-source-icon">
+                <img src="https://placehold.co/80x80/FFF0F3/E8879B?text=鄭" alt="鄭先生">
+              </div>
+              <div class="distribution-source-name">鄭先生 SNS</div>
+            </div>
+            <div class="distribution-plus"><i class="fas fa-plus"></i></div>
+            <div class="distribution-source">
+              <div class="distribution-source-icon">
+                <img src="https://placehold.co/80x80/FFF0F3/E8879B?text=JK" alt="JAPANKURU">
+              </div>
+              <div class="distribution-source-name">JAPANKURU</div>
+            </div>
+            <div class="distribution-plus"><i class="fas fa-plus"></i></div>
+            <div class="distribution-source boost">
+              <div class="distribution-source-icon boost-icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <div class="distribution-source-name">ブースト広告</div>
+            </div>
+          </div>
+
+          <div class="distribution-arrow">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+
+          <div class="distribution-result">
+            <div class="distribution-result-num">10<small>万+</small></div>
+            <div class="distribution-result-label">リーチ確保</div>
+            <div class="distribution-result-desc">桜シーズン前に、訪日予定の台湾人へ確実に届ける</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08: 広告運用オプション -->
+    <div class="slide slide-boost">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">09 / AD OPERATION</div>
+          <h2>広告運用（オプション）</h2>
+          <p>ご予算に応じて、さらにリーチを拡大できます</p>
+        </div>
+
+        <div class="ad-operation-main">
+          <div class="ad-operation-cards">
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon"><i class="fab fa-google"></i></div>
+              <h4>Google Display広告</h4>
+              <p>訪日予定者にバナー広告を配信</p>
+            </div>
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon"><i class="fab fa-facebook-f"></i></div>
+              <h4>Facebook広告</h4>
+              <p>台湾ユーザーへターゲット配信</p>
+            </div>
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon"><i class="fab fa-instagram"></i></div>
+              <h4>Instagram広告</h4>
+              <p>ビジュアル訴求で商品をPR</p>
+            </div>
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon"><i class="fas fa-image"></i></div>
+              <h4>バナー制作</h4>
+              <p>広告用クリエイティブを作成</p>
+            </div>
+          </div>
+
+          <div class="ad-operation-pricing">
+            <div class="ad-operation-pricing-header">
+              <i class="fas fa-chart-line"></i>
+              <span>予算とリーチの目安</span>
+            </div>
+            <div class="ad-operation-pricing-table">
+              <div class="ad-operation-pricing-row">
+                <span class="ad-pricing-budget">10万円</span>
+                <span class="ad-pricing-arrow">→</span>
+                <span class="ad-pricing-reach">+10〜20万リーチ</span>
+              </div>
+              <div class="ad-operation-pricing-row">
+                <span class="ad-pricing-budget">30万円</span>
+                <span class="ad-pricing-arrow">→</span>
+                <span class="ad-pricing-reach">+30〜50万リーチ</span>
+              </div>
+              <div class="ad-operation-pricing-row highlight">
+                <span class="ad-pricing-budget">50万円</span>
+                <span class="ad-pricing-arrow">→</span>
+                <span class="ad-pricing-reach">+50〜100万リーチ</span>
+              </div>
+            </div>
+            <div class="ad-operation-pricing-note">
+              ※ 運用代行費込み。リーチ数は目安です。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09: 比較 -->
+    <div class="slide slide-comparison">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">10 / COMPARISON</div>
+          <h2>従来の広告との違い</h2>
+        </div>
+
+        <div class="comparison-main">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">項目</th>
+                <th style="width: 39%;">従来の広告</th>
+                <th style="width: 39%;">本企画</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>信頼性</td>
+                <td>企業発信のため広告感が強い</td>
+                <td>専門家の推薦として受け入れられる</td>
+              </tr>
+              <tr>
+                <td>ターゲット</td>
+                <td>不特定多数への配信</td>
+                <td>「訪日予定の台湾人」に絞れる</td>
+              </tr>
+              <tr>
+                <td>継続性</td>
+                <td>配信期間のみ露出</td>
+                <td>LP・コラムがアーカイブとして残る</td>
+              </tr>
+              <tr>
+                <td>行動喚起</td>
+                <td>認知で終わりやすい</td>
+                <td>購入場所・価格を明示し購買へ導く</td>
+              </tr>
+              <tr>
+                <td>拡散</td>
+                <td>自社メディアのみ</td>
+                <td>鄭先生 + JAPANKURU 同時発信</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="comparison-img">
+            <img src="https://placehold.co/280x300/FFF0F3/E8879B?text=IMAGE" alt="比較イメージ">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10: プラン -->
+    <div class="slide slide-plan">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">11 / PLAN & PRICING</div>
+          <h2>掲載プラン（税別）</h2>
+        </div>
+
+        <div class="plan-table-wrapper">
+        <table class="plan-table">
+          <thead>
+            <tr>
+              <th>内容</th>
+              <th>ベーシック</th>
+              <th class="recommended">スタンダード ★</th>
+              <th>プレミアム</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LP商品カード掲載</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>コラム記事掲載</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>JAPANKURU SNS投稿</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>鄭先生SNS投稿</td>
+              <td>-</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>クーポン掲載</td>
+              <td>-</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>動画制作・掲載</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td>SNS広告ブースト</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr class="price-row">
+              <td>参考価格</td>
+              <td>¥○○万〜</td>
+              <td style="color: #E8879B;">¥○○万〜</td>
+              <td>¥○○万〜</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div class="plan-seminar">
+          <p><strong>セミナー協賛</strong>（別途）：¥○○万〜 ／ 東京セミナーでの商品紹介・サンプル配布</p>
+        </div>
+
+        <div class="plan-note">
+          ※ 価格はカテゴリ・内容により変動します。詳細はお問い合わせください
+        </div>
+      </div>
+    </div>
+
+    <!-- 11: スケジュール -->
+    <div class="slide slide-schedule">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">12 / SCHEDULE</div>
+          <h2>スケジュール</h2>
+        </div>
+
+        <div class="schedule-main">
+          <div class="schedule-timeline">
+            <div class="timeline-item-v2">
+              <div class="timeline-date-v2">1月23日</div>
+              <div class="timeline-content-v2">
+                <h4>広告ご提案開始</h4>
+                <p>本資料をもとにご説明・ご検討</p>
+              </div>
+            </div>
+            <div class="timeline-item-v2">
+              <div class="timeline-date-v2">2月27日</div>
+              <div class="timeline-content-v2">
+                <h4>広告案件確定・素材入稿</h4>
+                <p>掲載確定、商品画像・情報のご入稿</p>
+              </div>
+            </div>
+            <div class="timeline-item-v2">
+              <div class="timeline-date-v2">3月9日</div>
+              <div class="timeline-content-v2">
+                <h4>LP公開・SNS発信開始</h4>
+                <p>特設ページ公開、各SNSで一斉発信</p>
+              </div>
+            </div>
+            <div class="timeline-item-v2">
+              <div class="timeline-date-v2">3月中旬</div>
+              <div class="timeline-content-v2">
+                <h4>在日台湾人セミナー開催</h4>
+                <p>東京にて鄭先生トークショー＋体験会</p>
+              </div>
+            </div>
+            <div class="timeline-item-v2 timeline-highlight">
+              <div class="timeline-date-v2">3月〜5月</div>
+              <div class="timeline-content-v2">
+                <h4>桜シーズン・GW 集中露出期間</h4>
+                <p>台湾人訪日ピーク期間にあわせた継続露出</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-img">
+            <img src="https://placehold.co/320x380/FFF0F3/E8879B?text=SAKURA+IMAGE" alt="桜シーズン">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12: お問い合わせ -->
+    <div class="slide slide-contact">
+      <div class="slide-content">
+        <div class="slide-header">
+          <div class="slide-num">13 / CONTACT</div>
+          <h2>お問い合わせ</h2>
+        </div>
+
+        <div class="contact-main">
+          <div class="contact-left">
+            <p class="contact-lead">
+              詳細のご説明、お見積りなど<br>お気軽にご連絡ください。
+            </p>
+
+            <div class="contact-box">
+              <h3>株式会社グローバルデイリー</h3>
+              <div class="contact-items">
+                <div class="contact-item"><i class="fas fa-user"></i> 担当：金</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> xxx@gldaily.com</div>
+                <div class="contact-item"><i class="fas fa-phone"></i> 03-xxxx-xxxx</div>
+              </div>
+            </div>
+
+            <div class="contact-footer">
+              <p>JAPANKURU × 日本藥妝研究室<br>「鄭先生のおすすめ 2026春」</p>
+            </div>
+          </div>
+
+          <div class="contact-img">
+            <img src="https://placehold.co/350x400/FFF0F3/E8879B?text=CONTACT+IMAGE" alt="お問い合わせ">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ナビゲーション -->
+  <button class="nav-arrow prev" onclick="changeSlide(-1)" disabled><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+
+  <div class="slide-indicator" id="indicator"></div>
+  <div class="page-num"><span id="currentPage">1</span> / <span id="totalPages">14</span></div>
+  <div class="keyboard-hint">← → キーで移動</div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+
+    // 각 슬라이드에 푸터 추가 (PDF용)
+    slides.forEach((slide, i) => {
+      const footer = document.createElement('div');
+      footer.className = 'slide-footer';
+      footer.innerHTML = `<span class="footer-copyright">© Global Daily Inc.</span><span class="footer-page">${i + 1} / ${totalSlides}</span>`;
+      slide.querySelector('.slide-content').appendChild(footer);
+    });
+
+    const indicator = document.getElementById('indicator');
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      indicator.appendChild(dot);
+    }
+
+    document.getElementById('totalPages').textContent = totalSlides;
+
+    function updateSlide() {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+
+      document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+
+      document.getElementById('currentPage').textContent = currentSlide + 1;
+
+      document.querySelector('.nav-arrow.prev').disabled = currentSlide === 0;
+      document.querySelector('.nav-arrow.next').disabled = currentSlide === totalSlides - 1;
+    }
+
+    function changeSlide(direction) {
+      currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+      updateSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlide();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        changeSlide(-1);
+      }
+    });
+
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        changeSlide(diff > 0 ? 1 : -1);
+      }
+    });
+  </script>
+
+</body>
+</html>
