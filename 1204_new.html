@@ -1073,6 +1073,43 @@
       color: var(--sakura-deep);
     }
 
+    .greeting-intro p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      margin-bottom: 15px;
+      line-height: 1.9;
+    }
+    
+    .greeting-sign {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px dashed #ddd;
+    }
+    
+    .guide-features-simple {
+      margin: 25px 0;
+    }
+    
+    .features-note {
+      background: #f8f9fa;
+      padding: 18px 22px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    
+    .note-label {
+      display: block;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+    }
+
     .guide-categories {
       display: flex;
       flex-wrap: wrap;
@@ -1626,6 +1663,74 @@
 
     .add-to-list-btn:hover i {
       transform: scale(1.2);
+    }
+
+    /* === 프리미엄 광고 배너 === */
+    .premium-banner {
+      padding: 60px 24px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    }
+    
+    .premium-banner-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      position: relative;
+      border: 1px solid #eee;
+    }
+    
+    .premium-badge {
+      position: absolute;
+      top: -12px;
+      left: 30px;
+      background: var(--sakura-deep);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+    
+    .premium-content {
+      text-align: center;
+    }
+    
+    .premium-label {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    
+    .premium-placeholder {
+      background: #f5f5f5;
+      border: 2px dashed #ddd;
+      border-radius: 12px;
+      padding: 60px 40px;
+    }
+    
+    .premium-placeholder p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    
+    .premium-placeholder span {
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+    
+    @media (max-width: 768px) {
+      .premium-banner {
+        padding: 40px 16px;
+      }
+      .premium-banner-inner {
+        padding: 30px 20px;
+      }
     }
 
     /* === 드럭스토어 가이드 === */
@@ -2882,31 +2987,32 @@
         
         <div class="greeting-intro">
           <p>
-            2026年の桜シーズン、日本を訪れるみんなのために今年も本気でリストを作りました。
-            「何を買えばいいかわからない」「お土産選びが大変」...そんな悩み、<strong>全部解決</strong>します！
+            14年間、日本中のドラッグストアを歩き回り、3,000以上の商品を試してきました。
+          </p>
+          <p>
+            「台湾で買うより本当に安いの？」「効果あるの？」「私の肌に合う？」<br>
+            そんな疑問、私も台湾人だからよく分かります。
+          </p>
+          <p>
+            だから今年も、<strong>実際に使って良かったもの</strong>、<strong>台湾より確実に安いもの</strong>、<strong>台湾の気候でも使えるもの</strong>だけを厳選しました。
+          </p>
+          <p class="greeting-sign">
+            2026年の桜シーズン、一緒に買い物しましょう。 ── 鄭世彬
           </p>
         </div>
 
-        <div class="guide-features-list">
-          <div class="feature-item">
-            <i class="fas fa-tag"></i>
-            <span><strong>カード左上のタグ</strong>で目的別に探せる（🎁 お土産向け、✈️ コンパクトなど）</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-play-circle"></i>
-            <span><strong>🎬・🎫マーク</strong>がある商品は動画解説やクーポン情報あり</span>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-heart"></i>
-            <span><strong>♡ボタン</strong>で気になる商品をマイリストに保存</span>
-          </div>
+        <div class="guide-features-simple">
+          <p class="features-note">
+            <span class="note-label">このガイドの使い方</span>
+            カード左上のタグで目的別に探せます。動画やクーポンがある商品には印がついています。気になる商品はハートボタンでリストに保存できます。
+          </p>
         </div>
 
         <div class="guide-categories">
-          <span>💄 コスメ・美容</span>
-          <span>💊 医薬品</span>
-          <span>🌿 健康食品</span>
-          <span>🏠 日常品</span>
+          <span>コスメ・美容</span>
+          <span>医薬品</span>
+          <span>健康食品</span>
+          <span>日用品</span>
         </div>
       </div>
     </div>
@@ -2928,6 +3034,20 @@
     </div>
 
     <div id="tabContents"></div>
+  </section>
+
+  <!-- 프리미엄 광고 배너 -->
+  <section class="premium-banner">
+    <div class="premium-banner-inner">
+      <div class="premium-badge">PICK UP</div>
+      <div class="premium-content">
+        <p class="premium-label">鄭先生おすすめブランド</p>
+        <div class="premium-placeholder">
+          <p>広告枠</p>
+          <span>ブランドパートナー様向けスペース</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- 드럭스토어 가이드 -->
@@ -3288,12 +3408,12 @@
         icon: '💄',
         intro: '日本限定アイテムやお得なデパコスなど、おすすめをピックアップ',
         products: [
-          { id: 1, name: 'SK-II フェイシャルトリートメントエッセンス', price: 18000, priceTw: 7500, savePercent: 30, popularity: 89, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=SK-II', useTag: 'cheaper', useLabel: '💰 台湾より安い', stores: ['百貨店'], tip: '台湾より約30%安い！ピテラ90%以上配合の高濃度処方。大切な人へのギフトに最適です。', coupon: { discount: '10%OFF', code: 'SKII2026' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 2, name: 'KATE リップモンスター', price: 1540, priceTw: null, savePercent: null, popularity: 156, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=KATE', useTag: 'hit', useLabel: '🔥 SNSで話題', stores: ['ドラッグストア'], tip: '湿度80%でも落ちない！台湾の蒸し暑い気候でも16時間キープ。私の妻も愛用中です。', coupon: { discount: '15%OFF', code: 'KATE15' }, video: null, column: 'https://japankuru.com/' },
-          { id: 3, name: 'メラノCC 美容液', price: 1200, priceTw: 450, savePercent: 25, popularity: 203, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=メラノCC', useTag: 'longseller', useLabel: '⭐ ロングセラー', stores: ['ドラッグストア'], tip: '20mlでコンパクトなのに効果絶大！ビタミンC誘導体高濃度配合でシミ予防に。', coupon: { discount: '15%OFF', code: 'MELANO15' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 4, name: 'キャンメイク リップ', price: 660, priceTw: null, savePercent: null, popularity: 78, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=CANMAKE', useTag: 'omiyage', useLabel: '🎁 お土産に', stores: ['ドラッグストア'], tip: 'ばらまき土産の定番！女性の同僚に配るならこれで間違いなし。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 5, name: 'プリマヴィスタ 下地', price: 2800, priceTw: null, savePercent: null, popularity: 124, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=Primavista', useTag: 'japan-only', useLabel: '🇯🇵 日本限定', stores: ['ドラッグストア'], tip: '皮脂崩れ防止の代名詞。日本でしか買えない処方です！', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 6, name: 'HAKU 美白美容液', price: 10000, priceTw: 4200, savePercent: 28, popularity: 67, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=HAKU', useTag: 'new', useLabel: '🆕 新商品', stores: ['ドラッグストア'], tip: '2025年リニューアル！資生堂の最新美白テクノロジー。', coupon: { discount: '10%OFF', code: 'HAKU10' }, video: null, column: 'https://japankuru.com/' }
+          { id: 1, name: 'SK-II フェイシャルトリートメントエッセンス', price: 18000, priceTw: 7500, savePercent: 30, popularity: 89, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=SK-II', useTag: 'cheaper', useLabel: '台湾より安い', stores: ['百貨店'], tip: '台湾より約30%安い！ピテラ90%以上配合の高濃度処方。大切な人へのギフトに最適です。', coupon: { discount: '10%OFF', code: 'SKII2026' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 2, name: 'KATE リップモンスター', price: 1540, priceTw: null, savePercent: null, popularity: 156, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=KATE', useTag: 'hit', useLabel: 'SNSで話題', stores: ['ドラッグストア'], tip: '湿度80%でも落ちない！台湾の蒸し暑い気候でも16時間キープ。私の妻も愛用中です。', coupon: { discount: '15%OFF', code: 'KATE15' }, video: null, column: 'https://japankuru.com/' },
+          { id: 3, name: 'メラノCC 美容液', price: 1200, priceTw: 450, savePercent: 25, popularity: 203, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=メラノCC', useTag: 'longseller', useLabel: 'ロングセラー', stores: ['ドラッグストア'], tip: '20mlでコンパクトなのに効果絶大！ビタミンC誘導体高濃度配合でシミ予防に。', coupon: { discount: '15%OFF', code: 'MELANO15' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 4, name: 'キャンメイク リップ', price: 660, priceTw: null, savePercent: null, popularity: 78, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=CANMAKE', useTag: 'omiyage', useLabel: 'お土産に', stores: ['ドラッグストア'], tip: 'ばらまき土産の定番！女性の同僚に配るならこれで間違いなし。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 5, name: 'プリマヴィスタ 下地', price: 2800, priceTw: null, savePercent: null, popularity: 124, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=Primavista', useTag: 'japan-only', useLabel: '日本限定', stores: ['ドラッグストア'], tip: '皮脂崩れ防止の代名詞。日本でしか買えない処方です！', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 6, name: 'HAKU 美白美容液', price: 10000, priceTw: 4200, savePercent: 28, popularity: 67, image: 'https://placehold.co/300x300/FFF0F3/E8879B?text=HAKU', useTag: 'new', useLabel: '2025新作', stores: ['ドラッグストア'], tip: '2025年リニューアル！資生堂の最新美白テクノロジー。', coupon: { discount: '10%OFF', code: 'HAKU10' }, video: null, column: 'https://japankuru.com/' }
         ]
       },
       medicine: {
@@ -3301,12 +3421,12 @@
         icon: '💊',
         intro: '花粉シーズンの対策アイテムや旅行に便利な常備薬など',
         products: [
-          { id: 7, name: 'アレグラFX', price: 1980, priceTw: null, savePercent: null, popularity: 312, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アレグラ', useTag: 'spring', useLabel: '🌸 春必須', stores: ['ドラッグストア'], tip: '眠くなりにくい花粉薬の決定版！桜シーズンには必須です。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 8, name: 'EVE クイック頭痛薬', price: 1200, priceTw: null, savePercent: null, popularity: 98, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=EVE', useTag: 'compact', useLabel: '✈️ コンパクト', stores: ['ドラッグストア'], tip: '胃に優しい処方。旅行中の頭痛に素早く効きます。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 9, name: 'アリナミンEXプラス', price: 4500, priceTw: 1800, savePercent: 22, popularity: 145, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アリナミン', useTag: 'family', useLabel: '👨‍👩‍👧 家族向け', stores: ['ドラッグストア'], tip: '親への贈り物No.1！疲労回復のビタミン剤として日本で大人気。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 10, name: 'ロート アルガード', price: 980, priceTw: null, savePercent: null, popularity: 187, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アルガード', useTag: 'spring', useLabel: '🌸 春必須', stores: ['ドラッグストア'], tip: '目のかゆみに最強！花粉シーズンの必需品です。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 11, name: 'トランシーノ ホワイトC', price: 2800, priceTw: null, savePercent: null, popularity: 56, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=トランシーノ', useTag: 'japan-only', useLabel: '🇯🇵 日本限定', stores: ['ドラッグストア'], tip: 'シミ対策の医薬品。台湾では処方箋が必要ですが、日本では市販で買えます！', coupon: { discount: '¥300引', code: 'TRANS300' }, video: null, column: 'https://japankuru.com/' },
-          { id: 12, name: '太田胃散', price: 980, priceTw: null, savePercent: null, popularity: 234, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=太田胃散', useTag: 'longseller', useLabel: '⭐ ロングセラー', stores: ['コンビニ'], tip: '130年以上の歴史！日本の定番胃腸薬です。', coupon: null, video: null, column: 'https://japankuru.com/' }
+          { id: 7, name: 'アレグラFX', price: 1980, priceTw: null, savePercent: null, popularity: 312, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アレグラ', useTag: 'spring', useLabel: '春の必需品', stores: ['ドラッグストア'], tip: '眠くなりにくい花粉薬の決定版！桜シーズンには必須です。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 8, name: 'EVE クイック頭痛薬', price: 1200, priceTw: null, savePercent: null, popularity: 98, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=EVE', useTag: 'compact', useLabel: 'コンパクト', stores: ['ドラッグストア'], tip: '胃に優しい処方。旅行中の頭痛に素早く効きます。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 9, name: 'アリナミンEXプラス', price: 4500, priceTw: 1800, savePercent: 22, popularity: 145, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アリナミン', useTag: 'family', useLabel: '家族へ', stores: ['ドラッグストア'], tip: '親への贈り物No.1！疲労回復のビタミン剤として日本で大人気。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 10, name: 'ロート アルガード', price: 980, priceTw: null, savePercent: null, popularity: 187, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=アルガード', useTag: 'spring', useLabel: '春の必需品', stores: ['ドラッグストア'], tip: '目のかゆみに最強！花粉シーズンの必需品です。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 11, name: 'トランシーノ ホワイトC', price: 2800, priceTw: null, savePercent: null, popularity: 56, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=トランシーノ', useTag: 'japan-only', useLabel: '日本限定', stores: ['ドラッグストア'], tip: 'シミ対策の医薬品。台湾では処方箋が必要ですが、日本では市販で買えます！', coupon: { discount: '¥300引', code: 'TRANS300' }, video: null, column: 'https://japankuru.com/' },
+          { id: 12, name: '太田胃散', price: 980, priceTw: null, savePercent: null, popularity: 234, image: 'https://placehold.co/300x300/EBF2F8/5B8DB8?text=太田胃散', useTag: 'longseller', useLabel: 'ロングセラー', stores: ['コンビニ'], tip: '130年以上の歴史！日本の定番胃腸薬です。', coupon: null, video: null, column: 'https://japankuru.com/' }
         ]
       },
       health: {
@@ -3314,25 +3434,25 @@
         icon: '🌿',
         intro: '日本品質のサプリメント・健康食品をご紹介',
         products: [
-          { id: 13, name: 'DHC ビタミンCパウダー', price: 1200, priceTw: null, savePercent: null, popularity: 178, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=DHC+VitC', useTag: 'hit', useLabel: '🔥 SNSで話題', stores: ['ドラッグストア'], tip: 'SNSで大バズり中！高濃度ビタミンCで美肌効果抜群。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 14, name: 'ファンケル カロリミット', price: 1563, priceTw: 680, savePercent: 32, popularity: 267, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=カロリミット', useTag: 'omiyage', useLabel: '🎁 お土産に', stores: ['ドラッグストア'], tip: '食事の糖・脂肪の吸収を抑える。ダイエット中の方へのギフトに！', coupon: { discount: '20%OFF', code: 'FANCL20' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 15, name: 'キューピー ヒアルロン酸', price: 2200, priceTw: 1100, savePercent: 40, popularity: 89, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ヒアルロン酸', useTag: 'cheaper', useLabel: '💰 台湾より安い', stores: ['ドラッグストア'], tip: '飲むヒアルロン酸。台湾より40%も安く買えます！', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 16, name: 'アサヒ ディアナチュラ', price: 980, priceTw: null, savePercent: null, popularity: 45, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ディアナチュラ', useTag: 'compact', useLabel: '✈️ コンパクト', stores: ['ドラッグストア'], tip: '総合ビタミン＆ミネラル。コスパ抜群で持ち運びも便利。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 17, name: 'DHC コラーゲン', price: 1500, priceTw: null, savePercent: null, popularity: 134, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=コラーゲン', useTag: 'family', useLabel: '👨‍👩‍👧 家族向け', stores: ['ドラッグストア'], tip: 'お母さんへのプレゼントに最適！日本で大人気のサプリ。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 18, name: '明治 プロテイン', price: 3500, priceTw: null, savePercent: null, popularity: 67, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=SAVAS', useTag: 'new', useLabel: '🆕 新商品', stores: ['ドラッグストア'], tip: '2025年新フレーバー登場！日本品質のプロテイン。', coupon: null, video: null, column: 'https://japankuru.com/' }
+          { id: 13, name: 'DHC ビタミンCパウダー', price: 1200, priceTw: null, savePercent: null, popularity: 178, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=DHC+VitC', useTag: 'hit', useLabel: 'SNSで話題', stores: ['ドラッグストア'], tip: 'SNSで大バズり中！高濃度ビタミンCで美肌効果抜群。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 14, name: 'ファンケル カロリミット', price: 1563, priceTw: 680, savePercent: 32, popularity: 267, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=カロリミット', useTag: 'omiyage', useLabel: 'お土産に', stores: ['ドラッグストア'], tip: '食事の糖・脂肪の吸収を抑える。ダイエット中の方へのギフトに！', coupon: { discount: '20%OFF', code: 'FANCL20' }, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 15, name: 'キューピー ヒアルロン酸', price: 2200, priceTw: 1100, savePercent: 40, popularity: 89, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ヒアルロン酸', useTag: 'cheaper', useLabel: '台湾より安い', stores: ['ドラッグストア'], tip: '飲むヒアルロン酸。台湾より40%も安く買えます！', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 16, name: 'アサヒ ディアナチュラ', price: 980, priceTw: null, savePercent: null, popularity: 45, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=ディアナチュラ', useTag: 'compact', useLabel: 'コンパクト', stores: ['ドラッグストア'], tip: '総合ビタミン＆ミネラル。コスパ抜群で持ち運びも便利。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 17, name: 'DHC コラーゲン', price: 1500, priceTw: null, savePercent: null, popularity: 134, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=コラーゲン', useTag: 'family', useLabel: '家族へ', stores: ['ドラッグストア'], tip: 'お母さんへのプレゼントに最適！日本で大人気のサプリ。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 18, name: '明治 プロテイン', price: 3500, priceTw: null, savePercent: null, popularity: 67, image: 'https://placehold.co/300x300/EDF3EE/7A9A7E?text=SAVAS', useTag: 'new', useLabel: '2025新作', stores: ['ドラッグストア'], tip: '2025年新フレーバー登場！日本品質のプロテイン。', coupon: null, video: null, column: 'https://japankuru.com/' }
         ]
       },
       daily: {
-        title: '日常品',
+        title: '日用品',
         icon: '🏠',
         intro: '便利で高品質な日用品をピックアップ',
         products: [
-          { id: 19, name: 'ユニクロ ヒートテック', price: 1500, priceTw: null, savePercent: null, popularity: 198, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=HEATTECH', useTag: 'spring', useLabel: '🌸 春必須', stores: ['ユニクロ'], tip: '桜シーズンはまだ肌寒い！軽くて暖かいインナーは必需品。', coupon: { discount: '¥200引', code: 'UQ200' }, video: null, column: 'https://japankuru.com/' },
-          { id: 20, name: 'ダイソー コスメグッズ', price: 110, priceTw: null, savePercent: null, popularity: 345, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=DAISO', useTag: 'omiyage', useLabel: '🎁 お土産に', stores: ['ダイソー'], tip: 'パフ・ブラシは買い溜め必須！100円とは思えないクオリティ。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
-          { id: 21, name: 'サーモス 水筒', price: 3000, priceTw: 1350, savePercent: 35, popularity: 112, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=THERMOS', useTag: 'cheaper', useLabel: '💰 台湾より安い', stores: ['ロフト'], tip: '保温力が段違い！台湾より安く買えます。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 22, name: '蒸気でホットアイマスク', price: 500, priceTw: null, savePercent: null, popularity: 289, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=めぐりズム', useTag: 'compact', useLabel: '✈️ コンパクト', stores: ['ドラッグストア'], tip: '飛行機で使うと最高！旅の疲れを癒します。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 23, name: '休足時間', price: 600, priceTw: null, savePercent: null, popularity: 167, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=休足時間', useTag: 'hit', useLabel: '🔥 SNSで話題', stores: ['ドラッグストア'], tip: 'SNSでバズり中！観光で疲れた足に最適。', coupon: null, video: null, column: 'https://japankuru.com/' },
-          { id: 24, name: 'フリクション ペン', price: 230, priceTw: null, savePercent: null, popularity: 78, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=FRIXION', useTag: 'japan-only', useLabel: '🇯🇵 日本限定', stores: ['コンビニ'], tip: '日本限定カラー多数！消せるペンは同僚へのばらまき土産に最適。', coupon: null, video: null, column: 'https://japankuru.com/' }
+          { id: 19, name: 'ユニクロ ヒートテック', price: 1500, priceTw: null, savePercent: null, popularity: 198, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=HEATTECH', useTag: 'spring', useLabel: '春の必需品', stores: ['ユニクロ'], tip: '桜シーズンはまだ肌寒い！軽くて暖かいインナーは必需品。', coupon: { discount: '¥200引', code: 'UQ200' }, video: null, column: 'https://japankuru.com/' },
+          { id: 20, name: 'ダイソー コスメグッズ', price: 110, priceTw: null, savePercent: null, popularity: 345, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=DAISO', useTag: 'omiyage', useLabel: 'お土産に', stores: ['ダイソー'], tip: 'パフ・ブラシは買い溜め必須！100円とは思えないクオリティ。', coupon: null, video: 'https://www.youtube.com/embed/odWKXZBhaTU', column: 'https://japankuru.com/' },
+          { id: 21, name: 'サーモス 水筒', price: 3000, priceTw: 1350, savePercent: 35, popularity: 112, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=THERMOS', useTag: 'cheaper', useLabel: '台湾より安い', stores: ['ロフト'], tip: '保温力が段違い！台湾より安く買えます。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 22, name: '蒸気でホットアイマスク', price: 500, priceTw: null, savePercent: null, popularity: 289, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=めぐりズム', useTag: 'compact', useLabel: 'コンパクト', stores: ['ドラッグストア'], tip: '飛行機で使うと最高！旅の疲れを癒します。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 23, name: '休足時間', price: 600, priceTw: null, savePercent: null, popularity: 167, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=休足時間', useTag: 'hit', useLabel: 'SNSで話題', stores: ['ドラッグストア'], tip: 'SNSでバズり中！観光で疲れた足に最適。', coupon: null, video: null, column: 'https://japankuru.com/' },
+          { id: 24, name: 'フリクション ペン', price: 230, priceTw: null, savePercent: null, popularity: 78, image: 'https://placehold.co/300x300/F3EBF8/9B7BB8?text=FRIXION', useTag: 'japan-only', useLabel: '日本限定', stores: ['コンビニ'], tip: '日本限定カラー多数！消せるペンは同僚へのばらまき土産に最適。', coupon: null, video: null, column: 'https://japankuru.com/' }
         ]
       }
     };
