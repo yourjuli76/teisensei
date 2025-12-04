@@ -1665,71 +1665,284 @@
       transform: scale(1.2);
     }
 
-    /* === 프리미엄 광고 배너 === */
-    .premium-banner {
-      padding: 60px 24px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-    }
-    
-    .premium-banner-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    /* === 프리미엄 추천 (럭셔리 임팩트) === */
+    .premium-recommend {
+      padding: 100px 24px;
+      background: linear-gradient(180deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
       position: relative;
-      border: 1px solid #eee;
+      overflow: hidden;
     }
     
-    .premium-badge {
+    .premium-glow {
       position: absolute;
-      top: -12px;
-      left: 30px;
-      background: var(--sakura-deep);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 6px 16px;
-      border-radius: 20px;
-      letter-spacing: 1px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212,180,131,0.15) 0%, transparent 60%);
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+    }
+    
+    .premium-recommend-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .premium-label-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    
+    .label-line {
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,180,131,0.5));
+    }
+    
+    .label-line:last-child {
+      background: linear-gradient(90deg, rgba(212,180,131,0.5), transparent);
+    }
+    
+    .label-text {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: #D4B483;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .premium-hero {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    
+    .premium-product-showcase {
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    .product-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212,180,131,0.2) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: productGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes productGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    .showcase-img {
+      position: relative;
+      z-index: 1;
+      width: 280px;
+      height: auto;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+      animation: floatProduct 6s ease-in-out infinite;
+    }
+    
+    @keyframes floatProduct {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
     
     .premium-content {
-      text-align: center;
+      flex: 1;
     }
     
-    .premium-label {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-bottom: 20px;
-    }
-    
-    .premium-placeholder {
-      background: #f5f5f5;
-      border: 2px dashed #ddd;
-      border-radius: 12px;
-      padding: 60px 40px;
-    }
-    
-    .premium-placeholder p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-light);
+    .premium-brand-name {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 6px;
       margin-bottom: 8px;
     }
     
-    .premium-placeholder span {
+    .premium-product-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 12px;
+      margin-bottom: 5px;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, #D4B483 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .premium-product-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    
+    .premium-tagline {
+      font-size: 0.85rem;
+      color: #D4B483;
+      margin-bottom: 35px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(212,180,131,0.15);
+    }
+    
+    .premium-quote-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    
+    .quote-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(212,180,131,0.3);
+      flex-shrink: 0;
+    }
+    
+    .quote-content p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    
+    .quote-name {
       font-size: 0.8rem;
-      color: #bbb;
+      color: #D4B483;
+    }
+    
+    .premium-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .premium-price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 500;
+    }
+    
+    .premium-note {
+      font-size: 0.8rem;
+      color: #D4B483;
+      background: rgba(212,180,131,0.1);
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    
+    .premium-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 45px;
+      background: linear-gradient(135deg, #D4B483 0%, #B8956E 100%);
+      border: none;
+      border-radius: 35px;
+      color: #0a0a0a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(212,180,131,0.3);
+    }
+    
+    .premium-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(212,180,131,0.4);
+    }
+    
+    .premium-cta i {
+      transition: transform 0.3s ease;
+    }
+    
+    .premium-cta:hover i {
+      transform: translateX(5px);
+    }
+    
+    .premium-disclaimer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 50px;
     }
     
     @media (max-width: 768px) {
-      .premium-banner {
-        padding: 40px 16px;
+      .premium-recommend {
+        padding: 70px 20px;
       }
-      .premium-banner-inner {
-        padding: 30px 20px;
+      
+      .premium-glow {
+        width: 350px;
+        height: 350px;
+      }
+      
+      .premium-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+      
+      .showcase-img {
+        width: 200px;
+      }
+      
+      .product-glow {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .premium-product-title {
+        font-size: 3rem;
+        letter-spacing: 8px;
+      }
+      
+      .premium-quote-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .premium-price-row {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .premium-cta {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -3018,6 +3231,52 @@
     </div>
   </section>
 
+  <!-- 프리미엄 추천 (럭셔리) -->
+  <section class="premium-recommend">
+    <div class="premium-glow"></div>
+    <div class="premium-recommend-inner">
+      <div class="premium-label-top">
+        <span class="label-line"></span>
+        <span class="label-text">鄭先生's SPECIAL PICK</span>
+        <span class="label-line"></span>
+      </div>
+      
+      <div class="premium-hero">
+        <div class="premium-product-showcase">
+          <div class="product-glow"></div>
+          <img src="https://www.shiseido.co.jp/sw/products/img/20230201/SHOHIN_PL_C1_820501_pc.jpg" alt="HAKU メラノフォーカスEV" class="showcase-img" onerror="this.src='https://placehold.co/300x400/1a1a1a/D4B483?text=HAKU';">
+        </div>
+        
+        <div class="premium-content">
+          <p class="premium-brand-name">SHISEIDO</p>
+          <h2 class="premium-product-title">HAKU</h2>
+          <p class="premium-product-subtitle">メラノフォーカスEV</p>
+          <p class="premium-tagline">日本美白No.1*、資生堂100年の結晶</p>
+          
+          <div class="premium-quote-box">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生" class="quote-photo">
+            <div class="quote-content">
+              <p>「妻のシミが3ヶ月で変わった。<br>10年経った今も、私が最も信頼する美白です。」</p>
+              <span class="quote-name">── 鄭世彬</span>
+            </div>
+          </div>
+          
+          <div class="premium-price-row">
+            <span class="premium-price">¥11,000</span>
+            <span class="premium-note">台湾より約35%お得</span>
+          </div>
+          
+          <a href="https://japankuru.com/" class="premium-cta" target="_blank">
+            <span>特集コラムを読む</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <p class="premium-disclaimer">*美白：メラニンの生成を抑え、シミ・そばかすを防ぐ</p>
+    </div>
+  </section>
+
   <!-- 상품 섹션 -->
   <section class="products-section">
     <div class="section-header">
@@ -3034,20 +3293,6 @@
     </div>
 
     <div id="tabContents"></div>
-  </section>
-
-  <!-- 프리미엄 광고 배너 -->
-  <section class="premium-banner">
-    <div class="premium-banner-inner">
-      <div class="premium-badge">PICK UP</div>
-      <div class="premium-content">
-        <p class="premium-label">鄭先生おすすめブランド</p>
-        <div class="premium-placeholder">
-          <p>広告枠</p>
-          <span>ブランドパートナー様向けスペース</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- 드럭스토어 가이드 -->
