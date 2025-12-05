@@ -501,12 +501,12 @@
     .plan-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     .plan-table th,
     .plan-table td {
-      padding: 18px 15px;
+      padding: 10px 12px;
       text-align: center;
       border: 1px solid #eee;
     }
@@ -514,7 +514,7 @@
     .plan-table thead th {
       background: #1a1a2e;
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
     }
 
@@ -524,17 +524,17 @@
       text-align: left;
       font-weight: 600;
       background: #f8f9fa;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     .plan-table .check { 
       color: #2D9A8C; 
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     .plan-table .price-row td {
       font-weight: 900;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       background: #f8f9fa;
     }
 
@@ -548,33 +548,28 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
     .slide-plan .plan-table {
-      flex: 1;
-    }
-    .slide-plan .plan-table tbody {
-      display: table-row-group;
-    }
-    .slide-plan .plan-table tbody tr {
-      height: calc(100% / 8);
+      width: 100%;
     }
     .plan-seminar {
-      margin-top: 25px;
-      padding: 20px 25px;
+      margin-top: 15px;
+      padding: 12px 18px;
       background: linear-gradient(135deg, #FFF0F3, #fff);
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid #F5D0D8;
     }
     .plan-seminar p {
-      font-size: 1.05rem;
+      font-size: 0.9rem;
       color: #333;
     }
     .plan-seminar strong {
       color: #E8879B;
     }
     .plan-note {
-      margin-top: 20px;
-      font-size: 0.95rem;
+      margin-top: 10px;
+      font-size: 0.8rem;
       color: #888;
     }
 
@@ -1141,14 +1136,14 @@
       height: 100%;
     }
     .slide-overview .overview-desc {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #333;
-      margin-bottom: 25px;
-      line-height: 1.7;
+      margin-bottom: 15px;
+      line-height: 1.6;
     }
     .slide-overview .overview-main {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       flex: 1;
     }
     .slide-overview .overview-left {
@@ -1158,23 +1153,22 @@
     }
     .slide-overview .flow-container {
       display: flex;
-      gap: 15px;
-      flex: 1;
+      gap: 12px;
     }
     .slide-overview .flow-step {
       flex: 1;
       background: #fff;
       border: 1px solid #eee;
-      border-radius: 14px;
-      padding: 25px 15px;
+      border-radius: 12px;
+      padding: 18px 12px;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     .slide-overview .flow-num {
-      width: 36px;
-      height: 36px;
+      width: 30px;
+      height: 30px;
       background: #E8879B;
       color: #fff;
       border-radius: 50%;
@@ -1182,50 +1176,46 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      margin: 0 auto 12px;
-      font-size: 1rem;
+      margin: 0 auto 8px;
+      font-size: 0.9rem;
     }
     .slide-overview .flow-step h4 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
       font-weight: 700;
     }
     .slide-overview .flow-step p {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: #666;
     }
     .slide-overview .overview-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-      flex: 1;
+      gap: 12px;
+      margin-top: 15px;
     }
     .slide-overview .stat-box {
       background: linear-gradient(135deg, #1a1a2e, #16213e);
-      border-radius: 14px;
-      padding: 25px 15px;
+      border-radius: 12px;
+      padding: 18px 12px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
     .slide-overview .stat-box .number {
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 900;
       color: #fff;
       line-height: 1.1;
     }
     .slide-overview .stat-box .number small {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
     }
     .slide-overview .stat-box .label {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: rgba(255,255,255,0.7);
-      margin-top: 8px;
+      margin-top: 5px;
     }
     .slide-overview .overview-img {
-      width: 280px;
+      width: 260px;
       flex-shrink: 0;
       background: linear-gradient(135deg, #FFF0F3, #fff);
       border-radius: 16px;
@@ -1242,18 +1232,17 @@
     .slide-overview .highlight-box {
       background: linear-gradient(135deg, #FFF0F3, #fff);
       border: 2px solid #F5D0D8;
-      border-radius: 14px;
-      padding: 20px 30px;
+      border-radius: 12px;
+      padding: 14px 20px;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 12px;
     }
     .slide-overview .highlight-box p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #333;
     }
     .slide-overview .highlight-box strong {
       color: #E8879B;
-      font-size: 1.15rem;
     }
 
     /* KEY PERSON Slide */
@@ -1737,10 +1726,11 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      padding-bottom: 50px;
     }
     .slide-lp-card .lp-card-main {
       display: flex;
-      gap: 30px;
+      gap: 20px;
       flex: 1;
       align-items: stretch;
     }
@@ -1750,16 +1740,17 @@
       flex-direction: column;
     }
     .slide-lp-card .lp-card-label {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: #E8879B;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-align: center;
     }
     .slide-lp-card .lp-card-img-box {
       flex: 1;
+      max-height: 380px;
       background: linear-gradient(135deg, #FFF0F3, #fff);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       display: flex;
@@ -1774,26 +1765,27 @@
     .slide-lp-card .lp-card-features {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
     }
     .slide-lp-card .lp-card-feature {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
+      gap: 5px;
+      font-size: 0.8rem;
       color: #666;
     }
     .slide-lp-card .lp-card-feature span {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       background: #E8879B;
       color: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -1802,16 +1794,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      width: 70px;
+      gap: 8px;
+      width: 50px;
       flex-shrink: 0;
     }
     .slide-lp-card .lp-card-arrow i {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: #E8879B;
     }
     .slide-lp-card .lp-card-arrow span {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #E8879B;
       font-weight: 600;
     }
@@ -2082,49 +2074,86 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      padding: 30px 45px 25px;
+    }
+    .slide-boost .slide-header {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
     }
     .slide-boost .ad-operation-main {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 25px;
     }
     .slide-boost .ad-operation-cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      flex: 1;
     }
     .slide-boost .ad-operation-card {
       background: #fff;
-      border-radius: 16px;
-      padding: 25px 20px;
+      border-radius: 20px;
+      padding: 35px 30px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .slide-boost .ad-operation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(232,135,155,0.15);
+      border-color: #E8879B;
     }
     .slide-boost .ad-operation-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #FFF0F3, #fff);
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 15px;
+      margin: 0 auto 20px;
     }
     .slide-boost .ad-operation-icon i {
-      font-size: 1.8rem;
-      color: #E8879B;
+      font-size: 2.5rem;
+      color: #fff;
     }
     .slide-boost .ad-operation-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 15px;
       color: #1a1a2e;
     }
     .slide-boost .ad-operation-card p {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: #666;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .slide-boost .ad-card-price-box {
+      background: linear-gradient(135deg, #f8f9fa, #fff);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: auto;
+      border: 2px solid #f0f0f0;
+    }
+    .slide-boost .ad-price-val {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .slide-boost .ad-price-kpi {
+      font-size: 1rem;
+      color: #E8879B;
+      font-weight: 700;
+      display: block;
     }
     .slide-boost .ad-operation-pricing {
       background: linear-gradient(135deg, #1a1a2e, #16213e);
@@ -2496,6 +2525,220 @@
       font-size: 0.7rem;
       z-index: 100;
     }
+
+    /* ========================================
+       PDF 印刷用スタイル
+       ======================================== */
+    @media print {
+      /* 기본 설정 */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+      }
+
+      /* 네비게이션 요소 숨기기 */
+      .nav-arrow,
+      .slide-indicator,
+      .page-num,
+      .keyboard-hint {
+        display: none !important;
+      }
+
+      /* 슬라이드 컨테이너 */
+      .slides-container {
+        position: static;
+        width: 100%;
+        height: auto;
+        background: #fff !important;
+      }
+
+      /* 모든 슬라이드 표시 */
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 100%;
+        height: 100vh;
+        page-break-after: always;
+        page-break-inside: avoid;
+        background: #1a1a2e !important;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      .slide:last-child {
+        page-break-after: auto;
+      }
+
+      /* 슬라이드 콘텐츠 */
+      .slide-content {
+        width: 100% !important;
+        max-width: none !important;
+        height: calc(100vh - 30px) !important;
+        max-height: none !important;
+        margin: 0 auto;
+        box-shadow: none !important;
+        border-radius: 10px;
+        padding: 30px 40px 35px !important;
+        overflow: hidden !important;
+      }
+
+      /* 표지 슬라이드 배경 */
+      .cover-slide .slide-content {
+        background: linear-gradient(135deg, rgba(26,26,46,0.9) 0%, rgba(45,45,68,0.95) 100%),
+          url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1200&q=80') center/cover !important;
+      }
+
+      /* 다크 배경 슬라이드들 */
+      .slide-whynow-hero .slide-content,
+      .slide-impact .slide-content {
+        background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%) !important;
+      }
+
+      /* 푸터 스타일 */
+      .slide-footer {
+        position: absolute;
+        bottom: 10px;
+        left: 40px;
+        right: 40px;
+        background: transparent !important;
+        font-size: 0.65rem;
+        padding-top: 5px;
+      }
+
+      /* 플랜 슬라이드 인쇄 최적화 */
+      .slide-plan .plan-table th,
+      .slide-plan .plan-table td {
+        padding: 8px 8px !important;
+        font-size: 0.8rem !important;
+      }
+      .slide-plan .plan-table thead th {
+        font-size: 0.85rem !important;
+      }
+      .slide-plan .plan-table .check {
+        font-size: 1rem !important;
+      }
+      .slide-plan .plan-table .price-row td {
+        font-size: 0.95rem !important;
+      }
+      .slide-plan .plan-seminar {
+        margin-top: 10px !important;
+        padding: 10px 15px !important;
+      }
+      .slide-plan .plan-seminar p {
+        font-size: 0.8rem !important;
+      }
+      .slide-plan .plan-note {
+        margin-top: 8px !important;
+        font-size: 0.75rem !important;
+      }
+
+      /* OVERVIEW 슬라이드 인쇄 최적화 */
+      .slide-overview .overview-desc {
+        font-size: 0.95rem !important;
+        margin-bottom: 15px !important;
+      }
+      .slide-overview .flow-step {
+        padding: 15px 10px !important;
+      }
+      .slide-overview .flow-num {
+        width: 28px !important;
+        height: 28px !important;
+        margin-bottom: 8px !important;
+      }
+      .slide-overview .flow-step h4 {
+        font-size: 1rem !important;
+        margin-bottom: 4px !important;
+      }
+      .slide-overview .flow-step p {
+        font-size: 0.8rem !important;
+      }
+      .slide-overview .overview-stats {
+        margin-top: 12px !important;
+        gap: 10px !important;
+      }
+      .slide-overview .stat-box {
+        padding: 15px 10px !important;
+      }
+      .slide-overview .stat-box .number {
+        font-size: 1.8rem !important;
+      }
+      .slide-overview .stat-box .label {
+        font-size: 0.75rem !important;
+        margin-top: 3px !important;
+      }
+      .slide-overview .highlight-box {
+        margin-top: 12px !important;
+        padding: 12px 20px !important;
+      }
+      .slide-overview .highlight-box p {
+        font-size: 0.9rem !important;
+      }
+
+      /* 카드 구조 슬라이드 인쇄 최적화 */
+      .slide-lp-card .lp-card-main {
+        gap: 20px !important;
+      }
+      .slide-lp-card .lp-card-label {
+        font-size: 0.85rem !important;
+        margin-bottom: 8px !important;
+      }
+      .slide-lp-card .lp-card-img-box {
+        max-height: 320px !important;
+      }
+      .slide-lp-card .lp-card-features {
+        margin-top: 10px !important;
+        gap: 8px !important;
+      }
+      .slide-lp-card .lp-card-feature {
+        font-size: 0.75rem !important;
+        gap: 4px !important;
+      }
+      .slide-lp-card .lp-card-feature span {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 0.7rem !important;
+      }
+
+      /* 테이블 인쇄 */
+      table {
+        page-break-inside: avoid;
+      }
+
+      /* 이미지 최적화 */
+      img {
+        max-width: 100%;
+        page-break-inside: avoid;
+      }
+
+      /* 링크 URL 표시 안함 */
+      a[href]:after {
+        content: none !important;
+      }
+
+      /* 슬라이드 헤더 컴팩트 */
+      .slide-header {
+        margin-bottom: 15px !important;
+      }
+      .slide-header h2 {
+        font-size: 1.6rem !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2509,9 +2752,9 @@
         
         <!-- 로고 영역 -->
         <div class="cover-logos">
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/09/JAPANKURU_white-2-1.png" alt="JAPANKURU" class="cover-logo-jk">
+          <img src="https://placehold.co/160x50/ffffff33/fff?text=JAPANKURU" alt="JAPANKURU" class="cover-logo-jk">
           <span class="cover-logos-x">×</span>
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="cover-logo-tei">
+          <img src="https://placehold.co/160x50/ffffff33/fff?text=日本藥妝研究室" alt="日本藥妝研究室" class="cover-logo-tei">
         </div>
 
         <!-- 鄭先生 소개 -->
@@ -2545,7 +2788,7 @@
 
         <!-- 하단 로고 -->
         <div class="cover-company">
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/GLD_type02_white_1178_785-2-1.png" alt="Global Daily" class="cover-logo">
+          <img src="https://www.gldaily.com/wp/wp-content/themes/flavor-flavor/assets/img/common/logo.svg" alt="Global Daily" class="cover-logo">
         </div>
       </div>
     </div>
@@ -2587,17 +2830,17 @@
       </div>
     </div>
 
-    <!-- 03: 期待効果 -->
+    <!-- 03: 5万PV保証 -->
     <div class="slide slide-impact">
       <div class="slide-content">
         <div class="impact-container">
-          <div class="impact-label">EXPECTED RESULTS</div>
-          <h2 class="impact-title">御社が得られる<span>効果</span></h2>
+          <div class="impact-label">GUARANTEED RESULTS</div>
+          <h2 class="impact-title">圧倒的な<span>集客保証</span></h2>
           
           <div class="impact-main">
             <div class="impact-stat">
-              <div class="impact-num">120<small>万+</small></div>
-              <div class="impact-stat-label">台湾人へのリーチ</div>
+              <div class="impact-num">50,000<small>PV</small></div>
+              <div class="impact-stat-label">LPページビュー保証</div>
             </div>
             <div class="impact-stat">
               <div class="impact-num green">永久</div>
@@ -2609,15 +2852,15 @@
             <div class="impact-point">
               <div class="impact-point-num">01</div>
               <div class="impact-point-text">
-                <strong>広告ではなく「推薦」として届く</strong>
-                <span>専門家のお墨付きで信頼性が段違い</span>
+                <strong>戦略的セグメント広告配信</strong>
+                <span>「日本 お花見」「コスメ」「医薬品」「健康食品」等のKWで訪日関心層を確実に誘導</span>
               </div>
             </div>
             <div class="impact-point">
               <div class="impact-point-num">02</div>
               <div class="impact-point-text">
-                <strong>「日本で買いたい人」だけに届く</strong>
-                <span>訪日予定の台湾人にピンポイント訴求</span>
+                <strong>広告ではなく「推薦」として届く</strong>
+                <span>専門家のお墨付きで信頼性が段違い</span>
               </div>
             </div>
             <div class="impact-point">
@@ -2736,7 +2979,7 @@
             </div>
 
             <div class="keyperson-books">
-              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/スクリーンショット-2025-12-04-10.37.06.png" alt="著書">
+              <img src="https://placehold.co/500x120/FFF0F3/E8879B?text=BOOKS+IMAGE" alt="著書">
             </div>
           </div>
           
@@ -2789,7 +3032,7 @@
         <div class="japankuru-main">
           <div class="japankuru-left">
             <div class="japankuru-site-img">
-              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/スクリーンショット-2025-12-04-12.59.31.png" alt="JAPANKURU サイト">
+              <img src="https://placehold.co/400x500/1a1a2e/E8879B?text=JAPANKURU%0ASITE+IMAGE" alt="JAPANKURU サイト">
             </div>
           </div>
 
@@ -2799,18 +3042,18 @@
               <div class="japankuru-reach-grid">
                 <div class="japankuru-reach-item">
                   <div class="japankuru-reach-icon"><i class="fas fa-newspaper"></i></div>
-                  <div class="japankuru-reach-num">15<small>万~</small></div>
-                  <div class="japankuru-reach-label">繁体字記事<br>月間ページビュー</div>
+                  <div class="japankuru-reach-num">○○<small>万</small></div>
+                  <div class="japankuru-reach-label">繁体字記事<br>月間平均リーチ</div>
                 </div>
                 <div class="japankuru-reach-item">
                   <div class="japankuru-reach-icon"><i class="fab fa-facebook-f"></i></div>
-                  <div class="japankuru-reach-num">5<small>万~</small></div>
-                  <div class="japankuru-reach-label">Facebook<br>平均リーチ</div>
+                  <div class="japankuru-reach-num">○○<small>万</small></div>
+                  <div class="japankuru-reach-label">Facebook<br>月間平均リーチ</div>
                 </div>
                 <div class="japankuru-reach-item">
                   <div class="japankuru-reach-icon"><i class="fab fa-instagram"></i></div>
-                  <div class="japankuru-reach-num">3<small>万</small></div>
-                  <div class="japankuru-reach-label">Instagram<br>平均リーチ</div>
+                  <div class="japankuru-reach-num">○○<small>万</small></div>
+                  <div class="japankuru-reach-label">Instagram<br>月間平均リーチ</div>
                 </div>
               </div>
             </div>
@@ -2866,7 +3109,7 @@
                 <span>コスメ</span><span>医薬品</span><span>健康食品</span><span>日用品</span>
               </div>
               <div class="lp-mini-cards">
-                <div class="lp-mini-card"><img src="https://www.japankuru.com/gld-kanri/data/uploads/2025/11/KOWA_new_CC17-1536x1024.jpg" alt="商品1"></div>
+                <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=1" alt="商品1"></div>
                 <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=2" alt="商品2"></div>
                 <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=3" alt="商品3"></div>
                 <div class="lp-mini-card"><img src="https://placehold.co/100x120/FFF0F3/E8879B?text=4" alt="商品4"></div>
@@ -3002,7 +3245,7 @@
               <div class="distribution-source-icon boost-icon">
                 <i class="fas fa-bullhorn"></i>
               </div>
-              <div class="distribution-source-name">ブースト広告</div>
+              <div class="distribution-source-name">戦略的広告配信</div>
             </div>
           </div>
 
@@ -3011,9 +3254,9 @@
           </div>
 
           <div class="distribution-result">
-            <div class="distribution-result-num">10<small>万+</small></div>
-            <div class="distribution-result-label">リーチ確保</div>
-            <div class="distribution-result-desc">桜シーズン前に、訪日予定の台湾人へ確実に届ける</div>
+            <div class="distribution-result-num">5<small>万PV</small></div>
+            <div class="distribution-result-label">保証</div>
+            <div class="distribution-result-desc">戦略的セグメント広告配信で、訪日関心層への確実な流入を保証</div>
           </div>
         </div>
       </div>
@@ -3023,59 +3266,39 @@
     <div class="slide slide-boost">
       <div class="slide-content">
         <div class="slide-header">
-          <div class="slide-num">09 / AD OPERATION</div>
-          <h2>広告運用（オプション）</h2>
-          <p>ご予算に応じて、さらにリーチを拡大できます</p>
+          <div class="slide-num">09 / BOOST OPTION</div>
+          <h2>個別商品ブーストオプション</h2>
+          <p>自社商品をもっと強化したい場合に追加可能な、指名型誘導オプションです</p>
         </div>
 
         <div class="ad-operation-main">
           <div class="ad-operation-cards">
             <div class="ad-operation-card">
-              <div class="ad-operation-icon"><i class="fab fa-google"></i></div>
-              <h4>Google Display広告</h4>
-              <p>訪日予定者にバナー広告を配信</p>
-            </div>
-            <div class="ad-operation-card">
-              <div class="ad-operation-icon"><i class="fab fa-facebook-f"></i></div>
-              <h4>Facebook広告</h4>
-              <p>台湾ユーザーへターゲット配信</p>
-            </div>
-            <div class="ad-operation-card">
-              <div class="ad-operation-icon"><i class="fab fa-instagram"></i></div>
-              <h4>Instagram広告</h4>
-              <p>ビジュアル訴求で商品をPR</p>
-            </div>
-            <div class="ad-operation-card">
-              <div class="ad-operation-icon"><i class="fas fa-image"></i></div>
-              <h4>バナー制作</h4>
-              <p>広告用クリエイティブを作成</p>
-            </div>
-          </div>
-
-          <div class="ad-operation-pricing">
-            <div class="ad-operation-pricing-header">
-              <i class="fas fa-chart-line"></i>
-              <span>予算とリーチの目安</span>
-            </div>
-            <div class="ad-operation-pricing-table">
-              <div class="ad-operation-pricing-row">
-                <span class="ad-pricing-budget">10万円</span>
-                <span class="ad-pricing-arrow">→</span>
-                <span class="ad-pricing-reach">+10〜20万リーチ</span>
-              </div>
-              <div class="ad-operation-pricing-row">
-                <span class="ad-pricing-budget">30万円</span>
-                <span class="ad-pricing-arrow">→</span>
-                <span class="ad-pricing-reach">+30〜50万リーチ</span>
-              </div>
-              <div class="ad-operation-pricing-row highlight">
-                <span class="ad-pricing-budget">50万円</span>
-                <span class="ad-pricing-arrow">→</span>
-                <span class="ad-pricing-reach">+50〜100万リーチ</span>
+              <div class="ad-operation-icon" style="background: linear-gradient(135deg, #FF0033, #CC0029);"><i class="fab fa-yahoo"></i></div>
+              <h4>Yahoo!検索広告</h4>
+              <p>台湾Yahoo!でのキーワード検索広告。指名検索で確実に誘導。</p>
+              <div class="ad-card-price-box">
+                <span class="ad-price-val">30万円〜</span>
+                <span class="ad-price-kpi">目安：1万クリック</span>
               </div>
             </div>
-            <div class="ad-operation-pricing-note">
-              ※ 運用代行費込み。リーチ数は目安です。
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon" style="background: linear-gradient(135deg, #4285F4, #3367D6);"><i class="fab fa-google"></i></div>
+              <h4>Google 旅ナカ配信</h4>
+              <p><strong>「現在日本に滞在中の台湾人」</strong>に限定してリターゲティング広告。</p>
+              <div class="ad-card-price-box">
+                <span class="ad-price-val">10万円〜</span>
+                <span class="ad-price-kpi">目安：200クリック（高確度）</span>
+              </div>
+            </div>
+            <div class="ad-operation-card">
+              <div class="ad-operation-icon" style="background: linear-gradient(45deg, #405DE6, #833AB4, #C13584);"><i class="fab fa-instagram"></i></div>
+              <h4>SNS広告（FB/IG）</h4>
+              <p>フィード/ストーリーズ広告。ビジュアルで潜在層を掘り起こし。</p>
+              <div class="ad-card-price-box">
+                <span class="ad-price-val">50万円〜</span>
+                <span class="ad-price-kpi">目安：1万クリック</span>
+              </div>
             </div>
           </div>
         </div>
@@ -3101,6 +3324,11 @@
             </thead>
             <tbody>
               <tr>
+                <td>成果指標</td>
+                <td>リーチ数（見た人数）</td>
+                <td><strong>50,000 PV（訪れた回数）保証</strong></td>
+              </tr>
+              <tr>
                 <td>信頼性</td>
                 <td>企業発信のため広告感が強い</td>
                 <td>専門家の推薦として受け入れられる</td>
@@ -3108,7 +3336,7 @@
               <tr>
                 <td>ターゲット</td>
                 <td>不特定多数への配信</td>
-                <td>「訪日予定の台湾人」に絞れる</td>
+                <td>「訪日関心層」にセグメント配信</td>
               </tr>
               <tr>
                 <td>継続性</td>
@@ -3161,10 +3389,10 @@
               <td class="check">✓</td>
             </tr>
             <tr>
-              <td>コラム記事掲載</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
+              <td>戦略的広告配信</td>
+              <td style="color:#E8879B; font-weight:700;">5万PV保証</td>
+              <td style="color:#E8879B; font-weight:700;">5万PV保証</td>
+              <td style="color:#E8879B; font-weight:700;">5万PV保証</td>
             </tr>
             <tr>
               <td>JAPANKURU SNS投稿</td>
@@ -3288,7 +3516,7 @@
               <h3>株式会社グローバルデイリー</h3>
               <div class="contact-items">
                 <div class="contact-item"><i class="fas fa-user"></i> 担当：金</div>
-                <div class="contact-item"><i class="fas fa-envelope"></i> xxx@gldaily.com</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="057d7d7d45626961646c697c2b666a68">[email&#160;protected]</a></div>
                 <div class="contact-item"><i class="fas fa-phone"></i> 03-xxxx-xxxx</div>
               </div>
             </div>
@@ -3315,7 +3543,7 @@
   <div class="page-num"><span id="currentPage">1</span> / <span id="totalPages">14</span></div>
   <div class="keyboard-hint">← → キーで移動</div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     let currentSlide = 0;
@@ -3379,13 +3607,11 @@
     });
 
     document.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
+      const diff = touchStartX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) {
         changeSlide(diff > 0 ? 1 : -1);
       }
     });
   </script>
-
 </body>
 </html>
