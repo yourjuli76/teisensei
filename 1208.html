@@ -24,7 +24,7 @@
   
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&family=Klee+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&family=Klee+One&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -876,195 +876,322 @@
     /* ============================================
        에디터 픽 슬라이더 (NEW)
        ============================================ */
-    .editor-picks {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 80px 24px;
+    /* === 프리미엄 스플릿 배너 === */
+    .split-banner-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #fff 0%, var(--accent-soft) 50%, #fff 100%);
+      position: relative;
+      overflow: hidden;
     }
 
-    .picks-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--ink-muted);
+    .sakura-float {
+      position: absolute;
+      font-size: 100px;
+      color: var(--accent);
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    .sakura-float.left { top: 10%; left: 5%; transform: rotate(-10deg); }
+    .sakura-float.right { bottom: 15%; right: 5%; transform: rotate(15deg); }
+
+    .split-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .picks-title {
+    .split-eyebrow::before,
+    .split-eyebrow::after {
+      content: '✿';
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    .split-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .split-subtitle {
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+
+    .split-container {
+      display: flex;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      height: 550px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(212, 112, 122, 0.15), 0 0 0 1px rgba(212, 112, 122, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-panel {
+      position: relative;
+      flex: 1;
+      transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 45px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .split-panel:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .split-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 0;
+    }
+
+    .split-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45, 35, 38, 0.9) 0%, rgba(45, 35, 38, 0.4) 40%, rgba(212, 112, 122, 0.1) 100%);
+      z-index: 1;
+      transition: all 0.5s;
+    }
+
+    .split-panel:hover {
+      flex: 2.2;
+    }
+
+    .split-panel:hover .split-bg {
+      transform: scale(1.08);
+    }
+
+    .split-panel:hover::before {
+      background: linear-gradient(to top, rgba(45, 35, 38, 0.95) 0%, rgba(45, 35, 38, 0.5) 50%, rgba(212, 112, 122, 0.15) 100%);
+    }
+
+    .split-logo {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 3;
+      background: #fff;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .split-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .split-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .split-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1;
+    }
+
+    .split-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 5px 12px;
+      display: inline-block;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .split-headline {
       font-family: 'Noto Serif JP', serif;
       font-size: 22px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 32px;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 0;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    .picks-carousel { position: relative; }
-
-    .picks-viewport {
+    .split-desc {
+      max-height: 0;
+      opacity: 0;
       overflow: hidden;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 0;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.5s ease;
+    }
+
+    .split-panel:hover .split-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 16px;
+    }
+
+    .split-btn {
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.4s ease 0.1s;
+      color: var(--accent-soft);
+      letter-spacing: 0.05em;
+    }
+
+    .split-btn i {
+      font-size: 10px;
+      transition: transform 0.3s;
+    }
+
+    .split-panel:hover .split-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .split-panel:hover .split-btn i {
+      transform: translateX(4px);
+    }
+
+    .split-footer {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 45px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: all 0.4s;
       border-radius: 2px;
     }
 
-    .picks-track {
-      display: flex;
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    .split-cta:hover {
+      background: #c45d67;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 112, 122, 0.3);
     }
 
-    .pick-item {
-      min-width: 100%;
-      background: var(--paper);
-      display: flex;
-      gap: 40px;
-      padding: 36px 40px;
-    }
-
-    .pick-visual {
-      flex: 0 0 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pick-visual img {
-      max-width: 100%;
-      max-height: 220px;
-      object-fit: contain;
-    }
-
-    .pick-detail {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .pick-brand {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--ink-muted);
-      margin-bottom: 4px;
-    }
-
-    .pick-name {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
-    .pick-quote {
-      position: relative;
-      padding-left: 16px;
-      margin-bottom: 24px;
-    }
-
-    .pick-quote::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: var(--accent);
-    }
-
-    .pick-quote-text {
-      font-size: 14px;
-      color: var(--ink-light);
-      line-height: 1.85;
-      margin-bottom: 12px;
-    }
-
-    .pick-quote-author {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .pick-quote-author img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .pick-quote-author span {
+    .split-cta i {
       font-size: 12px;
-      color: var(--ink-muted);
+      transition: transform 0.3s;
     }
 
-    .pick-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--ink-faint);
-      padding-bottom: 2px;
-      transition: border-color 0.2s;
-      align-self: flex-start;
+    .split-cta:hover i {
+      transform: translateX(5px);
     }
 
-    .pick-link:hover { border-color: var(--ink); }
+    @media (max-width: 900px) {
+      .split-banner-section { padding: 70px 0; }
 
-    .picks-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .picks-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .picks-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--ink-faint);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .picks-dot.is-active {
-      background: var(--ink);
-      width: 18px;
-      border-radius: 3px;
-    }
-
-    .picks-arrows {
-      display: flex;
-      gap: 4px;
-    }
-
-    .picks-arrow {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--ink-faint);
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-
-    .picks-arrow:hover { border-color: var(--ink); }
-
-    @media (max-width: 680px) {
-      .pick-item {
+      .split-container {
         flex-direction: column;
-        padding: 28px 24px;
-        gap: 24px;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
       }
-      .pick-visual img { max-height: 160px; }
-      .picks-arrows { display: none; }
+
+      .split-panel {
+        height: 280px;
+        flex: none;
+        width: 100%;
+        padding: 30px 24px;
+      }
+
+      .split-panel:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .split-panel:hover { flex: none; }
+
+      .split-logo {
+        top: 20px;
+        left: 20px;
+        padding: 8px 12px;
+      }
+
+      .split-desc {
+        max-height: 100px;
+        opacity: 1;
+        margin-top: 12px;
+      }
+
+      .split-btn {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 14px;
+      }
+
+      .split-title { font-size: 24px; }
+      .split-headline { font-size: 20px; }
+      .split-num { font-size: 40px; }
+
+      .sakura-float { display: none; }
     }
 
     /* 섹션 전환 */
@@ -3260,7 +3387,7 @@
           </div>
           <div class="stat-item">
             <span class="stat-num">900万</span>
-            <span class="stat-label">ブログ累計PV</span>
+            <span class="stat-label">累計PV</span>
           </div>
           <div class="stat-books">
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
@@ -3306,7 +3433,7 @@
             </p>
           </div>
           
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭世彬" class="tei-photo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg" alt="鄭世彬" class="tei-photo">
           
           <div class="tei-name-tag">
             <p class="name-jp">鄭 世彬</p>
@@ -3318,86 +3445,87 @@
   </section>
 
   <!-- 에디터 픽 슬라이더 -->
-  <section class="editor-picks">
-    <p class="picks-eyebrow">Tei's Selection</p>
-    <h2 class="picks-title">今、本当におすすめしたいもの</h2>
+  <section class="split-banner-section">
+    <!-- 벚꽃 장식 -->
+    <span class="sakura-float left">❀</span>
+    <span class="sakura-float right">❀</span>
 
-    <div class="picks-carousel">
-      <div class="picks-viewport">
-        <div class="picks-track" id="picksTrack">
-          
-          <!-- Item 1: HAKU -->
-          <article class="pick-item">
-            <div class="pick-visual">
-              <img src="https://www.shiseido.co.jp/sw/products/img/20230201/SHOHIN_PL_C1_820501_pc.jpg" alt="HAKU" onerror="this.src='https://placehold.co/180x220/faf9f7/ccc?text=HAKU'">
-            </div>
-            <div class="pick-detail">
-              <p class="pick-brand">SHISEIDO</p>
-              <h3 class="pick-name">HAKU メラノフォーカスEV</h3>
-              <div class="pick-quote">
-                <p class="pick-quote-text">10年間、毎日使い続けています。妻のシミが3ヶ月で目に見えて薄くなったのを見て、これは本物だと確信しました。美白美容液で迷ったら、まずこれを試してほしい。</p>
-                <div class="pick-quote-author">
-                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
-                  <span>鄭世彬</span>
-                </div>
-              </div>
-              <a href="#" class="pick-link">コラムを読む →</a>
-            </div>
-          </article>
-
-          <!-- Item 2: SK-II -->
-          <article class="pick-item">
-            <div class="pick-visual">
-              <img src="https://placehold.co/180x220/faf9f7/ccc?text=SK-II" alt="SK-II">
-            </div>
-            <div class="pick-detail">
-              <p class="pick-brand">SK-II</p>
-              <h3 class="pick-name">フェイシャルトリートメントエッセンス</h3>
-              <div class="pick-quote">
-                <p class="pick-quote-text">台湾で買うより約30%安い。これが日本で買うべき代表格。ピテラ90%以上の高濃度処方は、肌の調子を根本から整えてくれます。</p>
-                <div class="pick-quote-author">
-                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
-                  <span>鄭世彬</span>
-                </div>
-              </div>
-              <a href="#" class="pick-link">コラムを読む →</a>
-            </div>
-          </article>
-
-          <!-- Item 3: メラノCC -->
-          <article class="pick-item">
-            <div class="pick-visual">
-              <img src="https://placehold.co/180x220/faf9f7/ccc?text=メラノCC" alt="メラノCC">
-            </div>
-            <div class="pick-detail">
-              <p class="pick-brand">ROHTO</p>
-              <h3 class="pick-name">メラノCC 薬用しみ集中対策美容液</h3>
-              <div class="pick-quote">
-                <p class="pick-quote-text">コスパ最強の美白美容液。20mlとコンパクトだから、旅行のお供にも最適。初めての美白ケアはこれから始めてみてください。</p>
-                <div class="pick-quote-author">
-                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
-                  <span>鄭世彬</span>
-                </div>
-              </div>
-              <a href="#" class="pick-link">コラムを読む →</a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <nav class="picks-nav">
-        <div class="picks-dots">
-          <button class="picks-dot is-active" data-idx="0"></button>
-          <button class="picks-dot" data-idx="1"></button>
-          <button class="picks-dot" data-idx="2"></button>
-        </div>
-        <div class="picks-arrows">
-          <button class="picks-arrow" data-dir="-1"><i class="fas fa-chevron-left"></i></button>
-          <button class="picks-arrow" data-dir="1"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </nav>
+    <div class="split-header">
+      <span class="split-eyebrow">Special Feature 2026 Spring</span>
+      <h2 class="split-title">「なぜ、この3つなのか」<br>鄭先生が明かす、選定の理由</h2>
+      <p class="split-subtitle">
+        14年の研究で数千の製品を試してきた専門家が、<br>
+        2026年春、台湾の皆さんに「これだけは」と勧める3つのアイテム。
+      </p>
     </div>
+
+    <div class="split-container">
+      
+      <!-- 01: Bioré -->
+      <a href="https://japankuru.com/biore" class="split-panel">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
+        
+        <div class="split-logo">
+          <span class="split-logo-text">Kao</span>
+        </div>
+        
+        <div class="split-content">
+          <span class="split-num">01</span>
+          <span class="split-brand">Bioré The Cleanse</span>
+          <h3 class="split-headline">擦らない革命。<br>「瞬浮技術」が常識を変えた。</h3>
+          <p class="split-desc">
+            2023年、花王が美容界に投じた革命。塗るだけでメイクが浮き上がり、水で流すだけ。マツエクにも対応。
+          </p>
+          <span class="split-btn">詳しく読む <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 02: Yunth -->
+      <a href="https://japankuru.com/yunth" class="split-panel">
+        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
+        
+        <div class="split-logo">
+          <span class="split-logo-text">Yunth</span>
+        </div>
+        
+        <div class="split-content">
+          <span class="split-num">02</span>
+          <span class="split-brand">生VC美白美容液</span>
+          <h3 class="split-headline">30秒の鮮度。<br>酸化と戦う、新しい美白。</h3>
+          <p class="split-desc">
+            水を一滴も使わない純度100%のビタミンC。個包装が守る、開封から30秒の黄金時間。
+          </p>
+          <span class="split-btn">詳しく読む <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 03: 紫外線予報 -->
+      <a href="https://japankuru.com/uv" class="split-panel">
+        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
+        
+        <div class="split-logo">
+          <span class="split-logo-text">石澤研究所</span>
+        </div>
+        
+        <div class="split-content">
+          <span class="split-num">03</span>
+          <span class="split-brand">紫外線予報 UVスティック</span>
+          <h3 class="split-headline">手を汚さない、新習慣。<br>家族で使える優しさ。</h3>
+          <p class="split-desc">
+            発売直後、購入制限がかかった話題作。スティックタイプの革新と、子供にも使える処方。
+          </p>
+          <span class="split-btn">詳しく読む <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="split-footer">
+      <a href="https://japankuru.com/special-feature" class="split-cta">
+        特集記事を読む <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
   </section>
 
   <!-- 섹션 전환 -->
@@ -3861,11 +3989,11 @@
             brand: '花王',
             price: 350, 
             priceNote: '50mL 350円 / 190mL 1,180円',
-            image: 'https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/biore/lineup/m_thecleanse/mist_mainpic.png?fmt=webp&wid=2800', 
+            image: 'https://placehold.co/200x200/faf9f7/ccc?text=Bioré', 
             label: 'type-deal', 
             labelText: '台湾より安い', 
             tags: ['cheaper', 'hit'],
-            tip: '<strong>擦らずに落ちる革命的クレンジング。</strong>2023年に花王が発売して以来、日本の美容ランキングで常に上位をキープしている話題作です。最大の特徴は「瞬浮技術」。塗るだけでメイクが浮き上がり、水で流すだけで完了。マッサージも乳化も不要なので、肌への摩擦を最小限に抑えられます。さらにマツエクをしていても使えるのが嬉しいポイント。ウォータープルーフの日焼け止めもしっかり落ちるので、旅行中のクレンジングに最適です。50mLのミニサイズは機内持ち込みにも便利。台湾より安く買えるので、まとめ買いをおすすめします！',
+            tip: '<strong>台湾より安い＆話題のクレンジング。</strong>オイルなのにベタつかず、ウォータープルーフもするっと落ちます。ドラッグストアで手軽に買えるのも◎ ドン・キホーテでも取り扱いあり。',
             column: 'https://japankuru.com/biore', 
             hasVideo: false,
             store: '藥妝店、唐吉訶德'
@@ -3876,11 +4004,11 @@
             brand: 'Yunth',
             price: 3960, 
             priceNote: '1mL×30包',
-            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png', 
+            image: 'https://placehold.co/200x200/faf9f7/ccc?text=Yunth', 
             label: 'type-exclusive', 
             labelText: '日本限定', 
             tags: ['japan-only', 'hit', 'compact'],
-            tip: '<strong>30秒の鮮度で届ける、純度100%のビタミンC美容液。</strong>「早C晩A」トレンドの中で、台湾SNSでも話題沸騰中の一品です。最大の特徴は水を一滴も使わない100%純粋処方。ビタミンCは酸化しやすい成分ですが、1回使い切りの個包装で鮮度を完全キープ。開封から30秒以内に塗布することで、高純度の美肌成分が肌の奥まで届きます。塗った瞬間にじんわり温かくなる独特の使用感も人気の理由。洗顔後の最初のステップとして使う導入美容液なので、その後の化粧水や乳液の浸透力もアップ。目尻や口元など気になる部分は指で軽く押さえるとより効果的です。コンパクトな個包装は旅行にも◎',
+            tip: '<strong>日本限定＆SNSで話題の美白美容液。</strong>個包装で鮮度を保つビタミンC。旅行にも持ち運びやすいコンパクトサイズ。美妝店で購入可能。',
             column: 'https://japankuru.com/yunth', 
             hasVideo: true,
             store: '美妝店',
@@ -3897,11 +4025,11 @@
             brand: '石澤研究所',
             price: 1870, 
             priceNote: '15g',
-            image: 'https://www.ishizawa-lab.co.jp/shigaisen/images/stick/outline-01x2.jpg', 
+            image: 'https://placehold.co/200x200/faf9f7/ccc?text=UV', 
             label: 'type-deal', 
             labelText: '台湾より安い', 
             tags: ['cheaper', 'compact', 'family'],
-            tip: '<strong>手を汚さずに塗れる、話題の日焼け止めスティック。</strong>石澤研究所から発売されたこの商品、発売当初は品薄で購入制限がかかるほどの人気ぶりでした。最大の魅力は塗った後のサラサラ感。スティックタイプなので手が汚れず、カバンの中で液漏れする心配もありません。手のひら半分ほどのコンパクトサイズで持ち運びに便利。旅行中のこまめな塗り直しにも最適です。強力な紫外線カット力がありながら、普通の洗顔料で落とせるやさしい処方。お子様にも安心して使えるので、家族みんなでシェアできます。台湾より安く買えるので、まとめ買いがおすすめ！',
+            tip: '<strong>台湾より安い＆携帯に便利なスティック日焼け止め。</strong>手を汚さずに塗れるスティックタイプ。家族みんなで使えます。コンパクトで旅行にも◎',
             column: null, 
             hasVideo: false,
             store: '藥妝店、美妝店、唐吉訶德'
@@ -4487,35 +4615,6 @@
         showToast('コピーに失敗しました');
       });
     }
-
-    // 에디터 픽 슬라이더
-    const track = document.getElementById('picksTrack');
-    const dots = document.querySelectorAll('.picks-dot');
-    const arrows = document.querySelectorAll('.picks-arrow');
-    let current = 0;
-    const total = 3;
-    let autoplay;
-
-    function goTo(idx) {
-      current = (idx + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
-    }
-
-    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); resetAuto(); }));
-    arrows.forEach(a => a.addEventListener('click', () => { goTo(current + +a.dataset.dir); resetAuto(); }));
-
-    function startAuto() { autoplay = setInterval(() => goTo(current + 1), 6000); }
-    function resetAuto() { clearInterval(autoplay); startAuto(); }
-
-    let startX = 0;
-    document.querySelector('.picks-viewport').addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    document.querySelector('.picks-viewport').addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); resetAuto(); }
-    });
-
-    startAuto();
 
     // 탭 이벤트
     document.querySelectorAll('.tab-btn').forEach(btn => {
