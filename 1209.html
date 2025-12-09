@@ -1294,14 +1294,14 @@
     }
 
     .featured-card {
-      flex: 0 0 300px;
+      flex: 0 0 280px;
+      height: 360px;
       scroll-snap-align: start;
-      background: #fff;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      position: relative;
     }
 
     .featured-card:first-child {
@@ -1313,87 +1313,99 @@
     }
 
     .featured-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(212, 112, 122, 0.15);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
     }
 
-    .featured-card-img {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-    }
-
-    .featured-card-img img {
+    .featured-card-bg {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
 
-    .featured-card:hover .featured-card-img img {
-      transform: scale(1.05);
+    .featured-card:hover .featured-card-bg {
+      transform: scale(1.1);
     }
 
-    .featured-card-badge {
+    .featured-card-overlay {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(212, 112, 122, 0.95);
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.15) 100%
+      );
+    }
+
+    .featured-card-inner {
+      position: absolute;
+      inset: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+
+    .featured-card-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--accent);
       color: #fff;
       font-size: 10px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 4px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
       letter-spacing: 0.5px;
     }
 
-    .featured-card-content {
-      padding: 20px;
-    }
-
-    .featured-card-brand {
-      font-size: 10px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .featured-card-name {
-      font-size: 15px;
+    .featured-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
       font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.4;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
 
-    .featured-card-desc {
+    .featured-card-copy {
       font-size: 12px;
-      color: var(--ink-muted);
-      line-height: 1.6;
+      line-height: 1.7;
+      opacity: 0.9;
       margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
-    .featured-card-cta {
-      display: flex;
+    .featured-card-btn {
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 12px;
+      gap: 8px;
+      font-size: 11px;
       font-weight: 600;
-      color: var(--accent);
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 25px;
+      width: fit-content;
+      transition: all 0.3s;
     }
 
-    .featured-card-cta i {
+    .featured-card:hover .featured-card-btn {
+      background: var(--accent);
+    }
+
+    .featured-card-btn i {
       font-size: 10px;
-      transition: transform 0.2s;
+      transition: transform 0.3s;
     }
 
-    .featured-card:hover .featured-card-cta i {
-      transform: translateX(4px);
+    .featured-card:hover .featured-card-btn i {
+      transform: translateY(3px);
     }
 
     .scroll-hint {
@@ -1429,7 +1441,8 @@
       }
 
       .featured-card {
-        flex: 0 0 260px;
+        flex: 0 0 240px;
+        height: 320px;
       }
 
       .featured-card:first-child {
@@ -1440,8 +1453,12 @@
         margin-right: 16px;
       }
 
-      .featured-card-img {
-        height: 150px;
+      .featured-card-title {
+        font-size: 18px;
+      }
+
+      .featured-card-inner {
+        padding: 20px;
       }
     }
 
@@ -4308,91 +4325,93 @@
   <!-- Featured 캐러셀 섹션 -->
   <section class="featured-section">
     <div class="featured-header">
-      <span class="featured-eyebrow">Also Recommended</span>
-      <h2 class="featured-title">惜しくもTOP3入りを逃したが、<br>見逃せない実力派たち</h2>
+      <span class="featured-eyebrow">Trending Now</span>
+      <h2 class="featured-title">今、話題のアイテム</h2>
       <p class="featured-subtitle">
-        最終選考まで残った注目アイテム。<br>
-        「次点」とは言え、どれも自信を持っておすすめできる逸品です。
+        SNSで注目度急上昇中のアイテムをピックアップ。<br>
+        売り切れる前にチェックしておきたい、旬の逸品たち。
       </p>
     </div>
 
     <div class="featured-carousel-wrap">
       <div class="featured-carousel">
         
-        <!-- Card 1: CANMAKE -->
-        <article class="featured-card" onclick="scrollToProduct(13)">
-          <div class="featured-card-img">
-            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80" alt="CANMAKE">
-            <span class="featured-card-badge">プチプラ</span>
-          </div>
-          <div class="featured-card-content">
-            <span class="featured-card-brand">CANMAKE</span>
-            <h3 class="featured-card-name">シルキースフレアイズ</h3>
-            <p class="featured-card-desc">しっとり密着、粉飛びゼロ。プチプラなのに高級感あるツヤ感が人気の秘密。</p>
-            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <!-- Card 1: パブロン -->
+        <article class="featured-card" onclick="scrollToProduct(4)">
+          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">ロングセラー</span>
+            <h3 class="featured-card-title">パブロンエース<br>Pro-X</h3>
+            <p class="featured-card-copy">30年以上愛される<br>日本の国民的風邪薬</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
         </article>
 
-        <!-- Card 2: SHISEIDO -->
-        <article class="featured-card" onclick="scrollToProduct(14)">
-          <div class="featured-card-img">
-            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80" alt="SHISEIDO">
-            <span class="featured-card-badge">日本限定</span>
-          </div>
-          <div class="featured-card-content">
-            <span class="featured-card-brand">SHISEIDO</span>
-            <h3 class="featured-card-name">アルティミューン パワライジング</h3>
-            <p class="featured-card-desc">肌の免疫力を高める美容液。日本限定サイズは台湾より断然お得。</p>
-            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <!-- Card 2: コラーゲンゼリー -->
+        <article class="featured-card" onclick="scrollToProduct(7)">
+          <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">お土産人気</span>
+            <h3 class="featured-card-title">コラーゲンC<br>ゼリー</h3>
+            <p class="featured-card-copy">個包装で配りやすい<br>美味しく続ける美容習慣</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
         </article>
 
-        <!-- Card 3: FANCL -->
-        <article class="featured-card" onclick="scrollToProduct(15)">
-          <div class="featured-card-img">
-            <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80" alt="FANCL">
-            <span class="featured-card-badge">殿堂入り</span>
-          </div>
-          <div class="featured-card-content">
-            <span class="featured-card-brand">FANCL</span>
-            <h3 class="featured-card-name">マイルドクレンジング オイル</h3>
-            <p class="featured-card-desc">@cosme殿堂入り。擦らず落ちるクレンジングの元祖にして王道。</p>
-            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <!-- Card 3: モンダミン -->
+        <article class="featured-card" onclick="scrollToProduct(10)">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">台湾より安い</span>
+            <h3 class="featured-card-title">MONDAMIN<br>PREMIUM CARE</h3>
+            <p class="featured-card-copy">家族で使える大容量<br>ゴールドミントの爽快感</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
         </article>
 
-        <!-- Card 4: ORBIS -->
-        <article class="featured-card" onclick="scrollToProduct(16)">
-          <div class="featured-card-img">
-            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80" alt="ORBIS">
-            <span class="featured-card-badge">30代人気</span>
-          </div>
-          <div class="featured-card-content">
-            <span class="featured-card-brand">ORBIS</span>
-            <h3 class="featured-card-name">オルビスユー ローション</h3>
-            <p class="featured-card-desc">「とろパシャ」の新感覚化粧水。30代からのエイジングケアにぴったり。</p>
-            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <!-- Card 4: 一滴消臭元 -->
+        <article class="featured-card" onclick="scrollToProduct(11)">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80" alt="一滴消臭元" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">SNS話題</span>
+            <h3 class="featured-card-title">一滴消臭元</h3>
+            <p class="featured-card-copy">たった一滴でトイレが変わる<br>旅行にも便利なコンパクトサイズ</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
         </article>
 
-        <!-- Card 5: DECORTÉ -->
-        <article class="featured-card" onclick="scrollToProduct(17)">
-          <div class="featured-card-img">
-            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&q=80" alt="DECORTÉ">
-            <span class="featured-card-badge">ベスコス</span>
+        <!-- Card 5: DHC -->
+        <article class="featured-card" onclick="scrollToProduct(8)">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="DHC" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">目のケア</span>
+            <h3 class="featured-card-title">DHC<br>速攻ブルーベリー</h3>
+            <p class="featured-card-copy">スマホ世代の必需品<br>台湾より30%以上お得</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
-          <div class="featured-card-content">
-            <span class="featured-card-brand">DECORTÉ</span>
-            <h3 class="featured-card-name">リポソーム アドバンスト</h3>
-            <p class="featured-card-desc">浸透力No.1と評される美容液。ベストコスメ常連の実力派。</p>
-            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        </article>
+
+        <!-- Card 6: AYURA -->
+        <article class="featured-card" onclick="scrollToProduct(12)">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="AYURA" class="featured-card-bg">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-inner">
+            <span class="featured-card-tag">ギフト人気</span>
+            <h3 class="featured-card-title">AYURA<br>アロマボディシート</h3>
+            <p class="featured-card-copy">癒しのアロマで<br>旅の疲れをリフレッシュ</p>
+            <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
           </div>
         </article>
 
       </div>
 
       <div class="scroll-hint">
-        <span>スワイプで他のブランドを見る</span>
+        <span>スワイプでもっと見る</span>
         <i class="fas fa-arrow-right"></i>
       </div>
     </div>
