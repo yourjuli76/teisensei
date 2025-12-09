@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>JAPANKURU × 日本藥妝研究室 2026春 タイアップ企画ご提案</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* ---- ベース ---- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", system-ui, sans-serif;
+      background: #111;
+      color: #fff;
+      overflow: hidden; /* 세로 스크롤 금지 */
+    }
+
+    /* ---- 슬라이드 컨테이너 / 네비 ---- */
+    .slides {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s;
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 16:9 프레임 느낌을 주기 위한 내부 컨테이너 */
+    .slide-inner {
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;         /* 16:9 비율 */
+      max-height: calc(100vh - 32px);
+      margin: 0 auto;
+      padding: 40px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* ---- 타이포 크기 (기본보다 크게) ---- */
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    h1 {
+      font-size: clamp(30px, 3.4vw, 38px);
+      margin-bottom: 18px;
+    }
+    h2 {
+      font-size: clamp(26px, 3vw, 34px);
+      margin-bottom: 16px;
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+    li {
+      font-size: 15px;
+      line-height: 1.8;
+      padding-left: 1.4em;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    li::before {
+      content: "●";
+      font-size: 0.6em;
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      color: #ff6d9c;
+    }
+    small {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    /* ---- 배경 / 컬러 ---- */
+    .slide--title { 
+      background: radial-gradient(circle at top, #ffb7c5 0, #111 55%);
+      text-align: left;
+    }
+    .slide--concept {
+      background: linear-gradient(135deg, #1b1b1b, #222);
+    }
+    .slide--outline {
+      background: #181818;
+    }
+    .slide--plan {
+      background: #141414;
+    }
+    .slide--compare {
+      background: #171717;
+    }
+    .slide--flow {
+      background: #11151c;
+    }
+    .slide--contact {
+      background: #101010;
+    }
+    .slide--impact {
+      background: radial-gradient(circle at top, #22263b 0, #111 55%);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .brand-line {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+    .em-sakura {
+      color: #ffb7c5;
+      font-weight: 700;
+    }
+    .em-accent {
+      color: #ffd37e;
+      font-weight: 600;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 28px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    .pill-label {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    /* ---- IMPACT (5만 PV / 100만 리치) ---- */
+    .impact-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+    }
+    .impact-lead {
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+    .impact-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 8px 0 16px;
+    }
+    .impact-stat {
+      flex: 1;
+      min-width: 260px;
+      text-align: center;
+      padding: 18px 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .impact-num {
+      font-size: clamp(36px, 4.1vw, 52px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #ffb7c5, #ffd37e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .impact-num span {
+      font-size: 0.5em;
+      margin-left: 6px;
+    }
+    .impact-num--green {
+      background: linear-gradient(135deg, #8ce6c8, #4ed9b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .impact-label {
+      font-size: 14px;
+      opacity: 0.88;
+      margin-bottom: 4px;
+    }
+    .impact-sub {
+      font-size: 13px;
+      opacity: 0.75;
+    }
+    .impact-note-list {
+      margin-top: 6px;
+    }
+    .impact-note-list li {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .impact-note-list li::before {
+      color: #ffd37e;
+    }
+    .note {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* ---- 플랜 카드 ---- */
+    .plan-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 22px;
+      margin-top: 12px;
+      align-items: stretch;
+    }
+    .plan-main {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .plan-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+    .plan-card--basic {
+      border-color: rgba(255,183,197,0.6);
+    }
+    .plan-card--standard {
+      border-color: rgba(255,211,126,0.8);
+    }
+    .plan-card--premium {
+      border-color: rgba(140,230,200,0.8);
+    }
+    .plan-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .plan-tagline {
+      font-size: 14px;
+      color: #ffb7c5;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .price span {
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-left: 6px;
+    }
+    .plan-list li {
+      font-size: 15px;
+    }
+
+    /* ---- 플랜 우측 이미지 와쿠 (고정 높이 느낌) ---- */
+    .plan-image-frame {
+      border-radius: 18px;
+      border: 1px dashed rgba(255,255,255,0.5);
+      background: radial-gradient(circle at top, rgba(255,183,197,0.12), rgba(0,0,0,0.7));
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 360px; /* 16:9 내에서 고정 와쿠 높이 */
+    }
+    .plan-image-frame-inner {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+    .plan-image-frame-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.85;
+    }
+    .plan-image-placeholder {
+      width: 100%;
+      aspect-ratio: 9 / 20;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.12) 0,
+        rgba(255,255,255,0.12) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    .plan-image-frame-note {
+      font-size: 13px;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+
+    /* ---- 비교 테이블 ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+    th, td {
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 8px 10px;
+      text-align: center;
+    }
+    th {
+      background: rgba(255,255,255,0.06);
+      font-weight: 600;
+    }
+    td:first-child, th:first-child {
+      text-align: left;
+      white-space: nowrap;
+    }
+    .yes {
+      color: #8ce6c8;
+      font-weight: 700;
+    }
+    .strong {
+      color: #ffd37e;
+      font-weight: 600;
+    }
+
+    /* ---- 스케줄 / 플로우 ---- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .step {
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 14px 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .step-num {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .step-body {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+
+    /* ---- 연락 박스 ---- */
+    .contact-box {
+      margin-top: 20px;
+      padding: 18px 16px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* ---- 네비게이션 UI ---- */
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 50;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+    .nav-arrow:hover {
+      background: #ff6d9c;
+      color: #fff;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .nav-arrow:disabled {
+      opacity: 0.35;
+      cursor: default;
+      transform: translateY(-50%);
+    }
+    .nav-arrow.prev { left: 18px; }
+    .nav-arrow.next { right: 18px; }
+
+    .page-indicator {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      opacity: 0.75;
+      z-index: 40;
+    }
+
+    .nav-hint {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      font-size: 12px;
+      opacity: 0.7;
+      z-index: 40;
+    }
+
+    @media (max-width: 1024px) {
+      .slide-inner {
+        padding: 32px 32px;
+      }
+      .two-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .plan-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .plan-image-frame {
+        height: 320px;
+      }
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .slide-inner {
+        padding: 24px 18px;
+      }
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      table {
+        font-size: 13px;
+      }
+      th, td {
+        padding: 6px 6px;
+      }
+      .nav-arrow {
+        display: none; /* 모바일에선 키보드 대신 스와이프/탭으로 넘긴다고 가정 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slides">
+
+  <!-- Slide 1: タイトル -->
+  <section class="slide slide--title active">
+    <div class="slide-inner">
+      <div class="tag">2026 SPRING SPECIAL LANDING PAGE</div>
+      <div class="brand-line">JAPANKURU × 日本藥妝研究室</div>
+      <h1>「鄭先生のおすすめ 2026春」<br>商品カードタイアップ企画のご提案</h1>
+      <p>
+        2026年春の特設ランディングページに、<br>
+        貴施設・貴ブランドの商品を「おすすめカード」として組み込み、<br>
+        訪日台湾人旅行者に向けて<strong class="em-sakura">信頼性の高いレコメンド</strong>を行うプランです。
+      </p>
+      <p>
+        本資料では、<span class="em-accent">ベーシック／スタンダード／プレミアム</span>の3プランをご紹介します。
+      </p>
+      <small>※本HTMLは営業用プレゼンテーション（16:9 固定表示スライド）としてご利用いただけます。</small>
+    </div>
+  </section>
+
+  <!-- Slide 2: コンセプト -->
+  <section class="slide slide--concept">
+    <div class="slide-inner">
+      <h2>企画コンセプト</h2>
+      <div class="two-cols">
+        <div>
+          <h3>ターゲット</h3>
+          <p>
+            ・2026年春（桜シーズン）に日本を訪れる<br>
+            　台湾／華語圏の個人旅行者・女子旅・家族連れ<br>
+            ・日本のドラッグストア・コスメ・医薬品情報に敏感な層
+          </p>
+
+          <h3>クリエイティブの特徴</h3>
+          <ul>
+            <li>ページ全体で「鄭先生の厳選リスト」という世界観を統一</li>
+            <li>1商品ごとに「商品カード」を設置し、レビューや使用者の声を集約</li>
+            <li>スマホファーストのUIで、滞在中・移動中の閲覧に最適化</li>
+          </ul>
+        </div>
+        <div>
+          <h3>キーパーソン：日本薬粧研究家・鄭世彬</h3>
+          <p>
+            ・日本のコスメ・OTC医薬品を<strong>14年間</strong>研究<br>
+            ・累計<strong>18冊</strong>の関連書籍を出版<br>
+            ・SNSやメディアでの発信を通じて、<br>
+            　台湾の消費者から<strong class="em-sakura">「日本ドラッグストア買い物の先生」</strong>として認知
+          </p>
+          <p>
+            その「先生」が実際におすすめする形で、<br>
+            貴施設・貴ブランドの商品を紹介することにより、<br>
+            一般的な広告よりも<strong class="em-accent">高い説得力・購入意向</strong>が期待できます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 3: 企画概要 -->
+  <section class="slide slide--outline">
+    <div class="slide-inner">
+      <h2>「商品カード」タイアップ概要</h2>
+      <div class="two-cols">
+        <div>
+          <h3>掲載イメージ</h3>
+          <ul>
+            <li>既存の「おすすめ商品一覧」内に、貴ブランド専用の商品カードを設置</li>
+            <li>商品画像（1枚）＋ 鄭先生コメント（約100字）を基本構成に</li>
+            <li>一般ユーザーの「使用者の声（口コミ）」を複数名分掲載</li>
+            <li>クリック／タップで詳細（ミニコラム・動画など）に遷移</li>
+          </ul>
+        </div>
+        <div>
+          <h3>本ページの強み</h3>
+          <ul>
+            <li>「春の日本旅行」「桜」「ドラッグストア買い物」など、訪日前・滞在中の検索ニーズにマッチ</li>
+            <li>JAPANKURU本体のトラフィック＋SNSからの送客</li>
+            <li>ブランド単独ではなく「先生のおすすめリスト」の中に自然に溶け込む形で紹介できる</li>
+          </ul>
+          <p class="note">
+            ※商品カードのデザイン・UI自体は既にLP上に実装済みで、<br>
+            企画参加ごとに中身（商品画像・コメント・口コミ）を差し替えるイメージです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 4: 集客保証（5万PV / 100万リーチ） -->
+  <section class="slide slide--impact">
+    <div class="slide-inner">
+      <div class="impact-tag">GUARANTEED TRAFFIC</div>
+      <h2>本LPの「集客保証」について（全プラン共通）</h2>
+
+      <p class="impact-lead">
+        本タイアップLPの最大の価値は、<strong class="em-accent">掲載して終わりの純広告ではなく、<br>
+        事前に設定した集客KPIを保証する点</strong>にあります。<br>
+        当社（GLOBAL DAILY）が運用するデジタル広告およびメディア／SNS発信により、<br>
+        下記の指標を<span class="em-sakura">「目標」ではなく「保証」</span>としてご提供します。
+      </p>
+
+      <div class="impact-main">
+        <div class="impact-stat">
+          <div class="impact-num">
+            50,000<span>PV</span>
+          </div>
+          <div class="impact-label">特設LP全体のページビュー保証</div>
+          <div class="impact-sub">訪日前後の台湾人ユーザーを中心とした流入（オーガニック＋広告）の合算値</div>
+        </div>
+
+        <div class="impact-stat">
+          <div class="impact-num impact-num--green">
+            1,000,000<span>リーチ以上</span>
+          </div>
+          <div class="impact-label">SNS＋広告を含む総リーチ（目安）</div>
+          <div class="impact-sub">JAPANKURU・鄭先生アカウント・配信広告等の合計リーチ設計</div>
+        </div>
+      </div>
+
+      <ul class="impact-note-list">
+        <li>上記<strong>「5万PV＋100万リーチ以上」</strong>は、ベーシック／スタンダード／プレミアム<span class="em-accent">全プラン共通</span>の前提条件です。</li>
+        <li>具体的な媒体内訳（検索広告／SNS広告／ディスプレイ等）や配信期間は、貴社の商材・ご予算に合わせて個別に設計いたします。</li>
+        <li>LPおよびコラム自体は公開後も削除しない限り残るため、<strong>保証値を超えた中長期的なオーガニック流入</strong>も期待できます。</li>
+      </ul>
+
+      <p class="note">
+        ※リーチ値は各媒体の推計に基づく目安であり、配信条件やクリエイティブにより前後する可能性があります。<br>
+        ※媒体ごとの詳細なメディアプラン・配分案は、別途ご提案書にてご提示いたします。
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 5: ベーシックプラン -->
+  <section class="slide slide--plan">
+    <div class="slide-inner">
+      <h2>プラン① ベーシックプラン</h2>
+      <p>まずはお試しで1商品から掲載いただける、シンプルなプランです。</p>
+
+      <div class="plan-layout">
+        <!-- 왼쪽: 플랜 내용 -->
+        <div class="plan-main">
+          <div class="plan-card plan-card--basic">
+            <div>
+              <div class="plan-name">Basic Plan（ベーシック）</div>
+              <div class="plan-tagline">商品カード + 鄭先生コメント + 使用者の声（5名）</div>
+              <div class="price">例：500,000円<span>（税別）</span></div>
+            </div>
+
+            <ul class="plan-list">
+              <li>商品カード掲載（1商品）</li>
+              <li>商品画像：1枚（貴社ご提供）</li>
+              <li>鄭先生推薦コメント：約100字（日・中いずれか）</li>
+              <li>一般ユーザー「使用者の声」：5名分まで掲載</li>
+              <li>クレジット表記（ブランドロゴ・商品名）</li>
+            </ul>
+
+            <p class="note">
+              ・商品現物のご提供、クリエイティブ素材（パッケージ画像等）はご提供をお願いしております。<br>
+              ・掲載期間の目安：2026年春シーズン（例：3〜5月）<br>
+              ・金額はあくまで目安です。掲載数・期間により個別お見積もり可能です。
+            </p>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 고정 와쿠 이미지 -->
+        <div class="plan-image-frame">
+          <div class="plan-image-frame-inner">
+            <div class="plan-image-frame-title">IMAGE AREA</div>
+            <div class="plan-image-placeholder">
+              ベーシックプラン用<br>縦長イメージ
+            </div>
+            <p class="plan-image-frame-note">
+              ベーシックプラン用の<br>
+              商品パッケージ写真や<br>
+              売り場写真などを<br>
+              縦長で掲載できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 6: スタンダードプラン -->
+  <section class="slide slide--plan">
+    <div class="slide-inner">
+      <h2>プラン② スタンダードプラン</h2>
+      <p>口コミを増やし、さらにミニコラムで深く訴求するスタンダードプランです。</p>
+
+      <div class="plan-layout">
+        <!-- 왼쪽: 플랜 내용 -->
+        <div class="plan-main">
+          <div class="plan-card plan-card--standard">
+            <div>
+              <div class="plan-name">Standard Plan（スタンダード）</div>
+              <div class="plan-tagline">商品カード + 使用者の声（10名） + ミニコラム</div>
+              <div class="price">例：800,000円<span>（税別）</span></div>
+            </div>
+
+            <ul class="plan-list">
+              <li>商品カード掲載（1商品）</li>
+              <li>商品画像：1枚（貴社ご提供）</li>
+              <li>鄭先生推薦コメント：約100字</li>
+              <li>一般ユーザー「使用者の声」：10名分まで掲載</li>
+              <li>ミニコラム（約400〜600字）制作・掲載<br>　└ 使用シーン・使い方・先生からのワンポイントなど</li>
+              <li>商品カードからミニコラムへの導線設計</li>
+            </ul>
+
+            <p class="note">
+              ・ミニコラムは日本語原稿をベースに、必要に応じて華語版を制作（応相談）。<br>
+              ・インタビュー形式での構成、Q&A形式など、ご要望に合わせた見せ方も検討可能です。
+            </p>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 고정 와쿠 이미지 -->
+        <div class="plan-image-frame">
+          <div class="plan-image-frame-inner">
+            <div class="plan-image-frame-title">IMAGE AREA</div>
+            <div class="plan-image-placeholder">
+              スタンダードプラン用<br>縦長イメージ
+            </div>
+            <p class="plan-image-frame-note">
+              スタンダードプランでは、<br>
+              使用シーンのカットや<br>
+              Before/Afterイメージなどを<br>
+              縦長で表現できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 7: プレミアムプラン -->
+  <section class="slide slide--plan">
+    <div class="slide-inner">
+      <h2>プラン③ プレミアムプラン</h2>
+      <p>ページ上部の特別バナー＋動画＋スペシャルコラムで、強く印象づけるフラッグシッププランです。</p>
+
+      <div class="plan-layout">
+        <!-- 왼쪽: 플랜 내용 -->
+        <div class="plan-main">
+          <div class="plan-card plan-card--premium">
+            <div>
+              <div class="plan-name">Premium Plan（プレミアム）</div>
+              <div class="plan-tagline">特別バナー + スタンダード内容 + 動画 + スペシャルコラム</div>
+              <div class="price">例：1,500,000円〜<span>（税別）</span></div>
+            </div>
+
+            <ul class="plan-list">
+              <li>スタンダードプランの内容をすべて含む</li>
+              <li>ページ上部「エディターズピック」特別バナー内でのご紹介<br>
+                └ 3社ピックアップのうち<strong class="strong">1枠</strong>として掲載</li>
+              <li>動画コンテンツ（約1分）制作・埋め込み<br>
+                └ 商品の使い方、体験の様子、先生コメントなど</li>
+              <li>スペシャル企画コラム内での展開<br>
+                └ 3社比較・ストーリー仕立てでの紹介など</li>
+              <li>SNS投稿や記事内導線からの強化送客（内容応相談）</li>
+            </ul>
+
+            <p class="note">
+              ・特別バナーは、LP内で最も視認性の高い位置に配置されます。<br>
+              ・動画素材のご提供または撮影の有無により制作費が変動します。<br>
+              ・金額は3社同時企画を想定した目安です。枠数・内容により別途お見積もりいたします。
+            </p>
+          </div>
+
+          <div>
+            <span class="pill"><span class="pill-label">おすすめ</span>春シーズンでしっかり結果を出したいブランド様向け</span>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 고정 와쿠 이미지 -->
+        <div class="plan-image-frame">
+          <div class="plan-image-frame-inner">
+            <div class="plan-image-frame-title">IMAGE AREA</div>
+            <div class="plan-image-placeholder">
+              プレミアムプラン用<br>縦長イメージ
+            </div>
+            <p class="plan-image-frame-note">
+              プレミアムプランでは、<br>
+              バナーのビジュアル案や<br>
+              動画サムネイルなどを<br>
+              縦長でダイナミックに表示できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8: プラン比較 -->
+  <section class="slide slide--compare">
+    <div class="slide-inner">
+      <h2>3プラン比較</h2>
+      <p>目的・ご予算にあわせてお選びいただけます。</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>ベーシック</th>
+            <th>スタンダード</th>
+            <th>プレミアム</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品カード掲載</td>
+            <td class="yes">●</td>
+            <td class="yes">●</td>
+            <td class="yes">●</td>
+          </tr>
+          <tr>
+            <td>鄭先生コメント（約100字）</td>
+            <td class="yes">●</td>
+            <td class="yes">●</td>
+            <td class="yes">●</td>
+          </tr>
+          <tr>
+            <td>使用者の声掲載数</td>
+            <td>5名</td>
+            <td class="strong">10名</td>
+            <td class="strong">10名＋α（応相談）</td>
+          </tr>
+          <tr>
+            <td>ミニコラム</td>
+            <td>–</td>
+            <td class="yes">●</td>
+            <td class="yes">●（+スペシャル）</td>
+          </tr>
+          <tr>
+            <td>ページ上部特別バナー</td>
+            <td>–</td>
+            <td>–</td>
+            <td class="yes">●（3社中1枠）</td>
+          </tr>
+          <tr>
+            <td>動画（約1分）</td>
+            <td>–</td>
+            <td>–</td>
+            <td class="yes">●</td>
+          </tr>
+          <tr>
+            <td>スペシャル企画コラム内での展開</td>
+            <td>–</td>
+            <td>–</td>
+            <td class="yes">●</td>
+          </tr>
+          <tr>
+            <td>目安料金（税別）</td>
+            <td>50万円〜</td>
+            <td>80万円〜</td>
+            <td>150万円〜</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        ※料金は一例です。商品数・掲載期間・動画の有無・コラム分量などにより変動いたします。<br>
+        ※複数商品でのボリュームディスカウントや、施設単位でのパッケージもご相談可能です。
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 9: スケジュール -->
+  <section class="slide slide--flow">
+    <div class="slide-inner">
+      <h2>想定スケジュール（目安）</h2>
+      <p>2026年春シーズン（3〜5月）に向けて、以下のような流れを想定しています。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">STEP 1</div>
+          <div class="step-title">企画・お打ち合わせ</div>
+          <div class="step-body">
+            ・目的・ターゲットの確認<br>
+            ・希望プラン／商品候補の選定<br>
+            ・スケジュール・予算感のすり合わせ
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 2</div>
+          <div class="step-title">商品・素材のご提供</div>
+          <div class="step-body">
+            ・商品現物のご送付<br>
+            ・パッケージ画像・ブランドロゴデータ<br>
+            ・既存のコピー・キーメッセージ等
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 3</div>
+          <div class="step-title">原稿・デザイン制作</div>
+          <div class="step-body">
+            ・鄭先生コメント執筆<br>
+            ・使用者の声の収集・編集<br>
+            ・ミニコラム／スペシャルコラム構成案<br>
+            ・必要に応じて動画撮影・編集
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 4</div>
+          <div class="step-title">ご確認〜公開</div>
+          <div class="step-body">
+            ・原稿・デザインのご確認<br>
+            ・修正対応<br>
+            ・特設LPでの公開／SNS告知<br>
+            ・簡易レポートのご提出（オプション）
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        ※作業ボリュームに応じて、初回お打ち合わせから公開まで約4〜8週間を想定しています。<br>
+        ※春以降の夏版・秋版への継続掲載も、成果を見ながらご相談可能です。
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 10: お問い合わせ -->
+  <section class="slide slide--contact">
+    <div class="slide-inner">
+      <h2>お問い合わせ・ご相談</h2>
+      <p>
+        「鄭先生のおすすめ 2026春」商品カードタイアップに<br>
+        ご興味をお持ちいただき、ありがとうございます。
+      </p>
+      <p>
+        まずは「どのプランが適切か知りたい」「複数商品をまとめて掲載したい」など、<br>
+        ラフな段階でも構いませんので、お気軽にご相談ください。
+      </p>
+
+      <div class="contact-box">
+        <p><strong>ご相談時にお伺いしたい項目（一例）</strong></p>
+        <ul>
+          <li>ご検討中の商品ジャンル（コスメ／医薬品／日用品など）</li>
+          <li>想定ターゲット（例：20〜30代女性、ファミリー層 等）</li>
+          <li>ご希望の掲載期間（例：2026年3〜5月）</li>
+          <li>ご予算レンジ（例：50〜150万円程度 など）</li>
+        </ul>
+        <p class="note">
+          具体的なメニュー・見積もりは、上記を踏まえて個別にご提示いたします。<br>
+          GLOBAL DAILY / JAPANKURU 担当大坂までご連絡ください。
+        </p>
+      </div>
+
+      <p style="margin-top:18px;font-size:13px;opacity:0.75;">
+        © 2026 JAPANKURU × 日本藥妝研究室 / GLOBAL DAILY<br>
+        本資料の内容・構成は企画検討の途中案です。実施時には最新の条件をご確認ください。
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<!-- 네비게이션 버튼 & 페이지 표시 -->
+<button class="nav-arrow prev" id="prevBtn">&lt;</button>
+<button class="nav-arrow next" id="nextBtn">&gt;</button>
+<div class="page-indicator"><span id="currentPage">1</span> / <span id="totalPages">10</span></div>
+<div class="nav-hint">← → キーでスライド移動</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const currentPageEl = document.getElementById('currentPage');
+  const totalPagesEl = document.getElementById('totalPages');
+
+  totalPagesEl.textContent = totalSlides;
+
+  function updateSlides() {
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === currentIndex);
+    });
+    currentPageEl.textContent = currentIndex + 1;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === totalSlides - 1;
+  }
+
+  function goToSlide(dir) {
+    const next = currentIndex + dir;
+    if (next < 0 || next >= totalSlides) return;
+    currentIndex = next;
+    updateSlides();
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(-1));
+  nextBtn.addEventListener('click', () => goToSlide(1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      goToSlide(1);
+    } else if (e.key === 'ArrowLeft') {
+      goToSlide(-1);
+    }
+  });
+
+  // 간단한 터치 스와이프
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      goToSlide(diff > 0 ? 1 : -1);
+    }
+  });
+</script>
+
+</body>
+</html>
