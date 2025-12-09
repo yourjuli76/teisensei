@@ -35,6 +35,23 @@
       margin: 0 auto 4px;
     }
 
+    .title-logo-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .title-logo-group img {
+      height: 60px;
+      display: block;
+    }
+    .title-logo-group .logo-x {
+      color: rgba(255,255,255,0.7);
+      font-size: 28px;
+      font-weight: 300;
+    }
+
     /* ---- スライド共通 ---- */
     .slides {
       scroll-snap-type: y mandatory;
@@ -565,30 +582,13 @@
       h3 { font-size: 20px; }
       p, li { font-size: 16px; }
     }
-
-    .title-logo-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-.title-logo-group img {
-  height: 56px;
-  display: block;
-}
-.title-logo-group .logo-x {
-  color: rgba(255,255,255,0.6);
-  font-size: 24px;
-  font-weight: 300;
-}
   </style>
 </head>
 <body>
 
 <!-- 固定ロゴ（全体ヘッダー的位置） -->
 <div class="logo-fixed">
-  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/GLD_type02_white_1178_785-2-1.png" alt="GLOBAL DAILY ロゴ">
+  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/GLD_type02_white_1178_785-2-1.png" alt="GLOBAL DAILY">
 </div>
 
 <div class="slides">
@@ -596,12 +596,11 @@
   <!-- Slide 1: タイトル -->
   <section class="slide slide--title">
     <div class="slide-inner">
-        <div class="title-logo-group">
-            
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/02/JAPANKURU_RGB-1.png" alt="JAPANKURU">
-            <span class="logo-x">×</span>
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室">
-          </div>
+      <div class="title-logo-group">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/02/JAPANKURU_RGB-1.png" alt="JAPANKURU">
+        <span class="logo-x">×</span>
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室">
+      </div>
       <div class="tag">2026 SPRING SPECIAL LANDING PAGE</div>
       <div class="brand-line">JAPANKURU × 日本藥妝研究室</div>
       <h1>「鄭先生のおすすめ 2026春」<br>商品カードタイアップ企画のご提案</h1>
@@ -708,7 +707,7 @@
           <h3>各プランの掲載イメージ</h3>
           <ul>
             <li><strong class="em-platinum">Platinum</strong>：ページ最上部の3分割バナーに掲載。<br>
-              　フルスクリーンで視認性最大。動画・POP制作付き。</li>
+              　フルスクリーンで視認性最大。動画・POP・スペシャル企画記事付き。</li>
             <li><strong class="em-gold">Gold</strong>：TOP3直下の「今、話題のアイテム」セクションに<br>
               　マガジン風カードで掲載。スワイプで閲覧。</li>
             <li><strong class="em-accent">Standard</strong>：商品カード＋ミニコラム＋使用者の声5名。<br>
@@ -795,7 +794,8 @@
             <li>Basicの内容すべて</li>
             <li>鄭先生コメント：<strong>100字</strong><br>（詳細はコラムで）</li>
             <li>使用者の声：<strong>5名分</strong></li>
-            <li>ミニコラム（約3,000字）</li>
+            <li>ミニコラム（約3,000字）<br>
+              <small style="opacity:0.7;">└ 鄭先生撮影写真2〜3点＋素材<br>└ 鄭先生本人執筆（約1,000字）<br>└ 使い方・体験レポート形式</small></li>
             <li>カード→コラム導線設計</li>
           </ul>
           <p class="note">深く訴求したい商品に</p>
@@ -831,6 +831,8 @@
             <li>Standardの内容すべて</li>
             <li><strong class="em-platinum">TOP3特別バナー</strong>に掲載<br>（3社限定）</li>
             <li>使用者の声：<strong>10名分</strong></li>
+            <li><strong>スペシャル企画記事</strong><br>
+              <small style="opacity:0.7;">└ 各社2,000字以上の個別ストーリー<br>└ 鄭先生撮影＋素材ミックス写真2〜3点</small></li>
             <li>動画（約1分）制作</li>
             <li>店頭POP制作（繁體中文）</li>
           </ul>
@@ -883,10 +885,17 @@
             <td class="strong">10名</td>
           </tr>
           <tr>
-            <td>ミニコラム</td>
+            <td>ミニコラム（約3,000字）<br><small style="opacity:0.7;">写真2〜3点・鄭先生執筆1,000字含む</small></td>
             <td>–</td>
             <td class="yes">●</td>
             <td class="yes">●</td>
+            <td class="yes">●</td>
+          </tr>
+          <tr>
+            <td>スペシャル企画記事<br><small style="opacity:0.7;">各社2,000字以上・写真2〜3点</small></td>
+            <td>–</td>
+            <td>–</td>
+            <td>–</td>
             <td class="yes">●</td>
           </tr>
           <tr>
@@ -995,7 +1004,71 @@
     </div>
   </section>
 
-  <!-- Slide 8: お問い合わせ -->
+  <!-- Slide 8: 年間オプション -->
+  <section class="slide slide--plan">
+    <div class="slide-inner">
+      <h2>【オプション】年間シーズンパック</h2>
+      <p>
+        1シーズン単体のご契約だけでなく、<strong class="em-accent">年間を通じた継続掲載</strong>もご検討いただけます。<br>
+        LPの構成はそのままに、シーズンごとに商品ラインナップを更新する運用です。
+      </p>
+
+      <div class="two-cols" style="margin-top: 32px;">
+        <div>
+          <h3>シーズン運用イメージ</h3>
+          <div class="lp-structure" style="max-width: 100%;">
+            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(255,183,197,0.15), transparent);">
+              <span class="lp-tier-label" style="background: linear-gradient(135deg, #ffb7c5, #ff8a9b); color: #fff; min-width: 70px;">🌸 春</span>
+              <div class="lp-tier-content">
+                <div class="lp-tier-title">3月〜5月</div>
+                <div class="lp-tier-desc">桜シーズン・花粉対策・UV対策</div>
+              </div>
+            </div>
+            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(100,200,255,0.15), transparent);">
+              <span class="lp-tier-label" style="background: linear-gradient(135deg, #64c8ff, #4db8ff); color: #fff; min-width: 70px;">🌻 夏</span>
+              <div class="lp-tier-content">
+                <div class="lp-tier-title">6月〜8月</div>
+                <div class="lp-tier-desc">夏バテ対策・虫除け・日焼けケア</div>
+              </div>
+            </div>
+            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(255,180,100,0.15), transparent);">
+              <span class="lp-tier-label" style="background: linear-gradient(135deg, #ffb464, #ff9a3c); color: #fff; min-width: 70px;">🍂 秋</span>
+              <div class="lp-tier-content">
+                <div class="lp-tier-title">9月〜11月</div>
+                <div class="lp-tier-desc">乾燥対策・紅葉シーズン・保湿</div>
+              </div>
+            </div>
+            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(200,220,255,0.15), transparent);">
+              <span class="lp-tier-label" style="background: linear-gradient(135deg, #c8dcff, #a8c8ff); color: #1a1a1a; min-width: 70px;">❄️ 冬</span>
+              <div class="lp-tier-content">
+                <div class="lp-tier-title">12月〜2月</div>
+                <div class="lp-tier-desc">風邪対策・温活・年末年始ギフト</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>年間パックのメリット</h3>
+          <ul>
+            <li><strong class="em-gold">年間15〜20%割引</strong>で継続掲載</li>
+            <li>シーズンごとに<strong>商品ラインナップを更新</strong>可能</li>
+            <li>LP構成・URLはそのまま → <strong>SEO効果が蓄積</strong></li>
+            <li>「鄭先生のページ」として<strong>ユーザーの習慣化</strong>を促進</li>
+            <li>シーズン変更時の<strong>追加制作費なし</strong>（軽微な更新のみ）</li>
+          </ul>
+
+          <p class="note" style="margin-top: 20px;">
+            ※年間パックは、同一プラン × 4シーズンを一括契約いただく形です。<br>
+            ※シーズンごとに掲載商品を変更する場合、素材のご提供をお願いします。<br>
+            ※途中解約は原則不可となります。詳細はご相談ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 9: お問い合わせ -->
   <section class="slide slide--contact">
     <div class="slide-inner">
       <h2>お問い合わせ・ご相談</h2>
@@ -1018,7 +1091,7 @@
         </ul>
         <p class="note">
           具体的なメニュー・見積もりは、上記を踏まえて個別にご提示いたします。<br>
-          GLOBAL DAILY / 担当大坂までご連絡ください。
+          GLOBAL DAILY 担当大坂までご連絡ください。
         </p>
       </div>
 
