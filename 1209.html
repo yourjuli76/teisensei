@@ -23,7 +23,7 @@
   <meta property="og:type" content="website">
   
   <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&family=Klee+One&display=swap" rel="stylesheet">
   
   <style>
@@ -1210,6 +1210,241 @@
       .sakura-float { display: none; }
     }
 
+    /* ============================================
+       Featured 캐러셀 (注目ブランド)
+       ============================================ */
+    .featured-section {
+      padding: 70px 24px 60px;
+      background: linear-gradient(180deg, var(--paper) 0%, #f5f0ed 50%, var(--paper) 100%);
+      position: relative;
+    }
+
+    .featured-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .featured-header {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .featured-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .featured-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .featured-subtitle {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    .featured-carousel-wrap {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .featured-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 10px 0 24px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .featured-carousel::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .featured-carousel::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.05);
+      border-radius: 2px;
+    }
+
+    .featured-carousel::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .featured-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .featured-card:first-child {
+      margin-left: 24px;
+    }
+
+    .featured-card:last-child {
+      margin-right: 24px;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(212, 112, 122, 0.15);
+    }
+
+    .featured-card-img {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .featured-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .featured-card:hover .featured-card-img img {
+      transform: scale(1.05);
+    }
+
+    .featured-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(212, 112, 122, 0.95);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .featured-card-content {
+      padding: 20px;
+    }
+
+    .featured-card-brand {
+      font-size: 10px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .featured-card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .featured-card-desc {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .featured-card-cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .featured-card-cta i {
+      font-size: 10px;
+      transition: transform 0.2s;
+    }
+
+    .featured-card:hover .featured-card-cta i {
+      transform: translateX(4px);
+    }
+
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .scroll-hint i {
+      animation: bounce-x 1.5s infinite;
+    }
+
+    @keyframes bounce-x {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    @media (max-width: 768px) {
+      .featured-section {
+        padding: 50px 0 40px;
+      }
+
+      .featured-header {
+        padding: 0 20px;
+      }
+
+      .featured-title {
+        font-size: 18px;
+      }
+
+      .featured-card {
+        flex: 0 0 260px;
+      }
+
+      .featured-card:first-child {
+        margin-left: 16px;
+      }
+
+      .featured-card:last-child {
+        margin-right: 16px;
+      }
+
+      .featured-card-img {
+        height: 150px;
+      }
+    }
+
     /* 섹션 전환 */
     .section-transition {
       text-align: center;
@@ -1452,6 +1687,86 @@
 
     .item-card:hover .item-thumb img {
       transform: scale(1.05);
+    }
+
+    /* 플랜별 카드 스타일 */
+    .card-basic .che-text-full {
+      -webkit-line-clamp: unset;
+      display: block;
+    }
+
+    .card-premium {
+      border: 2px solid var(--accent);
+      box-shadow: 0 8px 25px rgba(212, 112, 122, 0.15);
+    }
+
+    .card-premium::before {
+      content: 'PREMIUM';
+      position: absolute;
+      top: 0;
+      right: 20px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      z-index: 5;
+    }
+
+    /* 프리미엄: 영상 썸네일 오버레이 */
+    .item-thumb-video {
+      position: relative;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .video-play-btn {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+
+    .video-play-btn i {
+      font-size: 20px;
+      color: var(--accent);
+      margin-left: 4px;
+    }
+
+    .video-label {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .item-thumb-video:hover .video-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+    }
+
+    .item-thumb-video:hover .video-play-btn {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    }
+
+    .item-thumb-video:hover .video-play-btn i {
+      color: #000;
     }
 
     /* 찜하기 버튼 (썸네일 우상단 플로팅) */
@@ -1737,6 +2052,34 @@
     .btn-share:hover {
       border-color: var(--ink);
       color: var(--ink);
+    }
+
+    /* Basic 카드용 풀 width 공유 버튼 */
+    .btn-share-full {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .btn-share-full:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #fff5f6;
+    }
+
+    .btn-share-full i {
+      font-size: 14px;
     }
 
     .monitor-more {
@@ -3821,7 +4164,7 @@
           </div>
           <div class="stat-item">
             <span class="stat-num">900万</span>
-            <span class="stat-label">ブログ累計PV</span>
+            <span class="stat-label">累計PV</span>
           </div>
           <div class="stat-books">
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
@@ -3867,7 +4210,7 @@
             </p>
           </div>
           
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei.jpg" alt="鄭世彬" class="tei-photo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭世彬" class="tei-photo">
           
           <div class="tei-name-tag">
             <p class="name-jp">鄭 世彬</p>
@@ -3897,7 +4240,7 @@
       
       <!-- 01: Bioré -->
       <div class="split-panel" onclick="scrollToProduct(1)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/7258445-1.webp" class="split-bg" alt="Bioré">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
         
         <div class="split-logo">
           <span class="split-logo-text">Kao</span>
@@ -3916,7 +4259,7 @@
 
       <!-- 02: Yunth -->
       <div class="split-panel" onclick="scrollToProduct(2)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/kv_image01-1.webp" class="split-bg" alt="Yunth">
+        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
         
         <div class="split-logo">
           <span class="split-logo-text">Yunth</span>
@@ -3935,7 +4278,7 @@
 
       <!-- 03: 紫外線予報 -->
       <div class="split-panel" onclick="scrollToProduct(3)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" class="split-bg" alt="紫外線予報">
+        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
         
         <div class="split-logo">
           <span class="split-logo-text">石澤研究所</span>
@@ -3960,6 +4303,99 @@
       </a>
     </div>
 
+  </section>
+
+  <!-- Featured 캐러셀 섹션 -->
+  <section class="featured-section">
+    <div class="featured-header">
+      <span class="featured-eyebrow">Also Recommended</span>
+      <h2 class="featured-title">惜しくもTOP3入りを逃したが、<br>見逃せない実力派たち</h2>
+      <p class="featured-subtitle">
+        最終選考まで残った注目アイテム。<br>
+        「次点」とは言え、どれも自信を持っておすすめできる逸品です。
+      </p>
+    </div>
+
+    <div class="featured-carousel-wrap">
+      <div class="featured-carousel">
+        
+        <!-- Card 1: CANMAKE -->
+        <article class="featured-card" onclick="scrollToProduct(13)">
+          <div class="featured-card-img">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80" alt="CANMAKE">
+            <span class="featured-card-badge">プチプラ</span>
+          </div>
+          <div class="featured-card-content">
+            <span class="featured-card-brand">CANMAKE</span>
+            <h3 class="featured-card-name">シルキースフレアイズ</h3>
+            <p class="featured-card-desc">しっとり密着、粉飛びゼロ。プチプラなのに高級感あるツヤ感が人気の秘密。</p>
+            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+
+        <!-- Card 2: SHISEIDO -->
+        <article class="featured-card" onclick="scrollToProduct(14)">
+          <div class="featured-card-img">
+            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80" alt="SHISEIDO">
+            <span class="featured-card-badge">日本限定</span>
+          </div>
+          <div class="featured-card-content">
+            <span class="featured-card-brand">SHISEIDO</span>
+            <h3 class="featured-card-name">アルティミューン パワライジング</h3>
+            <p class="featured-card-desc">肌の免疫力を高める美容液。日本限定サイズは台湾より断然お得。</p>
+            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+
+        <!-- Card 3: FANCL -->
+        <article class="featured-card" onclick="scrollToProduct(15)">
+          <div class="featured-card-img">
+            <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80" alt="FANCL">
+            <span class="featured-card-badge">殿堂入り</span>
+          </div>
+          <div class="featured-card-content">
+            <span class="featured-card-brand">FANCL</span>
+            <h3 class="featured-card-name">マイルドクレンジング オイル</h3>
+            <p class="featured-card-desc">@cosme殿堂入り。擦らず落ちるクレンジングの元祖にして王道。</p>
+            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+
+        <!-- Card 4: ORBIS -->
+        <article class="featured-card" onclick="scrollToProduct(16)">
+          <div class="featured-card-img">
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80" alt="ORBIS">
+            <span class="featured-card-badge">30代人気</span>
+          </div>
+          <div class="featured-card-content">
+            <span class="featured-card-brand">ORBIS</span>
+            <h3 class="featured-card-name">オルビスユー ローション</h3>
+            <p class="featured-card-desc">「とろパシャ」の新感覚化粧水。30代からのエイジングケアにぴったり。</p>
+            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+
+        <!-- Card 5: DECORTÉ -->
+        <article class="featured-card" onclick="scrollToProduct(17)">
+          <div class="featured-card-img">
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&q=80" alt="DECORTÉ">
+            <span class="featured-card-badge">ベスコス</span>
+          </div>
+          <div class="featured-card-content">
+            <span class="featured-card-brand">DECORTÉ</span>
+            <h3 class="featured-card-name">リポソーム アドバンスト</h3>
+            <p class="featured-card-desc">浸透力No.1と評される美容液。ベストコスメ常連の実力派。</p>
+            <span class="featured-card-cta">詳しく見る <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="scroll-hint">
+        <span>スワイプで他のブランドを見る</span>
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
   </section>
 
   <!-- 섹션 전환 -->
@@ -4563,6 +4999,7 @@
         products: [
           { 
             id: 1, 
+            plan: 'basic',
             name: 'Bioré The CLEANSE オイルメイク落とし', 
             brand: '花王',
             price: 350, 
@@ -4571,13 +5008,14 @@
             label: 'type-deal', 
             labelText: '台湾より安い', 
             tags: ['cheaper', 'hit'],
-            tip: '<strong>台湾より安い＆話題のクレンジング。</strong>オイルなのにベタつかず、ウォータープルーフもするっと落ちます。ドラッグストアで手軽に買えるのも◎ ドン・キホーテでも取り扱いあり。',
-            column: 'https://japankuru.com/biore', 
+            tip: '<strong>台湾より30%以上安い！</strong>花王独自の「瞬浮技術」でメイクを擦らず浮かせて落とす革命的クレンジング。オイルなのにベタつかず、ウォータープルーフマスカラもするっと落ちます。マツエクOK、W洗顔不要で忙しい朝にも◎ ドラッグストアで手軽に買えて、ミニサイズは旅行のお試しにも最適。SNSでバズって台湾でも話題になった実力派です。',
+            column: null, 
             hasVideo: false,
             store: '藥妝店、唐吉訶德'
           },
           { 
             id: 2, 
+            plan: 'standard',
             name: 'Yunth 生VC美白美容液', 
             brand: 'Yunth',
             price: 3960, 
@@ -4586,31 +5024,50 @@
             label: 'type-exclusive', 
             labelText: '日本限定', 
             tags: ['japan-only', 'hit', 'compact'],
-            tip: '<strong>日本限定＆SNSで話題の美白美容液。</strong>個包装で鮮度を保つビタミンC。旅行にも持ち運びやすいコンパクトサイズ。美妝店で購入可能。',
+            tip: '純度100%生ビタミンC。個包装で酸化を防ぎ、開封30秒の鮮度で届ける日本限定美容液。',
+            tipFull: '日本限定＆SNSで大バズり中の美白美容液。水を一滴も使わない純度100%のビタミンCを、個包装で酸化から守ります。開封から30秒の「黄金時間」で肌に届ける新発想。敏感肌でも使いやすく、旅行にも持ち運びやすいコンパクトサイズ。美妝店で購入可能です。',
             column: 'https://japankuru.com/yunth', 
-            hasVideo: true,
+            hasVideo: false,
             store: '美妝店',
             voices: [
               { initial: 'L', name: 'Lisa', attr: '20代・混合肌', text: '個包装だから酸化しなくて良い！毎朝使ってます。', date: '2024.11' },
               { initial: 'M', name: 'Miki', attr: '30代・敏感肌', text: '敏感肌でもピリピリしなかった。透明感が出てきた気がする。', date: '2024.10' },
-              { initial: 'Y', name: 'Yuna', attr: '20代', text: '友達へのお土産に買いました。喜んでくれた！', date: '2024.09' }
+              { initial: 'Y', name: 'Yuna', attr: '20代', text: '友達へのお土産に買いました。喜んでくれた！', date: '2024.09' },
+              { initial: 'A', name: 'Amy', attr: '30代・乾燥肌', text: '朝使うと夕方まで肌がトーンアップしてる感じ。', date: '2024.08' },
+              { initial: 'K', name: 'Kana', attr: '20代', text: 'シミが薄くなってきた気がする！リピ確定。', date: '2024.07' }
             ],
-            voiceCount: 12
+            voiceCount: 5
           },
           { 
             id: 3, 
+            plan: 'premium',
             name: '紫外線予報 さらさらUVスティック', 
             brand: '石澤研究所',
             price: 1870, 
             priceNote: '15g',
             image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg', 
-            label: 'type-deal', 
-            labelText: '台湾より安い', 
+            label: 'type-hot', 
+            labelText: '話題', 
             tags: ['cheaper', 'compact', 'family'],
-            tip: '<strong>台湾より安い＆携帯に便利なスティック日焼け止め。</strong>手を汚さずに塗れるスティックタイプ。家族みんなで使えます。コンパクトで旅行にも◎',
-            column: null, 
-            hasVideo: false,
-            store: '藥妝店、美妝店、唐吉訶德'
+            tip: '発売直後に購入制限がかかった話題作！手を汚さないスティックUV。子供もOKで家族で使える。',
+            tipFull: '台湾より安い＆2024年最も話題になった日焼け止め。発売直後、各店舗で購入制限がかかるほどの人気。スティックタイプだから手を汚さずに塗れて、外出先でも簡単に塗り直し可能。ノンケミカル処方で子供にも使えるから、家族旅行の必需品。SPF50+ PA++++の高い紫外線カット力も魅力。',
+            column: 'https://japankuru.com/uv-stick', 
+            hasVideo: true,
+            videoId: 'dQw4w9WgXcQ',
+            store: '藥妝店、美妝店、唐吉訶德',
+            voices: [
+              { initial: 'S', name: 'Saki', attr: '30代・主婦', text: '子供に塗るのが楽！暴れても大丈夫。', date: '2024.11' },
+              { initial: 'R', name: 'Rina', attr: '20代・OL', text: 'メイクの上から塗り直しできるのが最高。', date: '2024.11' },
+              { initial: 'E', name: 'Emi', attr: '40代', text: 'ベタつかないから夏でも快適に使えた。', date: '2024.10' },
+              { initial: 'N', name: 'Nana', attr: '20代', text: 'コンパクトでポーチに入る！旅行に必須。', date: '2024.10' },
+              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09' },
+              { initial: 'T', name: 'Tomo', attr: '20代', text: '塗った後サラサラで気持ちいい。', date: '2024.09' },
+              { initial: 'C', name: 'Chie', attr: '30代', text: '家族4人で使ってます。コスパ良い。', date: '2024.08' },
+              { initial: 'J', name: 'Jun', attr: '40代・男性', text: '男でも使いやすい。ゴルフの時に重宝。', date: '2024.08' },
+              { initial: 'W', name: 'Waka', attr: '20代', text: 'インスタで見て買った。本当に良かった！', date: '2024.07' },
+              { initial: 'F', name: 'Fumi', attr: '30代', text: '台湾で買うより全然安い。まとめ買いした。', date: '2024.07' }
+            ],
+            voiceCount: 10
           }
         ]
       },
@@ -4648,7 +5105,7 @@
             label: 'type-exclusive', 
             labelText: '日本限定', 
             tags: ['japan-only', 'family'],
-            tip: '<strong>日本限定の喉ケアトローチ。</strong>河馬君のパッケージでおなじみ。喉の痛みや炎症に効果的。家族みんなで使えます。',
+            tip: '<strong>日本限定の喉ケアトローチ。</strong>可愛いカバくんのパッケージでおなじみの人気商品。アズレンスルホン酸ナトリウム配合で、喉の痛みや炎症をやさしくケア。なめるだけで口内を殺菌・消毒し、喉のイガイガを和らげます。ノンシュガーで虫歯の心配もなし。子供から大人まで家族全員で使えて、旅行中の乾燥対策にも最適。ドラッグストアで手軽に購入できます。',
             column: null, 
             hasVideo: false,
             store: '藥妝店、唐吉訶德'
@@ -4663,7 +5120,7 @@
             label: 'type-exclusive', 
             labelText: '日本限定', 
             tags: ['japan-only'],
-            tip: '<strong>日本限定の速効鎮痛薬。</strong>頭痛・生理痛に素早く効きます。日本でしか買えない処方。薬局で購入可能。',
+            tip: '<strong>日本限定の速効鎮痛薬。</strong>ロキソプロフェンナトリウム配合で、頭痛・生理痛・歯痛に素早く効きます。服用後約15分で効果を実感できる即効性が魅力。胃への負担を軽減する処方で、空腹時でも飲みやすい。日本でしか買えない第1類医薬品なので、薬剤師のいるドラッグストアで購入してください。旅行中の急な痛みに備えて、常備薬として持っておくと安心です。',
             column: null, 
             hasVideo: false,
             store: '藥妝店'
@@ -4705,7 +5162,7 @@
             label: 'type-deal', 
             labelText: '台湾より安い', 
             tags: ['cheaper', 'hit'],
-            tip: '<strong>台湾より安い＆話題のブルーベリーサプリ。</strong>目の疲れに効果的。スマホやPCをよく使う方におすすめ。',
+            tip: '<strong>台湾より安い＆話題のブルーベリーサプリ。</strong>北欧産ビルベリーエキスを高配合し、目の疲れやかすみをケア。スマホやPCを長時間使う現代人の必需品です。1日2粒で手軽に続けられて、台湾で買うより30%以上お得。ルテインやアスタキサンチンも配合で、目の健康を総合的にサポート。ドラッグストアで手軽に購入でき、お土産にも喜ばれる人気アイテムです。',
             column: null, 
             hasVideo: false,
             store: '藥妝店、唐吉訶德'
@@ -4720,7 +5177,7 @@
             label: 'type-exclusive', 
             labelText: '日本限定', 
             tags: ['japan-only', 'compact', 'family'],
-            tip: '<strong>日本限定＆携帯に便利な緑茶粉末。</strong>家族で飲める健康緑茶。個包装で持ち運びやすい。',
+            tip: '<strong>日本限定＆携帯に便利な緑茶粉末。</strong>難消化性デキストリン配合で、食後の血糖値上昇を穏やかに。特定保健用食品（トクホ）認定の信頼できる健康茶です。個包装スティックだから持ち運びに便利で、外食時にもサッと溶かして飲めます。緑茶味で美味しく、家族みんなで飲める。糖質が気になる方への日本土産としても最適。ドラッグストアで購入可能です。',
             column: null, 
             hasVideo: false,
             store: '藥妝店、唐吉訶德'
@@ -4776,7 +5233,7 @@
             label: 'type-deal', 
             labelText: '台湾より安い', 
             tags: ['cheaper', 'omiyage', 'longseller'],
-            tip: '<strong>台湾より安い＆お土産に最適なボディシート。</strong>ロングセラーのアロマ香るシート。百貨店や美妝店で購入可能。',
+            tip: '<strong>台湾より安い＆お土産に最適なボディシート。</strong>資生堂の自然派ブランドAYURAのロングセラー商品。天然アロマの香りが心地よく、汗や皮脂をさっぱり拭き取れます。メディテーションの香りでリラックス効果も。大判シートでしっかり拭けて、夏の旅行や観光中のリフレッシュに最適。パッケージも上品で、女性へのお土産にぴったり。百貨店や美妝店で購入できます。',
             column: null, 
             hasVideo: false,
             store: '美妝店、百貨店'
@@ -4809,50 +5266,26 @@
 
     function renderProduct(p) {
       const isInList = myList.includes(p.id);
+      const plan = p.plan || 'basic';
 
-      // 미디어 배지
-      let mediaBadges = '';
-      if (p.hasVideo) mediaBadges += `<span class="media-tag video"><i class="fas fa-play"></i> 動画</span>`;
-      if (p.column && p.column !== '#') mediaBadges += `<span class="media-tag article"><i class="fas fa-pen"></i> 記事</span>`;
-
-      // 사용자의 코에 프리뷰 (아바타 + 숫자만 표시)
-      let monitorHtml = '';
-      if (p.voices && p.voices.length > 0) {
-        const avatars = p.voices.slice(0, 5).map(v => `
-          <span class="monitor-avatar" style="background-color:${stringToColor(v.name)}">${v.initial}</span>
-        `).join('');
-        monitorHtml = `
-          <div class="monitor-preview" onclick="openDetailModal(${p.id})">
-            <div class="monitor-avatars">${avatars}</div>
-            <span class="monitor-count">使用者の声 ${p.voiceCount}件</span>
-            <i class="fas fa-chevron-right monitor-arrow"></i>
-          </div>`;
-      } else {
-        monitorHtml = `
-          <div class="monitor-preview empty">
-            <i class="far fa-comment-dots monitor-empty-icon"></i>
-            <span class="monitor-count empty">クチコミ準備中</span>
-          </div>`;
+      // 플랜별 렌더링 분기
+      if (plan === 'basic') {
+        return renderBasicCard(p, isInList);
+      } else if (plan === 'standard') {
+        return renderStandardCard(p, isInList);
+      } else if (plan === 'premium') {
+        return renderPremiumCard(p, isInList);
       }
+      return renderBasicCard(p, isInList);
+    }
 
-      // 메인 CTA 버튼
-      let btnHtml = '';
-      if (p.hasVideo && p.column && p.column !== '#') {
-        btnHtml = `<a href="${p.column}" target="_blank" class="btn-main hybrid"><span>詳細を見る</span><span class="btn-badge"><i class="fas fa-play"></i> 動画 + 記事</span></a>`;
-      } else if (p.column && p.column !== '#') {
-        btnHtml = `<a href="${p.column}" target="_blank" class="btn-main standard"><span>詳細を見る</span><span class="btn-badge"><i class="fas fa-pen"></i> 記事</span></a>`;
-      } else if (p.hasVideo) {
-        btnHtml = `<button class="btn-main hybrid" onclick="openDetailModal(${p.id})"><span>詳細を見る</span><span class="btn-badge"><i class="fas fa-play"></i> 動画</span></button>`;
-      } else {
-        btnHtml = `<button class="btn-main simple" onclick="openDetailModal(${p.id})">詳細を見る</button>`;
-      }
-
+    // Basic 플랜: 테이 코멘트만 (뒷면 없음)
+    function renderBasicCard(p, isInList) {
       return `
-        <article class="item-card" data-id="${p.id}">
-          <div class="item-thumb" onclick="openDetailModal(${p.id})">
+        <article class="item-card card-basic" data-id="${p.id}">
+          <div class="item-thumb">
             <img src="${p.image}" alt="${p.name}">
             ${p.label ? `<span class="item-label ${p.label}">${p.labelText}</span>` : ''}
-            <div class="media-indicators">${mediaBadges}</div>
             <button class="btn-like-float ${isInList ? 'active' : ''}" onclick="toggleList(${p.id}, event)">
               <i class="${isInList ? 'fas' : 'far'} fa-heart"></i>
             </button>
@@ -4871,14 +5304,133 @@
                 <span class="che-name">鄭先生の推薦</span>
               </div>
               <div class="che-comment-box">
-                <p class="che-text">${p.tip.replace(/<em>/g, '<strong>').replace(/<\/em>/g, '</strong>')}</p>
+                <p class="che-text che-text-full">${p.tip}</p>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button class="btn-share-full" onclick="shareItem('${p.name}', '${window.location.href}')">
+                <i class="fas fa-share-alt"></i>
+                <span>この商品を共有する</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Standard 플랜: 테이 코멘트 + 코에 프리뷰 + 뒷면
+    function renderStandardCard(p, isInList) {
+      const avatars = p.voices ? p.voices.slice(0, 5).map(v => 
+        `<span class="monitor-avatar" style="background-color:${stringToColor(v.name)}">${v.initial}</span>`
+      ).join('') : '';
+
+      const monitorHtml = p.voices && p.voices.length > 0 ? `
+        <div class="monitor-preview" onclick="openDetailModal(${p.id})">
+          <div class="monitor-avatars">${avatars}</div>
+          <span class="monitor-count">使用者の声 ${p.voiceCount}件</span>
+          <i class="fas fa-chevron-right monitor-arrow"></i>
+        </div>` : '';
+
+      return `
+        <article class="item-card card-standard" data-id="${p.id}">
+          <div class="item-thumb" onclick="openDetailModal(${p.id})">
+            <img src="${p.image}" alt="${p.name}">
+            ${p.label ? `<span class="item-label ${p.label}">${p.labelText}</span>` : ''}
+            <div class="media-indicators">
+              ${p.column ? '<span class="media-tag article"><i class="fas fa-pen"></i> 記事</span>' : ''}
+            </div>
+            <button class="btn-like-float ${isInList ? 'active' : ''}" onclick="toggleList(${p.id}, event)">
+              <i class="${isInList ? 'fas' : 'far'} fa-heart"></i>
+            </button>
+          </div>
+          
+          <div class="item-content">
+            <h3 class="item-name">${p.name}</h3>
+            <div class="item-price-row">
+              <span class="item-price">¥${p.price.toLocaleString()}</span>
+              ${p.labelText ? `<span class="price-label">${p.labelText}</span>` : ''}
+            </div>
+
+            <div class="che-section">
+              <div class="che-header">
+                <img src="${chePhoto}" class="che-face">
+                <span class="che-name">鄭先生の推薦</span>
+              </div>
+              <div class="che-comment-box">
+                <p class="che-text">${p.tip}</p>
               </div>
             </div>
 
             ${monitorHtml}
 
             <div class="card-footer">
-              ${btnHtml}
+              <button class="btn-main standard" onclick="openDetailModal(${p.id})">
+                <span>詳細を見る</span>
+                <span class="btn-badge"><i class="fas fa-comment-dots"></i> ${p.voiceCount}件</span>
+              </button>
+              <button class="btn-share" onclick="shareItem('${p.name}', '${p.column || window.location.href}')">
+                <i class="fas fa-share-alt"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Premium 플랜: 영상 썸네일 + 테이 코멘트 + 코에 + 뒷면
+    function renderPremiumCard(p, isInList) {
+      const avatars = p.voices ? p.voices.slice(0, 5).map(v => 
+        `<span class="monitor-avatar" style="background-color:${stringToColor(v.name)}">${v.initial}</span>`
+      ).join('') : '';
+
+      const monitorHtml = p.voices && p.voices.length > 0 ? `
+        <div class="monitor-preview" onclick="openDetailModal(${p.id})">
+          <div class="monitor-avatars">${avatars}</div>
+          <span class="monitor-count">使用者の声 ${p.voiceCount}件</span>
+          <i class="fas fa-chevron-right monitor-arrow"></i>
+        </div>` : '';
+
+      return `
+        <article class="item-card card-premium" data-id="${p.id}">
+          <div class="item-thumb item-thumb-video" onclick="openDetailModal(${p.id})">
+            <img src="${p.image}" alt="${p.name}">
+            ${p.label ? `<span class="item-label ${p.label}">${p.labelText}</span>` : ''}
+            <div class="video-overlay">
+              <div class="video-play-btn">
+                <i class="fas fa-play"></i>
+              </div>
+              <span class="video-label">動画で見る</span>
+            </div>
+            <button class="btn-like-float ${isInList ? 'active' : ''}" onclick="toggleList(${p.id}, event)">
+              <i class="${isInList ? 'fas' : 'far'} fa-heart"></i>
+            </button>
+          </div>
+          
+          <div class="item-content">
+            <h3 class="item-name">${p.name}</h3>
+            <div class="item-price-row">
+              <span class="item-price">¥${p.price.toLocaleString()}</span>
+              ${p.labelText ? `<span class="price-label">${p.labelText}</span>` : ''}
+            </div>
+
+            <div class="che-section">
+              <div class="che-header">
+                <img src="${chePhoto}" class="che-face">
+                <span class="che-name">鄭先生の推薦</span>
+              </div>
+              <div class="che-comment-box">
+                <p class="che-text">${p.tip}</p>
+              </div>
+            </div>
+
+            ${monitorHtml}
+
+            <div class="card-footer">
+              <button class="btn-main hybrid" onclick="openDetailModal(${p.id})">
+                <span>詳細を見る</span>
+                <span class="btn-badge"><i class="fas fa-play"></i> 動画 + <i class="fas fa-comment-dots"></i> ${p.voiceCount}件</span>
+              </button>
               <button class="btn-share" onclick="shareItem('${p.name}', '${p.column || window.location.href}')">
                 <i class="fas fa-share-alt"></i>
               </button>
@@ -4946,13 +5498,25 @@
     function openPcModal(p) {
       const modal = document.getElementById('detailModal');
       const visual = document.getElementById('modalVisual');
+      const plan = p.plan || 'basic';
 
-      visual.classList.remove('has-video');
-      document.getElementById('modalImg').src = p.image;
+      // Basic 플랜은 모달 없음
+      if (plan === 'basic') return;
+
+      // 프리미엄: 영상 표시
+      if (plan === 'premium' && p.hasVideo && p.videoId) {
+        visual.classList.add('has-video');
+        visual.innerHTML = `<iframe src="https://www.youtube.com/embed/${p.videoId}?autoplay=0&rel=0" allowfullscreen></iframe>`;
+      } else {
+        visual.classList.remove('has-video');
+        visual.innerHTML = `<img src="${p.image}" alt="${p.name}" class="modal-product-img" id="modalImg">`;
+      }
 
       document.getElementById('modalName').textContent = p.name;
       document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
-      document.getElementById('modalPoint').innerHTML = p.tip;
+      
+      // tipFull이 있으면 사용, 없으면 tip 사용
+      document.getElementById('modalPoint').innerHTML = p.tipFull || p.tip;
 
       // 쿠폰은 드럭스토어 섹션으로 이동됨
       const couponBox = document.getElementById('modalCoupon');
@@ -4981,7 +5545,14 @@
         voicesDiv.style.display = 'none';
       }
 
-      document.getElementById('modalCta').href = p.column || '#';
+      // 기사 링크
+      const ctaBtn = document.getElementById('modalCta');
+      if (p.column) {
+        ctaBtn.href = p.column;
+        ctaBtn.style.display = 'block';
+      } else {
+        ctaBtn.style.display = 'none';
+      }
 
       currentModalId = p.id;
       updateModalAddBtn();
@@ -4991,17 +5562,30 @@
 
     // 모바일 바텀시트
     function openBottomSheet(p) {
+      const plan = p.plan || 'basic';
+
+      // Basic 플랜은 바텀시트 없음
+      if (plan === 'basic') return;
+
       document.getElementById('bsImg').src = p.image;
       document.getElementById('bsName').textContent = p.name;
       document.getElementById('bsPrice').textContent = '¥' + p.price.toLocaleString();
-      document.getElementById('bsTip').innerHTML = p.tip;
+      
+      // tipFull이 있으면 사용
+      document.getElementById('bsTip').innerHTML = p.tipFull || p.tip;
 
       // 쿠폰은 드럭스토어 섹션으로 이동됨
       const couponBox = document.getElementById('bsCoupon');
       couponBox.style.display = 'none';
 
       // 컬럼 링크
-      document.getElementById('bsColumn').href = p.column || '#';
+      const columnLink = document.getElementById('bsColumn');
+      if (p.column) {
+        columnLink.href = p.column;
+        columnLink.style.display = 'flex';
+      } else {
+        columnLink.style.display = 'none';
+      }
       document.getElementById('bsColumnTitle').textContent = p.name + 'の詳しい解説';
 
       // 사용자 코에
