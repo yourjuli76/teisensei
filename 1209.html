@@ -260,6 +260,40 @@
       border: 1px solid rgba(0,0,0,0.05);
     }
 
+    /* 새로운 스토리 박스 */
+    .hero-story-box {
+      margin-bottom: 32px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .story-lead {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+    }
+
+    .story-books {
+      display: flex;
+      gap: 8px;
+    }
+
+    .story-books img {
+      width: 44px;
+      height: 62px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .story-books img:hover {
+      transform: translateY(-4px) rotate(2deg);
+    }
+
     .solution-title {
       font-size: 14px;
       font-weight: 700;
@@ -526,6 +560,25 @@
       .hero-solution {
         text-align: left;
         display: inline-block;
+      }
+
+      .hero-story-box {
+        text-align: left;
+        padding: 20px;
+      }
+
+      .story-lead {
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      .story-books {
+        justify-content: flex-start;
+      }
+
+      .story-books img {
+        width: 36px;
+        height: 50px;
       }
 
       .hero-visual-area {
@@ -2853,7 +2906,7 @@
 
     /* === 드럭스토어 가이드 === */
     .store-guide {
-      padding: 80px 24px;
+      padding: 50px 24px;
       background: var(--paper-warm);
     }
 
@@ -2861,32 +2914,39 @@
 
     .store-guide-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
 
     .store-guide-header h2 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
       color: var(--ink);
+    }
+
+    .store-guide-header p {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 4px;
     }
 
     .store-tabs {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
     .store-tab {
       background: var(--white);
       border: 1px solid #e5e5e5;
-      padding: 10px 20px;
-      font-size: 13px;
+      padding: 8px 16px;
+      font-size: 12px;
       cursor: pointer;
       transition: all 0.2s;
       color: var(--ink-light);
+      border-radius: 20px;
     }
 
     .store-tab:hover { border-color: var(--ink-faint); }
@@ -2901,25 +2961,25 @@
       display: none;
       background: var(--white);
       overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
 
     .store-panel.active {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: block;
       animation: fadeIn 0.4s ease forwards;
     }
 
     /* 드럭스토어처럼 full width 패널 */
     .store-panel-full {
-      grid-column: 1 / -1;
-      padding: 40px;
+      padding: 24px;
     }
 
     .store-panel-full h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -2930,52 +2990,53 @@
     }
 
     .store-panel-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--ink-light);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .store-features.horizontal {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 30px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .store-features.horizontal li {
       padding: 0;
+      font-size: 11px;
     }
 
     .coupon-scroll-label {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
       border-bottom: 1px solid #eee;
     }
 
     .coupon-scroll-label span:first-child {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--ink);
     }
 
     .scroll-hint {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--ink-muted);
     }
 
     .coupon-note {
       text-align: center;
-      margin-top: 20px;
-      padding: 16px;
+      margin-top: 14px;
+      padding: 12px;
       background: #f8f9fa;
-      border-radius: 12px;
+      border-radius: 8px;
     }
 
     .coupon-note p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--ink-muted);
       margin: 0;
     }
@@ -2985,77 +3046,76 @@
     }
 
     @media (max-width: 768px) {
-      .store-panel.active {
-        grid-template-columns: 1fr;
+      .store-guide {
+        padding: 40px 16px;
       }
       
       .store-panel-full {
-        padding: 24px;
+        padding: 20px;
       }
       
       .store-features.horizontal {
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
       }
-    }
     }
 
     .store-panel-img {
-      min-height: 350px;
+      width: 100%;
+      aspect-ratio: 16 / 7;
       background-size: cover;
       background-position: center;
     }
 
     .store-panel-content {
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 20px 24px 24px;
     }
 
     .store-panel-content h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .store-panel-content > p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--ink-light);
-      margin-bottom: 20px;
-      line-height: 1.8;
+      margin-bottom: 14px;
+      line-height: 1.6;
     }
 
     .store-features {
       list-style: none;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
     }
 
     .store-features li {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 0;
+      gap: 8px;
+      padding: 6px 0;
       border-bottom: 1px solid #f0f0f0;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--ink-light);
     }
 
     .store-features li:last-child { border-bottom: none; }
-    .store-features li i { color: var(--accent); font-size: 12px; }
+    .store-features li i { color: var(--accent); font-size: 11px; }
 
     .che-store-tip {
       background: var(--paper-warm);
-      padding: 16px;
+      padding: 12px;
       display: flex;
-      gap: 12px;
+      gap: 10px;
+      border-radius: 8px;
+      margin-top: 14px;
     }
 
     .che-store-tip img {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -3064,41 +3124,48 @@
 
     .che-store-tip-content strong {
       display: block;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--accent);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .che-store-tip-content p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--ink-light);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    @media (max-width: 800px) {
-      .store-panel.active { grid-template-columns: 1fr; }
-      .store-panel-img { min-height: 200px; }
-      .store-panel-content { padding: 28px; }
+    @media (max-width: 600px) {
+      .store-panel-img {
+        aspect-ratio: 16 / 8;
+      }
+      .store-panel-content {
+        padding: 16px 20px 20px;
+      }
+      .store-panel-full {
+        padding: 20px;
+      }
     }
 
     /* 스토어 쿠폰 */
     .store-coupon {
-      margin-top: 20px;
+      margin-top: 16px;
       border: 2px dashed var(--accent);
       background: linear-gradient(135deg, #fff9f9 0%, #fff 100%);
-      padding: 16px;
+      padding: 14px;
       position: relative;
       overflow: hidden;
+      border-radius: 8px;
     }
 
     .store-coupon::before {
       content: '';
       position: absolute;
-      left: -10px;
+      left: -8px;
       top: 50%;
       transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       background: var(--paper-warm);
       border-radius: 50%;
     }
@@ -3106,11 +3173,11 @@
     .store-coupon::after {
       content: '';
       position: absolute;
-      right: -10px;
+      right: -8px;
       top: 50%;
       transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       background: var(--paper-warm);
       border-radius: 50%;
     }
@@ -3119,34 +3186,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .coupon-badge {
       background: var(--accent);
       color: #fff;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 3px 8px;
       letter-spacing: 0.05em;
+      border-radius: 4px;
     }
 
     .coupon-discount {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--accent);
     }
 
     .coupon-discount span {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
     }
 
     .coupon-detail {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--ink-light);
-      margin-bottom: 12px;
-      line-height: 1.6;
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     .coupon-code-area {
@@ -4132,6 +4200,207 @@
       color: #6fcf97;
       margin-right: 8px;
     }
+
+    /* === 쿠폰 아코디언 스타일 === */
+    .coupon-accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .coupon-accordion-item {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .coupon-accordion-item:hover {
+      border-color: var(--accent);
+    }
+
+    .coupon-accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .coupon-accordion-header:hover {
+      background: #fafafa;
+    }
+
+    .coupon-accordion-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .coupon-accordion-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .coupon-accordion-badge.hokkaido {
+      background: #1565c0;
+    }
+
+    .coupon-accordion-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .coupon-accordion-discount {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .coupon-accordion-icon {
+      color: var(--ink-muted);
+      font-size: 11px;
+      transition: transform 0.3s;
+    }
+
+    .coupon-accordion-item.open .coupon-accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .coupon-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 14px;
+      background: #fafafa;
+    }
+
+    .coupon-accordion-item.open .coupon-accordion-body {
+      max-height: 500px;
+      padding: 14px;
+    }
+
+    .coupon-full-img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 10px;
+    }
+
+    .coupon-accordion-desc {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .coupon-save-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .coupon-save-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .coupon-save-btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    /* KOJIMA 쿠폰 아코디언 */
+    .kojima-coupon-accordion {
+      margin-top: 10px;
+    }
+
+    .coupon-accordion-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .coupon-accordion-btn:hover {
+      background: #c45d67;
+    }
+
+    .coupon-accordion-btn .accordion-icon {
+      transition: transform 0.3s;
+      font-size: 10px;
+    }
+
+    .kojima-coupon-accordion.open .coupon-accordion-btn .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .coupon-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+
+    .kojima-coupon-accordion.open .coupon-accordion-content {
+      max-height: 500px;
+      padding-top: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .coupon-accordion-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      
+      .coupon-accordion-header {
+        padding: 12px 14px;
+      }
+      
+      .coupon-save-btns {
+        flex-direction: column;
+      }
+      
+      .coupon-save-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4157,33 +4426,27 @@
       <div class="hero-text-area">
         <div class="hero-tag-group">
           <span class="hero-tag tag-season">2026 SPRING</span>
-          <span class="hero-tag tag-target">For Taiwan Travelers</span>
+          <span class="hero-tag tag-target">台湾からの旅行者へ</span>
         </div>
         <h1>
-          2026年、日本の春。<br>
-          お花見の次は、<br>
-          <span class="hl-text">賢いお買い物</span>へ。
+          「日本で何を買えばいい？」<br>
+          その質問に、<br>
+          <span class="hl-text">14年かけて答えます。</span>
         </h1>
         
         <p class="hero-subtitle">
-          日本のコスメ・OTC医薬品を<strong>14年間</strong>研究し、<strong>18冊</strong>の本を出版してきた鄭世彬が、<br class="pc-only">
-          2026年桜シーズンに<em>本当に買うべきアイテム</em>だけを厳選しました。
+          台湾から日本に来るたびに、友人に聞かれるんです。<br>
+          「ねえ、今回は何がおすすめ？」って。<br class="pc-only">
+          だから私は、<em>本当にいいもの</em>だけを選び続けてきました。
         </p>
         
-        <div class="hero-authority-stats">
-          <div class="stat-item">
-            <span class="stat-num">18冊</span>
-            <span class="stat-label">著書</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">11万</span>
-            <span class="stat-label">Followers</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">900万</span>
-            <span class="stat-label">累計PV</span>
-          </div>
-          <div class="stat-books">
+        <div class="hero-story-box">
+          <p class="story-lead">
+            ドラッグストアを回り続けて14年。<br>
+            新商品が出るたびに自分で試して、<br>
+            「これは台湾の友人に教えたい」と思ったものだけを紹介しています。
+          </p>
+          <div class="story-books">
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2018-日本藥妝美研購4-JAPANCOSMEGOBEAUTY4S_page-0001-scaled.jpg" alt="著書2">
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2020-日本藥妝美研購6-20200621034608124765.webp" alt="著書3">
@@ -4191,39 +4454,19 @@
             <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2025-日本藥妝美研購9-.jpg" alt="著書5">
           </div>
         </div>
-        <div class="hero-solution">
-          <p class="solution-title">
-            <i class="fas fa-search-dollar"></i>
-            鄭先生の「スマート・ショッピング」とは？
-          </p>
-          <ul class="solution-list">
-            <li class="solution-item">
-              <i class="fas fa-check-circle"></i>
-              <span><strong>円安活用：</strong>今買うべきお得なアイテム選定</span>
-            </li>
-            <li class="solution-item">
-              <i class="fas fa-check-circle"></i>
-              <span><strong>トレンド：</strong>現地で流行中の最新コスメ</span>
-            </li>
-          </ul>
-        </div>
+        
         <button class="hero-cta-btn" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">
-          <i class="fas fa-shopping-bag"></i>
-          鄭先生の厳選リストを見る
+          2026年春のおすすめを見る
+          <i class="fas fa-arrow-down"></i>
         </button>
       </div>
       <div class="hero-visual-area">
         <div class="tei-wrapper">
-          <div class="badge-authority">
-            <span class="badge-top">BESTSELLER</span>
-            <span class="badge-center">作家</span>
-            <span class="badge-bottom">薬粧研究家</span>
-          </div>
           <div class="tei-speech">
             <p class="speech-text">
-              「せっかくの日本旅行、<br>
-              <em>絶対に失敗させません。</em><br>
-              私についてきてください！」
+              「台湾より安いもの、<br>
+              日本でしか買えないもの。<br>
+              <em>両方教えますね。</em>」
             </p>
           </div>
           
@@ -4231,7 +4474,7 @@
           
           <div class="tei-name-tag">
             <p class="name-jp">鄭 世彬</p>
-            <p class="name-role">日本薬粧研究家 / 著書18冊</p>
+            <p class="name-role">日本藥妝研究室</p>
           </div>
         </div>
       </div>
@@ -4456,7 +4699,6 @@
         <button class="store-tab active" data-store="donki">ドン・キホーテ</button>
         <button class="store-tab" data-store="drugstore">ドラッグストア</button>
         <button class="store-tab" data-store="electronics">家電量販店</button>
-        <button class="store-tab" data-store="department">百貨店</button>
       </div>
 
       <div class="store-panels">
@@ -4501,7 +4743,7 @@
         <div class="store-panel" id="store-drugstore">
           <div class="store-panel-full">
             <h3><i class="fas fa-prescription-bottle-alt"></i> ドラッグストア</h3>
-            <p class="store-panel-desc">日本限定処方の化粧品・医薬品が充実。各チェーンのクーポンをお見逃しなく！</p>
+            <p class="store-panel-desc">日本限定処方の化粧品・医薬品が充実。各チェーンのクーポンをタップで表示！</p>
             
             <ul class="store-features horizontal">
               <li><i class="fas fa-check"></i> 日本限定処方の化粧品</li>
@@ -4510,99 +4752,135 @@
             </ul>
 
             <div class="coupon-scroll-label">
-              <span>🎫 お得なクーポン</span>
-              <span class="scroll-hint">← スワイプ →</span>
+              <span>🎫 クーポンをタップで表示</span>
             </div>
 
-            <div class="coupon-scroll">
+            <!-- 아코디언 쿠폰 리스트 -->
+            <div class="coupon-accordion-list">
               
-              <div class="coupon-card" onclick="openCouponModal('matsukiyo')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">マツモトキヨシ</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">3~7%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- マツモトキヨシ -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge">全国</span>
+                    <span class="coupon-accordion-name">マツモトキヨシ</span>
+                    <span class="coupon-accordion-discount">3~7%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">1万円以上で3%、3万円以上で5%、5万円以上で7%OFF</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/matsukiyo.jpg" alt="マツモトキヨシ クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">1万円以上で3%、3万円以上で5%、5万円以上で7%OFF</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/matsukiyo.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="coupon-card" onclick="openCouponModal('sundrug')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">サンドラッグ</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">3~7%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- サンドラッグ -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge">全国</span>
+                    <span class="coupon-accordion-name">サンドラッグ</span>
+                    <span class="coupon-accordion-discount">3~7%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">購入金額に応じて3~7%OFF。全国1,200店舗以上</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/sundrug.jpg" alt="サンドラッグ クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">購入金額に応じて3~7%OFF。全国1,200店舗以上</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/sundrug.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="coupon-card" onclick="openCouponModal('sugi')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1576602976047-174e57a47881?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">スギ薬局</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">4~8%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- スギ薬局 -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge">全国</span>
+                    <span class="coupon-accordion-name">スギ薬局</span>
+                    <span class="coupon-accordion-discount">4~8%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">最大18%OFF！中部・関西エリアに多数店舗</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/sugi.jpg" alt="スギ薬局 クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">最大18%OFF！中部・関西エリアに多数店舗</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/sugi.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="coupon-card" onclick="openCouponModal('cocokarafine')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">ココカラファイン</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">3~7%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- ココカラファイン -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge">全国</span>
+                    <span class="coupon-accordion-name">ココカラファイン</span>
+                    <span class="coupon-accordion-discount">3~7%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">全国1,600店舗以上。主要エリアに展開</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/cocokarafine.jpg" alt="ココカラファイン クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">全国1,600店舗以上。主要エリアに展開</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/cocokarafine.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="coupon-card" onclick="openCouponModal('tsuruha')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">ツルハドラッグ</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">3~7%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- ツルハドラッグ -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge">全国</span>
+                    <span class="coupon-accordion-name">ツルハドラッグ</span>
+                    <span class="coupon-accordion-discount">3~7%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">全国2,500店舗以上。業界第2位の大手チェーン</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/tsuruha.jpg" alt="ツルハドラッグ クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">全国2,500店舗以上。業界第2位の大手チェーン</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/tsuruha.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="coupon-card" onclick="openCouponModal('satudora')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&q=80');">
-                  <span class="coupon-region-badge hokkaido">北海道</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">サツドラ（札幌薬粧）</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">5%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+              <!-- サツドラ -->
+              <div class="coupon-accordion-item">
+                <button class="coupon-accordion-header" onclick="toggleCouponAccordion(this)">
+                  <div class="coupon-accordion-info">
+                    <span class="coupon-accordion-badge hokkaido">北海道</span>
+                    <span class="coupon-accordion-name">サツドラ（札幌薬粧）</span>
+                    <span class="coupon-accordion-discount">5%OFF + 免税10%</span>
                   </div>
-                  <p class="coupon-desc">北海道に200店舗以上。北海道旅行なら必見！</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
+                  <i class="fas fa-chevron-down coupon-accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-body">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/satudora.jpg" alt="サツドラ クーポン" class="coupon-full-img" loading="lazy">
+                  <p class="coupon-accordion-desc">北海道に200店舗以上。北海道旅行なら必見！</p>
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/satudora.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -4624,63 +4902,47 @@
 
         <!-- 家電量販店 -->
         <div class="store-panel" id="store-electronics">
-          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&q=80');"></div>
+          <div class="store-panel-img" style="background-image: url('https://likes.lifepepper.com/wp-content/uploads/2025/04/7110948%E5%AE%87%E9%83%BD%E5%AE%AE%E6%9C%AC%E5%BA%97-%E5%A4%96%E8%A6%B3-1.jpg');"></div>
           <div class="store-panel-content">
-            <h3>家電量販店</h3>
-            <p>コジマ×ビックカメラなど。カメラ・家電・時計・玩具が充実。</p>
+            <h3>KOJIMA × BicCamera</h3>
+            <p>コジマ×ビックカメラ 753特別クーポン</p>
             <ul class="store-features">
-              <li><i class="fas fa-check"></i> 最新家電・カメラ</li>
-              <li><i class="fas fa-check"></i> 時計・玩具も豊富</li>
-              <li><i class="fas fa-check"></i> 免税+クーポンで最大17%OFF</li>
+              <li><i class="fas fa-camera"></i> カメラ・時計・家電・玩具 → <strong style="color:var(--accent);">免税10% + 7%OFF</strong></li>
+              <li><i class="fas fa-pills"></i> 医薬品・化粧品・食品・生活用品 → <strong style="color:var(--accent);">免税10% + 5%OFF</strong></li>
+              <li><i class="fas fa-wine-bottle"></i> 日本酒（獺祭・八海山除く） → <strong style="color:var(--accent);">免税10% + 3%OFF</strong></li>
             </ul>
             
-            <div class="coupon-scroll-label">
-              <span>🎫 お得なクーポン</span>
-            </div>
-
-            <div class="coupon-scroll">
-              <div class="coupon-card" onclick="openCouponModal('kojima')">
-                <div class="coupon-card-img" style="background-image: url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=400&q=80');">
-                  <span class="coupon-region-badge">全国</span>
-                </div>
-                <div class="coupon-card-body">
-                  <h3 class="coupon-store-name">コジマ×ビックカメラ</h3>
-                  <div class="coupon-discount">
-                    <span class="coupon-discount-main">最大7%OFF</span>
-                    <span class="coupon-discount-sub">+ 免税10%</span>
+            <div class="store-coupon">
+              <div class="coupon-header">
+                <span class="coupon-badge">753特別クーポン</span>
+                <span class="coupon-discount">最大<span>17%OFF</span></span>
+              </div>
+              <p class="coupon-detail">
+                📍 日本全国のコジマ×ビックカメラ店舗<br>
+                📅 有効期限: 2026年8月31日まで
+              </p>
+              <div class="kojima-coupon-accordion">
+                <button class="coupon-accordion-btn" onclick="toggleKojimaCoupon(this)">
+                  <i class="fas fa-ticket-alt"></i> クーポンを表示する
+                  <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="coupon-accordion-content">
+                  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/kojima.jpg" alt="KOJIMA x BicCamera クーポン" class="coupon-full-img" loading="lazy">
+                  <div class="coupon-save-btns">
+                    <a href="https://www.gldaily.com/gld-kanri/wp-content/uploads/coupon/kojima.jpg" download class="coupon-save-btn">
+                      <i class="fas fa-download"></i> 画像を保存
+                    </a>
                   </div>
-                  <p class="coupon-desc">全国約140店舗。カメラ・家電・時計・玩具など幅広い品揃え</p>
-                  <button class="coupon-cta"><i class="fas fa-ticket-alt"></i> クーポンを見る</button>
                 </div>
               </div>
+              <p class="coupon-note">※決済時にこのクーポンを店員に必ず提示してください。未提示の場合、特典は適用されません。</p>
             </div>
 
             <div class="che-store-tip">
               <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
               <div class="che-store-tip-content">
                 <strong>鄭先生のコツ</strong>
-                <p>免税+クーポンで最大17%OFF！高額商品ほどお得になります。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 百貨店 -->
-        <div class="store-panel" id="store-department">
-          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800');"></div>
-          <div class="store-panel-content">
-            <h3>百貨店</h3>
-            <p>伊勢丹、高島屋など。デパコスの限定品や高級ブランドはここで。</p>
-            <ul class="store-features">
-              <li><i class="fas fa-check"></i> ブランド限定コフレ</li>
-              <li><i class="fas fa-check"></i> 日本限定モデル多数</li>
-              <li><i class="fas fa-check"></i> 丁寧なカウンセリング</li>
-            </ul>
-            <div class="che-store-tip">
-              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
-              <div class="che-store-tip-content">
-                <strong>鄭先生のコツ</strong>
-                <p>パスポート提示で5%割引の優待カードがもらえることも！</p>
+                <p>高額商品ほどお得！カメラやApple製品を買うなら絶対にクーポンを使いましょう。</p>
               </div>
             </div>
           </div>
@@ -5946,6 +6208,30 @@
         if (e.target === this) this.classList.remove('active');
       });
     });
+
+    // 드럭스토어 쿠폰 아코디언 토글
+    function toggleCouponAccordion(btn) {
+      const item = btn.closest('.coupon-accordion-item');
+      const isOpen = item.classList.contains('open');
+      
+      // 다른 열린 아코디언 닫기 (선택사항 - 원하면 주석 해제)
+      // document.querySelectorAll('.coupon-accordion-item.open').forEach(openItem => {
+      //   if (openItem !== item) openItem.classList.remove('open');
+      // });
+      
+      item.classList.toggle('open');
+    }
+
+    // KOJIMA 쿠폰 아코디언 토글
+    function toggleKojimaCoupon(btn) {
+      const accordion = btn.closest('.kojima-coupon-accordion');
+      accordion.classList.toggle('open');
+    }
+
+    // 스크린샷 저장 안내
+    function screenshotCoupon(btn) {
+      showToast('画面を長押しして画像を保存してください');
+    }
 
     // 초기화
     renderTabs();
