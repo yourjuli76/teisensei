@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>鄭先生のおすすめ 2026夏 | JAPANKURU × 日本藥妝研究室</title>
+  <title>年間プラン｜夏シーズン表示例 | JAPANKURU × 日本藥妝研究室</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
   
   <style>
     html { scroll-behavior: smooth; }
@@ -17,33 +17,45 @@
       --ink: #1a1a1a;
       --ink-light: #4a4a4a;
       --ink-muted: #8a8a8a;
+      --ink-faint: #c5c5c5;
       --paper: #fefefe;
-      --accent: #00bcd4;
-      --accent-deep: #0097a7;
-      --gradient-1: #00bcd4;
-      --gradient-2: #4fc3f7;
-      --gradient-3: #00e5ff;
-      --bg: #f0feff;
+      --paper-warm: #faf9f7;
+      /* 여름 컬러 */
+      --accent: #00a8b5;
+      --accent-deep: #008c99;
+      --accent-soft: #e6f7f8;
+      --summer-1: #00bcd4;
+      --summer-2: #4fc3f7;
+      /* 봄 컬러 (태그용) */
+      --spring-pink: #d4707a;
+      --spring-soft: #fff0f3;
+      /* NEW 배지 */
+      --gold: #d4af37;
+      --gold-light: #f0d78c;
+      
+      --bg: #f8fdfd;
+      --white: #fff;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body { 
-      font-family: 'Noto Sans JP', sans-serif; 
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; 
       background: var(--bg); 
-      color: var(--ink); 
+      color: var(--ink-light); 
       line-height: 1.8;
     }
 
+    /* === 헤더 === */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(20px);
       z-index: 1000;
-      border-bottom: 1px solid rgba(0,188,212,0.1);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
     }
 
     .header-inner {
@@ -62,7 +74,7 @@
     }
 
     .collab-logo img { height: 20px; }
-    .collab-x { color: #ccc; font-weight: 300; }
+    .collab-x { color: var(--ink-faint); font-weight: 300; }
 
     .partner-logo {
       display: flex;
@@ -70,12 +82,12 @@
       gap: 6px;
     }
 
-    .partner-logo-img { height: 32px; }
-    .partner-name { font-size: 0.75rem; font-weight: 700; }
+    .partner-logo-img { height: 32px; object-fit: contain; }
+    .partner-name { font-size: 0.75rem; font-weight: 700; color: var(--ink); }
 
     .header-season {
       font-size: 11px;
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      background: linear-gradient(135deg, var(--summer-1), var(--summer-2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -83,12 +95,11 @@
       font-weight: 700;
     }
 
-    /* 히어로 - 여름 */
+    /* === 히어로 섹션 === */
     .hero {
-      margin-top: 52px;
-      padding: 80px 24px 60px;
+      padding-top: 60px;
       min-height: 85vh;
-      background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 30%, #fff 100%);
+      background: linear-gradient(180deg, #e0f7fa 0%, #fff 60%, #fff 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -98,53 +109,19 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -20%;
-      right: -15%;
-      width: 60vw;
-      height: 60vw;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+      top: -5%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(0, 188, 212, 0.15) 0%, transparent 70%);
       border-radius: 50%;
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-    }
-
-    .wave-container {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 150px;
-      overflow: hidden;
-    }
-
-    .wave {
-      position: absolute;
-      bottom: 0;
-      width: 200%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath fill='%2300bcd4' fill-opacity='0.08' d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z'/%3E%3C/svg%3E") repeat-x;
-      animation: wave 12s linear infinite;
-    }
-
-    .wave:nth-child(2) {
-      bottom: 10px;
-      opacity: 0.5;
-      animation-duration: 8s;
-      animation-direction: reverse;
-    }
-
-    @keyframes wave {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      z-index: 0;
     }
 
     .hero-inner {
       max-width: 1100px;
       margin: 0 auto;
+      padding: 20px 24px;
       position: relative;
       z-index: 2;
       display: grid;
@@ -159,35 +136,45 @@
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .hero-tag {
       font-size: 11px;
       font-weight: 700;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
       letter-spacing: 0.05em;
     }
 
-    .tag-season { 
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-      color: #fff; 
-    }
-    .tag-target { background: var(--ink); color: #fff; }
+    .tag-season { background: var(--accent); color: #fff; }
+    .tag-plan { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--ink); }
 
     .hero h1 {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-size: clamp(2rem, 4.5vw, 3rem);
       font-weight: 600;
       line-height: 1.4;
+      color: var(--ink);
       margin-bottom: 24px;
     }
 
     .hero h1 .hl-text {
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 .hl-text::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      background: rgba(0, 168, 181, 0.15);
+      z-index: -1;
+      transform: skewX(-15deg);
     }
 
     .hero-subtitle {
@@ -197,35 +184,55 @@
       margin-bottom: 24px;
     }
 
-    .hero-subtitle strong { color: var(--accent); }
+    .hero-subtitle strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .hero-story-box {
       margin-bottom: 32px;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
       padding: 24px;
-      border: 1px solid rgba(0,188,212,0.2);
-      box-shadow: 0 8px 32px rgba(0,188,212,0.1);
+      border: 1px solid rgba(0,168,181,0.1);
     }
 
     .story-lead {
       font-size: 14px;
       line-height: 2;
       color: var(--ink-light);
+      margin-bottom: 16px;
+    }
+
+    .story-books {
+      display: flex;
+      gap: 8px;
+    }
+
+    .story-books img {
+      width: 44px;
+      height: 62px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .story-books img:hover {
+      transform: translateY(-4px) rotate(2deg);
     }
 
     .hero-cta-btn {
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      background: var(--ink);
       color: #fff;
       padding: 18px 36px;
       border-radius: 50px;
       font-weight: 600;
       font-size: 15px;
-      box-shadow: 0 10px 30px rgba(0,188,212,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       border: none;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
       display: inline-flex;
       align-items: center;
       gap: 12px;
@@ -233,13 +240,16 @@
 
     .hero-cta-btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(0,188,212,0.4);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      background: #000;
     }
 
     .hero-visual-area {
       position: relative;
       display: flex;
       justify-content: center;
+      align-items: flex-end;
+      height: 100%;
     }
 
     .tei-wrapper {
@@ -251,32 +261,39 @@
     .tei-photo {
       width: 100%;
       height: auto;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
+      mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     }
 
     .tei-speech {
       position: absolute;
-      top: 30px;
-      left: -40px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      padding: 16px 20px;
+      top: 40px;
+      left: -30px;
+      background: #fff;
+      padding: 16px 24px;
       border-radius: 20px 20px 0 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       animation: float 4s ease-in-out infinite;
-      max-width: 200px;
-      border: 1px solid rgba(0,188,212,0.2);
+      z-index: 5;
+      max-width: 220px;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    .tei-speech::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
     }
 
     .speech-text {
-      font-family: 'Zen Kurenaido', sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.6;
+      color: var(--ink);
     }
 
     .speech-text em {
@@ -291,242 +308,847 @@
       right: -10px;
       background: rgba(255,255,255,0.9);
       backdrop-filter: blur(10px);
-      padding: 12px 20px;
-      border-left: 3px solid var(--accent);
+      padding: 12px 24px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .name-jp { font-size: 18px; font-weight: 700; }
-    .name-role { font-size: 10px; color: var(--ink-muted); }
+    .name-jp { font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+    .name-role { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; }
 
-    /* ========================================
-       夏テーマセクション - 글래스모피즘 수평 스크롤
-       ======================================== */
-    .summer-themes {
-      padding: 80px 0;
-      background: linear-gradient(180deg, #fff 0%, #e0f7fa 50%, #fff 100%);
-      position: relative;
-      overflow: hidden;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
-    .summer-themes::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(0,188,212,0.1) 0%, transparent 70%);
-      pointer-events: none;
+    /* 히어로 모바일 */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 40px;
+      }
+      .hero-text-area { text-align: center; }
+      .hero-tag-group { justify-content: center; }
+      .hero-subtitle { text-align: center; }
+      .hero-story-box { text-align: left; padding: 20px; }
+      .story-lead { font-size: 13px; }
+      .story-books { justify-content: flex-start; }
+      .story-books img { width: 36px; height: 50px; }
+      .hero-visual-area { margin-bottom: -40px; order: -1; }
+      .tei-wrapper { max-width: 280px; margin: 0 auto; }
+      .tei-speech { top: 10px; left: auto; right: 160px; padding: 12px 16px; font-size: 13px; max-width: 180px; }
     }
 
-    .themes-header {
+    /* === 시안 안내 배너 === */
+    .demo-banner {
+      margin-top: 52px;
+      background: linear-gradient(90deg, #1a1a1a 0%, #333 100%);
+      color: #fff;
+      padding: 20px 24px;
       text-align: center;
-      margin-bottom: 50px;
-      position: relative;
-      z-index: 1;
     }
 
-    .themes-header .eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .themes-header .eyebrow::before,
-    .themes-header .eyebrow::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent));
-    }
-
-    .themes-header .eyebrow::after {
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .themes-header h2 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-
-    .themes-header p {
+    .demo-banner-title {
       font-size: 14px;
-      color: var(--ink-muted);
-    }
-
-    /* 수평 스크롤 컨테이너 */
-    .themes-scroll-container {
-      position: relative;
-      padding: 0 24px;
-    }
-
-    .themes-scroll {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 20px 0 40px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .themes-scroll::-webkit-scrollbar { display: none; }
-
-    /* 글래스모피즘 카드 */
-    .theme-card {
-      flex: 0 0 300px;
-      scroll-snap-align: center;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 32px 28px;
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 
-        0 8px 32px rgba(0,188,212,0.1),
-        inset 0 0 0 1px rgba(255,255,255,0.5);
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .theme-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .theme-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 
-        0 20px 50px rgba(0,188,212,0.2),
-        inset 0 0 0 1px rgba(255,255,255,0.8);
-    }
-
-    .theme-card:hover::before {
-      opacity: 1;
-    }
-
-    .theme-card:first-child { margin-left: calc(50vw - 500px); }
-    .theme-card:last-child { margin-right: calc(50vw - 500px); }
-
-    @media (max-width: 1100px) {
-      .theme-card:first-child { margin-left: 24px; }
-      .theme-card:last-child { margin-right: 24px; }
-    }
-
-    .theme-icon-wrap {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      font-size: 32px;
-      box-shadow: 0 8px 20px rgba(0,188,212,0.3);
+      gap: 8px;
     }
 
-    .theme-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
+    .demo-banner-title i { color: var(--gold); }
+
+    .demo-banner-sub {
+      font-size: 12px;
+      opacity: 0.8;
     }
 
-    .theme-card h3 {
-      font-size: 20px;
+    /* === NEW 배지 설명 === */
+    .new-badge-info {
+      background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 16px 24px;
+    }
+
+    .new-badge-info-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge-sample-new {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--ink);
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 12px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+    }
+
+    .new-badge-info p {
+      font-size: 13px;
       color: var(--ink);
     }
 
-    .theme-card p {
-      font-size: 14px;
-      color: var(--ink-light);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .theme-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .theme-tag {
-      font-size: 11px;
-      padding: 6px 12px;
-      background: rgba(0,188,212,0.1);
+    .new-badge-info strong {
       color: var(--accent-deep);
-      border-radius: 20px;
-      font-weight: 500;
     }
 
-    /* 스크롤 힌트 */
-    .scroll-indicator {
+    /* === NEW 배지 공통 스타일 === */
+    .badge-new {
+      position: absolute;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    /* 프리미엄 NEW 배지 - 에디터픽용 */
+    .badge-new.premium {
+      background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+      color: #fff;
+      font-size: 11px;
+      padding: 8px 16px;
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .badge-new.premium::before {
+      content: '★';
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    /* 스탠다드 NEW 배지 - 캐러셀/카드용 */
+    .badge-new.standard {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--ink);
+      font-size: 10px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      box-shadow: 0 3px 12px rgba(212,175,55,0.4);
+    }
+
+    /* === 시즌 태그 === */
+    .season-tag {
+      position: absolute;
+      font-size: 9px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      z-index: 90;
+    }
+
+    .season-tag.spring {
+      background: var(--spring-soft);
+      color: var(--spring-pink);
+    }
+
+    .season-tag.summer {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    /* ============================================
+       에디터 픽 슬라이더 (실제 봄 LP 구조)
+       ============================================ */
+    .split-banner-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #fff 0%, var(--accent-soft) 50%, #fff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .split-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      padding: 0 24px;
+    }
+
+    .split-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-top: 20px;
-      font-size: 12px;
-      color: var(--ink-muted);
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
-    .scroll-indicator i {
-      animation: bounce-x 1.5s ease-in-out infinite;
-    }
-
-    @keyframes bounce-x {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-    }
-
-    .footer {
-      background: var(--ink);
-      color: #fff;
-      padding: 50px 24px 30px;
-      text-align: center;
-    }
-
-    .footer p {
+    .split-eyebrow::before,
+    .split-eyebrow::after {
+      content: '☀';
       font-size: 12px;
       opacity: 0.6;
     }
 
+    .split-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .split-subtitle {
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+
+    .split-container {
+      display: flex;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      height: 520px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0, 168, 181, 0.15);
+    }
+
+    .split-panel {
+      position: relative;
+      flex: 1;
+      transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .split-panel:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .split-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 0;
+    }
+
+    .split-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 50, 60, 0.9) 0%, rgba(0, 50, 60, 0.4) 40%, rgba(0, 168, 181, 0.1) 100%);
+      z-index: 1;
+      transition: all 0.5s;
+    }
+
+    .split-panel:hover {
+      flex: 2.2;
+    }
+
+    .split-panel:hover .split-bg {
+      transform: scale(1.08);
+    }
+
+    /* NEW 배지 위치 - 에디터픽 */
+    .split-panel .badge-new {
+      top: 20px;
+      left: 20px;
+    }
+
+    /* 시즌 태그 위치 - 에디터픽 */
+    .split-panel .season-tag {
+      top: 20px;
+      right: 20px;
+    }
+
+    .split-logo {
+      position: absolute;
+      top: 70px;
+      left: 20px;
+      z-index: 3;
+      background: #fff;
+      padding: 8px 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .split-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .split-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .split-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      opacity: 0.8;
+      margin-bottom: 10px;
+      display: block;
+      line-height: 1;
+    }
+
+    .split-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 5px 12px;
+      display: inline-block;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .split-headline {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .split-desc {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 0;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.5s ease;
+    }
+
+    .split-panel:hover .split-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 14px;
+    }
+
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
+      .split-container {
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        height: 400px;
+        border-radius: 0;
       }
-      .hero-text-area { text-align: center; }
-      .hero-tag-group { justify-content: center; }
-      .hero-visual-area { order: -1; }
-      .tei-wrapper { max-width: 280px; margin: 0 auto; }
-      .theme-card { flex: 0 0 280px; }
+      .split-panel {
+        flex: 0 0 85vw;
+        scroll-snap-align: center;
+        margin-left: 16px;
+        border-radius: 12px;
+        padding: 28px;
+      }
+      .split-panel:last-child { margin-right: 16px; }
+      .split-panel:not(:last-child) { border-right: none; }
+      .split-desc { max-height: 80px; opacity: 1; margin-top: 10px; }
+      .split-title { font-size: 22px; }
+    }
+
+    /* ============================================
+       Featured 캐러셀 (실제 봄 LP 구조)
+       ============================================ */
+    .featured-section {
+      padding: 70px 24px 60px;
+      background: linear-gradient(180deg, var(--paper) 0%, #f0f8f8 50%, var(--paper) 100%);
+    }
+
+    .featured-header {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .featured-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .featured-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .featured-subtitle {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    .featured-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 24px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .featured-carousel::-webkit-scrollbar { height: 4px; }
+    .featured-carousel::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 2px; }
+    .featured-carousel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    .featured-card {
+      flex: 0 0 260px;
+      height: 340px;
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .featured-card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .featured-card:hover .featured-card-bg {
+      transform: scale(1.1);
+    }
+
+    .featured-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    }
+
+    .featured-card-inner {
+      position: absolute;
+      inset: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+
+    /* NEW 배지 위치 - 캐러셀 */
+    .featured-card .badge-new {
+      top: 14px;
+      left: 14px;
+    }
+
+    /* 시즌 태그 위치 - 캐러셀 */
+    .featured-card .season-tag {
+      top: 14px;
+      right: 14px;
+    }
+
+    .featured-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .featured-card-copy {
+      font-size: 12px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    /* ============================================
+       상품 카드 섹션 (실제 봄 LP 구조)
+       ============================================ */
+    .products-section {
+      padding: 60px 24px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    /* 탭 */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--white);
+      border: 1px solid #e5e5e5;
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--ink-light);
+    }
+
+    .tab-btn:hover { border-color: var(--accent); }
+
+    .tab-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    /* 상품 그리드 */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 580px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+
+    /* 카드 */
+    .item-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,168,181,0.12);
+    }
+
+    /* 썸네일 */
+    .item-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #f8f8f8, #fff);
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      transition: transform 0.4s;
+    }
+
+    .item-card:hover .item-thumb img {
+      transform: scale(1.05);
+    }
+
+    /* NEW 배지 위치 - 상품 카드 */
+    .item-card .badge-new {
+      top: 12px;
+      left: 12px;
+    }
+
+    /* 시즌 태그 위치 - 상품 카드 */
+    .item-card .season-tag {
+      top: 12px;
+      right: 12px;
+    }
+
+    /* 컨텐츠 */
+    .item-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .item-brand {
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .item-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .item-price {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    /* ============================================
+       범례 섹션
+       ============================================ */
+    .legend-section {
+      padding: 40px 24px 60px;
+      background: #fff;
+    }
+
+    .legend-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .legend-box {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 28px 32px;
+      border: 1px dashed rgba(0,168,181,0.3);
+    }
+
+    .legend-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .legend-grid { grid-template-columns: 1fr; }
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .legend-badge-new {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+    }
+
+    .legend-tag-spring {
+      background: var(--spring-soft);
+      color: var(--spring-pink);
+      font-size: 9px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .legend-tag-summer {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 9px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .legend-text {
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    .legend-text strong {
+      color: var(--ink);
+    }
+
+    /* ============================================
+       비교 섹션
+       ============================================ */
+    .compare-section {
+      padding: 60px 24px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .compare-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .compare-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 700px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+
+    .compare-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .compare-box-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .compare-box-title span {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+
+    .compare-list {
+      list-style: none;
+    }
+
+    .compare-list li {
+      font-size: 13px;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.9;
+    }
+
+    .compare-list li::before {
+      content: '•';
+      color: var(--accent);
+    }
+
+    .compare-box.annual {
+      border-color: var(--gold);
+      background: rgba(212,175,55,0.08);
+    }
+
+    .compare-box.annual .compare-box-title {
+      color: var(--gold);
+      border-color: rgba(212,175,55,0.3);
+    }
+
+    .compare-box.annual .compare-list li::before {
+      content: '✓';
+      color: var(--gold);
+    }
+
+    /* 푸터 */
+    .footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 30px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer p {
+      font-size: 11px;
+      opacity: 0.5;
     }
   </style>
 </head>
 <body>
 
+  <!-- 헤더 -->
   <header class="header">
     <div class="header-inner">
       <div class="collab-logo">
@@ -541,64 +1163,50 @@
     </div>
   </header>
 
-  <div class="draft-notice">
-    <p>📋 年間プラン向け｜季節別デザインイメージ（参考資料）</p>
-    <p class="notice-sub">※実際のデザイン・内容は変更される場合がございます</p>
+  <!-- 시안 안내 배너 -->
+  <div class="demo-banner">
+    <p class="demo-banner-title"><i class="fas fa-crown"></i> 年間プラン契約者向け｜夏シーズンLP表示例</p>
+    <p class="demo-banner-sub">春シーズンからの継続表示＋新商品にはNEWバッジが付与されます</p>
   </div>
 
-  <style>
-    .draft-notice {
-      background: linear-gradient(90deg, #f0f9ff 0%, #e0f7fa 100%);
-      border-bottom: 1px solid rgba(0,188,212,0.2);
-      padding: 12px 20px;
-      text-align: center;
-      margin-top: 52px;
-    }
-    .draft-notice p {
-      font-size: 12px;
-      color: #0097a7;
-      font-weight: 600;
-      margin: 0;
-    }
-    .draft-notice .notice-sub {
-      font-size: 10px;
-      font-weight: 400;
-      color: #4a9ea8;
-      margin-top: 4px;
-    }
-    .hero { margin-top: 0 !important; }
-  </style>
-
+  <!-- ============================================
+       히어로 섹션 (실제 봄 LP 구조)
+       ============================================ -->
   <section class="hero">
-    <div class="wave-container">
-      <div class="wave"></div>
-      <div class="wave"></div>
-    </div>
     <div class="hero-inner">
       <div class="hero-text-area">
         <div class="hero-tag-group">
           <span class="hero-tag tag-season">2026 SUMMER</span>
-          <span class="hero-tag tag-target">台湾からの旅行者へ</span>
+          <span class="hero-tag tag-plan">年間プラン</span>
         </div>
         <h1>
-          夏の日本旅行、<br>
-          <span class="hl-text">快適に過ごすコツ</span>、<br>
-          教えます。
+          「夏の日本、何を買う？」<br>
+          その答えを、<br>
+          <span class="hl-text">14年の経験でお届けします。</span>
         </h1>
         
         <p class="hero-subtitle">
-          日本の夏は暑い。でも、<strong>ちゃんと準備</strong>すれば<br>
-          最高の思い出になる。
+          UV対策、制汗剤、虫除け...<br>
+          <strong>夏の必需品</strong>を日本で賢くお買い物。<br>
+          春からの継続商品＋夏の新商品を全部チェック！
         </p>
         
         <div class="hero-story-box">
           <p class="story-lead">
-            夏バテ対策、虫除け、日焼けケア...<br>
-            「暑さに負けない」アイテムを厳選しました。
+            ドラッグストアを回り続けて14年。<br>
+            新商品が出るたびに自分で試して、<br>
+            「これは台湾の友人に教えたい」と思ったものだけを紹介しています。
           </p>
+          <div class="story-books">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2018-日本藥妝美研購4-JAPANCOSMEGOBEAUTY4S_page-0001-scaled.jpg" alt="著書2">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2020-日本藥妝美研購6-20200621034608124765.webp" alt="著書3">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2023-日本藥妝美研購7-20221216040749386921.webp" alt="著書4">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2025-日本藥妝美研購9-.jpg" alt="著書5">
+          </div>
         </div>
         
-        <button class="hero-cta-btn">
+        <button class="hero-cta-btn" onclick="document.querySelector('.split-banner-section').scrollIntoView({behavior: 'smooth'})">
           夏のおすすめを見る
           <i class="fas fa-arrow-down"></i>
         </button>
@@ -607,11 +1215,14 @@
         <div class="tei-wrapper">
           <div class="tei-speech">
             <p class="speech-text">
-              「日本の夏は湿度が高い。<br>
-              <em>汗対策グッズ</em>が必需品！」
+              「夏は虫除け＆制汗剤！<br>
+              日本限定品、<br>
+              <em>全部教えますね。</em>」
             </p>
           </div>
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/DSC04287-3-拷贝-scaled.png" alt="鄭世彬" class="tei-photo">
+          
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/BDSC04292-3-2-拷贝-scaled.png" alt="鄭世彬" class="tei-photo">
+          
           <div class="tei-name-tag">
             <p class="name-jp">鄭 世彬</p>
             <p class="name-role">日本藥妝研究室</p>
@@ -621,76 +1232,345 @@
     </div>
   </section>
 
-  <!-- 여름 테마 섹션 - 글래스모피즘 수평 스크롤 -->
-  <section class="summer-themes">
-    <div class="themes-header">
-      <p class="eyebrow">SUMMER ESSENTIALS</p>
-      <h2>この夏、私が選んだ4つのテーマ</h2>
-      <p>スワイプして、すべてのテーマをチェック</p>
+  <!-- NEW 배지 설명 -->
+  <div class="new-badge-info">
+    <div class="new-badge-info-inner">
+      <span class="badge-sample-new">NEW</span>
+      <p><strong>年間プラン限定</strong>｜今シーズン追加された新商品にはNEWバッジが表示されます</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       1. エディターズピック TOP3 (実際の春LP構造)
+       ============================================ -->
+  <section class="split-banner-section">
+    <div class="split-header">
+      <span class="split-eyebrow">Special Feature 2026 Summer</span>
+      <h2 class="split-title">鄭先生が選ぶ<br>この夏のイチオシ TOP3</h2>
+      <p class="split-subtitle">
+        年間プラン限定：春からの継続商品＋夏の新商品を<br>
+        すべてチェックできます
+      </p>
     </div>
 
-    <div class="themes-scroll-container">
-      <div class="themes-scroll">
-        
-        <article class="theme-card">
-          <div class="theme-icon-wrap">☀️</div>
-          <p class="theme-num">THEME 01</p>
-          <h3>日焼け対策</h3>
-          <p>SPF50+の最強UVケア。<br>塗り直しやすいスティックタイプが今年のトレンド。</p>
-          <div class="theme-tags">
-            <span class="theme-tag">UVケア</span>
-            <span class="theme-tag">スティック</span>
-            <span class="theme-tag">SPF50+</span>
-          </div>
-        </article>
-
-        <article class="theme-card">
-          <div class="theme-icon-wrap">🦟</div>
-          <p class="theme-num">THEME 02</p>
-          <h3>虫除け</h3>
-          <p>蚊・ブヨ対策はマスト。<br>子供にも使える優しい処方を厳選。</p>
-          <div class="theme-tags">
-            <span class="theme-tag">アウトドア</span>
-            <span class="theme-tag">子供OK</span>
-            <span class="theme-tag">長時間</span>
-          </div>
-        </article>
-
-        <article class="theme-card">
-          <div class="theme-icon-wrap">💧</div>
-          <p class="theme-num">THEME 03</p>
-          <h3>汗・制汗</h3>
-          <p>サラサラ持続する制汗剤。<br>ボディシートは旅行の必需品。</p>
-          <div class="theme-tags">
-            <span class="theme-tag">制汗剤</span>
-            <span class="theme-tag">ボディシート</span>
-            <span class="theme-tag">携帯用</span>
-          </div>
-        </article>
-
-        <article class="theme-card">
-          <div class="theme-icon-wrap">🧊</div>
-          <p class="theme-num">THEME 04</p>
-          <h3>クールダウン</h3>
-          <p>ひんやりグッズで涼しく。<br>冷感スプレー・冷却シートが人気。</p>
-          <div class="theme-tags">
-            <span class="theme-tag">冷感</span>
-            <span class="theme-tag">スプレー</span>
-            <span class="theme-tag">シート</span>
-          </div>
-        </article>
-
+    <div class="split-container">
+      
+      <!-- TOP1: 夏の新商品 (NEW) -->
+      <div class="split-panel">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="ANESSA">
+        <span class="badge-new premium">NEW</span>
+        <span class="season-tag summer">SUMMER</span>
+        <div class="split-logo">
+          <span class="split-logo-text">ANESSA</span>
+        </div>
+        <div class="split-content">
+          <span class="split-num">01</span>
+          <span class="split-brand">2026夏 新発売</span>
+          <h3 class="split-headline">最強UV。<br>汗も水も、もう怖くない。</h3>
+          <p class="split-desc">
+            夏の新商品。汗・水に強い最強UVカット。美容液成分50%配合で肌にも優しい。
+          </p>
+        </div>
       </div>
 
-      <div class="scroll-indicator">
-        <span>スワイプでもっと見る</span>
-        <i class="fas fa-arrow-right"></i>
+      <!-- TOP2: 春からの継続商品 -->
+      <div class="split-panel">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80" class="split-bg" alt="パブロン">
+        <span class="season-tag spring">SPRING</span>
+        <div class="split-logo">
+          <span class="split-logo-text">大正製薬</span>
+        </div>
+        <div class="split-content">
+          <span class="split-num">02</span>
+          <span class="split-brand">春から継続掲載</span>
+          <h3 class="split-headline">日本の国民的風邪薬。<br>旅行の常備薬に。</h3>
+          <p class="split-desc">
+            春シーズンから継続掲載のロングセラー。年間プランなら通年でチェック可能。
+          </p>
+        </div>
+      </div>
+
+      <!-- TOP3: 夏の新商品 (NEW) -->
+      <div class="split-panel">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" class="split-bg" alt="虫除け">
+        <span class="badge-new premium">NEW</span>
+        <span class="season-tag summer">SUMMER</span>
+        <div class="split-logo">
+          <span class="split-logo-text">フマキラー</span>
+        </div>
+        <div class="split-content">
+          <span class="split-num">03</span>
+          <span class="split-brand">2026夏 新発売</span>
+          <h3 class="split-headline">8時間持続。<br>家族で使える虫除け。</h3>
+          <p class="split-desc">
+            夏の必需品が新登場。子供にも使える優しい処方で、家族旅行に最適。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       2. 話題のアイテム キャロSEL (実際の春LP構造)
+       ============================================ -->
+  <section class="featured-section">
+    <div class="featured-header">
+      <span class="featured-eyebrow">Trending Now</span>
+      <h2 class="featured-title">今、話題のアイテム</h2>
+      <p class="featured-subtitle">
+        春からの継続商品＋夏の新商品をまとめてチェック
+      </p>
+    </div>
+
+    <div class="featured-carousel">
+      
+      <!-- 夏の新商品 (NEW) -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80" alt="制汗剤" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="badge-new standard">NEW</span>
+        <span class="season-tag summer">SUMMER</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">ビオレ<br>冷シート 薬用デオドラント</h3>
+          <p class="featured-card-copy">夏の新商品<br>瞬間冷却で汗スッキリ</p>
+        </div>
+      </article>
+
+      <!-- 夏の新商品 (NEW) -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="デオドラント" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="badge-new standard">NEW</span>
+        <span class="season-tag summer">SUMMER</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">ニベア<br>デオドラント スティック</h3>
+          <p class="featured-card-copy">夏の新商品<br>48時間効果持続</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=600&q=80" alt="Yunth" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="season-tag spring">SPRING</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">Yunth<br>生VC美白美容液</h3>
+          <p class="featured-card-copy">春から継続掲載<br>SNSで大バズり中</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="season-tag spring">SPRING</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">コラーゲンC<br>ゼリー</h3>
+          <p class="featured-card-copy">春から継続掲載<br>お土産に大人気</p>
+        </div>
+      </article>
+
+      <!-- 夏の新商品 (NEW) -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="冷感スプレー" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="badge-new standard">NEW</span>
+        <span class="season-tag summer">SUMMER</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">シーブリーズ<br>デオ&ウォーター</h3>
+          <p class="featured-card-copy">夏の新商品<br>アイスタイプで爽快</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="featured-card">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="DHC" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <span class="season-tag spring">SPRING</span>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">DHC<br>速攻ブルーベリー</h3>
+          <p class="featured-card-copy">春から継続掲載<br>台湾より30%以上お得</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="scroll-hint">
+      <span>スワイプでもっと見る</span>
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       3. 商品カード グリッド (実際の春LP構造)
+       ============================================ -->
+  <section class="products-section">
+    <div class="section-header">
+      <h2>カテゴリー別おすすめ</h2>
+      <p>年間プラン：春＋夏の全商品を表示</p>
+    </div>
+
+    <div class="tabs-nav">
+      <button class="tab-btn active">コスメ・美容</button>
+      <button class="tab-btn">医薬品</button>
+      <button class="tab-btn">健康食品</button>
+      <button class="tab-btn">日用品</button>
+    </div>
+
+    <div class="products-grid">
+      
+      <!-- 夏の新商品 (NEW) -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=ANESSA" alt="ANESSA">
+          <span class="badge-new standard">NEW</span>
+          <span class="season-tag summer">SUMMER</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">ANESSA</p>
+          <h3 class="item-name">パーフェクトUV スキンケアジェル</h3>
+          <p class="item-price">¥2,480</p>
+        </div>
+      </article>
+
+      <!-- 夏の新商品 (NEW) -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=虫除け" alt="虫除け">
+          <span class="badge-new standard">NEW</span>
+          <span class="season-tag summer">SUMMER</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">フマキラー</p>
+          <h3 class="item-name">スキンベープミスト プレミアム</h3>
+          <p class="item-price">¥880</p>
+        </div>
+      </article>
+
+      <!-- 夏の新商品 (NEW) -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=制汗剤" alt="制汗剤">
+          <span class="badge-new standard">NEW</span>
+          <span class="season-tag summer">SUMMER</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">ビオレ</p>
+          <h3 class="item-name">冷シート 薬用デオドラント</h3>
+          <p class="item-price">¥398</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=Bioré" alt="Bioré">
+          <span class="season-tag spring">SPRING</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">花王</p>
+          <h3 class="item-name">Bioré The CLEANSE オイルメイク落とし</h3>
+          <p class="item-price">¥350</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=Yunth" alt="Yunth">
+          <span class="season-tag spring">SPRING</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">Yunth</p>
+          <h3 class="item-name">生VC美白美容液</h3>
+          <p class="item-price">¥3,960</p>
+        </div>
+      </article>
+
+      <!-- 春からの継続商品 -->
+      <article class="item-card">
+        <div class="item-thumb">
+          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=UV" alt="UV">
+          <span class="season-tag spring">SPRING</span>
+        </div>
+        <div class="item-content">
+          <p class="item-brand">石澤研究所</p>
+          <h3 class="item-name">紫外線予報 さらさらUVスティック</h3>
+          <p class="item-price">¥1,870</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       範例 섹션
+       ============================================ -->
+  <section class="legend-section">
+    <div class="legend-container">
+      <div class="legend-box">
+        <h4 class="legend-title"><i class="fas fa-info-circle"></i> バッジ・タグについて</h4>
+        <div class="legend-grid">
+          <div class="legend-item">
+            <span class="legend-badge-new">NEW</span>
+            <span class="legend-text"><strong>今シーズン追加</strong>された新商品</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-tag-spring">SPRING</span>
+            <span class="legend-text"><strong>春シーズン</strong>から継続掲載</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-tag-summer">SUMMER</span>
+            <span class="legend-text"><strong>夏シーズン</strong>の商品</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+
+  <!-- ============================================
+       비교 섹션
+       ============================================ -->
+  <section class="compare-section">
+    <div class="compare-container">
+      <h2 class="compare-title">年間プラン vs 単発契約の違い</h2>
+      
+      <div class="compare-grid">
+        
+        <div class="compare-box">
+          <h3 class="compare-box-title">単発契約 <span>（夏シーズンのみ）</span></h3>
+          <ul class="compare-list">
+            <li>夏シーズンの商品のみ表示（3点）</li>
+            <li>SUMMERタグの商品のみ</li>
+            <li>春の商品は見れない</li>
+            <li>NEWバッジなし</li>
+          </ul>
+        </div>
+
+        <div class="compare-box annual">
+          <h3 class="compare-box-title">年間プラン <span>（継続契約）</span></h3>
+          <ul class="compare-list">
+            <li>春＋夏の全商品表示（6点）</li>
+            <li>新商品にNEWバッジ付与</li>
+            <li>シーズンごとに商品が増加</li>
+            <li>年間を通じた露出最大化</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 푸터 -->
   <footer class="footer">
-    <p>© 2026 JAPANKURU × 日本藥妝研究室 | SUMMER EDITION</p>
+    <p>© 2026 JAPANKURU × 日本藥妝研究室 | 年間プラン表示例（参考資料）</p>
   </footer>
 
 </body>
