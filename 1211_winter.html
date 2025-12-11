@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鄭先生のおすすめ 2026冬 | JAPANKURU × 日本藥妝研究室</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  
+  <style>
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --ink: #1a1a2e;
+      --ink-light: #3a3a5e;
+      --ink-muted: #6a6a8e;
+      --paper: #fefefe;
+      --accent: #d4af37;
+      --accent-soft: #f8f4e8;
+      --navy: #1a1a2e;
+      --navy-light: #2a2a4e;
+      --ice: #e8f4ff;
+      --ice-deep: #c8dcff;
+      --bg: #fafcff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Noto Sans JP', sans-serif; 
+      background: var(--bg); 
+      color: var(--ink); 
+      line-height: 1.8;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26,26,46,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .collab-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .collab-logo img { height: 20px; filter: brightness(0) invert(1); }
+    .collab-x { color: rgba(255,255,255,0.4); font-weight: 300; }
+
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .partner-logo-img { height: 32px; filter: brightness(0) invert(1); }
+    .partner-name { font-size: 0.75rem; font-weight: 700; color: #fff; }
+
+    .header-season {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      font-weight: 600;
+    }
+
+    /* 히어로 - 겨울 다크 */
+    .hero {
+      margin-top: 52px;
+      padding: 80px 24px 100px;
+      min-height: 85vh;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 60%, var(--ice) 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 눈송이 */
+    .snowflake {
+      position: absolute;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      animation: snow linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes snow {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text-area { text-align: left; color: #fff; }
+
+    .hero-tag-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .tag-season { 
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .tag-target { 
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .tag-gift { 
+      background: var(--accent);
+      color: var(--navy);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 .hl-text {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 2;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 28px;
+    }
+
+    .hero-subtitle strong { color: var(--accent); }
+
+    .hero-story-box {
+      margin-bottom: 36px;
+      padding: 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .story-lead {
+      font-size: 14px;
+      line-height: 2;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-cta-btn {
+      background: var(--accent);
+      color: var(--navy);
+      padding: 18px 40px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-cta-btn:hover {
+      background: #e8c35a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+    }
+
+    .hero-visual-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tei-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .tei-photo {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.3));
+    }
+
+    .tei-speech {
+      position: absolute;
+      top: 30px;
+      left: -40px;
+      background: rgba(255,255,255,0.95);
+      padding: 20px 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      animation: float 5s ease-in-out infinite;
+      max-width: 200px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .speech-text {
+      font-family: 'Zen Kurenaido', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .speech-text em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tei-name-tag {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      background: var(--navy);
+      padding: 16px 24px;
+      color: #fff;
+    }
+
+    .name-jp { 
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px; 
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+    .name-role { font-size: 10px; color: var(--accent); margin-top: 4px; }
+
+    /* ========================================
+       冬テーマセクション - 다크 벤토 그리드
+       ======================================== */
+    .winter-themes {
+      padding: 100px 24px;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .themes-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .themes-header {
+      text-align: center;
+      margin-bottom: 60px;
+      color: #fff;
+    }
+
+    .themes-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.4em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .themes-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .themes-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    /* 벤토 그리드 */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 200px);
+      gap: 16px;
+    }
+
+    .bento-item {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .bento-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .bento-item:hover::before {
+      opacity: 1;
+    }
+
+    /* 벤토 레이아웃 */
+    .bento-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+      padding: 40px;
+    }
+
+    .bento-item:nth-child(2) {
+      grid-column: span 2;
+    }
+
+    .bento-item:nth-child(3),
+    .bento-item:nth-child(4) {
+      grid-column: span 1;
+    }
+
+    .bento-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .bento-item:nth-child(1) .bento-icon {
+      font-size: 60px;
+    }
+
+    .bento-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .bento-item h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .bento-item:nth-child(1) h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .bento-item p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .bento-item:nth-child(1) p {
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .bento-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .bento-tag {
+      font-size: 10px;
+      padding: 5px 10px;
+      background: rgba(212,175,55,0.15);
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .bento-item:nth-child(3) .bento-tags,
+    .bento-item:nth-child(4) .bento-tags {
+      display: none;
+    }
+
+    /* 기프트 배너 */
+    .gift-banner {
+      margin-top: 40px;
+      background: linear-gradient(135deg, var(--accent) 0%, #e8c35a 100%);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .gift-banner-content {
+      color: var(--navy);
+    }
+
+    .gift-banner-content h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gift-banner-content p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .gift-banner-btn {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gift-banner-btn:hover {
+      background: #000;
+    }
+
+    .footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 50px 24px 30px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer p {
+      font-size: 12px;
+      opacity: 0.4;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-text-area { text-align: center; }
+      .hero-tag-group { justify-content: center; }
+      .hero-visual-area { order: -1; }
+      .tei-wrapper { max-width: 280px; margin: 0 auto; }
+      
+      .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .bento-item:nth-child(1) { grid-column: auto; grid-row: auto; }
+      .bento-item:nth-child(2) { grid-column: auto; }
+      .bento-item:nth-child(3) .bento-tags,
+      .bento-item:nth-child(4) .bento-tags { display: flex; }
+      
+      .gift-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="collab-logo">
+        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+        <span class="collab-x">×</span>
+        <div class="partner-logo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
+          <span class="partner-name">日本藥妝研究室</span>
+        </div>
+      </div>
+      <span class="header-season">WINTER 2026</span>
+    </div>
+  </header>
+
+  <div class="draft-notice">
+    <p>📋 年間プラン向け｜季節別デザインイメージ（参考資料）</p>
+    <p class="notice-sub">※実際のデザイン・内容は変更される場合がございます</p>
+  </div>
+
+  <style>
+    .draft-notice {
+      background: linear-gradient(90deg, #1e1e3a 0%, #2a2a4e 100%);
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      padding: 12px 20px;
+      text-align: center;
+      margin-top: 52px;
+    }
+    .draft-notice p {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0;
+    }
+    .draft-notice .notice-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(212,175,55,0.7);
+      margin-top: 4px;
+    }
+    .hero { margin-top: 0 !important; }
+  </style>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text-area">
+        <div class="hero-tag-group">
+          <span class="hero-tag tag-season">2026 WINTER</span>
+          <span class="hero-tag tag-target">台湾からの旅行者へ</span>
+          <span class="hero-tag tag-gift">🎁 GIFT SPECIAL</span>
+        </div>
+        <h1>
+          冬の日本、<br>
+          <span class="hl-text">寒さ対策</span>と<br>
+          特別なお土産。
+        </h1>
+        
+        <p class="hero-subtitle">
+          雪景色を楽しみながら、<strong>風邪対策</strong>も万全に。<br>
+          年末年始のギフトにぴったりなアイテムも厳選。
+        </p>
+        
+        <div class="hero-story-box">
+          <p class="story-lead">
+            温活グッズ、風邪予防、ギフトセット...<br>
+            「冬を乗り越える」アイテムで、快適な旅を。
+          </p>
+        </div>
+        
+        <button class="hero-cta-btn">
+          冬のおすすめを見る
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="hero-visual-area">
+        <div class="tei-wrapper">
+          <div class="tei-speech">
+            <p class="speech-text">
+              「日本の冬は寒い！<br>
+              <em>カイロと温活グッズ</em>、<br>
+              必ず持っていってね」
+            </p>
+          </div>
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/BDSC04292-3-2-拷贝-scaled.png" alt="鄭世彬" class="tei-photo">
+          <div class="tei-name-tag">
+            <p class="name-jp">鄭 世彬</p>
+            <p class="name-role">日本藥妝研究室</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 겨울 테마 섹션 - 다크 벤토 그리드 -->
+  <section class="winter-themes">
+    <div class="themes-container">
+      
+      <div class="themes-header">
+        <p class="themes-eyebrow">WINTER COLLECTION</p>
+        <h2 class="themes-title">冬を快適に過ごすための<br>4つのカテゴリー</h2>
+        <p class="themes-subtitle">寒さ対策からギフトまで、この季節に必要なものを厳選</p>
+      </div>
+
+      <div class="bento-grid">
+        
+        <article class="bento-item">
+          <div>
+            <span class="bento-icon">🧣</span>
+            <p class="bento-num">01 — FEATURED</p>
+            <h3>温活グッズ</h3>
+            <p>
+              カイロ、あったかインナー、温感クリーム...<br>
+              体の芯から温める日本の優秀アイテム。<br>
+              台湾では手に入らない高機能製品を厳選。
+            </p>
+          </div>
+          <div class="bento-tags">
+            <span class="bento-tag">カイロ</span>
+            <span class="bento-tag">インナー</span>
+            <span class="bento-tag">温感</span>
+          </div>
+        </article>
+
+        <article class="bento-item">
+          <div>
+            <span class="bento-icon">💊</span>
+            <p class="bento-num">02</p>
+            <h3>風邪対策</h3>
+            <p>予防・初期対応に。日本の定番風邪薬とのど飴。</p>
+          </div>
+          <div class="bento-tags">
+            <span class="bento-tag">風邪薬</span>
+            <span class="bento-tag">のど飴</span>
+          </div>
+        </article>
+
+        <article class="bento-item">
+          <div>
+            <span class="bento-icon">🎁</span>
+            <p class="bento-num">03</p>
+            <h3>ギフトセット</h3>
+            <p>年末年始のお土産に。パッケージも素敵。</p>
+          </div>
+          <div class="bento-tags">
+            <span class="bento-tag">限定品</span>
+          </div>
+        </article>
+
+        <article class="bento-item">
+          <div>
+            <span class="bento-icon">❄️</span>
+            <p class="bento-num">04</p>
+            <h3>乾燥対策</h3>
+            <p>冬の乾燥から肌を守る高保湿アイテム。</p>
+          </div>
+          <div class="bento-tags">
+            <span class="bento-tag">保湿</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="gift-banner">
+        <div class="gift-banner-content">
+          <h4>🎄 年末年始ギフト特集</h4>
+          <p>大切な人へ贈りたい、日本限定のプレミアムアイテム</p>
+        </div>
+        <button class="gift-banner-btn">
+          ギフト特集を見る <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 JAPANKURU × 日本藥妝研究室 | WINTER EDITION</p>
+  </footer>
+
+  <script>
+    // 눈송이 생성
+    function createSnowflakes() {
+      const hero = document.querySelector('.hero');
+      const flakes = ['❄', '❅', '❆', '✻'];
+      for (let i = 0; i < 25; i++) {
+        const snow = document.createElement('div');
+        snow.className = 'snowflake';
+        snow.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+        snow.style.left = Math.random() * 100 + '%';
+        snow.style.fontSize = (Math.random() * 8 + 8) + 'px';
+        snow.style.animationDuration = (Math.random() * 8 + 10) + 's';
+        snow.style.animationDelay = (Math.random() * 10) + 's';
+        hero.appendChild(snow);
+      }
+    }
+    createSnowflakes();
+  </script>
+</body>
+</html>
