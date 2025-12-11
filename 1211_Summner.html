@@ -442,25 +442,32 @@
       box-shadow: 0 3px 12px rgba(212,175,55,0.4);
     }
 
-    /* === 시즌 태그 === */
-    .season-tag {
+    /* === 人気 배지 (기존 인기 상품용) === */
+    .badge-popular {
       position: absolute;
       font-size: 9px;
-      padding: 3px 10px;
-      border-radius: 12px;
+      padding: 4px 10px;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
       z-index: 90;
+      background: rgba(255,255,255,0.95);
+      color: #666;
+      border: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(4px);
     }
 
-    .season-tag.spring {
-      background: var(--spring-soft);
-      color: var(--spring-pink);
+    /* 프리미엄 (에디터픽용) */
+    .badge-popular.premium {
+      padding: 6px 14px;
+      font-size: 10px;
+      border-left: 2px solid #888;
+      border-radius: 0 4px 4px 0;
+      background: rgba(255,255,255,0.98);
     }
 
-    .season-tag.summer {
-      background: var(--accent-soft);
-      color: var(--accent-deep);
+    /* 스탠다드 (캐러셀/카드용) */
+    .badge-popular.standard {
+      border-radius: 4px;
     }
 
     /* ============================================
@@ -579,8 +586,8 @@
       left: 20px;
     }
 
-    /* 시즌 태그 위치 - 에디터픽 */
-    .split-panel .season-tag {
+    /* 人気 배지 위치 - 에디터픽 */
+    .split-panel .badge-popular {
       top: 20px;
       right: 20px;
     }
@@ -785,8 +792,8 @@
       left: 14px;
     }
 
-    /* 시즌 태그 위치 - 캐러셀 */
-    .featured-card .season-tag {
+    /* 人気 배지 위치 - 캐러셀 */
+    .featured-card .badge-popular {
       top: 14px;
       right: 14px;
     }
@@ -929,8 +936,8 @@
       left: 12px;
     }
 
-    /* 시즌 태그 위치 - 상품 카드 */
-    .item-card .season-tag {
+    /* 人気 배지 위치 - 상품 카드 */
+    .item-card .badge-popular {
       top: 12px;
       right: 12px;
     }
@@ -996,7 +1003,7 @@
 
     .legend-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -1020,22 +1027,14 @@
       letter-spacing: 0.1em;
     }
 
-    .legend-tag-spring {
-      background: var(--spring-soft);
-      color: var(--spring-pink);
-      font-size: 9px;
-      padding: 4px 10px;
-      border-radius: 12px;
+    .legend-badge-popular {
+      background: rgba(255,255,255,0.95);
+      color: #666;
+      font-size: 10px;
       font-weight: 600;
-    }
-
-    .legend-tag-summer {
-      background: var(--accent-soft);
-      color: var(--accent-deep);
-      font-size: 9px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.08);
     }
 
     .legend-text {
@@ -1240,7 +1239,6 @@
     </div>
   </div>
 
-
   <!-- ============================================
        1. エディターズピック TOP3 (実際の春LP構造)
        ============================================ -->
@@ -1249,8 +1247,8 @@
       <span class="split-eyebrow">Special Feature 2026 Summer</span>
       <h2 class="split-title">鄭先生が選ぶ<br>この夏のイチオシ TOP3</h2>
       <p class="split-subtitle">
-        年間プラン限定：春からの継続商品＋夏の新商品を<br>
-        すべてチェックできます
+        14年間ドラッグストアを回り続けた鄭先生が厳選。<br>
+        新着アイテムから定番人気まで、今買うべきアイテムをご紹介。
       </p>
     </div>
 
@@ -1260,51 +1258,49 @@
       <div class="split-panel">
         <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="ANESSA">
         <span class="badge-new premium">NEW</span>
-        <span class="season-tag summer">SUMMER</span>
         <div class="split-logo">
           <span class="split-logo-text">ANESSA</span>
         </div>
         <div class="split-content">
           <span class="split-num">01</span>
-          <span class="split-brand">2026夏 新発売</span>
+          <span class="split-brand">資生堂</span>
           <h3 class="split-headline">最強UV。<br>汗も水も、もう怖くない。</h3>
           <p class="split-desc">
-            夏の新商品。汗・水に強い最強UVカット。美容液成分50%配合で肌にも優しい。
+            汗・水に強い最強UVカット。美容液成分50%配合で肌にも優しい。
           </p>
         </div>
       </div>
 
-      <!-- TOP2: 春からの継続商品 -->
+      <!-- TOP2: 人気アイテム -->
       <div class="split-panel">
         <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80" class="split-bg" alt="パブロン">
-        <span class="season-tag spring">SPRING</span>
+        <span class="badge-popular premium">人気</span>
         <div class="split-logo">
           <span class="split-logo-text">大正製薬</span>
         </div>
         <div class="split-content">
           <span class="split-num">02</span>
-          <span class="split-brand">春から継続掲載</span>
+          <span class="split-brand">大正製薬</span>
           <h3 class="split-headline">日本の国民的風邪薬。<br>旅行の常備薬に。</h3>
           <p class="split-desc">
-            春シーズンから継続掲載のロングセラー。年間プランなら通年でチェック可能。
+            家庭の常備薬として愛されるロングセラー。旅先でも安心の1本。
           </p>
         </div>
       </div>
 
-      <!-- TOP3: 夏の新商品 (NEW) -->
+      <!-- TOP3: 新商品 (NEW) -->
       <div class="split-panel">
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" class="split-bg" alt="虫除け">
         <span class="badge-new premium">NEW</span>
-        <span class="season-tag summer">SUMMER</span>
         <div class="split-logo">
           <span class="split-logo-text">フマキラー</span>
         </div>
         <div class="split-content">
           <span class="split-num">03</span>
-          <span class="split-brand">2026夏 新発売</span>
+          <span class="split-brand">フマキラー</span>
           <h3 class="split-headline">8時間持続。<br>家族で使える虫除け。</h3>
           <p class="split-desc">
-            夏の必需品が新登場。子供にも使える優しい処方で、家族旅行に最適。
+            子供にも使える優しい処方。夏の外出に欠かせない定番アイテム。
           </p>
         </div>
       </div>
@@ -1321,78 +1317,75 @@
       <span class="featured-eyebrow">Trending Now</span>
       <h2 class="featured-title">今、話題のアイテム</h2>
       <p class="featured-subtitle">
-        春からの継続商品＋夏の新商品をまとめてチェック
+        新着アイテム＆人気アイテムをまとめてチェック
       </p>
     </div>
 
     <div class="featured-carousel">
       
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80" alt="制汗剤" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <span class="badge-new standard">NEW</span>
-        <span class="season-tag summer">SUMMER</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">ビオレ<br>冷シート 薬用デオドラント</h3>
-          <p class="featured-card-copy">夏の新商品<br>瞬間冷却で汗スッキリ</p>
+          <p class="featured-card-copy">瞬間冷却で汗スッキリ</p>
         </div>
       </article>
 
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="デオドラント" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <span class="badge-new standard">NEW</span>
-        <span class="season-tag summer">SUMMER</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">ニベア<br>デオドラント スティック</h3>
-          <p class="featured-card-copy">夏の新商品<br>48時間効果持続</p>
+          <p class="featured-card-copy">48時間効果持続</p>
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=600&q=80" alt="Yunth" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
-        <span class="season-tag spring">SPRING</span>
+        <span class="badge-popular standard">人気</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">Yunth<br>生VC美白美容液</h3>
-          <p class="featured-card-copy">春から継続掲載<br>SNSで大バズり中</p>
+          <p class="featured-card-copy">SNSで大バズり中</p>
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
-        <span class="season-tag spring">SPRING</span>
+        <span class="badge-popular standard">人気</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">コラーゲンC<br>ゼリー</h3>
-          <p class="featured-card-copy">春から継続掲載<br>お土産に大人気</p>
+          <p class="featured-card-copy">お土産に大人気</p>
         </div>
       </article>
 
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="冷感スプレー" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <span class="badge-new standard">NEW</span>
-        <span class="season-tag summer">SUMMER</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">シーブリーズ<br>デオ&ウォーター</h3>
-          <p class="featured-card-copy">夏の新商品<br>アイスタイプで爽快</p>
+          <p class="featured-card-copy">アイスタイプで爽快</p>
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="featured-card">
         <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="DHC" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
-        <span class="season-tag spring">SPRING</span>
+        <span class="badge-popular standard">人気</span>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">DHC<br>速攻ブルーベリー</h3>
-          <p class="featured-card-copy">春から継続掲載<br>台湾より30%以上お得</p>
+          <p class="featured-card-copy">台湾より30%以上お得</p>
         </div>
       </article>
 
@@ -1411,7 +1404,7 @@
   <section class="products-section">
     <div class="section-header">
       <h2>カテゴリー別おすすめ</h2>
-      <p>年間プラン：春＋夏の全商品を表示</p>
+      <p>新着アイテム＆人気アイテムをカテゴリー別にチェック</p>
     </div>
 
     <div class="tabs-nav">
@@ -1423,12 +1416,11 @@
 
     <div class="products-grid">
       
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="item-card">
         <div class="item-thumb">
           <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=ANESSA" alt="ANESSA">
           <span class="badge-new standard">NEW</span>
-          <span class="season-tag summer">SUMMER</span>
         </div>
         <div class="item-content">
           <p class="item-brand">ANESSA</p>
@@ -1437,12 +1429,11 @@
         </div>
       </article>
 
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="item-card">
         <div class="item-thumb">
           <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=虫除け" alt="虫除け">
           <span class="badge-new standard">NEW</span>
-          <span class="season-tag summer">SUMMER</span>
         </div>
         <div class="item-content">
           <p class="item-brand">フマキラー</p>
@@ -1451,12 +1442,11 @@
         </div>
       </article>
 
-      <!-- 夏の新商品 (NEW) -->
+      <!-- 新商品 (NEW) -->
       <article class="item-card">
         <div class="item-thumb">
           <img src="https://placehold.co/300x200/e6f7f8/00a8b5?text=制汗剤" alt="制汗剤">
           <span class="badge-new standard">NEW</span>
-          <span class="season-tag summer">SUMMER</span>
         </div>
         <div class="item-content">
           <p class="item-brand">ビオレ</p>
@@ -1465,11 +1455,11 @@
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="item-card">
         <div class="item-thumb">
-          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=Bioré" alt="Bioré">
-          <span class="season-tag spring">SPRING</span>
+          <img src="https://placehold.co/300x200/f5f5f5/666?text=Bioré" alt="Bioré">
+          <span class="badge-popular standard">人気</span>
         </div>
         <div class="item-content">
           <p class="item-brand">花王</p>
@@ -1478,11 +1468,11 @@
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="item-card">
         <div class="item-thumb">
-          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=Yunth" alt="Yunth">
-          <span class="season-tag spring">SPRING</span>
+          <img src="https://placehold.co/300x200/f5f5f5/666?text=Yunth" alt="Yunth">
+          <span class="badge-popular standard">人気</span>
         </div>
         <div class="item-content">
           <p class="item-brand">Yunth</p>
@@ -1491,11 +1481,11 @@
         </div>
       </article>
 
-      <!-- 春からの継続商品 -->
+      <!-- 人気アイテム -->
       <article class="item-card">
         <div class="item-thumb">
-          <img src="https://placehold.co/300x200/fff0f3/d4707a?text=UV" alt="UV">
-          <span class="season-tag spring">SPRING</span>
+          <img src="https://placehold.co/300x200/f5f5f5/666?text=UV" alt="UV">
+          <span class="badge-popular standard">人気</span>
         </div>
         <div class="item-content">
           <p class="item-brand">石澤研究所</p>
@@ -1514,19 +1504,15 @@
   <section class="legend-section">
     <div class="legend-container">
       <div class="legend-box">
-        <h4 class="legend-title"><i class="fas fa-info-circle"></i> バッジ・タグについて</h4>
+        <h4 class="legend-title"><i class="fas fa-info-circle"></i> バッジについて</h4>
         <div class="legend-grid">
           <div class="legend-item">
             <span class="legend-badge-new">NEW</span>
-            <span class="legend-text"><strong>今シーズン追加</strong>された新商品</span>
+            <span class="legend-text"><strong>新着アイテム</strong> - 最近追加された商品</span>
           </div>
           <div class="legend-item">
-            <span class="legend-tag-spring">SPRING</span>
-            <span class="legend-text"><strong>春シーズン</strong>から継続掲載</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-tag-summer">SUMMER</span>
-            <span class="legend-text"><strong>夏シーズン</strong>の商品</span>
+            <span class="legend-badge-popular">人気</span>
+            <span class="legend-text"><strong>人気アイテム</strong> - 読者から支持される定番商品</span>
           </div>
         </div>
       </div>
@@ -1544,21 +1530,20 @@
       <div class="compare-grid">
         
         <div class="compare-box">
-          <h3 class="compare-box-title">単発契約 <span>（夏シーズンのみ）</span></h3>
+          <h3 class="compare-box-title">単発契約</h3>
           <ul class="compare-list">
-            <li>夏シーズンの商品のみ表示（3点）</li>
-            <li>SUMMERタグの商品のみ</li>
-            <li>春の商品は見れない</li>
-            <li>NEWバッジなし</li>
+            <li>契約シーズンの商品のみ表示</li>
+            <li>シーズン終了後も1年間掲載継続</li>
+            <li>新商品追加は別途契約が必要</li>
           </ul>
         </div>
 
         <div class="compare-box annual">
-          <h3 class="compare-box-title">年間プラン <span>（継続契約）</span></h3>
+          <h3 class="compare-box-title">年間プラン</h3>
           <ul class="compare-list">
-            <li>春＋夏の全商品表示（6点）</li>
-            <li>新商品にNEWバッジ付与</li>
-            <li>シーズンごとに商品が増加</li>
+            <li>全シーズンの商品を累積表示</li>
+            <li>新商品追加時にNEWバッジ付与</li>
+            <li>シーズンごとにラインナップ拡大</li>
             <li>年間を通じた露出最大化</li>
           </ul>
         </div>
