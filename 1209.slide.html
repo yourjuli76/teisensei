@@ -26,6 +26,17 @@
       display: block;
     }
 
+    /* ---- スライド番号 ---- */
+    .slide-number {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+    }
+
     .title-logo-large {
       margin-bottom: 20px;
     }
@@ -65,6 +76,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
     .slide-inner {
       width: 100%;
@@ -77,8 +89,8 @@
       line-height: 1.4;
     }
     h1 {
-      font-size: clamp(36px, 4vw, 52px);
-      margin-bottom: 24px;
+      font-size: clamp(42px, 5vw, 60px);
+      margin-bottom: 28px;
     }
     h2 {
       font-size: clamp(32px, 3.5vw, 44px);
@@ -123,6 +135,9 @@
       background: radial-gradient(circle at top, #ffb7c5 0, #111 55%);
       text-align: center;
     }
+    .slide--toc {
+      background: linear-gradient(135deg, #1a1a1a, #222);
+    }
     .slide--concept {
       background: linear-gradient(135deg, #1b1b1b, #222);
     }
@@ -143,6 +158,47 @@
     }
     .slide--impact {
       background: radial-gradient(circle at top, #22263b 0, #111 55%);
+    }
+    .slide--contract {
+      background: linear-gradient(135deg, #1a1a1a, #1f1f1f);
+    }
+
+    /* ---- 目次 ---- */
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 40px;
+      margin-top: 40px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+    .toc-item:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,183,197,0.4);
+    }
+    .toc-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffb7c5;
+      min-width: 50px;
+    }
+    .toc-text {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
     }
 
     .impact-tag {
@@ -236,21 +292,21 @@
 
     .tag {
       display: inline-block;
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border: 1px solid rgba(255,255,255,0.4);
       border-radius: 999px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .brand-line {
-      font-size: 20px;
+      font-size: 24px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       opacity: 0.85;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .em-sakura {
@@ -383,6 +439,26 @@
       opacity: 0.7;
       margin-top: 10px;
       line-height: 1.8;
+    }
+
+    .plan-bonus {
+      margin-top: 12px;
+      padding: 12px;
+      background: rgba(168,230,207,0.1);
+      border: 1px dashed rgba(168,230,207,0.5);
+      border-radius: 8px;
+    }
+    .plan-bonus-title {
+      font-size: 13px;
+      color: #a8e6cf;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .plan-bonus p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.85;
+      margin-bottom: 0;
     }
 
     /* ---- 比較表 ---- */
@@ -543,6 +619,159 @@
       white-space: nowrap;
     }
 
+    /* ---- 契約形態セクション ---- */
+    .contract-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .contract-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+    }
+    .contract-card--recommended {
+      border-color: rgba(255,215,0,0.6);
+      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,0,0,0.2));
+    }
+    .contract-card--recommended::before {
+      content: "◆ おすすめ";
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: linear-gradient(135deg, #ffd700, #ffb347);
+      color: #1a1a1a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 4px;
+    }
+    .contract-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .contract-subtitle {
+      font-size: 17px;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+    .contract-list li {
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    .contract-list li::before {
+      color: #ffd700;
+    }
+
+    .badge-compare {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .badge-compare-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .badge-visual {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      text-align: center;
+    }
+    .badge-example {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      padding: 16px 24px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .badge-label {
+      background: linear-gradient(135deg, #ff6d9c, #ff4d7d);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .badge-example-text {
+      font-size: 17px;
+      font-weight: 500;
+    }
+    .badge-example--inactive {
+      opacity: 0.5;
+    }
+    .badge-example--inactive .badge-label {
+      display: none;
+    }
+    .badge-caption {
+      font-size: 15px;
+      opacity: 0.8;
+    }
+
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .season-card {
+      padding: 20px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+    }
+    .season-card .emoji {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .season-card .period {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .season-card .theme {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .alt-plan-box {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(100, 140, 255, 0.08);
+      border: 1px solid rgba(100, 140, 255, 0.3);
+      border-radius: 12px;
+    }
+    .alt-plan-box h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #8ca8ff;
+      margin-bottom: 10px;
+    }
+    .alt-plan-box p {
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 0;
+    }
+
     @media (max-width: 900px) {
       .two-cols {
         grid-template-columns: minmax(0, 1fr);
@@ -552,6 +781,12 @@
       }
       .steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .contract-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .season-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -565,6 +800,9 @@
       .steps {
         grid-template-columns: minmax(0, 1fr);
       }
+      .season-grid {
+        grid-template-columns: 1fr;
+      }
       table {
         font-size: 14px;
       }
@@ -577,10 +815,15 @@
       .title-logo-large img {
         height: 48px;
       }
-      h1 { font-size: 28px; }
+      h1 { font-size: 32px; }
       h2 { font-size: 24px; }
       h3 { font-size: 20px; }
       p, li { font-size: 16px; }
+      .toc-num { font-size: 22px; }
+      .toc-text { font-size: 18px; }
+      .badge-visual {
+        gap: 24px;
+      }
     }
   </style>
 </head>
@@ -595,6 +838,7 @@
 
   <!-- Slide 1: タイトル -->
   <section class="slide slide--title">
+    <div class="slide-number">01 / 10</div>
     <div class="slide-inner">
       <div class="title-logo-group">
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/02/JAPANKURU_RGB-1.png" alt="JAPANKURU">
@@ -604,22 +848,59 @@
       <div class="tag">2026 SPRING SPECIAL LANDING PAGE</div>
       <div class="brand-line">JAPANKURU × 日本藥妝研究室</div>
       <h1>「鄭先生のおすすめ 2026春」<br>商品カードタイアップ企画のご提案</h1>
-      <p>
+      <p style="font-size: 24px;">
         2026年春の特設ランディングページに、<br>
         貴施設・貴ブランドの商品を「おすすめカード」として組み込み、<br>
         訪日台湾人旅行者に向けて<strong class="em-sakura">信頼性の高いレコメンド</strong>を行うプランです。
       </p>
-      <p>
-        本資料では、<span class="em-accent">ベーシック／スタンダード／</span><span class="em-gold">ゴールド</span><span class="em-accent">／</span><span class="em-platinum">プラチナ</span>の4プランをご紹介します。<br>
-        掲載期間は<strong>2026年3月から1年間</strong>を基本とし、<br>
-        コンテンツのアップデートや延長掲載についてもご相談いただけます。
-      </p>
-      <small>※本HTMLは営業用プレゼンテーション（縦スクロール型スライド）としてご利用いただけます。</small>
     </div>
   </section>
 
-  <!-- Slide 2: コンセプト -->
+  <!-- Slide 2: 目次 -->
+  <section class="slide slide--toc">
+    <div class="slide-number">02 / 10</div>
+    <div class="slide-inner">
+      <h2 style="font-size: 40px;">目次 ─ CONTENTS</h2>
+      <div class="toc-list">
+        <div class="toc-item">
+          <span class="toc-num">01</span>
+          <span class="toc-text">企画コンセプト</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">02</span>
+          <span class="toc-text">LP構成と掲載位置</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">03</span>
+          <span class="toc-text">集客保証について</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">04</span>
+          <span class="toc-text">4プラン一覧</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">05</span>
+          <span class="toc-text">プラン比較表</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">06</span>
+          <span class="toc-text">契約形態・年間プラン</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">07</span>
+          <span class="toc-text">想定スケジュール</span>
+        </div>
+        <div class="toc-item">
+          <span class="toc-num">08</span>
+          <span class="toc-text">お問い合わせ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 3: コンセプト -->
   <section class="slide slide--concept">
+    <div class="slide-number">03 / 10</div>
     <div class="slide-inner">
       <h2>企画コンセプト</h2>
       <div class="two-cols">
@@ -656,8 +937,9 @@
     </div>
   </section>
 
-  <!-- Slide 3: LP構成と掲載位置 -->
+  <!-- Slide 4: LP構成と掲載位置 -->
   <section class="slide slide--outline">
+    <div class="slide-number">04 / 10</div>
     <div class="slide-inner">
       <h2>LP構成と掲載位置</h2>
       <p>プランによって、LP内での掲載位置・見せ方が異なります。</p>
@@ -671,7 +953,7 @@
                 <div class="lp-tier-title">TOP3 特別バナー</div>
                 <div class="lp-tier-desc">「鄭先生が選ぶTOP3」としてフルスクリーン掲載</div>
               </div>
-              <div class="lp-tier-price">100万円</div>
+              <div class="lp-tier-price">120万円</div>
             </div>
 
             <div class="lp-tier lp-tier--gold">
@@ -686,8 +968,8 @@
             <div class="lp-tier">
               <span class="lp-tier-label lp-tier-label--standard">STANDARD</span>
               <div class="lp-tier-content">
-                <div class="lp-tier-title">商品カード＋ミニコラム</div>
-                <div class="lp-tier-desc">使用者の声5名＋詳細記事への導線</div>
+                <div class="lp-tier-title">商品カード＋コラム</div>
+                <div class="lp-tier-desc">モニター5名＋詳細記事への導線</div>
               </div>
               <div class="lp-tier-price">60万円</div>
             </div>
@@ -707,10 +989,10 @@
           <h3>各プランの掲載イメージ</h3>
           <ul>
             <li><strong class="em-platinum">Platinum</strong>：ページ最上部の3分割バナーに掲載。<br>
-              　フルスクリーンで視認性最大。動画・POP・スペシャル企画記事付き。</li>
+              　フルスクリーンで視認性最大。動画・POP・テーマ特集参加権付き。</li>
             <li><strong class="em-gold">Gold</strong>：TOP3直下の「今、話題のアイテム」セクションに<br>
-              　マガジン風カードで掲載。スワイプで閲覧。</li>
-            <li><strong class="em-accent">Standard</strong>：商品カード＋ミニコラム＋使用者の声5名。<br>
+              　マガジン風カードで掲載。</li>
+            <li><strong class="em-accent">Standard</strong>：商品カード＋コラム＋モニター5名。<br>
               　詳細を知りたいユーザーに深く訴求。</li>
             <li><strong class="em-sakura">Basic</strong>：シンプルな商品カード。<br>
               　鄭先生コメント300字でコンパクトに紹介。</li>
@@ -723,8 +1005,9 @@
     </div>
   </section>
 
-  <!-- Slide 4: 集客保証 -->
+  <!-- Slide 5: 集客保証 -->
   <section class="slide slide--impact">
+    <div class="slide-number">05 / 10</div>
     <div class="slide-inner">
       <div class="impact-tag">GUARANTEED TRAFFIC</div>
       <h2>本LPの「集客保証」について（全プラン共通）</h2>
@@ -759,8 +1042,9 @@
     </div>
   </section>
 
-  <!-- Slide 5: 4プラン一覧 -->
+  <!-- Slide 6: 4プラン一覧 -->
   <section class="slide slide--plan">
+    <div class="slide-number">06 / 10</div>
     <div class="slide-inner">
       <h2>4プラン一覧</h2>
       <p>目的・ご予算にあわせて、最適なプランをお選びいただけます。</p>
@@ -778,7 +1062,8 @@
             <li>商品画像：1枚</li>
             <li>鄭先生コメント：<strong>300字</strong></li>
             <li>使用者の声：なし</li>
-            <li>SNSシェア：各1回</li>
+            <li>SNSシェア：各1回<br>
+              <small style="opacity:0.7;">鄭先生SNS（17万）＋JAPANKURU広告配信</small></li>
           </ul>
           <p class="note">まずはお試しで1商品から</p>
         </div>
@@ -787,15 +1072,16 @@
         <div class="plan-card plan-card--standard">
           <div>
             <div class="plan-name">Standard</div>
-            <div class="plan-tagline">＋使用者の声5名<br>＋ミニコラム</div>
+            <div class="plan-tagline">＋モニター施策5名<br>＋コラム記事</div>
             <div class="price">600,000円<span>（税別）</span></div>
           </div>
           <ul class="plan-list">
             <li>Basicの内容すべて</li>
             <li>鄭先生コメント：<strong>100字</strong><br>（詳細はコラムで）</li>
-            <li>使用者の声：<strong>5名分</strong></li>
-            <li>ミニコラム（約3,000字）<br>
-              <small style="opacity:0.7;">└ 鄭先生撮影写真2〜3点＋素材<br>└ 鄭先生本人執筆（約1,000字）<br>└ 使い方・体験レポート形式</small></li>
+            <li><strong>モニター施策：5名</strong><br>
+              <small style="opacity:0.7;">└ 体験レビュー＋本人SNS発信</small></li>
+            <li>コラム（約<strong class="strong">2,000字</strong>）<br>
+              <small style="opacity:0.7;">└ 鄭先生撮影写真2〜3点＋素材<br>└ 使い方・体験レポート形式</small></li>
             <li>カード→コラム導線設計</li>
           </ul>
           <p class="note">深く訴求したい商品に</p>
@@ -806,15 +1092,16 @@
           <span class="plan-badge plan-badge--gold">人気</span>
           <div>
             <div class="plan-name">Gold</div>
-            <div class="plan-tagline">＋「話題のアイテム」<br>バナー掲載</div>
+            <div class="plan-tagline">＋「話題のアイテム」<br>カルーセル掲載</div>
             <div class="price">800,000円<span>（税別）</span></div>
           </div>
           <ul class="plan-list">
-            <li>Standardの内容すべて</li>
+            <li>商品カード＋鄭先生コメント</li>
+            <li>モニター施策：5名<br>
+              <small style="opacity:0.7;">└ 体験レビュー＋本人SNS発信</small></li>
+            <li>コラム（約2,000字）</li>
             <li><strong class="highlight">「今、話題のアイテム」</strong><br>カルーセルに掲載</li>
             <li>マガジン風バナーデザイン</li>
-            <li>TOP3直下の好位置</li>
-            <li>スワイプ閲覧で高い視認性</li>
           </ul>
           <p class="note">話題性を重視するブランドに</p>
         </div>
@@ -824,31 +1111,44 @@
           <span class="plan-badge plan-badge--platinum">最上位</span>
           <div>
             <div class="plan-name">Platinum</div>
-            <div class="plan-tagline">＋TOP3バナー<br>＋動画＋店頭POP</div>
-            <div class="price">1,000,000円<span>（税別）</span></div>
+            <div class="plan-tagline">＋TOP3バナー<br>＋動画＋POP</div>
+            <div class="price">1,200,000円<span>（税別）</span></div>
           </div>
           <ul class="plan-list">
-            <li>Standardの内容すべて</li>
+            <li>商品カード＋鄭先生コメント</li>
             <li><strong class="em-platinum">TOP3特別バナー</strong>に掲載<br>（3社限定）</li>
-            <li>使用者の声：<strong>10名分</strong></li>
-            <li><strong>スペシャル企画記事</strong><br>
-              <small style="opacity:0.7;">└ 各社2,000字以上の個別ストーリー<br>└ 鄭先生撮影＋素材ミックス写真2〜3点</small></li>
-            <li>動画（約1分）制作</li>
-            <li>店頭POP制作（繁體中文）</li>
+            <li><strong class="em-platinum">モニター施策：10名</strong><br>
+              <small style="opacity:0.7;">└ 体験レビュー＋本人SNS発信</small></li>
+            <li>コラム（約<strong class="strong">3,000字</strong>）</li>
+            <li><strong class="em-platinum">鄭先生の体験動画</strong>（60秒以内）<br>
+              <small style="opacity:0.7;">└ カード埋込＋コラム内リンク＋SNSリール配信</small></li>
+            <li><strong class="em-platinum">店頭POP</strong>（2種）</li>
           </ul>
+          <div class="plan-bonus">
+            <div class="plan-bonus-title">+ Platinum特典</div>
+            <p>「鄭先生のテーマ特集」（3社合同・3,000〜4,000字）への参加権。シーズンテーマに沿った形で他ブランドと共に紹介されます。</p>
+          </div>
           <p class="note">春シーズンで結果を出したい方に</p>
         </div>
       </div>
 
-      <p class="note" style="margin-top: 20px;">
-        ※料金は目安です。商品数・掲載期間・動画の有無により変動いたします。<br>
+      <div style="margin-top: 20px; padding: 16px 20px; background: rgba(255,211,126,0.1); border: 1px solid rgba(255,211,126,0.4); border-radius: 10px;">
+        <p style="font-size: 17px; margin-bottom: 0;">
+          <strong style="color: #ffd37e;">[ OPTION ]</strong>　動画制作：<strong style="color: #ffd37e;">+20万円</strong>（Basic〜Goldプラン対象）<br>
+          <small style="opacity: 0.8;">60秒以内の体験動画 / カード埋込＋コラム内リンク＋SNSリール配信</small>
+        </p>
+      </div>
+
+      <p class="note" style="margin-top: 16px;">
+        ※料金は目安です。商品数・掲載期間により変動いたします。<br>
         ※複数商品でのボリュームディスカウントもご相談可能です。
       </p>
     </div>
   </section>
 
-  <!-- Slide 6: プラン比較表 -->
+  <!-- Slide 7: プラン比較表 -->
   <section class="slide slide--compare">
+    <div class="slide-number">07 / 10</div>
     <div class="slide-inner">
       <h2>4プラン比較</h2>
 
@@ -864,7 +1164,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>商品カード掲載</td>
+            <td>商品カード掲載<br><small style="opacity:0.7;">各カード固有URL付き</small></td>
             <td class="yes">●</td>
             <td class="yes">●</td>
             <td class="yes">●</td>
@@ -878,21 +1178,21 @@
             <td>100字</td>
           </tr>
           <tr>
-            <td>使用者の声</td>
+            <td>モニター施策<br><small style="opacity:0.7;">体験レビュー＋本人SNS発信</small></td>
             <td>–</td>
             <td class="strong">5名</td>
             <td class="strong">5名</td>
             <td class="strong">10名</td>
           </tr>
           <tr>
-            <td>ミニコラム（約3,000字）<br><small style="opacity:0.7;">写真2〜3点・鄭先生執筆1,000字含む</small></td>
+            <td>コラム</td>
             <td>–</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
+            <td class="strong">約2,000字</td>
+            <td class="strong">約2,000字</td>
+            <td class="strong">約3,000字</td>
           </tr>
           <tr>
-            <td>スペシャル企画記事<br><small style="opacity:0.7;">各社2,000字以上・写真2〜3点</small></td>
+            <td>テーマ特集参加<br><small style="opacity:0.7;">3社合同・3,000〜4,000字</small></td>
             <td>–</td>
             <td>–</td>
             <td>–</td>
@@ -913,32 +1213,32 @@
             <td class="yes">●</td>
           </tr>
           <tr>
-            <td>動画（約1分）</td>
+            <td>動画（60秒以内）<br><small style="opacity:0.7;">カード埋込＋SNSリール配信</small></td>
             <td>–</td>
             <td>–</td>
             <td>–</td>
             <td class="yes">●</td>
           </tr>
           <tr>
-            <td>店頭POP制作</td>
+            <td>店頭POP</td>
             <td>–</td>
             <td>–</td>
             <td>–</td>
-            <td class="yes">●</td>
+            <td class="em-platinum">2種</td>
           </tr>
           <tr>
-            <td>SNSシェア</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
+            <td>SNSシェア<br><small style="opacity:0.7;">鄭先生17万＋JAPANKURU広告</small></td>
+            <td class="yes">各1回</td>
+            <td class="yes">各1回</td>
+            <td class="yes">各1回</td>
+            <td class="yes">各1回</td>
           </tr>
           <tr>
             <td><strong>料金（税別）</strong></td>
             <td>40万円</td>
             <td>60万円</td>
             <td class="highlight">80万円</td>
-            <td class="em-platinum">100万円</td>
+            <td class="em-platinum">120万円</td>
           </tr>
         </tbody>
       </table>
@@ -950,13 +1250,98 @@
     </div>
   </section>
 
-  <!-- Slide 7: スケジュール -->
-  <section class="slide slide--flow">
+  <!-- Slide 8: 契約形態・年間プラン（統合） -->
+  <section class="slide slide--contract">
+    <div class="slide-number">08 / 10</div>
     <div class="slide-inner">
-      <h2>想定スケジュール（目安）</h2>
+      <h2>契約形態・年間プラン</h2>
+      <p>2つの契約形態からお選びいただけます。</p>
+
+      <div class="contract-grid">
+        <!-- 年間契約 -->
+        <div class="contract-card contract-card--recommended">
+          <div class="contract-title">年間契約</div>
+          <div class="contract-subtitle">4シーズン継続掲載・10〜15%割引</div>
+          <ul class="contract-list">
+            <li><strong class="em-gold">年間10〜15%割引</strong>で継続掲載</li>
+            <li>シーズンごとに<strong>商品ラインナップを更新</strong>可能</li>
+            <li>LP構成・URLはそのまま → <strong>SEO効果が蓄積</strong></li>
+            <li>「鄭先生のページ」として<strong>ユーザーの習慣化</strong>を促進</li>
+            <li>シーズン変更時の追加制作費なし</li>
+            <li>常に<strong class="em-sakura">NEWバッジ</strong>が表示される</li>
+          </ul>
+        </div>
+
+        <!-- 単一シーズン -->
+        <div class="contract-card">
+          <div class="contract-title">単一シーズン契約</div>
+          <div class="contract-subtitle">トライアル・お試しに</div>
+          <ul class="contract-list">
+            <li>まずは1シーズンからお試し</li>
+            <li>掲載期間は該当シーズン（約3ヶ月）</li>
+            <li>シーズン終了後も<strong>掲載は継続</strong>されます</li>
+            <li>ただし、NEWバッジは非表示に</li>
+            <li>次シーズン更新で年間契約への切替も可能</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- シーズン運用イメージ -->
+      <div class="season-grid">
+        <div class="season-card" style="background: linear-gradient(135deg, rgba(255,183,197,0.15), transparent); border-color: rgba(255,183,197,0.4);">
+          <div class="emoji" style="font-size: 24px; font-weight: 800; color: #ffb7c5;">01</div>
+          <div class="period">春（3〜5月）</div>
+          <div class="theme">桜シーズン・花粉対策・UV対策</div>
+        </div>
+        <div class="season-card" style="background: linear-gradient(135deg, rgba(100,200,255,0.15), transparent); border-color: rgba(100,200,255,0.4);">
+          <div class="emoji" style="font-size: 24px; font-weight: 800; color: #64c8ff;">02</div>
+          <div class="period">夏（6〜8月）</div>
+          <div class="theme">夏バテ対策・虫除け・日焼けケア</div>
+        </div>
+        <div class="season-card" style="background: linear-gradient(135deg, rgba(255,180,100,0.15), transparent); border-color: rgba(255,180,100,0.4);">
+          <div class="emoji" style="font-size: 24px; font-weight: 800; color: #ffb464;">03</div>
+          <div class="period">秋（9〜11月）</div>
+          <div class="theme">乾燥対策・紅葉シーズン・保湿</div>
+        </div>
+        <div class="season-card" style="background: linear-gradient(135deg, rgba(200,220,255,0.15), transparent); border-color: rgba(200,220,255,0.4);">
+          <div class="emoji" style="font-size: 24px; font-weight: 800; color: #c8dcff;">04</div>
+          <div class="period">冬（12〜2月）</div>
+          <div class="theme">風邪対策・温活・年末年始ギフト</div>
+        </div>
+      </div>
+
+      <!-- バッジ比較 -->
+      <div class="badge-compare">
+        <div class="badge-compare-title">シーズン変更後の表示イメージ</div>
+        <div class="badge-visual">
+          <div class="badge-item">
+            <div class="badge-example">
+              <span class="badge-label">NEW</span>
+              <span class="badge-example-text">商品カード</span>
+            </div>
+            <div class="badge-caption">年間契約 → 常にバッジ表示</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-example badge-example--inactive">
+              <span class="badge-label">NEW</span>
+              <span class="badge-example-text">商品カード</span>
+            </div>
+            <div class="badge-caption">単一シーズン → バッジなし（掲載は継続）</div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- Slide 9: スケジュール＆お問い合わせ -->
+  <section class="slide slide--flow">
+    <div class="slide-number">09 / 10</div>
+    <div class="slide-inner">
+      <h2>想定スケジュール</h2>
       <p>
-        2026年春シーズン（3〜5月）に向けて、以下のような流れを想定しています。<br>
-        掲載期間は<strong>2026年3月から1年間</strong>が基本です。
+        2026年春シーズン（3〜5月）に向けて、以下のような流れを想定しています。
       </p>
 
       <div class="steps">
@@ -966,7 +1351,7 @@
           <div class="step-body">
             ・目的・ターゲットの確認<br>
             ・希望プラン／商品候補の選定<br>
-            ・スケジュール・予算感のすり合わせ
+            ・契約形態（年間/単一）の決定
           </div>
         </div>
         <div class="step">
@@ -984,7 +1369,7 @@
           <div class="step-body">
             ・鄭先生コメント執筆<br>
             ・使用者の声の収集・編集<br>
-            ・ミニコラム／動画／POP制作
+            ・コラム／動画／POP制作
           </div>
         </div>
         <div class="step">
@@ -998,106 +1383,101 @@
         </div>
       </div>
 
-      <p class="note">
+      <p class="note" style="margin-top: 20px;">
         ※作業ボリュームに応じて、初回お打ち合わせから公開まで約4〜8週間を想定しています。
       </p>
-    </div>
-  </section>
 
-  <!-- Slide 8: 年間オプション -->
-  <section class="slide slide--plan">
-    <div class="slide-inner">
-      <h2>【オプション】年間シーズンパック</h2>
-      <p>
-        1シーズン単体のご契約だけでなく、<strong class="em-accent">年間を通じた継続掲載</strong>もご検討いただけます。<br>
-        LPの構成はそのままに、シーズンごとに商品ラインナップを更新する運用です。
-      </p>
-
-      <div class="two-cols" style="margin-top: 32px;">
-        <div>
-          <h3>シーズン運用イメージ</h3>
-          <div class="lp-structure" style="max-width: 100%;">
-            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(255,183,197,0.15), transparent);">
-              <span class="lp-tier-label" style="background: linear-gradient(135deg, #ffb7c5, #ff8a9b); color: #fff; min-width: 70px;">🌸 春</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">3月〜5月</div>
-                <div class="lp-tier-desc">桜シーズン・花粉対策・UV対策</div>
-              </div>
-            </div>
-            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(100,200,255,0.15), transparent);">
-              <span class="lp-tier-label" style="background: linear-gradient(135deg, #64c8ff, #4db8ff); color: #fff; min-width: 70px;">🌻 夏</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">6月〜8月</div>
-                <div class="lp-tier-desc">夏バテ対策・虫除け・日焼けケア</div>
-              </div>
-            </div>
-            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(255,180,100,0.15), transparent);">
-              <span class="lp-tier-label" style="background: linear-gradient(135deg, #ffb464, #ff9a3c); color: #fff; min-width: 70px;">🍂 秋</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">9月〜11月</div>
-                <div class="lp-tier-desc">乾燥対策・紅葉シーズン・保湿</div>
-              </div>
-            </div>
-            <div class="lp-tier" style="background: linear-gradient(90deg, rgba(200,220,255,0.15), transparent);">
-              <span class="lp-tier-label" style="background: linear-gradient(135deg, #c8dcff, #a8c8ff); color: #1a1a1a; min-width: 70px;">❄️ 冬</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">12月〜2月</div>
-                <div class="lp-tier-desc">風邪対策・温活・年末年始ギフト</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3>年間パックのメリット</h3>
-          <ul>
-            <li><strong class="em-gold">年間15〜20%割引</strong>で継続掲載</li>
-            <li>シーズンごとに<strong>商品ラインナップを更新</strong>可能</li>
-            <li>LP構成・URLはそのまま → <strong>SEO効果が蓄積</strong></li>
-            <li>「鄭先生のページ」として<strong>ユーザーの習慣化</strong>を促進</li>
-            <li>シーズン変更時の<strong>追加制作費なし</strong>（軽微な更新のみ）</li>
-          </ul>
-
-          <p class="note" style="margin-top: 20px;">
-            ※年間パックは、同一プラン × 4シーズンを一括契約いただく形です。<br>
-            ※シーズンごとに掲載商品を変更する場合、素材のご提供をお願いします。<br>
-            ※途中解約は原則不可となります。詳細はご相談ください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slide 9: お問い合わせ -->
-  <section class="slide slide--contact">
-    <div class="slide-inner">
-      <h2>お問い合わせ・ご相談</h2>
-      <p>
-        「鄭先生のおすすめ 2026春」商品カードタイアップに<br>
-        ご興味をお持ちいただき、ありがとうございます。
-      </p>
-      <p>
-        まずは「どのプランが適切か知りたい」「複数商品をまとめて掲載したい」など、<br>
-        ラフな段階でも構いませんので、お気軽にご相談ください。
-      </p>
-
-      <div class="contact-box">
-        <p><strong>ご相談時にお伺いしたい項目（一例）</strong></p>
+      <div class="contact-box" style="margin-top: 36px;">
+        <h3 style="margin-bottom: 16px; font-size: 24px;">お問い合わせ・ご相談</h3>
+        <p>「どのプランが適切か」「複数商品をまとめて掲載したい」など、お気軽にご相談ください。</p>
         <ul>
           <li>ご検討中の商品ジャンル（コスメ／医薬品／日用品など）</li>
           <li>想定ターゲット（例：20〜30代女性、ファミリー層 等）</li>
-          <li>ご希望の掲載期間（例：2026年3月〜1年間 など）</li>
+          <li>ご希望の契約形態（年間契約／単一シーズン）</li>
           <li>ご予算レンジ（例：40〜100万円程度 など）</li>
         </ul>
-        <p class="note">
+        <p class="note" style="margin-top: 16px;">
           具体的なメニュー・見積もりは、上記を踏まえて個別にご提示いたします。<br>
-          GLOBAL DAILY 担当大坂までご連絡ください。
+          <strong>GLOBAL DAILY 担当大坂</strong>までご連絡ください。
         </p>
       </div>
 
-      <p style="margin-top:24px;font-size:15px;opacity:0.7;">
+      <p style="margin-top:24px;font-size:15px;opacity:0.7; text-align: center;">
         © 2026 JAPANKURU × 日本藥妝研究室 / GLOBAL DAILY<br>
         本資料の内容・構成は企画検討の途中案です。実施時には最新の条件をご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 10: 年間プラン料金表（営業ブリーフィング用） -->
+  <section class="slide slide--plan" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+    <div class="slide-number">10 / 10</div>
+    <div class="slide-inner">
+      <div class="impact-tag" style="border-color: rgba(255,215,0,0.6); color: #ffd700;">SALES BRIEFING</div>
+      <h2>年間プラン料金表</h2>
+      <p>年間契約で割引適用。<strong class="em-platinum">Platinumは年間契約限定・15%OFF</strong>となります。</p>
+
+      <table style="margin-top: 32px;">
+        <thead>
+          <tr>
+            <th>プラン</th>
+            <th>単発料金</th>
+            <th>年間（4シーズン）</th>
+            <th>割引率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Basic</strong></td>
+            <td>40万円</td>
+            <td class="strong">144万円</td>
+            <td>10%OFF</td>
+          </tr>
+          <tr>
+            <td><strong>Standard</strong></td>
+            <td>60万円</td>
+            <td class="strong">216万円</td>
+            <td>10%OFF</td>
+          </tr>
+          <tr>
+            <td><strong>Gold</strong></td>
+            <td>80万円</td>
+            <td class="strong">288万円</td>
+            <td>10%OFF</td>
+          </tr>
+          <tr style="background: linear-gradient(90deg, rgba(168,230,207,0.15), transparent);">
+            <td><strong class="em-platinum">Platinum</strong><br><small style="opacity:0.7;">※年間限定</small></td>
+            <td style="opacity:0.5;">─</td>
+            <td class="em-platinum" style="font-size: 22px; font-weight: 700;">408万円</td>
+            <td>15%OFF</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div style="padding: 20px; background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.3); border-radius: 12px;">
+          <h4 style="font-size: 18px; color: #ffd700; margin-bottom: 12px;">[ Platinum年間限定のメリット ]</h4>
+          <ul style="font-size: 16px;">
+            <li>TOP3枠を<strong>1年間キープ</strong></li>
+            <li>3社限定の希少ポジション</li>
+            <li>単発では入れない特別枠</li>
+            <li>シーズンごとに商品入替OK</li>
+          </ul>
+        </div>
+        <div style="padding: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;">
+          <h4 style="font-size: 18px; margin-bottom: 12px;">[ 年間プラン広告配信 ]</h4>
+          <p style="font-size: 15px; line-height: 1.8; opacity: 0.9;">
+            <strong style="color: #ffb7c5;">初回シーズン</strong><br>
+            LP 5万PV ＋ SNS広告 100万リーチ<br><br>
+            <strong style="color: #a8e6cf;">2シーズン目以降</strong><br>
+            SNS広告 100万リーチ保証
+          </p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top: 24px;">
+        ※この料金表は営業ブリーフィング用です。クライアント提示資料には含まれません。<br>
+        ※動画オプション（+20万円）は年間契約でも適用可能です。
       </p>
     </div>
   </section>
