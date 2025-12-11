@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鄭先生のおすすめ 2026秋 | JAPANKURU × 日本藥妝研究室</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  
+  <style>
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --ink: #2c2520;
+      --ink-light: #5a524a;
+      --ink-muted: #9a9088;
+      --paper: #faf8f5;
+      --paper-warm: #f5f0e8;
+      --accent: #c4713a;
+      --accent-soft: #f8ede4;
+      --terracotta: #c4713a;
+      --ochre: #d4a574;
+      --olive: #7a8b6e;
+      --bg: #fdfbf8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Noto Sans JP', sans-serif; 
+      background: var(--bg); 
+      color: var(--ink); 
+      line-height: 1.9;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(253,251,248,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .collab-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .collab-logo img { height: 20px; }
+    .collab-x { color: #ccc; font-weight: 300; }
+
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .partner-logo-img { height: 32px; }
+    .partner-name { font-size: 0.75rem; font-weight: 700; }
+
+    .header-season {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      font-weight: 600;
+    }
+
+    /* 히어로 - 가을 */
+    .hero {
+      margin-top: 52px;
+      padding: 80px 24px 60px;
+      min-height: 85vh;
+      background: 
+        linear-gradient(180deg, rgba(244,236,224,0.8) 0%, rgba(253,251,248,1) 100%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%23c4713a' stroke-width='0.5' stroke-opacity='0.05'/%3E%3C/svg%3E");
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text-area { text-align: left; }
+
+    .hero-tag-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      letter-spacing: 0.15em;
+    }
+
+    .tag-season { 
+      background: var(--accent);
+      color: #fff; 
+    }
+    .tag-target { 
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 .hl-text {
+      color: var(--accent);
+      position: relative;
+    }
+
+    .hero h1 .hl-text::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: var(--accent-soft);
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 28px;
+    }
+
+    .hero-subtitle strong { color: var(--accent); }
+
+    .hero-story-box {
+      margin-bottom: 36px;
+      padding: 28px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.5);
+    }
+
+    .story-lead {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    .hero-cta-btn {
+      background: var(--ink);
+      color: #fff;
+      padding: 18px 40px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-cta-btn:hover {
+      background: var(--accent);
+    }
+
+    .hero-visual-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tei-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .tei-photo {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
+    }
+
+    .tei-speech {
+      position: absolute;
+      top: 30px;
+      left: -50px;
+      background: #fff;
+      padding: 20px 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      animation: float 5s ease-in-out infinite;
+      max-width: 200px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .speech-text {
+      font-family: 'Zen Kurenaido', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .speech-text em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tei-name-tag {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      background: #fff;
+      padding: 16px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .name-jp { 
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px; 
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+    .name-role { font-size: 10px; color: var(--ink-muted); margin-top: 4px; }
+
+    /* ========================================
+       秋テーマセクション - 매거진 에디토리얼
+       ======================================== */
+    .autumn-themes {
+      padding: 100px 24px;
+      background: var(--paper-warm);
+      position: relative;
+    }
+
+    .themes-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .themes-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+      align-items: end;
+    }
+
+    .themes-header-left {
+      position: relative;
+    }
+
+    .themes-header-left::before {
+      content: 'AUTUMN';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.08;
+      position: absolute;
+      top: -60px;
+      left: -20px;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+    }
+
+    .themes-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .themes-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.05em;
+    }
+
+    .themes-header-right p {
+      font-size: 14px;
+      line-height: 2.2;
+      color: var(--ink-light);
+    }
+
+    /* 비대칭 매거진 그리드 */
+    .themes-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px;
+    }
+
+    .theme-item {
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .theme-item:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    /* 첫 번째 카드 - 크게 */
+    .theme-item.featured {
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .theme-item.featured .theme-visual {
+      height: 280px;
+      background: linear-gradient(135deg, #f5ebe0 0%, #e8d5c4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .theme-item.featured .theme-visual-icon {
+      font-size: 80px;
+      opacity: 0.9;
+    }
+
+    .theme-item.featured .theme-content {
+      padding: 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .theme-item.featured .theme-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .theme-item.featured h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .theme-item.featured p {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 24px;
+    }
+
+    .theme-item.featured .theme-link {
+      margin-top: auto;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.1em;
+      transition: gap 0.3s;
+    }
+
+    .theme-item.featured .theme-link:hover {
+      gap: 12px;
+    }
+
+    /* 작은 카드들 */
+    .theme-item.compact {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .theme-item.compact .theme-visual {
+      width: 140px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-item.compact:nth-child(2) .theme-visual {
+      background: linear-gradient(135deg, #f8e8e0 0%, #f0d4c8 100%);
+    }
+
+    .theme-item.compact:nth-child(3) .theme-visual {
+      background: linear-gradient(135deg, #e8ece4 0%, #d4dcc8 100%);
+    }
+
+    .theme-item.compact:nth-child(4) .theme-visual {
+      background: linear-gradient(135deg, #f0e8e0 0%, #e4d8c8 100%);
+    }
+
+    .theme-item.compact .theme-visual-icon {
+      font-size: 48px;
+      opacity: 0.9;
+    }
+
+    .theme-item.compact .theme-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .theme-item.compact .theme-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .theme-item.compact h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .theme-item.compact p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink-light);
+    }
+
+    .footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 50px 24px 30px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-text-area { text-align: center; }
+      .hero-tag-group { justify-content: center; }
+      .hero-visual-area { order: -1; }
+      .tei-wrapper { max-width: 280px; margin: 0 auto; }
+      
+      .themes-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+      .themes-header-left::before { font-size: 60px; top: -30px; }
+      .themes-title { font-size: 24px; }
+      
+      .themes-grid {
+        grid-template-columns: 1fr;
+      }
+      .theme-item.featured { grid-row: auto; }
+      .theme-item.compact { flex-direction: column; }
+      .theme-item.compact .theme-visual { width: 100%; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="collab-logo">
+        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+        <span class="collab-x">×</span>
+        <div class="partner-logo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
+          <span class="partner-name">日本藥妝研究室</span>
+        </div>
+      </div>
+      <span class="header-season">AUTUMN 2026</span>
+    </div>
+  </header>
+
+  <div class="draft-notice">
+    <p>📋 年間プラン向け｜季節別デザインイメージ（参考資料）</p>
+    <p class="notice-sub">※実際のデザイン・内容は変更される場合がございます</p>
+  </div>
+
+  <style>
+    .draft-notice {
+      background: linear-gradient(90deg, #faf5ef 0%, #f5f0e8 100%);
+      border-bottom: 1px solid rgba(196,113,58,0.2);
+      padding: 12px 20px;
+      text-align: center;
+      margin-top: 52px;
+    }
+    .draft-notice p {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0;
+    }
+    .draft-notice .notice-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: #a08060;
+      margin-top: 4px;
+    }
+    .hero { margin-top: 0 !important; }
+  </style>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text-area">
+        <div class="hero-tag-group">
+          <span class="hero-tag tag-season">2026 AUTUMN</span>
+          <span class="hero-tag tag-target">台湾からの旅行者へ</span>
+        </div>
+        <h1>
+          紅葉の季節、<br>
+          <span class="hl-text">乾燥との戦い</span>が<br>
+          始まります。
+        </h1>
+        
+        <p class="hero-subtitle">
+          秋の日本は美しい。でも、<strong>乾燥</strong>が辛い。<br>
+          紅葉狩りを楽しみながら、肌も髪も守るアイテムを。
+        </p>
+        
+        <div class="hero-story-box">
+          <p class="story-lead">
+            「潤いを守る」── それが秋の旅を快適にする鍵。<br>
+            14年の経験から、本当に効くものだけを選びました。
+          </p>
+        </div>
+        
+        <button class="hero-cta-btn">
+          秋のおすすめを見る
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="hero-visual-area">
+        <div class="tei-wrapper">
+          <div class="tei-speech">
+            <p class="speech-text">
+              「台湾より乾燥する日本の秋。<br>
+              <em>保湿クリーム</em>は必須ですよ」
+            </p>
+          </div>
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/BDSC04292-3-2-拷贝-scaled.png" alt="鄭世彬" class="tei-photo">
+          <div class="tei-name-tag">
+            <p class="name-jp">鄭 世彬</p>
+            <p class="name-role">日本藥妝研究室</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 가을 테마 섹션 - 매거진 에디토리얼 -->
+  <section class="autumn-themes">
+    <div class="themes-container">
+      
+      <div class="themes-header">
+        <div class="themes-header-left">
+          <p class="themes-eyebrow">SEASONAL SELECTION</p>
+          <h2 class="themes-title">秋に必要な、<br>4つのケア。</h2>
+        </div>
+        <div class="themes-header-right">
+          <p>
+            季節の変わり目は、肌トラブルが起きやすい時期。<br>
+            乾燥が本格化する前に、しっかり準備しておきたい<br>
+            アイテムをカテゴリー別にご紹介します。
+          </p>
+        </div>
+      </div>
+
+      <div class="themes-grid">
+        
+        <article class="theme-item featured">
+          <div class="theme-visual">
+            <span class="theme-visual-icon">🍂</span>
+          </div>
+          <div class="theme-content">
+            <p class="theme-num">THEME 01</p>
+            <h3>保湿ケア</h3>
+            <p>
+              乾燥から肌を守る高保湿クリーム・乳液。<br>
+              日本のドラッグストアには、<br>
+              台湾では手に入らない優秀アイテムが揃っています。
+            </p>
+            <a href="#" class="theme-link">
+              商品を見る <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="theme-item compact">
+          <div class="theme-visual">
+            <span class="theme-visual-icon">💋</span>
+          </div>
+          <div class="theme-content">
+            <p class="theme-num">THEME 02</p>
+            <h3>リップケア</h3>
+            <p>唇の荒れを防ぐ高保湿リップ。日本限定処方も。</p>
+          </div>
+        </article>
+
+        <article class="theme-item compact">
+          <div class="theme-visual">
+            <span class="theme-visual-icon">🖐️</span>
+          </div>
+          <div class="theme-content">
+            <p class="theme-num">THEME 03</p>
+            <h3>ハンドケア</h3>
+            <p>手荒れ対策のしっとり系ハンドクリーム。</p>
+          </div>
+        </article>
+
+        <article class="theme-item compact">
+          <div class="theme-visual">
+            <span class="theme-visual-icon">🍁</span>
+          </div>
+          <div class="theme-content">
+            <p class="theme-num">THEME 04</p>
+            <h3>紅葉グッズ</h3>
+            <p>アウトドアで役立つ携帯アイテム。</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 JAPANKURU × 日本藥妝研究室 | AUTUMN EDITION</p>
+  </footer>
+
+</body>
+</html>
