@@ -3530,6 +3530,7 @@
         products: [
           { 
             id: 1, 
+            slug: 'biore-cleanse',
             name: 'Bioré The CLEANSE オイルメイク落とし', 
             brand: '花王',
             price: 350, 
@@ -3553,6 +3554,7 @@
           },
           { 
             id: 2, 
+            slug: 'yunth-vc-serum',
             name: 'Yunth 生VC美白美容液', 
             brand: 'Yunth',
             price: 3960, 
@@ -3582,6 +3584,7 @@
           },
           { 
             id: 3, 
+            slug: 'uv-stick-sarasara',
             name: '紫外線予報 さらさらUVスティック', 
             brand: '石澤研究所',
             price: 1870, 
@@ -3611,6 +3614,7 @@
         products: [
           { 
             id: 4, 
+            slug: 'pabron-ace-prox',
             name: 'パブロンエース Pro-X', 
             brand: '大正製薬',
             price: 1518, 
@@ -3640,6 +3644,7 @@
         products: [
           { 
             id: 7, 
+            slug: 'collagen-c-jelly',
             name: 'コラーゲンC ゼリー ピーチ味', 
             brand: 'EARTH製薬',
             price: 645, 
@@ -3668,6 +3673,7 @@
         products: [
           { 
             id: 10, 
+            slug: 'mondamin-premium-care',
             name: 'MONDAMIN PREMIUM CARE', 
             brand: 'EARTH製薬',
             price: 275, 
@@ -3859,14 +3865,15 @@
     }
 
     function openDetailModal(id) {
-      // Set URL parameter for direct product link
-      const url = new URL(window.location.href);
-      url.searchParams.set('product', id);
-      window.history.replaceState({}, '', url);
-
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === id; });
       if (!p) return;
+
+      // Set URL parameter with slug
+      const url = new URL(window.location.href);
+      url.searchParams.set('product', p.slug);
+      window.history.replaceState({}, '', url);
+
       isMobile() ? openBottomSheet(p) : openPcModal(p);
     }
 
@@ -4002,7 +4009,7 @@
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === currentBsId; });
       if (p) {
-        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.id;
+        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.slug;
         const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + productUrl);
         window.open('https://line.me/R/msg/text/?' + text, '_blank');
       }
@@ -4037,7 +4044,7 @@
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === currentModalId; });
       if (p) {
-        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.id;
+        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.slug;
         const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + productUrl);
         window.open('https://line.me/R/msg/text/?' + text, '_blank');
       }
@@ -4182,10 +4189,12 @@
     // Check URL parameter for direct product link
     (function() {
       const params = new URLSearchParams(window.location.search);
-      const productId = params.get('product');
-      if (productId) {
+      const productSlug = params.get('product');
+      if (productSlug) {
         setTimeout(function() {
-          openDetailModal(parseInt(productId));
+          const all = getAllProducts();
+          const p = all.find(function(x) { return x.slug === productSlug; });
+          if (p) openDetailModal(p.id);
         }, 300);
       }
     })();
