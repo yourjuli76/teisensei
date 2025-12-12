@@ -446,6 +446,28 @@
     .split-panel:hover { flex: 2.2; }
     .split-panel:hover .split-bg { transform: scale(1.08); }
 
+    .split-plan-tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #2C3E50 0%, #1a1a2e 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .split-plan-tag::before {
+      content: '👑';
+      font-size: 10px;
+    }
+
     .split-logo {
       position: absolute;
       top: 25px;
@@ -2989,7 +3011,8 @@
     </div>
 
     <div class="split-container">
-      <div class="split-panel" onclick="scrollToProduct(1)">
+      <div class="split-panel" onclick="openDetailModal(1)">
+        <span class="split-plan-tag">PLATINUM</span>
         <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
         <div class="split-logo"><span class="split-logo-text">Kao</span></div>
         <div class="split-content">
@@ -2997,11 +3020,12 @@
           <span class="split-brand">Bioré The Cleanse</span>
           <h3 class="split-headline">擦らない革命。<br>「瞬浮技術」が常識を変えた。</h3>
           <p class="split-desc">2023年、花王が美容界に投じた革命。塗るだけでメイクが浮き上がり、水で流すだけ。</p>
-          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+          <span class="split-btn">詳細を見る <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
 
-      <div class="split-panel" onclick="scrollToProduct(2)">
+      <div class="split-panel" onclick="openDetailModal(2)">
+        <span class="split-plan-tag">PLATINUM</span>
         <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
         <div class="split-logo"><span class="split-logo-text">Yunth</span></div>
         <div class="split-content">
@@ -3009,11 +3033,12 @@
           <span class="split-brand">生VC美白美容液</span>
           <h3 class="split-headline">30秒の鮮度。<br>酸化と戦う、新しい美白。</h3>
           <p class="split-desc">水を一滴も使わない純度100%のビタミンC。個包装が守る、開封から30秒の黄金時間。</p>
-          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+          <span class="split-btn">詳細を見る <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
 
-      <div class="split-panel" onclick="scrollToProduct(3)">
+      <div class="split-panel" onclick="openDetailModal(3)">
+        <span class="split-plan-tag">PLATINUM</span>
         <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
         <div class="split-logo"><span class="split-logo-text">石澤研究所</span></div>
         <div class="split-content">
@@ -3021,7 +3046,7 @@
           <span class="split-brand">紫外線予報 UVスティック</span>
           <h3 class="split-headline">手を汚さない、新習慣。<br>家族で使える優しさ。</h3>
           <p class="split-desc">発売直後、購入制限がかかった話題作。スティックタイプの革新と、子供にも使える処方。</p>
-          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+          <span class="split-btn">詳細を見る <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
     </div>
@@ -3044,7 +3069,7 @@
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <span class="featured-card-tag">BASIC</span>
+          <span class="featured-card-tag tag-platinum">PLATINUM</span>
           <h3 class="featured-card-title">Bioré The CLEANSE</h3>
           <p class="featured-card-copy">台湾より30%以上安い<br>革命的クレンジング</p>
           <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
@@ -3088,7 +3113,7 @@
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <span class="featured-card-tag tag-gold">GOLD</span>
+          <span class="featured-card-tag tag-platinum">PLATINUM</span>
           <h3 class="featured-card-title">紫外線予報<br>UVスティック</h3>
           <p class="featured-card-copy">発売直後に購入制限<br>話題のスティックUV</p>
           <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
@@ -3537,20 +3562,26 @@
             image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp', 
             label: 'type-deal', 
             labelText: '台湾より安い',
-            plan: 'basic',
+            plan: 'platinum',
             originalUrl: 'https://www.kao.co.jp/biore/lineup/cleanse/',
-            tip: '<strong>台湾より30%以上安い！</strong>花王が2023年に発売した革命的クレンジングオイル。独自の「瞬浮技術」により、肌を擦らずにメイクを浮かせて落とします。ウォータープルーフマスカラも、頑固なアイライナーも、わずか数秒でスルッと溶け出す感覚は、一度使うと手放せなくなります。オイルなのにベタつかず、洗い上がりはさっぱり。マツエクをしている方も安心して使え、W洗顔不要なので時短にもなります。私は毎日愛用していますが、肌への負担が少なく、毛穴の黒ずみも気にならなくなりました。台湾で同じ製品を買うと500元以上しますが、日本では350円前後。この価格差を知ってしまうと、日本で買わない理由がありません。',
-            tipFull: '<strong>台湾より30%以上安い！</strong>花王が2023年に発売した革命的クレンジングオイル。独自の「瞬浮技術」により、肌を擦らずにメイクを浮かせて落とします。ウォータープルーフマスカラも、頑固なアイライナーも、わずか数秒でスルッと溶け出す感覚は、一度使うと手放せなくなります。オイルなのにベタつかず、洗い上がりはさっぱり。マツエクをしている方も安心して使え、W洗顔不要なので時短にもなります。私は毎日愛用していますが、肌への負担が少なく、毛穴の黒ずみも気にならなくなりました。台湾で同じ製品を買うと500元以上しますが、日本では350円前後。この価格差を知ってしまうと、日本で買わない理由がありません。',
-            column: null, 
-            hasVideo: false,
+            tip: '<strong>台湾より30%以上安い！</strong>花王独自の「瞬浮技術」でメイクを擦らず浮かせて落とす革命的クレンジング。',
+            tipFull: '<strong>台湾より30%以上安い！</strong>花王が2023年に発売した革命的クレンジングオイル。独自の「瞬浮技術」でメイクを擦らず落とせます。',
+            column: 'https://japankuru.com/biore-cleanse', 
+            hasVideo: true,
+            videoId: 'dQw4w9WgXcQ',
             voices: [
-              { initial: 'M', name: 'Mei', attr: '20代・混合肌', text: '本当に擦らなくてもメイクが落ちる！目元のアイライナーもスルッと。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/example1/' },
-              { initial: 'Y', name: 'Yuki', attr: '30代・乾燥肌', text: '台湾で買うより断然安い！まとめ買いしました。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/example2/' },
-              { initial: 'L', name: 'Lin', attr: '20代・OL', text: 'マツエクしてても使えるのが嬉しい。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/example3/' },
-              { initial: 'S', name: 'Saki', attr: '40代・主婦', text: '家族みんなで使ってます。コスパ良すぎ！', date: '2024.09', color: '#009688', snsUrl: 'https://www.instagram.com/p/example4/' },
-              { initial: 'A', name: 'Amy', attr: '20代・学生', text: '友達に勧められて買ったけど大正解。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/example5/' }
+              { initial: 'M', name: 'Mei', attr: '20代・混合肌', text: '本当に擦らなくてもメイクが落ちる！目元のアイライナーもスルッと。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/biore1/' },
+              { initial: 'Y', name: 'Yuki', attr: '30代・乾燥肌', text: '台湾で買うより断然安い！まとめ買いしました。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/biore2/' },
+              { initial: 'L', name: 'Lin', attr: '20代・OL', text: 'マツエクしてても使えるのが嬉しい。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/biore3/' },
+              { initial: 'S', name: 'Saki', attr: '40代・主婦', text: '家族みんなで使ってます。コスパ良すぎ！', date: '2024.09', color: '#009688', snsUrl: 'https://www.instagram.com/p/biore4/' },
+              { initial: 'A', name: 'Amy', attr: '20代・学生', text: '友達に勧められて買ったけど大正解。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/biore5/' },
+              { initial: 'J', name: 'Jia', attr: '30代', text: 'W洗顔不要だから時短になる！忙しい朝に最高。', date: '2024.08', color: '#795548', snsUrl: 'https://www.instagram.com/p/biore6/' },
+              { initial: 'C', name: 'Chen', attr: '20代', text: '毛穴の黒ずみが気にならなくなってきた。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/biore7/' },
+              { initial: 'T', name: 'Tina', attr: '30代・敏感肌', text: '敏感肌だけど刺激なく使えてる。', date: '2024.07', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/biore8/' },
+              { initial: 'W', name: 'Wang', attr: '40代', text: '娘と一緒に使ってます。2人で1本1ヶ月持つ。', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/biore9/' },
+              { initial: 'H', name: 'Hana', attr: '20代', text: '日本に来るたびに必ず買います。', date: '2024.06', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/biore10/' }
             ],
-            voiceCount: 5
+            voiceCount: 10
           },
           { 
             id: 2, 
@@ -3591,7 +3622,7 @@
             image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg', 
             label: 'type-hot', 
             labelText: '話題',
-            plan: 'gold',
+            plan: 'platinum',
             originalUrl: 'https://www.ishizawa-lab.co.jp/shigaisen/sarasara-uv-stick.html',
             tip: '発売直後に購入制限がかかった話題作！手を汚さないスティックUV。子供もOKで家族で使える。',
             tipFull: '台湾より安い＆2024年最も話題になった日焼け止め。発売直後、各店舗で購入制限がかかるほどの人気。',
@@ -3603,9 +3634,14 @@
               { initial: 'R', name: 'Rina', attr: '20代・OL', text: 'メイクの上から塗り直しできるのが最高。', date: '2024.11', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/uv2/' },
               { initial: 'E', name: 'Emi', attr: '40代', text: 'ベタつかないから夏でも快適に使えた。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/uv3/' },
               { initial: 'N', name: 'Nana', attr: '20代', text: 'コンパクトでポーチに入る！旅行に必須。', date: '2024.10', color: '#009688', snsUrl: 'https://www.instagram.com/p/uv4/' },
-              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' }
+              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' },
+              { initial: 'T', name: 'Tomo', attr: '20代', text: '塗った後サラサラで気持ちいい。', date: '2024.09', color: '#795548', snsUrl: 'https://www.instagram.com/p/uv6/' },
+              { initial: 'C', name: 'Chie', attr: '30代', text: '家族4人で使ってます。コスパ良い。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/uv7/' },
+              { initial: 'J', name: 'Jun', attr: '40代・男性', text: '男でも使いやすい。ゴルフの時に重宝。', date: '2024.08', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/uv8/' },
+              { initial: 'W', name: 'Waka', attr: '20代', text: 'インスタで見て買った。本当に良かった！', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/uv9/' },
+              { initial: 'F', name: 'Fumi', attr: '30代', text: '台湾で買うより全然安い。まとめ買いした。', date: '2024.07', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/uv10/' }
             ],
-            voiceCount: 5
+            voiceCount: 10
           }
         ]
       },
