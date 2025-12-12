@@ -3859,6 +3859,11 @@
     }
 
     function openDetailModal(id) {
+      // Set URL parameter for direct product link
+      const url = new URL(window.location.href);
+      url.searchParams.set('product', id);
+      window.history.replaceState({}, '', url);
+
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === id; });
       if (!p) return;
@@ -3969,6 +3974,11 @@
     }
 
     function closeBottomSheet() {
+      // Clear URL parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete('product');
+      window.history.replaceState({}, '', url);
+
       document.getElementById('bsOverlay').classList.remove('is-open');
       document.body.style.overflow = '';
       currentBsId = null;
@@ -3992,7 +4002,8 @@
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === currentBsId; });
       if (p) {
-        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + location.href);
+        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.id;
+        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + productUrl);
         window.open('https://line.me/R/msg/text/?' + text, '_blank');
       }
     }
@@ -4005,6 +4016,11 @@
     }
 
     function closeDetailModal() {
+      // Clear URL parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete('product');
+      window.history.replaceState({}, '', url);
+
       document.getElementById('detailModal').classList.remove('active');
       currentModalId = null;
     }
@@ -4021,7 +4037,8 @@
       const all = getAllProducts();
       const p = all.find(function(x) { return x.id === currentModalId; });
       if (p) {
-        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + location.href);
+        const productUrl = window.location.origin + window.location.pathname + '?product=' + p.id;
+        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + productUrl);
         window.open('https://line.me/R/msg/text/?' + text, '_blank');
       }
     }
@@ -4161,6 +4178,17 @@
     // Initialize
     renderTabs();
     updateCount();
+
+    // Check URL parameter for direct product link
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('product');
+      if (productId) {
+        setTimeout(function() {
+          openDetailModal(parseInt(productId));
+        }, 300);
+      }
+    })();
   </script>
 </body>
 </html>
