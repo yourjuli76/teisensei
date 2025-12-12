@@ -706,13 +706,18 @@
       position: absolute;
       top: 16px;
       left: 16px;
-      background: var(--accent);
+      background: #9e9e9e;
       color: #fff;
       font-size: 10px;
       font-weight: 700;
       padding: 5px 12px;
       border-radius: 20px;
+      letter-spacing: 0.05em;
     }
+
+    .featured-card-tag.tag-standard { background: #9C27B0; }
+    .featured-card-tag.tag-gold { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #333; }
+    .featured-card-tag.tag-platinum { background: linear-gradient(135deg, #2C3E50 0%, #1a1a2e 100%); }
 
     .featured-card-title {
       font-family: 'Noto Serif JP', serif;
@@ -947,43 +952,30 @@
       background: linear-gradient(180deg, #fffbfc 0%, #fff 100%);
     }
 
-    .item-card.basic-plan::before {
-      content: 'PICK UP';
-      position: absolute;
-      top: -1px;
-      left: 20px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 6px 14px;
-      letter-spacing: 0.1em;
-      z-index: 20;
-      border-radius: 0 0 8px 8px;
-    }
-
     .item-card.basic-plan .che-comment-box {
       background: linear-gradient(135deg, #fff5f6 0%, #fff 100%);
       border-left: 4px solid var(--accent);
     }
 
-    /* Plan Badge */
+    /* Plan Badge - positioned in content area */
     .plan-badge {
-      position: absolute;
-      top: 10px;
-      right: 50px;
-      font-size: 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
       font-weight: 700;
-      padding: 4px 8px;
+      padding: 5px 12px;
       border-radius: 4px;
-      z-index: 15;
       letter-spacing: 0.05em;
+      margin-bottom: 12px;
     }
 
     .plan-badge.basic { background: #9e9e9e; color: #fff; }
-    .plan-badge.standard { background: #2196F3; color: #fff; }
+    .plan-badge.standard { background: #9C27B0; color: #fff; }
     .plan-badge.gold { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #333; }
-    .plan-badge.platinum { background: linear-gradient(135deg, #E5E4E2 0%, #A9A9A9 100%); color: #333; }
+    .plan-badge.platinum { background: linear-gradient(135deg, #2C3E50 0%, #1a1a2e 100%); color: #fff; }
+
+    .plan-badge i { font-size: 9px; }
 
     /* Mobile Compact View */
     @media (max-width: 580px) {
@@ -1077,6 +1069,12 @@
       .item-card .monitor-preview { display: none; }
       .item-card .column-preview { display: none; }
       .item-card .voice-preview-section { display: none; }
+      
+      .item-card .plan-badge { 
+        font-size: 9px; 
+        padding: 3px 8px;
+        margin-bottom: 8px;
+      }
 
       /* Compact footer */
       .item-card .card-footer {
@@ -3042,13 +3040,13 @@
     </div>
 
     <div class="featured-carousel">
-      <article class="featured-card" onclick="scrollToProduct(4)">
-        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
+      <article class="featured-card" onclick="scrollToProduct(1)">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <span class="featured-card-tag">ロングセラー</span>
-          <h3 class="featured-card-title">パブロンエース<br>Pro-X</h3>
-          <p class="featured-card-copy">30年以上愛される<br>日本の国民的風邪薬</p>
+          <span class="featured-card-tag">BASIC</span>
+          <h3 class="featured-card-title">Bioré The CLEANSE</h3>
+          <p class="featured-card-copy">台湾より30%以上安い<br>革命的クレンジング</p>
           <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
         </div>
       </article>
@@ -3057,9 +3055,42 @@
         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <span class="featured-card-tag">お土産人気</span>
+          <span class="featured-card-tag tag-standard">STANDARD</span>
           <h3 class="featured-card-title">コラーゲンC<br>ゼリー</h3>
           <p class="featured-card-copy">個包装で配りやすい<br>美味しく続ける美容習慣</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
+        </div>
+      </article>
+
+      <article class="featured-card" onclick="scrollToProduct(4)">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag tag-gold">GOLD</span>
+          <h3 class="featured-card-title">パブロンエース<br>Pro-X</h3>
+          <p class="featured-card-copy">30年以上愛される<br>日本の国民的風邪薬</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
+        </div>
+      </article>
+
+      <article class="featured-card" onclick="scrollToProduct(2)">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png" alt="Yunth" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag tag-platinum">PLATINUM</span>
+          <h3 class="featured-card-title">Yunth<br>生VC美白美容液</h3>
+          <p class="featured-card-copy">純度100%生ビタミンC<br>日本限定美容液</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
+        </div>
+      </article>
+
+      <article class="featured-card" onclick="scrollToProduct(3)">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag tag-gold">GOLD</span>
+          <h3 class="featured-card-title">紫外線予報<br>UVスティック</h3>
+          <p class="featured-card-copy">発売直後に購入制限<br>話題のスティックUV</p>
           <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
         </div>
       </article>
@@ -3068,7 +3099,7 @@
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <span class="featured-card-tag">台湾より安い</span>
+          <span class="featured-card-tag">BASIC</span>
           <h3 class="featured-card-title">MONDAMIN<br>PREMIUM CARE</h3>
           <p class="featured-card-copy">家族で使える大容量<br>ゴールドミントの爽快感</p>
           <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
@@ -3557,7 +3588,7 @@
             image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg', 
             label: 'type-hot', 
             labelText: '話題',
-            plan: 'platinum',
+            plan: 'gold',
             originalUrl: 'https://www.ishizawa-lab.co.jp/shigaisen/sarasara-uv-stick.html',
             tip: '発売直後に購入制限がかかった話題作！手を汚さないスティックUV。子供もOKで家族で使える。',
             tipFull: '台湾より安い＆2024年最も話題になった日焼け止め。発売直後、各店舗で購入制限がかかるほどの人気。',
@@ -3569,14 +3600,9 @@
               { initial: 'R', name: 'Rina', attr: '20代・OL', text: 'メイクの上から塗り直しできるのが最高。', date: '2024.11', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/uv2/' },
               { initial: 'E', name: 'Emi', attr: '40代', text: 'ベタつかないから夏でも快適に使えた。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/uv3/' },
               { initial: 'N', name: 'Nana', attr: '20代', text: 'コンパクトでポーチに入る！旅行に必須。', date: '2024.10', color: '#009688', snsUrl: 'https://www.instagram.com/p/uv4/' },
-              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' },
-              { initial: 'T', name: 'Tomo', attr: '20代', text: '塗った後サラサラで気持ちいい。', date: '2024.09', color: '#795548', snsUrl: 'https://www.instagram.com/p/uv6/' },
-              { initial: 'C', name: 'Chie', attr: '30代', text: '家族4人で使ってます。コスパ良い。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/uv7/' },
-              { initial: 'J', name: 'Jun', attr: '40代・男性', text: '男でも使いやすい。ゴルフの時に重宝。', date: '2024.08', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/uv8/' },
-              { initial: 'W', name: 'Waka', attr: '20代', text: 'インスタで見て買った。本当に良かった！', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/uv9/' },
-              { initial: 'F', name: 'Fumi', attr: '30代', text: '台湾で買うより全然安い。まとめ買いした。', date: '2024.07', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/uv10/' }
+              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' }
             ],
-            voiceCount: 10
+            voiceCount: 5
           }
         ]
       },
@@ -3650,8 +3676,8 @@
             labelText: '台湾より安い',
             plan: 'basic',
             originalUrl: 'https://www.earth.jp/mondahmin/',
-            tip: '<strong>台湾より安い＆ロングセラーのマウスウォッシュ。</strong>家族で使える大容量もあり。',
-            tipFull: '<strong>台湾より安い＆ロングセラーのマウスウォッシュ。</strong>家族で使える大容量もあり。ゴールドミント味でスッキリ。',
+            tip: '<strong>台湾より安い！</strong>日本のドラッグストアの定番マウスウォッシュ。私は家族全員で愛用しています。朝起きた時の口のネバつきが気になる方、歯磨き後のさっぱり感を長持ちさせたい方におすすめです。ゴールドミント味は爽快感がありながらも刺激が強すぎず、毎日使いやすいのがポイント。大容量タイプもあるので家族で使っても長持ちします。台湾で同じ製品を買うと2倍近い価格なので、日本滞在中にまとめ買いする方が多いです。歯科医推奨の殺菌成分配合で、口臭予防にも効果的。旅行中の口腔ケアにも便利なので、ぜひチェックしてみてください。',
+            tipFull: '<strong>台湾より安い！</strong>日本のドラッグストアの定番マウスウォッシュ。私は家族全員で愛用しています。朝起きた時の口のネバつきが気になる方、歯磨き後のさっぱり感を長持ちさせたい方におすすめです。ゴールドミント味は爽快感がありながらも刺激が強すぎず、毎日使いやすいのがポイント。大容量タイプもあるので家族で使っても長持ちします。台湾で同じ製品を買うと2倍近い価格なので、日本滞在中にまとめ買いする方が多いです。歯科医推奨の殺菌成分配合で、口臭予防にも効果的。旅行中の口腔ケアにも便利なので、ぜひチェックしてみてください。',
             column: null, 
             hasVideo: false,
             voices: [
@@ -3684,7 +3710,7 @@
 
     function renderProduct(p) {
       const isInList = myList.includes(p.id);
-      const isBasicPlan = !p.column;
+      const isBasicPlan = p.plan === 'basic';
       let avatars = '';
       if (p.voices) {
         avatars = p.voices.slice(0, 5).map(function(v) { 
@@ -3695,6 +3721,14 @@
       const hasVideoClass = p.hasVideo ? 'item-thumb-video' : '';
       const videoOverlay = p.hasVideo ? '<div class="video-overlay"><div class="video-play-btn"><i class="fas fa-play"></i></div><span class="video-label">動画で見る</span></div>' : '';
       const basicPlanClass = isBasicPlan ? ' basic-plan' : '';
+
+      // Plan badge icons
+      const planIcons = {
+        'basic': '',
+        'standard': '<i class="fas fa-file-alt"></i>',
+        'gold': '<i class="fas fa-video"></i> <i class="fas fa-file-alt"></i>',
+        'platinum': '<i class="fas fa-crown"></i>'
+      };
 
       let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '">';
       html += '<div class="item-thumb ' + hasVideoClass + '" onclick="openDetailModal(' + p.id + ')">';
@@ -3709,26 +3743,30 @@
       html += '</div>';
       
       html += '<div class="item-content" onclick="handleCardClick(' + p.id + ', event)">';
+      
+      // Plan badge
+      html += '<span class="plan-badge ' + p.plan + '">' + (planIcons[p.plan] || '') + ' ' + p.plan.toUpperCase() + '</span>';
+      
       html += '<h3 class="item-name">' + p.name + '</h3>';
       html += '<div class="item-price-row"><span class="item-price">¥' + p.price.toLocaleString() + '</span>';
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
       html += '<div class="che-section"><div class="che-header"><img src="' + chePhoto + '" class="che-face"><span class="che-name">鄭先生の推薦</span></div>';
-      html += '<div class="che-comment-box"><p class="che-text' + (isBasicPlan ? ' full-text' : '') + '">' + p.tip + '</p></div></div>';
+      html += '<div class="che-comment-box"><p class="che-text' + (p.plan === 'basic' ? ' full-text' : '') + '">' + p.tip + '</p></div></div>';
 
-      // Column preview for premium plan (has column)
+      // Column preview for plans with column (standard, gold, platinum)
       if (p.column) {
         html += '<a href="' + p.column + '" class="column-preview" target="_blank" onclick="event.stopPropagation()">';
         html += '<div class="column-preview-icon"><i class="fas fa-book-open"></i></div>';
         html += '<div class="column-preview-content">';
         html += '<p class="column-preview-label">詳しい解説コラム</p>';
-        html += '<p class="column-preview-title">「' + p.name + '」を徹底レビュー！使い方・効果・口コミまとめ</p>';
+        html += '<p class="column-preview-title">「' + p.name + '」を徹底レビュー！</p>';
         html += '</div>';
         html += '<span class="column-preview-arrow"><i class="fas fa-chevron-right"></i></span>';
         html += '</a>';
 
-        // Voice preview for premium plan - show 2 reviews
+        // Voice preview for plans with column - show 2 reviews on card
         if (p.voices && p.voices.length > 0) {
           html += '<div class="voice-preview-section">';
           html += '<div class="voice-preview-header"><i class="fas fa-comment-dots"></i> モニターの声</div>';
