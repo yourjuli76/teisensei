@@ -2,1180 +2,4127 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>JAPANKURU × 日本藥妝研究室 2026春 タイアップ企画ご提案</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鄭先生のおすすめ 2026春 | JAPANKURU × 日本藥妝研究室</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", system-ui, sans-serif;
-      background: #111;
-      color: #fff;
-      overflow-x: hidden;
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --ink: #1a1a1a;
+      --ink-light: #4a4a4a;
+      --ink-muted: #8a8a8a;
+      --ink-faint: #c5c5c5;
+      --paper: #fefefe;
+      --paper-warm: #faf9f7;
+      --accent: #d4707a;
+      --accent-soft: #f2e4e6;
+      --sakura: #FFB7C5;
+      --gold: #C9A962;
+      --blue: #5B8DB8;
+      --green: #7A9A7E;
+      --bg: #FFFBFC;
+      --white: #fff;
     }
-    .logo-fixed {
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Noto Sans JP', sans-serif; 
+      background: var(--bg); 
+      color: var(--ink-light); 
+      line-height: 1.8;
+      padding-bottom: 70px;
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0)); }
+    }
+
+    /* === Header === */
+    .header {
       position: fixed;
-      top: 16px;
-      left: 20px;
-      z-index: 1000;
-    }
-    .logo-fixed img {
-      height: 40px;
-      display: block;
-    }
-    .slide-number {
-      position: absolute;
-      top: 20px;
-      right: 28px;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      opacity: 0.5;
-    }
-    .title-logo-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-    .title-logo-group img {
-      height: 60px;
-      display: block;
-    }
-    .title-logo-group .logo-x {
-      color: rgba(255,255,255,0.7);
-      font-size: 28px;
-      font-weight: 300;
-    }
-    .slides {
-      scroll-snap-type: y mandatory;
-      height: 100vh;
-      overflow-y: scroll;
-    }
-    .slide {
-      scroll-snap-align: start;
-      min-height: 100vh;
-      padding: 50px 48px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .slide-inner {
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    h1, h2, h3 { font-weight: 700; line-height: 1.4; }
-    h1 { font-size: clamp(42px, 5vw, 60px); margin-bottom: 28px; }
-    h2 { font-size: clamp(36px, 4vw, 50px); margin-bottom: 28px; }
-    h3 { font-size: 28px; margin-bottom: 18px; }
-    p { font-size: 22px; line-height: 1.8; margin-bottom: 18px; }
-    ul { list-style: none; margin-top: 12px; }
-    li {
-      font-size: 20px;
-      line-height: 1.9;
-      padding-left: 1.4em;
-      position: relative;
-      margin-bottom: 8px;
-    }
-    li::before {
-      content: "●";
-      font-size: 0.6em;
-      position: absolute;
+      top: 0;
       left: 0;
-      top: 0.7em;
-      color: #ff6d9c;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      transition: all 0.3s;
     }
-    small { font-size: 17px; opacity: 0.8; }
 
-    /* 슬라이드 배경 */
-    .slide--title { 
-      background: radial-gradient(circle at top, #ffb7c5 0, #111 55%);
-      text-align: center;
-    }
-    .slide--toc { background: linear-gradient(135deg, #1a1a1a, #222); }
-    .slide--concept { background: linear-gradient(135deg, #1b1b1b, #222); }
-    .slide--outline { background: #181818; }
-    .slide--plan { background: #141414; }
-    .slide--compare { background: #171717; }
-    .slide--flow { background: #11151c; }
-    .slide--contact { background: #101010; }
-    .slide--impact { background: radial-gradient(circle at top, #22263b 0, #111 55%); }
-    .slide--contract { background: linear-gradient(135deg, #1a1a1a, #1f1f1f); }
-    .slide--annual { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+    .header.scrolled { box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
 
-    .tag {
-      display: inline-block;
-      font-size: 18px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: 999px;
-      margin-bottom: 24px;
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .brand-line {
-      font-size: 26px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 18px;
-    }
-    .em-sakura { color: #ffb7c5; font-weight: 700; }
-    .em-accent { color: #ffd37e; font-weight: 600; }
-    .em-platinum { color: #a8e6cf; font-weight: 600; }
-    .em-gold { color: #ffd700; font-weight: 600; }
 
-    /* 목차 */
-    .toc-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px 48px;
-      margin-top: 48px;
-    }
-    .toc-item {
+    .collab-logo {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 24px 28px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .toc-num {
-      font-size: 36px;
-      font-weight: 800;
-      color: #ffb7c5;
-      min-width: 60px;
-    }
-    .toc-text { font-size: 24px; font-weight: 600; }
-
-    /* 2컬럼 */
-    .two-cols {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 40px;
-      margin-top: 30px;
-    }
-
-    /* LP 구조 */
-    .lp-structure {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 28px;
-      max-width: 700px;
-    }
-    .lp-tier {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 24px 28px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.03);
-    }
-    .lp-tier--platinum {
-      border-color: rgba(168,230,207,0.5);
-      background: linear-gradient(90deg, rgba(168,230,207,0.1), transparent);
-    }
-    .lp-tier--gold {
-      border-color: rgba(255,215,0,0.5);
-      background: linear-gradient(90deg, rgba(255,215,0,0.1), transparent);
-    }
-    .lp-tier-label {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 8px 16px;
-      border-radius: 6px;
-      min-width: 110px;
-      text-align: center;
-    }
-    .lp-tier-label--platinum {
-      background: linear-gradient(135deg, #a8e6cf, #4ed9b5);
-      color: #1a1a1a;
-    }
-    .lp-tier-label--gold {
-      background: linear-gradient(135deg, #ffd700, #ffb347);
-      color: #1a1a1a;
-    }
-    .lp-tier-label--standard {
-      background: rgba(255,211,126,0.3);
-      color: #ffd37e;
-    }
-    .lp-tier-label--basic {
-      background: rgba(255,183,197,0.3);
-      color: #ffb7c5;
-    }
-    .lp-tier-content { flex: 1; }
-    .lp-tier-title { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
-    .lp-tier-desc { font-size: 17px; opacity: 0.8; }
-    .lp-tier-price { font-size: 24px; font-weight: 700; white-space: nowrap; }
-    .lp-tier-price-old {
-      font-size: 16px;
-      text-decoration: line-through;
-      opacity: 0.5;
-      margin-right: 8px;
-    }
-
-    /* 집객보증 */
-    .impact-tag {
-      display: inline-block;
-      font-size: 17px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.5);
-      margin-bottom: 24px;
-    }
-    .impact-lead { font-size: 24px; line-height: 1.9; margin-bottom: 32px; opacity: 0.9; }
-    .impact-main {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      margin-top: 12px;
-      margin-bottom: 24px;
-    }
-    .impact-stat {
-      flex: 1;
-      min-width: 280px;
-      text-align: center;
-      padding: 28px 20px;
-      border-radius: 18px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-    .impact-num {
-      font-size: clamp(52px, 6vw, 72px);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      margin-bottom: 10px;
-      background: linear-gradient(135deg, #ffb7c5, #ffd37e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .impact-num span { font-size: 0.45em; margin-left: 6px; }
-    .impact-num--green {
-      background: linear-gradient(135deg, #8ce6c8, #4ed9b5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .impact-label { font-size: 20px; opacity: 0.9; }
-    .impact-sub { font-size: 17px; opacity: 0.75; margin-top: 8px; }
-    .impact-note-list { margin-top: 18px; }
-    .impact-note-list li { font-size: 19px; line-height: 1.9; }
-    .impact-note-list li::before { color: #ffd37e; }
-
-    /* 플랜 카드 */
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 28px;
-    }
-    .plan-card {
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 24px 20px 22px;
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex;
-      flex-direction: column;
       gap: 12px;
-      height: 100%;
+    }
+
+    .collab-logo img { height: 20px; }
+    .collab-x { color: var(--ink-faint); font-weight: 300; }
+
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .partner-logo-img { height: 32px; object-fit: contain; }
+    .partner-name { font-size: 0.75rem; font-weight: 700; color: var(--ink); }
+    .header-season { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; }
+
+    /* === Hero === */
+    .hero {
+      margin-top: 52px;
+      padding-top: 60px;
+      min-height: 85vh;
+      background: linear-gradient(180deg, #fff0f3 0%, #fff 60%, #fff 100%);
       position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
     }
-    .plan-card--basic { border-color: rgba(255,183,197,0.5); }
-    .plan-card--standard { border-color: rgba(255,211,126,0.6); }
-    .plan-card--gold {
-      border-color: rgba(255,215,0,0.7);
-      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,0,0,0.2));
-    }
-    .plan-card--platinum {
-      border-color: rgba(168,230,207,0.7);
-      background: linear-gradient(135deg, rgba(168,230,207,0.1), rgba(0,0,0,0.2));
-    }
-    .plan-badge {
+
+    .hero::before {
+      content: '';
       position: absolute;
-      top: -14px;
-      right: 18px;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 7px 16px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
+      top: -5%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(255, 183, 197, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
     }
-    .plan-badge--gold {
-      background: linear-gradient(135deg, #ffd700, #ffb347);
-      color: #1a1a1a;
-    }
-    .plan-badge--platinum {
-      background: linear-gradient(135deg, #a8e6cf, #4ed9b5);
-      color: #1a1a1a;
-    }
-    .plan-name { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-    .plan-tagline { font-size: 18px; color: #ffb7c5; line-height: 1.5; }
-    .price { font-size: 32px; font-weight: 700; margin-top: 12px; }
-    .price-old {
-      font-size: 18px;
-      text-decoration: line-through;
-      opacity: 0.5;
-      margin-right: 8px;
-    }
-    .price span { font-size: 16px; font-weight: 400; opacity: 0.8; margin-left: 6px; }
-    .plan-list { flex: 1; }
-    .plan-list li { font-size: 18px; line-height: 1.8; }
-    .plan-list li::before { top: 0.55em; }
-    .note { font-size: 17px; opacity: 0.7; margin-top: 12px; line-height: 1.8; }
-    .plan-bonus {
-      margin-top: 14px;
-      padding: 14px;
-      background: rgba(168,230,207,0.1);
-      border: 1px dashed rgba(168,230,207,0.5);
-      border-radius: 8px;
-    }
-    .plan-bonus-title { font-size: 14px; color: #a8e6cf; font-weight: 700; margin-bottom: 8px; }
-    .plan-bonus p { font-size: 15px; line-height: 1.7; opacity: 0.85; margin-bottom: 0; }
 
-    /* 비교표 */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 18px;
-      margin-top: 28px;
+    .sakura-petal {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--sakura) 0%, #FFD6E0 100%);
+      border-radius: 150% 0 150% 0;
+      opacity: 0;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 1;
     }
-    th, td {
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 16px 14px;
-      text-align: center;
-    }
-    th {
-      background: rgba(255,255,255,0.06);
-      font-weight: 600;
-      font-size: 19px;
-    }
-    th.th-gold { background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,179,71,0.1)); }
-    th.th-platinum { background: linear-gradient(135deg, rgba(168,230,207,0.2), rgba(78,217,181,0.1)); }
-    td:first-child, th:first-child { text-align: left; white-space: nowrap; }
-    .yes { color: #8ce6c8; font-weight: 700; }
-    .strong { color: #ffd37e; font-weight: 600; }
-    .highlight { color: #ffd700; font-weight: 700; }
 
-    /* 계약형태 */
-    .contract-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      margin-top: 32px;
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(100vh) rotate(720deg) translateX(100px); opacity: 0; }
     }
-    .contract-card {
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 32px 28px;
-      border: 1px solid rgba(255,255,255,0.15);
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 24px;
       position: relative;
-    }
-    .contract-card--recommended {
-      border-color: rgba(255,215,0,0.6);
-      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,0,0,0.2));
-    }
-    .contract-card--recommended::before {
-      content: "◆ おすすめ";
-      position: absolute;
-      top: -14px;
-      left: 24px;
-      background: linear-gradient(135deg, #ffd700, #ffb347);
-      color: #1a1a1a;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 7px 18px;
-      border-radius: 4px;
-    }
-    .contract-title { font-size: 30px; font-weight: 700; margin-bottom: 10px; }
-    .contract-subtitle { font-size: 19px; opacity: 0.7; margin-bottom: 24px; }
-    .contract-list li { font-size: 18px; line-height: 1.9; }
-    .contract-list li::before { color: #ffd700; }
-
-    /* 연간 메리트 */
-    .annual-merit-box {
-      margin-top: 36px;
-      padding: 32px;
-      background: rgba(255,215,0,0.06);
-      border: 2px solid rgba(255,215,0,0.4);
-      border-radius: 16px;
-    }
-    .annual-merit-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: #ffd700;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    .annual-merit-grid {
+      z-index: 2;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .annual-merit-item {
-      text-align: center;
-      padding: 24px 16px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 12px;
-    }
-    .annual-merit-num {
-      font-size: 48px;
-      font-weight: 800;
-      color: #ffd700;
-      margin-bottom: 8px;
-    }
-    .annual-merit-num span {
-      font-size: 20px;
-    }
-    .annual-merit-label {
-      font-size: 17px;
-      line-height: 1.6;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 40px;
     }
 
-    /* 시즌 그리드 */
-    .season-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 28px;
-    }
-    .season-card {
-      padding: 24px 18px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      text-align: center;
-    }
-    .season-card .num { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-    .season-card .period { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
-    .season-card .theme { font-size: 15px; opacity: 0.7; }
+    .hero-text-area { text-align: left; }
 
-    /* 연간 가격표 */
-    .annual-price-table {
-      margin-top: 36px;
+    .hero-tag-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
-    .annual-price-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .annual-price-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px;
-      padding: 28px 20px;
-      text-align: center;
-    }
-    .annual-price-card--platinum {
-      border-color: rgba(168,230,207,0.6);
-      background: linear-gradient(135deg, rgba(168,230,207,0.1), rgba(0,0,0,0.2));
-    }
-    .annual-price-card .tier {
-      font-size: 16px;
+
+    .hero-tag {
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      opacity: 0.7;
-    }
-    .annual-price-card--platinum .tier { color: #a8e6cf; opacity: 1; }
-    .annual-price-card .single-price {
-      font-size: 17px;
-      opacity: 0.5;
-      margin-bottom: 8px;
-    }
-    .annual-price-card .annual-price {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .annual-price-card--platinum .annual-price { color: #a8e6cf; }
-    .annual-price-card .discount {
-      display: inline-block;
-      background: #ff6d9c;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
+      letter-spacing: 0.05em;
     }
-    .annual-price-card--platinum .discount { background: #4ed9b5; color: #1a1a1a; }
 
-    /* 스케줄 */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .step {
-      background: rgba(255,255,255,0.04);
-      border-radius: 12px;
-      padding: 24px 20px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .step-num {
-      font-size: 16px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 8px;
-    }
-    .step-title { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
-    .step-body { font-size: 18px; opacity: 0.9; line-height: 1.8; }
+    .tag-season { background: var(--accent); color: #fff; }
+    .tag-target { background: var(--ink); color: #fff; }
 
-    /* 문의 박스 */
-    .contact-box {
-      margin-top: 32px;
-      padding: 28px 24px;
-      border-radius: 14px;
-      border: 1px dashed rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.04);
-      font-size: 19px;
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .hl-text {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 .hl-text::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      background: rgba(212, 112, 122, 0.15);
+      z-index: -1;
+      transform: skewX(-15deg);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
       line-height: 1.9;
+      color: var(--ink-light);
+      margin-bottom: 24px;
     }
 
-    .nav-hint {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
+    .hero-subtitle em {
+      font-style: normal;
+      background: linear-gradient(transparent 60%, rgba(212, 112, 122, 0.15) 60%);
+      padding: 0 2px;
+    }
+
+    .hero-story-box {
+      margin-bottom: 32px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .story-lead {
       font-size: 14px;
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+    }
+
+    .story-books {
+      display: flex;
+      gap: 8px;
+    }
+
+    .story-books img {
+      width: 44px;
+      height: 62px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .story-books img:hover {
+      transform: translateY(-4px) rotate(2deg);
+    }
+
+    .hero-cta-btn {
+      background: var(--ink);
+      color: #fff;
+      padding: 18px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-cta-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .hero-visual-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .tei-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .tei-photo {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.08));
+      mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    }
+
+    .tei-speech {
+      position: absolute;
+      top: 40px;
+      left: -30px;
+      background: #fff;
+      padding: 16px 24px;
+      border-radius: 20px 20px 0 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: float 4s ease-in-out infinite;
+      z-index: 5;
+      max-width: 220px;
+    }
+
+    .speech-text {
+      font-family: 'Zen Kurenaido', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .speech-text em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tei-name-tag {
+      position: absolute;
+      bottom: 20px;
+      right: -10px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .name-jp { font-size: 20px; font-weight: 700; color: var(--ink); }
+    .name-role { font-size: 11px; color: var(--ink-muted); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 900px) {
+      .pc-only { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 30px; padding-top: 80px; }
+      .hero-text-area { text-align: center; }
+      .hero-tag-group { justify-content: center; }
+      .hero-visual-area { order: -1; margin-bottom: -40px; }
+      .tei-wrapper { max-width: 300px; margin: 0 auto; }
+      .tei-speech { top: 10px; left: auto; right: 180px; padding: 12px 16px; }
+      .story-books img { width: 36px; height: 50px; }
+    }
+
+    /* === Split Banner === */
+    .split-banner-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #fff 0%, var(--accent-soft) 50%, #fff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sakura-float {
+      position: absolute;
+      font-size: 100px;
+      color: var(--accent);
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .sakura-float.left { top: 10%; left: 5%; transform: rotate(-10deg); }
+    .sakura-float.right { bottom: 15%; right: 5%; transform: rotate(15deg); }
+
+    .split-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .split-eyebrow::before,
+    .split-eyebrow::after {
+      content: '✿';
+      font-size: 12px;
       opacity: 0.6;
     }
 
-    /* 반응형 */
-    @media (max-width: 1100px) {
-      .two-cols { grid-template-columns: 1fr; }
-      .plan-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: repeat(2, 1fr); }
-      .contract-grid { grid-template-columns: 1fr; }
-      .season-grid { grid-template-columns: repeat(2, 1fr); }
-      .annual-price-grid { grid-template-columns: repeat(2, 1fr); }
-      .annual-merit-grid { grid-template-columns: 1fr; }
+    .split-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
+
+    .split-subtitle {
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+
+    .split-container {
+      display: flex;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      height: 550px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(212, 112, 122, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-panel {
+      position: relative;
+      flex: 1;
+      transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 45px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .split-panel:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .split-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .split-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45, 35, 38, 0.9) 0%, rgba(45, 35, 38, 0.4) 40%, rgba(212, 112, 122, 0.1) 100%);
+      z-index: 1;
+      transition: all 0.5s;
+    }
+
+    .split-panel:hover { flex: 2.2; }
+    .split-panel:hover .split-bg { transform: scale(1.08); }
+
+    .split-logo {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 3;
+      background: #fff;
+      padding: 10px 16px;
+    }
+
+    .split-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .split-content { position: relative; z-index: 2; }
+
+    .split-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1;
+    }
+
+    .split-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 5px 12px;
+      display: inline-block;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .split-headline {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .split-desc {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+      transition: all 0.5s ease;
+    }
+
+    .split-panel:hover .split-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 16px;
+    }
+
+    .split-btn {
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.4s ease 0.1s;
+      color: var(--accent-soft);
+    }
+
+    .split-panel:hover .split-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .split-footer {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 45px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+
+    .split-cta:hover {
+      background: #c45d67;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 112, 122, 0.3);
+    }
+
+    @media (max-width: 900px) {
+      .split-banner-section { padding: 60px 0; }
+      .split-container {
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        height: 420px;
+        border-radius: 0;
+        box-shadow: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .split-container::-webkit-scrollbar { display: none; }
+      .split-panel {
+        flex: 0 0 85vw;
+        height: 380px;
+        scroll-snap-align: center;
+        margin-left: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 30px 24px;
+      }
+      .split-panel:last-child { margin-right: 20px; }
+      .split-panel:not(:last-child) { border-right: none; }
+      .split-panel:hover { flex: 0 0 85vw; }
+      .split-desc { max-height: 100px; opacity: 1; margin-top: 12px; }
+      .split-btn { opacity: 1; transform: translateY(0); margin-top: 14px; }
+      .split-title { font-size: 24px; }
+      .sakura-float { display: none; }
+    }
+
+    /* === Featured Carousel === */
+    .featured-section {
+      padding: 70px 24px 60px;
+      background: linear-gradient(180deg, var(--paper) 0%, #f5f0ed 50%, var(--paper) 100%);
+      position: relative;
+    }
+
+    .featured-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .featured-header {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .featured-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .featured-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .featured-subtitle {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    .featured-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .featured-carousel::-webkit-scrollbar { height: 4px; }
+    .featured-carousel::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+    .featured-carousel::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    .featured-card {
+      flex: 0 0 280px;
+      height: 360px;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .featured-card:first-child { margin-left: 24px; }
+    .featured-card:last-child { margin-right: 24px; }
+
+    .featured-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .featured-card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .featured-card:hover .featured-card-bg { transform: scale(1.1); }
+
+    .featured-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%);
+    }
+
+    .featured-card-inner {
+      position: absolute;
+      inset: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+
+    .featured-card-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .featured-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .featured-card-copy {
+      font-size: 12px;
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+
+    .featured-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 25px;
+      width: fit-content;
+      transition: all 0.3s;
+    }
+
+    .featured-card:hover .featured-card-btn { background: var(--accent); }
+
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .scroll-hint i { animation: bounce-x 1.5s infinite; }
+
+    @keyframes bounce-x {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    @media (max-width: 768px) {
+      .featured-section { padding: 50px 0 40px; }
+      .featured-header { padding: 0 20px; }
+      .featured-card { flex: 0 0 240px; height: 320px; }
+      .featured-card:first-child { margin-left: 16px; }
+      .featured-card:last-child { margin-right: 16px; }
+    }
+
+    /* === Section Transition === */
+    .section-transition {
+      text-align: center;
+      padding: 40px 24px;
+      background: linear-gradient(180deg, var(--paper) 0%, var(--bg) 100%);
+    }
+
+    .section-transition p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* === Products Section === */
+    .products-section {
+      padding: 60px 24px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .card-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      margin: 0 auto 30px;
+      max-width: 500px;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, #fef8f8 100%);
+      border-radius: 50px;
+      font-size: 13px;
+      color: var(--ink-light);
+      border: 1px solid rgba(212, 112, 122, 0.15);
+    }
+
+    .card-hint i { color: var(--accent); }
+    .card-hint strong { color: var(--accent); font-weight: 600; }
+    .card-hint .hint-mobile { display: none; }
+
+    @media (max-width: 580px) {
+      .card-hint .hint-pc { display: none; }
+      .card-hint .hint-mobile { display: inline; }
+    }
+
     @media (max-width: 600px) {
-      .slide { padding: 40px 20px 32px; }
-      .plan-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; }
-      .season-grid { grid-template-columns: 1fr; }
-      .annual-price-grid { grid-template-columns: 1fr; }
-      .toc-list { grid-template-columns: 1fr; }
-      h1 { font-size: 32px; }
-      h2 { font-size: 28px; }
-      p, li { font-size: 17px; }
+      .card-hint { font-size: 12px; padding: 12px 16px; margin: 0 16px 24px; max-width: none; }
     }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--white);
+      border: 1px solid #e5e5e5;
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--ink-light);
+    }
+
+    .tab-btn:hover { border-color: var(--ink-faint); }
+
+    .tab-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .tabs-nav {
+        position: sticky;
+        top: 56px;
+        z-index: 100;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        margin: 0 -24px 20px;
+        border-bottom: 1px solid #eee;
+      }
+      .tabs-nav::-webkit-scrollbar { display: none; }
+      .tab-btn { flex: 0 0 auto; padding: 10px 18px; font-size: 12px; }
+    }
+
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes highlight-flash {
+      0% { box-shadow: 0 0 0 0 rgba(212, 112, 122, 0.7); }
+      70% { box-shadow: 0 0 0 20px rgba(212, 112, 122, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(212, 112, 122, 0); }
+    }
+
+    .target-highlight { animation: highlight-flash 1.5s ease-out forwards; z-index: 5; }
+
+    /* Products Grid - Masonry Layout */
+    .products-grid {
+      column-count: 3;
+      column-gap: 20px;
+    }
+
+    .products-grid .item-card {
+      break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 900px) { 
+      .products-grid { column-count: 2; } 
+    }
+    @media (max-width: 580px) { .products-grid { grid-template-columns: 1fr; } }
+
+    /* Card */
+    .item-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .item-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Basic Plan - Special Card */
+    .item-card.basic-plan {
+      border: 2px solid var(--accent);
+      position: relative;
+      background: linear-gradient(180deg, #fffbfc 0%, #fff 100%);
+    }
+
+    .item-card.basic-plan::before {
+      content: 'PICK UP';
+      position: absolute;
+      top: -1px;
+      left: 20px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 6px 14px;
+      letter-spacing: 0.1em;
+      z-index: 20;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .item-card.basic-plan .che-comment-box {
+      background: linear-gradient(135deg, #fff5f6 0%, #fff 100%);
+      border-left: 4px solid var(--accent);
+    }
+
+    /* Plan Badge */
+    .plan-badge {
+      position: absolute;
+      top: 10px;
+      right: 50px;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      z-index: 15;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-badge.basic { background: #9e9e9e; color: #fff; }
+    .plan-badge.standard { background: #2196F3; color: #fff; }
+    .plan-badge.gold { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #333; }
+    .plan-badge.platinum { background: linear-gradient(135deg, #E5E4E2 0%, #A9A9A9 100%); color: #333; }
+
+    /* Mobile Compact View */
+    @media (max-width: 580px) {
+      .products-grid {
+        column-count: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .products-grid .item-card {
+        break-inside: unset;
+        margin-bottom: 0;
+      }
+
+      .item-card {
+        flex-direction: row;
+        align-items: stretch;
+        border-radius: 12px;
+        min-height: 120px;
+      }
+
+      .item-card.basic-plan::before {
+        left: auto;
+        right: 12px;
+        top: -1px;
+      }
+
+      .item-card .item-thumb {
+        width: 110px;
+        min-width: 110px;
+        aspect-ratio: unset;
+        height: auto;
+        border-bottom: none;
+        border-right: 1px solid #f0f0f0;
+        border-radius: 12px 0 0 12px;
+      }
+
+      .item-card .item-thumb img {
+        padding: 10px;
+      }
+
+      .item-card .video-overlay { display: none; }
+      .item-card .media-indicators { display: none; }
+
+      .item-card .btn-like-float {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        top: 6px;
+        right: 6px;
+      }
+
+      .item-card .item-label {
+        font-size: 8px;
+        padding: 2px 6px;
+        top: 6px;
+        left: 6px;
+      }
+
+      .item-card .item-content {
+        padding: 12px;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .item-card .item-name {
+        font-size: 13px;
+        margin-bottom: 4px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .item-card .item-price-row {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+      }
+
+      .item-card .item-price {
+        font-size: 15px;
+      }
+
+      .item-card .price-label {
+        font-size: 9px;
+      }
+
+      /* Hide long content in compact mode */
+      .item-card .che-section { display: none; }
+      .item-card .monitor-preview { display: none; }
+      .item-card .column-preview { display: none; }
+      .item-card .voice-preview-section { display: none; }
+
+      /* Compact footer */
+      .item-card .card-footer {
+        gap: 6px;
+      }
+
+      .item-card .btn-main {
+        padding: 10px;
+        font-size: 11px;
+      }
+
+      .item-card .btn-badge {
+        font-size: 8px;
+        padding: 1px 5px;
+      }
+
+      .item-card .btn-share {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      /* Expanded card state */
+      .item-card.expanded {
+        flex-direction: column;
+      }
+
+      .item-card.expanded .item-thumb {
+        width: 100%;
+        aspect-ratio: 16/10;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .item-card.expanded .item-thumb img {
+        padding: 20px;
+      }
+
+      .item-card.expanded .che-section { display: block; }
+      .item-card.expanded .monitor-preview { display: flex; }
+      .item-card.expanded .column-preview { display: flex; }
+      .item-card.expanded .voice-preview-section { display: block; }
+      .item-card.expanded .video-overlay { display: flex; }
+      .item-card.expanded .media-indicators { display: flex; }
+
+      .item-card.expanded .item-content {
+        padding: 16px;
+      }
+
+      .item-card.expanded .item-name {
+        font-size: 16px;
+        -webkit-line-clamp: unset;
+      }
+
+      .item-card.expanded .item-price {
+        font-size: 18px;
+      }
+
+      /* Expand toggle button */
+      .expand-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        padding: 10px;
+        background: #f8f8f8;
+        border: none;
+        font-size: 11px;
+        color: var(--ink-muted);
+        cursor: pointer;
+        border-top: 1px solid #eee;
+        border-radius: 0 0 12px 12px;
+      }
+
+      .item-card:not(.expanded) .expand-toggle {
+        border-radius: 0 0 12px 0;
+      }
+
+      .expand-toggle i {
+        transition: transform 0.3s;
+      }
+
+      .item-card.expanded .expand-toggle i {
+        transform: rotate(180deg);
+      }
+
+      .item-card.expanded .expand-toggle span::after {
+        content: '閉じる';
+      }
+
+      .item-card:not(.expanded) .expand-toggle span::after {
+        content: '詳しく見る';
+      }
+    }
+
+    .item-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: #fff;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      transition: transform 0.4s;
+    }
+
+    .item-card:hover .item-thumb img { transform: scale(1.05); }
+
+    .item-thumb-video .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-play-btn {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .video-play-btn i { font-size: 20px; color: var(--accent); margin-left: 4px; }
+    .video-label { margin-top: 10px; font-size: 12px; font-weight: 600; color: #fff; }
+
+    .btn-like-float {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      color: #ccc;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+
+    .btn-like-float:hover { transform: scale(1.1); }
+    .btn-like-float.active { color: var(--accent); }
+
+    .item-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .item-label.type-deal { background: #c4956a; }
+    .item-label.type-exclusive { background: var(--blue); }
+    .item-label.type-hot { background: #e74c3c; }
+
+    .media-indicators {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 4px;
+    }
+
+    .media-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .item-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .item-content-inner {
+      flex: 1;
+    }
+
+    .item-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .item-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .item-price { font-size: 18px; font-weight: 800; color: var(--ink); }
+
+    .price-label {
+      font-size: 10px;
+      padding: 2px 6px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    .che-section { margin-bottom: 20px; }
+
+    .che-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .che-face {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .che-name { font-size: 11px; font-weight: 700; color: var(--ink); }
+
+    .che-comment-box {
+      background: var(--accent-soft);
+      padding: 14px;
+      border-radius: 0 12px 12px 12px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .che-text {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .che-text.full-text {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .che-text strong { color: var(--accent); }
+
+    .monitor-preview {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #f8f9fa;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .monitor-preview::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* Column Preview for Premium Plan */
+    .column-preview {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      background: linear-gradient(135deg, #f8f6f4 0%, #fff 100%);
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .column-preview:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(212, 112, 122, 0.1);
+    }
+
+    .column-preview-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent) 0%, #e8919a 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .column-preview-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .column-preview-label {
+      font-size: 10px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .column-preview-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .column-preview-arrow {
+      color: var(--ink-faint);
+      font-size: 14px;
+    }
+
+    .monitor-avatars { display: flex; }
+
+    .monitor-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: #fff;
+      margin-right: -8px;
+      border: 2px solid #fff;
+    }
+
+    .monitor-count {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .monitor-arrow { font-size: 11px; color: var(--accent); }
+
+    /* Voice Preview for Premium Plan */
+    .voice-preview-section {
+      margin-bottom: 16px;
+    }
+
+    .voice-preview-header {
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .voice-preview-header i {
+      color: var(--accent);
+    }
+
+    .voice-preview-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .voice-preview-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .voice-preview-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .voice-preview-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .voice-preview-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .voice-preview-attr {
+      font-size: 10px;
+      color: var(--ink-muted);
+    }
+
+    .voice-preview-text {
+      font-size: 12px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    /* Original URL Link */
+    .original-url-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-bottom: 10px;
+    }
+
+    .original-url-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .original-url-link i {
+      font-size: 12px;
+    }
+
+    .btn-main {
+      flex: 1;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--ink);
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    .btn-main:hover { background: #333; transform: translateY(-2px); }
+
+    .btn-badge {
+      font-size: 9px;
+      background: rgba(255,255,255,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .btn-share {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Expand toggle - hidden on PC */
+    .expand-toggle {
+      display: none;
+    }
+
+    /* === Sakura Calendar === */
+    .sakura-section {
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .sakura-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .sakura-header { margin-bottom: 32px; }
+
+    .sakura-header .label {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-size: 10px;
+      padding: 5px 12px;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    .sakura-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .sakura-header h2 span { color: var(--accent); }
+
+    .sakura-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid #eee;
+      background: #fff;
+    }
+
+    .sakura-city {
+      padding: 24px 16px;
+      text-align: center;
+      border-right: 1px solid #eee;
+      position: relative;
+    }
+
+    .sakura-city:last-child { border-right: none; }
+
+    .sakura-city.active {
+      background: linear-gradient(180deg, #FFF8F9 0%, #fff 100%);
+    }
+
+    .sakura-city.active::before {
+      content: 'BEST';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      padding: 2px 6px;
+    }
+
+    .sakura-city .name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .sakura-city .bloom-label { font-size: 10px; color: var(--ink-muted); }
+    .sakura-city .bloom-date { font-size: 20px; font-weight: 700; color: var(--accent); }
+    .sakura-city .full { font-size: 12px; color: var(--ink-muted); margin-top: 6px; }
+    .sakura-city .full strong { color: var(--ink); }
+
+    .sakura-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sakura-source { font-size: 11px; color: var(--ink-muted); }
+    .sakura-source a { color: var(--ink-muted); }
+
+    .sakura-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8f8f8;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--ink-light);
+    }
+
+    .sakura-tip strong { color: var(--ink); }
+
+    @media (max-width: 768px) {
+      .sakura-grid { grid-template-columns: repeat(2, 1fr); }
+      .sakura-city:nth-child(2), .sakura-city:nth-child(4) { border-right: none; }
+      .sakura-city:nth-child(5) { grid-column: span 2; }
+    }
+
+    /* === Store Guide === */
+    .store-guide {
+      padding: 50px 24px;
+      background: var(--paper-warm);
+    }
+
+    .store-guide-inner { max-width: 1000px; margin: 0 auto; }
+
+    .store-guide-header { text-align: center; margin-bottom: 24px; }
+
+    .store-guide-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .store-guide-header p { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+
+    .store-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .store-tab {
+      background: var(--white);
+      border: 1px solid #e5e5e5;
+      padding: 8px 16px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--ink-light);
+      border-radius: 20px;
+    }
+
+    .store-tab:hover { border-color: var(--ink-faint); }
+
+    .store-tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    .store-panel {
+      display: none;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .store-panel.active { display: block; animation: fadeIn 0.4s ease forwards; }
+
+    .store-panel-img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .store-panel-content { padding: 20px 24px 24px; }
+
+    .store-panel-content h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .store-panel-content > p {
+      font-size: 13px;
+      color: var(--ink-light);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .store-features {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    .store-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    .store-features li:last-child { border-bottom: none; }
+    .store-features li i { color: var(--accent); font-size: 11px; }
+
+    .store-coupon {
+      margin-top: 16px;
+      border: 2px dashed var(--accent);
+      background: linear-gradient(135deg, #fff9f9 0%, #fff 100%);
+      padding: 14px;
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .coupon-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .coupon-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .coupon-discount {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .coupon-discount span { font-size: 12px; font-weight: 500; }
+
+    .coupon-detail {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .coupon-code-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 10px 14px;
+    }
+
+    .coupon-code-label { font-size: 10px; color: var(--ink-muted); }
+
+    .coupon-code {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.1em;
+      flex: 1;
+    }
+
+    .coupon-copy-btn {
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .coupon-copy-btn:hover { background: #000; }
+
+    .coupon-note { font-size: 10px; color: var(--ink-muted); margin-top: 10px; }
+
+    .che-store-tip {
+      background: var(--paper-warm);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      border-radius: 8px;
+      margin-top: 14px;
+    }
+
+    .che-store-tip img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .che-store-tip-content { flex: 1; }
+    .che-store-tip-content strong { display: block; font-size: 10px; color: var(--accent); margin-bottom: 2px; }
+    .che-store-tip-content p { font-size: 12px; color: var(--ink-light); line-height: 1.6; }
+
+    /* === Outro === */
+    .outro-section {
+      padding: 80px 24px;
+      background: var(--white);
+    }
+
+    .outro-inner { max-width: 900px; margin: 0 auto; }
+
+    .related-articles { margin-bottom: 60px; }
+
+    .related-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .related-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .related-header p { font-size: 13px; color: var(--ink-muted); }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .article-card {
+      background: var(--paper-warm);
+      overflow: hidden;
+      text-decoration: none;
+      transition: box-shadow 0.3s;
+    }
+
+    .article-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+    .article-img {
+      height: 140px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .article-category {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 10px;
+      font-size: 10px;
+    }
+
+    .article-body { padding: 16px; }
+
+    .article-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .article-meta { font-size: 11px; color: var(--ink-muted); }
+
+    @media (max-width: 700px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+
+    .outro-cta {
+      text-align: center;
+      padding: 40px;
+      background: var(--paper-warm);
+    }
+
+    .outro-greeting {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .outro-text {
+      font-size: 13px;
+      color: var(--ink-light);
+      margin-bottom: 20px;
+    }
+
+    .outro-follow { margin-top: 24px; }
+    .follow-label { font-size: 12px; color: var(--ink-muted); margin-bottom: 12px; }
+
+    .follow-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .follow-buttons a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+
+    .follow-buttons a:first-child { background: #1877F2; }
+    .follow-buttons a:last-child { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+    .follow-buttons a:hover { transform: translateY(-2px); }
+
+    /* === Sticky Bar === */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #eee;
+      padding: 12px 20px;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0));
+    }
+
+    .sticky-bar.visible { transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .sticky-bar { transform: translateY(0); }
+    }
+
+    .sticky-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sticky-info { flex: 1; }
+
+    .sticky-count {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sticky-count i { color: var(--accent); }
+    .sticky-hint { font-size: 11px; color: var(--ink-muted); }
+
+    .sticky-btn {
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* === Footer === */
+    .footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 50px 24px 30px;
+    }
+
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-collab {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-collab img {
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-collab > span { opacity: 0.4; }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.4;
+    }
+
+    /* === PC Modal === */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .detail-modal {
+      background: var(--white);
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      border-radius: 16px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--ink-light);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .modal-visual {
+      position: relative;
+      background: #fff;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .modal-visual.has-video {
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .modal-visual iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .modal-product-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    .modal-body { padding: 24px; }
+
+    .modal-product-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .modal-product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .modal-tei-voice {
+      background: var(--paper-warm);
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    .tei-voice-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tei-voice-head img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .tei-voice-meta { flex: 1; }
+    .tei-voice-name { font-size: 12px; font-weight: 700; color: var(--ink); }
+    .tei-voice-title { font-size: 10px; color: var(--ink-muted); }
+
+    .tei-voice-text {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.8;
+    }
+
+    .tei-voice-text strong { color: var(--accent); }
+
+    /* User Voices */
+    .modal-voices {
+      margin-bottom: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .modal-voices-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .modal-voices-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-voices-label::before {
+      content: '💬';
+      font-size: 18px;
+    }
+
+    .modal-voices-count {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .modal-voices-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .modal-voice-card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+
+    .modal-voice-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .modal-voice-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .modal-voice-info { flex: 1; }
+    .modal-voice-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .modal-voice-attr { font-size: 11px; color: var(--ink-muted); }
+
+    .modal-voice-text {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .modal-voice-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed #e5e5e5;
+    }
+
+    .modal-voice-date {
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    .sns-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: linear-gradient(135deg, #E1306C 0%, #F77737 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .sns-link-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .modal-official-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .modal-official-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .modal-line-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 20px;
+      background: #06C755;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .modal-line-btn:hover {
+      background: #05b34c;
+      transform: translateY(-2px);
+    }
+
+    .modal-heart-btn {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      font-size: 20px;
+      color: #ccc;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .modal-heart-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .modal-heart-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .modal-heart-btn.active i {
+      font-weight: 900;
+    }
+
+    .modal-add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--ink-faint);
+      color: var(--ink);
+      padding: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .modal-add-btn.added {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .modal-cta {
+      display: block;
+      width: 100%;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    /* === Mobile Bottom Sheet === */
+    .bottomsheet-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1001;
+    }
+
+    @media (max-width: 768px) {
+      .bottomsheet-overlay.is-open { display: block; }
+    }
+
+    .bottomsheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-radius: 16px 16px 0 0;
+      max-height: 92vh;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+      z-index: 1002;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .bottomsheet-overlay.is-open .bottomsheet {
+      transform: translateY(0);
+    }
+
+    .bs-handle {
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bs-handle-bar {
+      width: 36px;
+      height: 4px;
+      background: #ddd;
+      border-radius: 2px;
+    }
+
+    .bs-product-visual {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      overflow: hidden;
+    }
+
+    .bs-product-visual.has-video {
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .bs-product-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+    }
+
+    .bs-product-visual iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .bs-product-info-bar {
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .bs-product-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .bs-product-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .bs-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .bs-tei-voice {
+      background: var(--paper-warm);
+      padding: 14px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+    }
+
+    .bs-voices {
+      margin-bottom: 16px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .bs-voices-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .bs-voices-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bs-voices-label::before {
+      content: '💬';
+      font-size: 16px;
+    }
+
+    .bs-voices-count {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .bs-voice-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+
+    .bs-voice-card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    .bs-voice-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .bs-voice-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .bs-voice-info { flex: 1; }
+    .bs-voice-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .bs-voice-attr { font-size: 10px; color: var(--ink-muted); }
+
+    .bs-voice-text {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .bs-voice-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px dashed #e5e5e5;
+    }
+
+    .bs-voice-date {
+      font-size: 10px;
+      color: var(--ink-muted);
+    }
+
+    .bs-sns-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      background: linear-gradient(135deg, #E1306C 0%, #F77737 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 16px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .bs-column-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: #f5f4f2;
+      text-decoration: none;
+      margin-bottom: 16px;
+      border-radius: 10px;
+    }
+
+    .bs-column-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-light);
+      border-radius: 8px;
+    }
+
+    .bs-column-text { flex: 1; }
+    .bs-column-label { font-size: 10px; color: var(--ink-muted); }
+    .bs-column-title { font-size: 13px; color: var(--ink); font-weight: 500; }
+    .bs-column-arrow { color: var(--ink-faint); }
+
+    .bs-actions {
+      display: flex;
+      gap: 10px;
+      padding: 16px 20px;
+      border-top: 1px solid #f0f0f0;
+      background: var(--white);
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+    }
+
+    .bs-official-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .bs-line-btn {
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #06C755;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .bs-heart-btn {
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      font-size: 20px;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .bs-heart-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .bs-action {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 8px;
+    }
+
+    .bs-action.primary { background: var(--ink); color: #fff; }
+    .bs-action.primary.is-active { background: var(--accent); }
+    .bs-action.secondary { background: #f5f5f5; color: var(--ink); }
+
+    /* List Modal */
+    .list-modal {
+      background: var(--white);
+      max-width: 400px;
+      width: 100%;
+      max-height: 80vh;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .list-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .list-header h3 { font-size: 15px; font-weight: 600; color: var(--ink); }
+
+    .list-items {
+      padding: 16px 24px;
+      max-height: 50vh;
+      overflow-y: auto;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #f8f8f8;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    .list-item-img { width: 48px; height: 48px; object-fit: cover; }
+    .list-item-info { flex: 1; }
+    .list-item-info h4 { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .list-item-info p { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+    .list-item-remove {
+      background: none;
+      border: none;
+      color: var(--ink-muted);
+      cursor: pointer;
+    }
+
+    .list-empty {
+      text-align: center;
+      padding: 40px;
+      color: var(--ink-muted);
+    }
+
+    .list-empty i { font-size: 32px; margin-bottom: 12px; color: var(--ink-faint); display: block; }
+
+    .list-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+    }
+
+    .share-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 8px;
+    }
+
+    .share-btn.line { background: #06C755; color: white; }
+    .share-btn.copy { background: #f0f0f0; color: var(--ink); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: white;
+      padding: 14px 24px;
+      font-size: 13px;
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+      border-radius: 8px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast i { color: #6fcf97; margin-right: 8px; }
   </style>
 </head>
 <body>
 
-<div class="logo-fixed">
-  <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/GLD_type02_white_1178_785-2-1.png" alt="GLOBAL DAILY">
-</div>
-
-<div class="slides">
-
-  <!-- Slide 1: 타이틀 -->
-  <section class="slide slide--title">
-    <div class="slide-number">01 / 10</div>
-    <div class="slide-inner">
-      <div class="title-logo-group">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/02/JAPANKURU_RGB-1.png" alt="JAPANKURU">
-        <span class="logo-x">×</span>
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室">
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="collab-logo">
+        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+        <span class="collab-x">×</span>
+        <div class="partner-logo">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
+          <span class="partner-name">日本藥妝研究室</span>
+        </div>
       </div>
-      <div class="tag">2026 SPRING SPECIAL LANDING PAGE</div>
-      <div class="brand-line">JAPANKURU × 日本藥妝研究室</div>
-      <h1>「鄭先生のおすすめ 2026春」<br>商品カードタイアップ企画のご提案</h1>
-      <p style="font-size: 26px;">
-        2026年春の特設ランディングページに、<br>
-        貴施設・貴ブランドの商品を「おすすめカード」として組み込み、<br>
-        訪日台湾人旅行者に向けて<strong class="em-sakura">信頼性の高いレコメンド</strong>を行うプランです。
+      <span class="header-season">2026 SPRING</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-text-area">
+        <div class="hero-tag-group">
+          <span class="hero-tag tag-season">2026 SPRING</span>
+          <span class="hero-tag tag-target">台湾からの旅行者へ</span>
+        </div>
+        <h1>
+          「日本で何を買えばいい？」<br>
+          その質問に、<br>
+          <span class="hl-text">14年かけて答えます。</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          台湾から日本に来るたびに、友人に聞かれるんです。<br>
+          「ねえ、今回は何がおすすめ？」って。<br class="pc-only">
+          だから私は、<em>本当にいいもの</em>だけを選び続けてきました。
+        </p>
+        
+        <div class="hero-story-box">
+          <p class="story-lead">
+            ドラッグストアを回り続けて14年。<br>
+            新商品が出るたびに自分で試して、<br>
+            「これは台湾の友人に教えたい」と思ったものだけを紹介しています。
+          </p>
+          <div class="story-books">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2018-日本藥妝美研購4-JAPANCOSMEGOBEAUTY4S_page-0001-scaled.jpg" alt="著書2">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2020-日本藥妝美研購6-20200621034608124765.webp" alt="著書3">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2023-日本藥妝美研購7-20221216040749386921.webp" alt="著書4">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2025-日本藥妝美研購9-.jpg" alt="著書5">
+          </div>
+        </div>
+        
+        <button class="hero-cta-btn" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">
+          2026年春のおすすめを見る
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="hero-visual-area">
+        <div class="tei-wrapper">
+          <div class="tei-speech">
+            <p class="speech-text">
+              「台湾より安いもの、<br>
+              日本でしか買えないもの。<br>
+              <em>両方教えますね。</em>」
+            </p>
+          </div>
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/BDSC04292-3-2-拷贝-scaled.png" alt="鄭世彬" class="tei-photo">
+          <div class="tei-name-tag">
+            <p class="name-jp">鄭 世彬</p>
+            <p class="name-role">日本藥妝研究室</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Banner -->
+  <section class="split-banner-section">
+    <span class="sakura-float left">❀</span>
+    <span class="sakura-float right">❀</span>
+
+    <div class="split-header">
+      <span class="split-eyebrow">Special Feature 2026 Spring</span>
+      <h2 class="split-title">「なぜ、この3つなのか」<br>鄭先生が明かす、選定の理由</h2>
+      <p class="split-subtitle">
+        14年の研究で数千の製品を試してきた専門家が、<br>
+        2026年春、台湾の皆さんに「これだけは」と勧める3つのアイテム。
       </p>
     </div>
+
+    <div class="split-container">
+      <div class="split-panel" onclick="scrollToProduct(1)">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
+        <div class="split-logo"><span class="split-logo-text">Kao</span></div>
+        <div class="split-content">
+          <span class="split-num">01</span>
+          <span class="split-brand">Bioré The Cleanse</span>
+          <h3 class="split-headline">擦らない革命。<br>「瞬浮技術」が常識を変えた。</h3>
+          <p class="split-desc">2023年、花王が美容界に投じた革命。塗るだけでメイクが浮き上がり、水で流すだけ。</p>
+          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+        </div>
+      </div>
+
+      <div class="split-panel" onclick="scrollToProduct(2)">
+        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
+        <div class="split-logo"><span class="split-logo-text">Yunth</span></div>
+        <div class="split-content">
+          <span class="split-num">02</span>
+          <span class="split-brand">生VC美白美容液</span>
+          <h3 class="split-headline">30秒の鮮度。<br>酸化と戦う、新しい美白。</h3>
+          <p class="split-desc">水を一滴も使わない純度100%のビタミンC。個包装が守る、開封から30秒の黄金時間。</p>
+          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+        </div>
+      </div>
+
+      <div class="split-panel" onclick="scrollToProduct(3)">
+        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
+        <div class="split-logo"><span class="split-logo-text">石澤研究所</span></div>
+        <div class="split-content">
+          <span class="split-num">03</span>
+          <span class="split-brand">紫外線予報 UVスティック</span>
+          <h3 class="split-headline">手を汚さない、新習慣。<br>家族で使える優しさ。</h3>
+          <p class="split-desc">発売直後、購入制限がかかった話題作。スティックタイプの革新と、子供にも使える処方。</p>
+          <span class="split-btn">商品を見る <i class="fas fa-arrow-down"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-footer">
+      <a href="#" class="split-cta">特集記事を読む <i class="fas fa-arrow-right"></i></a>
+    </div>
   </section>
 
-  <!-- Slide 2: 목차 -->
-  <section class="slide slide--toc">
-    <div class="slide-number">02 / 10</div>
-    <div class="slide-inner">
-      <h2>目次 ─ CONTENTS</h2>
-      <div class="toc-list">
-        <div class="toc-item">
-          <span class="toc-num">01</span>
-          <span class="toc-text">企画コンセプト</span>
+  <!-- Featured Carousel -->
+  <section class="featured-section">
+    <div class="featured-header">
+      <span class="featured-eyebrow">Trending Now</span>
+      <h2 class="featured-title">今、話題のアイテム</h2>
+      <p class="featured-subtitle">SNSで注目度急上昇中のアイテムをピックアップ。</p>
+    </div>
+
+    <div class="featured-carousel">
+      <article class="featured-card" onclick="scrollToProduct(4)">
+        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag">ロングセラー</span>
+          <h3 class="featured-card-title">パブロンエース<br>Pro-X</h3>
+          <p class="featured-card-copy">30年以上愛される<br>日本の国民的風邪薬</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">02</span>
-          <span class="toc-text">LP構成と掲載位置</span>
+      </article>
+
+      <article class="featured-card" onclick="scrollToProduct(7)">
+        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag">お土産人気</span>
+          <h3 class="featured-card-title">コラーゲンC<br>ゼリー</h3>
+          <p class="featured-card-copy">個包装で配りやすい<br>美味しく続ける美容習慣</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">03</span>
-          <span class="toc-text">集客保証について</span>
+      </article>
+
+      <article class="featured-card" onclick="scrollToProduct(10)">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-inner">
+          <span class="featured-card-tag">台湾より安い</span>
+          <h3 class="featured-card-title">MONDAMIN<br>PREMIUM CARE</h3>
+          <p class="featured-card-copy">家族で使える大容量<br>ゴールドミントの爽快感</p>
+          <span class="featured-card-btn">詳しく見る <i class="fas fa-chevron-down"></i></span>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">04</span>
-          <span class="toc-text">4プラン一覧</span>
+      </article>
+    </div>
+
+    <div class="scroll-hint">
+      <span>スワイプでもっと見る</span>
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  </section>
+
+  <!-- Section Transition -->
+  <div class="section-transition">
+    <p>まだまだあります、私のおすすめ ──</p>
+  </div>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="section-header">
+      <h2>カテゴリー別おすすめ</h2>
+      <p>目的に合わせて、ぴったりの商品を見つけよう</p>
+    </div>
+
+    <div class="card-hint">
+      <i class="fas fa-hand-pointer"></i>
+      <span class="hint-pc">カードをタップすると<strong>体験レビュー</strong>が見られます</span>
+      <span class="hint-mobile">カードをタップして<strong>詳細を展開</strong></span>
+    </div>
+
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="cosme">コスメ・美容</button>
+      <button class="tab-btn" data-tab="medicine">医薬品</button>
+      <button class="tab-btn" data-tab="health">健康食品</button>
+      <button class="tab-btn" data-tab="daily">日用品</button>
+    </div>
+
+    <div id="tabContents"></div>
+  </section>
+
+  <!-- Sakura Calendar -->
+  <section class="sakura-section">
+    <div class="sakura-inner">
+      <div class="sakura-header">
+        <span class="label">SAKURA 2026</span>
+        <h2>日本 <span>桜</span>開花予想</h2>
+      </div>
+
+      <div class="sakura-grid">
+        <div class="sakura-city">
+          <div class="name">福岡</div>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">3/20</p>
+          <p class="full">満開 <strong>3/28</strong></p>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">05</span>
-          <span class="toc-text">プラン比較表</span>
+        <div class="sakura-city active">
+          <div class="name">東京</div>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">3/24</p>
+          <p class="full">満開 <strong>4/1</strong></p>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">06</span>
-          <span class="toc-text">契約形態・年間プラン</span>
+        <div class="sakura-city">
+          <div class="name">大阪</div>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">3/27</p>
+          <p class="full">満開 <strong>4/3</strong></p>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">07</span>
-          <span class="toc-text">想定スケジュール</span>
+        <div class="sakura-city">
+          <div class="name">京都</div>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">3/28</p>
+          <p class="full">満開 <strong>4/5</strong></p>
         </div>
-        <div class="toc-item">
-          <span class="toc-num">08</span>
-          <span class="toc-text">お問い合わせ</span>
+        <div class="sakura-city">
+          <div class="name">札幌</div>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">4/25</p>
+          <p class="full">満開 <strong>5/2</strong></p>
+        </div>
+      </div>
+
+      <div class="sakura-footer">
+        <p class="sakura-source">出典：<a href="#">ウェザーニュース</a> 2024年平年値より予測</p>
+        <div class="sakura-tip">
+          <i class="fas fa-lightbulb"></i>
+          おすすめは<strong>3/25〜4/5</strong>！花粉対策も忘れずに
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Slide 3: 기획 컨셉 -->
-  <section class="slide slide--concept">
-    <div class="slide-number">03 / 10</div>
-    <div class="slide-inner">
-      <h2>企画コンセプト</h2>
-      <div class="two-cols">
-        <div>
-          <h3>ターゲット</h3>
-          <p>
-            ・2026年春（桜シーズン）に日本を訪れる<br>
-            　台湾／華語圏の個人旅行者・女子旅・家族連れ<br>
-            ・日本のドラッグストア・コスメ・医薬品情報に敏感な層
-          </p>
-          <h3>クリエイティブの特徴</h3>
-          <ul>
-            <li>ページ全体で「鄭先生の厳選リスト」という世界観を統一</li>
-            <li>1商品ごとに「商品カード」を設置し、<br>　レビューや使用者の声を集約</li>
-            <li>スマホファーストのUIで、滞在中・移動中の閲覧に最適化</li>
-            <li><strong class="em-accent">各カードに専用URL + QRコード</strong>付き</li>
-          </ul>
+  <!-- Store Guide -->
+  <section class="store-guide">
+    <div class="store-guide-inner">
+      <div class="store-guide-header">
+        <h2>購入場所ガイド</h2>
+        <p>お得なクーポンも忘れずにチェック！</p>
+      </div>
+
+      <div class="store-tabs">
+        <button class="store-tab active" data-store="donki">ドン・キホーテ</button>
+        <button class="store-tab" data-store="drugstore">ドラッグストア</button>
+        <button class="store-tab" data-store="electronics">家電量販店</button>
+      </div>
+
+      <div class="store-panels">
+        <div class="store-panel active" id="store-donki">
+          <div class="store-panel-img" style="background-image: url('https://img.japankuru.com/prg_img/img/img2023011708564754722300.jpg');"></div>
+          <div class="store-panel-content">
+            <h3>ドン・キホーテ</h3>
+            <p>深夜まで営業。免税対応・外国人クーポンあり。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> 限定版のお菓子・日用品が豊富</li>
+              <li><i class="fas fa-check"></i> 格安の医薬品・化粧品</li>
+              <li><i class="fas fa-check"></i> 免税対応・外国人クーポンあり</li>
+            </ul>
+            
+            <div class="store-coupon">
+              <div class="coupon-header">
+                <span class="coupon-badge">外国人限定</span>
+                <span class="coupon-discount">5<span>%OFF</span></span>
+              </div>
+              <p class="coupon-detail">免税手続き時に提示で、税抜価格からさらに5%割引！</p>
+              <div class="coupon-code-area">
+                <span class="coupon-code-label">クーポンコード</span>
+                <span class="coupon-code">DONKI2026TW</span>
+                <button class="coupon-copy-btn" onclick="copyCode('DONKI2026TW')">コピー</button>
+              </div>
+              <p class="coupon-note">※一部対象外商品あり。他クーポンとの併用不可。</p>
+            </div>
+
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong>鄭先生のコツ</strong>
+                <p>アプリクーポンで追加割引！免税カウンターでまとめて手続きすると楽ですよ。</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3>キーパーソン：日本薬粧研究家・鄭世彬</h3>
-          <p>
-            ・日本のコスメ・OTC医薬品を<strong>14年間</strong>研究<br>
-            ・累計<strong>18冊</strong>の関連書籍を出版<br>
-            ・SNSやメディアでの発信を通じて、<br>
-            　台湾の消費者から<strong class="em-sakura">「日本ドラッグストア買い物の先生」</strong>として認知
-          </p>
-          <p>
-            その「先生」が実際におすすめする形で、<br>
-            貴施設・貴ブランドの商品を紹介することにより、<br>
-            一般的な広告よりも<strong class="em-accent">高い説得力・購入意向</strong>が期待できます。
-          </p>
+
+        <div class="store-panel" id="store-drugstore">
+          <div class="store-panel-img" style="background-image: url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=800');"></div>
+          <div class="store-panel-content">
+            <h3>ドラッグストア</h3>
+            <p>日本限定処方の化粧品・医薬品が充実。</p>
+            <ul class="store-features">
+              <li><i class="fas fa-check"></i> 日本限定処方の化粧品</li>
+              <li><i class="fas fa-check"></i> 日本国内専用の医薬品</li>
+              <li><i class="fas fa-check"></i> ポイントカード特典あり</li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong>鄭先生のコツ</strong>
+                <p>同じ商品でも店舗によって価格が違うことも。時間があれば比較してみてください！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="store-panel" id="store-electronics">
+          <div class="store-panel-img" style="background-image: url('https://likes.lifepepper.com/wp-content/uploads/2025/04/7110948%E5%AE%87%E9%83%BD%E5%AE%AE%E6%9C%AC%E5%BA%97-%E5%A4%96%E8%A6%B3-1.jpg');"></div>
+          <div class="store-panel-content">
+            <h3>KOJIMA × BicCamera</h3>
+            <p>コジマ×ビックカメラ 753特別クーポン</p>
+            <ul class="store-features">
+              <li><i class="fas fa-camera"></i> カメラ・時計・家電 → <strong style="color:var(--accent);">免税10% + 7%OFF</strong></li>
+              <li><i class="fas fa-pills"></i> 医薬品・化粧品 → <strong style="color:var(--accent);">免税10% + 5%OFF</strong></li>
+            </ul>
+            <div class="che-store-tip">
+              <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+              <div class="che-store-tip-content">
+                <strong>鄭先生のコツ</strong>
+                <p>高額商品ほどお得！カメラやApple製品を買うなら絶対にクーポンを使いましょう。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Slide 4: LP 구성 -->
-  <section class="slide slide--outline">
-    <div class="slide-number">04 / 10</div>
-    <div class="slide-inner">
-      <h2>LP構成と掲載位置</h2>
-      <p>プランによって、LP内での掲載位置・見せ方が異なります。</p>
-      <div class="two-cols">
-        <div>
-          <div class="lp-structure">
-            <div class="lp-tier lp-tier--platinum">
-              <span class="lp-tier-label lp-tier-label--platinum">PLATINUM</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">TOP3 特別バナー</div>
-                <div class="lp-tier-desc">「鄭先生が選ぶTOP3」として3分割バナーに掲載</div>
-              </div>
-              <div class="lp-tier-price">
-                <span class="lp-tier-price-old">120万</span>90万円
-              </div>
-            </div>
-            <div class="lp-tier lp-tier--gold">
-              <span class="lp-tier-label lp-tier-label--gold">GOLD</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">「今、話題のアイテム」カルーセル</div>
-                <div class="lp-tier-desc">注目度急上昇のアイテムとしてバナー形式で紹介</div>
-              </div>
-              <div class="lp-tier-price">
-                <span class="lp-tier-price-old">80万</span>60万円
-              </div>
-            </div>
-            <div class="lp-tier">
-              <span class="lp-tier-label lp-tier-label--standard">STANDARD</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">商品カード＋コラム</div>
-                <div class="lp-tier-desc">モニター5名＋詳細記事への導線</div>
-              </div>
-              <div class="lp-tier-price">
-                <span class="lp-tier-price-old">60万</span>45万円
-              </div>
-            </div>
-            <div class="lp-tier">
-              <span class="lp-tier-label lp-tier-label--basic">BASIC</span>
-              <div class="lp-tier-content">
-                <div class="lp-tier-title">商品カード＋鄭先生コメント300字</div>
-                <div class="lp-tier-desc">モニター5名＋コラムなしでシンプルに訴求</div>
-              </div>
-              <div class="lp-tier-price">
-                <span class="lp-tier-price-old">40万</span>30万円
-              </div>
-            </div>
-          </div>
+  <!-- Outro -->
+  <section class="outro-section">
+    <div class="outro-inner">
+      <div class="related-articles">
+        <div class="related-header">
+          <h2>もっと読みたい？</h2>
+          <p>JAPANKURUのおすすめ記事</p>
         </div>
-        <div>
-          <h3>各プランの掲載イメージ</h3>
-          <ul>
-            <li><strong class="em-platinum">Platinum</strong>：ページ最上部の3分割バナーに掲載。<br>
-              　ホバーで拡大表示。動画・POP・テーマ特集参加権付き。</li>
-            <li><strong class="em-gold">Gold</strong>：TOP3直下の「今、話題のアイテム」セクションに<br>
-              　マガジン風カードで掲載。</li>
-            <li><strong class="em-accent">Standard</strong>：商品カード＋コラム＋モニター5名。<br>
-              　詳細を知りたいユーザーに深く訴求。</li>
-            <li><strong class="em-sakura">Basic</strong>：鄭先生コメント300字で深く訴求。<br>
-              　モニター5名付き。コラムなしでシンプルに。</li>
-          </ul>
-          <p class="note">
-            ※すべてのプランで、LP全体の集客保証（5万PV＋100万リーチ）が適用されます。<br>
-            ※全プラン<strong>専用URL + QRコード</strong>付き
-          </p>
+        <div class="articles-grid">
+          <a href="#" class="article-card">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600');"></div>
+            <span class="article-category">ホテル</span>
+            <div class="article-body">
+              <h3 class="article-title">東京の人気ホテル10選</h3>
+              <p class="article-meta">5分で読める</p>
+            </div>
+          </a>
+          <a href="#" class="article-card">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600');"></div>
+            <span class="article-category">グルメ</span>
+            <div class="article-body">
+              <h3 class="article-title">絶対食べたい！日本グルメBEST15</h3>
+              <p class="article-meta">7分で読める</p>
+            </div>
+          </a>
+          <a href="#" class="article-card">
+            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');"></div>
+            <span class="article-category">観光</span>
+            <div class="article-body">
+              <h3 class="article-title">桜シーズンのインスタ映えスポット</h3>
+              <p class="article-meta">6分で読める</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="outro-cta">
+        <p class="outro-greeting">日本でのお買い物、楽しんでいただけましたか？</p>
+        <p class="outro-text">次回は「夏号」でお届け予定。お楽しみに！ ── 鄭世彬</p>
+        <div class="outro-follow">
+          <p class="follow-label">次号のお知らせを受け取る</p>
+          <div class="follow-buttons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Slide 5: 집객 보증 -->
-  <section class="slide slide--impact">
-    <div class="slide-number">05 / 10</div>
-    <div class="slide-inner">
-      <div class="impact-tag">GUARANTEED TRAFFIC</div>
-      <h2>本LPの「集客保証」について（全プラン共通）</h2>
-      <p class="impact-lead">
-        本タイアップLPの最大の価値は、<strong class="em-accent">掲載して終わりの純広告ではなく、<br>
-        事前に設定した集客KPIを保証する点</strong>にあります。
-      </p>
-      <div class="impact-main">
-        <div class="impact-stat">
-          <div class="impact-num">50,000<span>PV</span></div>
-          <div class="impact-label">特設LP全体のページビュー保証</div>
-          <div class="impact-sub">訪日前後の台湾人ユーザーを中心とした流入</div>
+  <!-- Sticky Bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-inner">
+      <div class="sticky-info">
+        <div class="sticky-count"><i class="fas fa-heart"></i> <span id="listCount">0</span>件をリストに追加中</div>
+        <div class="sticky-hint">タップしてリストを確認</div>
+      </div>
+      <button class="sticky-btn" onclick="openListModal()">
+        <i class="fas fa-list-check"></i> リストを見る
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-collab">
+          <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+          <span>×</span>
+          <span>日本藥妝研究室</span>
         </div>
-        <div class="impact-stat">
-          <div class="impact-num impact-num--green">1,000,000<span>リーチ</span></div>
-          <div class="impact-label">SNS＋広告を含む総リーチ</div>
-          <div class="impact-sub">JAPANKURU・鄭先生アカウント・配信広告等の合計</div>
+        <div class="footer-links">
+          <a href="#">日本藥妝研究室 Facebook</a>
+          <a href="#">JAPANKURU台湾</a>
+          <a href="#">Instagram</a>
         </div>
       </div>
-      <ul class="impact-note-list">
-        <li>上記<strong>「5万PV＋100万リーチ」</strong>は、全プラン共通の前提条件です。</li>
-        <li>LPは公開後も削除しない限り残るため、<strong>保証値を超えた中長期的なオーガニック流入</strong>も期待できます。</li>
-        <li><strong class="em-accent">専用URL + QRコード</strong>で店頭POP・パッケージ・名刺等に活用可能</li>
-      </ul>
+      <div class="footer-bottom">© 2026 JAPANKURU × JapanCosmeLab</div>
     </div>
-  </section>
+  </footer>
 
-  <!-- Slide 6: 4프란 일람 -->
-  <section class="slide slide--plan">
-    <div class="slide-number">06 / 10</div>
-    <div class="slide-inner">
-      <h2>4プラン一覧</h2>
-      <p>目的・ご予算にあわせて、最適なプランをお選びいただけます。</p>
-      <div class="plan-grid">
-        <!-- Basic -->
-        <div class="plan-card plan-card--basic">
-          <div>
-            <div class="plan-name">Basic</div>
-            <div class="plan-tagline">鄭先生コメント300字<br>コラムなしでも深く訴求</div>
-            <div class="price">
-              <span class="price-old">40万</span>300,000円<span>（税別）</span>
+  <!-- PC Detail Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="detail-modal">
+      <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-visual" id="modalVisual">
+        <img src="" alt="" class="modal-product-img" id="modalImg">
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-product-name" id="modalName">商品名</h2>
+        <div class="modal-product-price" id="modalPrice">¥0</div>
+        
+        <div class="modal-tei-voice">
+          <div class="tei-voice-head">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+            <div class="tei-voice-meta">
+              <p class="tei-voice-name">鄭世彬</p>
+              <p class="tei-voice-title">日本薬粧研究家</p>
             </div>
           </div>
-          <ul class="plan-list">
-            <li>商品カード掲載（1商品）</li>
-            <li>鄭先生コメント：<strong class="em-sakura">300字（最長）</strong></li>
-            <li>モニター施策：<strong>5名</strong><br>
-              <small>└ 体験レビュー＋本人SNS発信</small></li>
-            <li>専用URL + QRコード付き</li>
-            <li>SNSシェア：鄭先生・JAPANKURU各1回</li>
-          </ul>
-          <p class="note">コラムなしで鄭先生の言葉だけで勝負</p>
+          <p class="tei-voice-text" id="modalTip"></p>
         </div>
-        <!-- Standard -->
-        <div class="plan-card plan-card--standard">
-          <div>
-            <div class="plan-name">Standard</div>
-            <div class="plan-tagline">＋コラム記事2,000字<br>深く訴求したい商品に</div>
-            <div class="price">
-              <span class="price-old">60万</span>450,000円<span>（税別）</span>
-            </div>
+
+        <div class="modal-voices" id="modalVoices">
+          <div class="modal-voices-header">
+            <span class="modal-voices-label">モニター体験レビュー</span>
+            <span class="modal-voices-count" id="modalVoiceCount">0件</span>
           </div>
-          <ul class="plan-list">
-            <li>商品カード掲載（1商品）</li>
-            <li>鄭先生コメント：100字</li>
-            <li>モニター施策：<strong>5名</strong><br>
-              <small>└ 体験レビュー＋本人SNS発信</small></li>
-            <li><strong class="strong">コラム：約2,000字</strong><br>
-              <small>└ 鄭先生撮影写真2〜3点＋素材</small></li>
-            <li>専用URL + QRコード付き</li>
-            <li>SNSシェア：鄭先生・JAPANKURU各1回</li>
-          </ul>
-          <p class="note">コラムで商品の魅力を深堀り</p>
+          <div class="modal-voices-list" id="modalVoiceList"></div>
         </div>
-        <!-- Gold -->
-        <div class="plan-card plan-card--gold">
-          <span class="plan-badge plan-badge--gold">人気</span>
-          <div>
-            <div class="plan-name">Gold</div>
-            <div class="plan-tagline">＋「話題のアイテム」<br>カルーセル掲載</div>
-            <div class="price">
-              <span class="price-old">80万</span>600,000円<span>（税別）</span>
-            </div>
-          </div>
-          <ul class="plan-list">
-            <li>商品カード掲載（1商品）</li>
-            <li>鄭先生コメント：100字</li>
-            <li>モニター施策：<strong>5名</strong><br>
-              <small>└ 体験レビュー＋本人SNS発信</small></li>
-            <li>コラム：約2,000字</li>
-            <li><strong class="highlight">「今、話題のアイテム」</strong><br>カルーセルに掲載</li>
-            <li>店頭POP：1種</li>
-            <li>専用URL + QRコード付き</li>
-            <li>SNSシェア：鄭先生・JAPANKURU各1回</li>
-          </ul>
-          <p class="note">話題性を重視するブランドに</p>
+
+        <div class="modal-actions">
+          <a href="#" class="modal-official-btn" id="modalOfficialBtn" target="_blank">
+            <i class="fas fa-external-link-alt"></i> 公式サイト
+          </a>
+          <button class="modal-line-btn" onclick="shareToLineProduct()">
+            <i class="fab fa-line"></i> LINEで送る
+          </button>
+          <button class="modal-heart-btn" id="modalHeartBtn" onclick="toggleListFromModal()">
+            <i class="far fa-heart"></i>
+          </button>
         </div>
-        <!-- Platinum -->
-        <div class="plan-card plan-card--platinum">
-          <span class="plan-badge plan-badge--platinum">最上位</span>
-          <div>
-            <div class="plan-name">Platinum</div>
-            <div class="plan-tagline">＋TOP3バナー<br>＋動画＋POP</div>
-            <div class="price">
-              <span class="price-old">120万</span>900,000円<span>（税別）</span>
-            </div>
-          </div>
-          <ul class="plan-list">
-            <li><strong class="em-platinum">TOP3特別バナー</strong>に掲載<br>（3社限定）</li>
-            <li>鄭先生コメント：100字</li>
-            <li>モニター施策：<strong class="em-platinum">10名</strong><br>
-              <small>└ 体験レビュー＋本人SNS発信</small></li>
-            <li>コラム：約<strong>3,000字</strong></li>
-            <li><strong class="em-platinum">鄭先生の体験動画</strong>（60秒）</li>
-            <li>店頭POP：2種</li>
-            <li>専用URL + QRコード付き</li>
-            <li>SNSシェア：鄭先生・JAPANKURU各1回</li>
-          </ul>
-          <div class="plan-bonus">
-            <div class="plan-bonus-title">+ Platinum特典</div>
-            <p>「鄭先生のテーマ特集」（3社合同）への参加権。</p>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: 24px; padding: 18px 22px; background: rgba(255,211,126,0.1); border: 1px solid rgba(255,211,126,0.4); border-radius: 10px;">
-        <p style="font-size: 18px; margin-bottom: 0;">
-          <strong style="color: #ffd37e;">[ OPTION ]</strong>　動画制作：<strong style="color: #ffd37e;">+20万円</strong>（Basic〜Goldプラン対象）
-        </p>
+        <a href="#" class="modal-cta" id="modalCta" target="_blank" style="display:none;">コラムを読む →</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Slide 7: 비교표 -->
-  <section class="slide slide--compare">
-    <div class="slide-number">07 / 10</div>
-    <div class="slide-inner">
-      <h2>4プラン比較</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>項目</th>
-            <th>Basic</th>
-            <th>Standard</th>
-            <th class="th-gold">Gold</th>
-            <th class="th-platinum">Platinum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>商品カード掲載<br><small>専用URL + QRコード付き</small></td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-            <td class="yes">●</td>
-          </tr>
-          <tr>
-            <td>鄭先生コメント</td>
-            <td class="strong">300字</td>
-            <td>100字</td>
-            <td>100字</td>
-            <td>100字</td>
-          </tr>
-          <tr>
-            <td>モニター施策<br><small>体験レビュー＋本人SNS発信</small></td>
-            <td class="yes">5名</td>
-            <td class="yes">5名</td>
-            <td class="yes">5名</td>
-            <td class="strong">10名</td>
-          </tr>
-          <tr>
-            <td>コラム</td>
-            <td>–</td>
-            <td class="strong">約2,000字</td>
-            <td class="strong">約2,000字</td>
-            <td class="strong">約3,000字</td>
-          </tr>
-          <tr>
-            <td>「今、話題」カルーセル</td>
-            <td>–</td>
-            <td>–</td>
-            <td class="highlight">●</td>
-            <td>–</td>
-          </tr>
-          <tr>
-            <td>TOP3 特別バナー<br><small>3社限定</small></td>
-            <td>–</td>
-            <td>–</td>
-            <td>–</td>
-            <td class="yes">●</td>
-          </tr>
-          <tr>
-            <td>動画（60秒）</td>
-            <td>–</td>
-            <td>–</td>
-            <td>–</td>
-            <td class="yes">●</td>
-          </tr>
-          <tr>
-            <td>店頭POP</td>
-            <td>–</td>
-            <td>–</td>
-            <td>1種</td>
-            <td class="em-platinum">2種</td>
-          </tr>
-          <tr>
-            <td>SNSシェア<br><small>鄭先生＋JAPANKURU繁体字</small></td>
-            <td class="yes">各1回</td>
-            <td class="yes">各1回</td>
-            <td class="yes">各1回</td>
-            <td class="yes">各1回</td>
-          </tr>
-          <tr>
-            <td><strong>料金（税別）</strong></td>
-            <td><strong>30万円</strong></td>
-            <td><strong>45万円</strong></td>
-            <td class="highlight"><strong>60万円</strong></td>
-            <td class="em-platinum"><strong>90万円</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Slide 8: 계약형태 + 연간 메리트 -->
-  <section class="slide slide--contract">
-    <div class="slide-number">08 / 10</div>
-    <div class="slide-inner">
-      <h2>契約形態・年間プラン</h2>
-      <div class="contract-grid">
-        <div class="contract-card contract-card--recommended">
-          <div class="contract-title">年間契約</div>
-          <div class="contract-subtitle">4シーズン継続掲載・20〜25%割引</div>
-          <ul class="contract-list">
-            <li><strong class="em-gold">年間20〜25%割引</strong>で継続掲載</li>
-            <li>シーズンごとに<strong>商品ラインナップを更新</strong>可能</li>
-            <li><strong class="em-sakura">商品カード +1点 無料追加</strong></li>
-            <li>毎シーズン<strong>SNS広告100万リーチ配信</strong></li>
-            <li>常に<strong class="em-sakura">NEWバッジ</strong>が表示される</li>
-            <li>同じURLに<strong>1年間トラフィック蓄積</strong></li>
-          </ul>
-        </div>
-        <div class="contract-card">
-          <div class="contract-title">単一シーズン契約</div>
-          <div class="contract-subtitle">トライアル・お試しに</div>
-          <ul class="contract-list">
-            <li>まずは1シーズンからお試し</li>
-            <li>掲載期間は該当シーズン（約3ヶ月）</li>
-            <li>シーズン終了後も<strong>掲載は継続</strong></li>
-            <li>ただし、NEWバッジは非表示に</li>
-            <li>広告配信は初回シーズンのみ</li>
-          </ul>
-        </div>
+  <!-- List Modal -->
+  <div class="modal-overlay" id="listModal">
+    <div class="list-modal">
+      <div class="list-header">
+        <h3><i class="fas fa-heart" style="color: var(--accent);"></i> マイリスト</h3>
+        <button class="modal-close" onclick="closeListModal()" style="position:static;"><i class="fas fa-times"></i></button>
       </div>
-
-      <!-- 연간 메리트 강조 -->
-      <div class="annual-merit-box">
-        <div class="annual-merit-title">年間契約なら、同じURLに1年間トラフィックを送り続けます</div>
-        <div class="annual-merit-grid">
-          <div class="annual-merit-item">
-            <div class="annual-merit-num">400<span>万+</span></div>
-            <div class="annual-merit-label">年間累計リーチ<br><small>毎シーズン100万リーチ × 4回</small></div>
-          </div>
-          <div class="annual-merit-item">
-            <div class="annual-merit-num">+1<span>点</span></div>
-            <div class="annual-merit-label">サブ商品カード無料<br><small>年間契約限定特典</small></div>
-          </div>
-          <div class="annual-merit-item">
-            <div class="annual-merit-num">365<span>日</span></div>
-            <div class="annual-merit-label">QRコードが活きる<br><small>店頭POP・パッケージに印刷OK</small></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 시즌 그리드 -->
-      <div class="season-grid">
-        <div class="season-card" style="background: linear-gradient(135deg, rgba(255,183,197,0.15), transparent); border-color: rgba(255,183,197,0.4);">
-          <div class="num" style="color: #ffb7c5;">01</div>
-          <div class="period">春（3〜5月）</div>
-          <div class="theme">桜・花粉・UV対策</div>
-        </div>
-        <div class="season-card" style="background: linear-gradient(135deg, rgba(100,200,255,0.15), transparent); border-color: rgba(100,200,255,0.4);">
-          <div class="num" style="color: #64c8ff;">02</div>
-          <div class="period">夏（6〜8月）</div>
-          <div class="theme">夏バテ・虫除け・日焼け</div>
-        </div>
-        <div class="season-card" style="background: linear-gradient(135deg, rgba(255,180,100,0.15), transparent); border-color: rgba(255,180,100,0.4);">
-          <div class="num" style="color: #ffb464;">03</div>
-          <div class="period">秋（9〜11月）</div>
-          <div class="theme">乾燥対策・保湿</div>
-        </div>
-        <div class="season-card" style="background: linear-gradient(135deg, rgba(200,220,255,0.15), transparent); border-color: rgba(200,220,255,0.4);">
-          <div class="num" style="color: #c8dcff;">04</div>
-          <div class="period">冬（12〜2月）</div>
-          <div class="theme">風邪対策・温活・ギフト</div>
-        </div>
+      <div class="list-items" id="listItems"></div>
+      <div class="list-footer" id="listFooter" style="display: none;">
+        <button class="share-btn line" onclick="shareToLine()"><i class="fab fa-line"></i> LINE</button>
+        <button class="share-btn copy" onclick="copyUrl()"><i class="fas fa-link"></i> URLコピー</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Slide 9: 스케줄 & 문의 -->
-  <section class="slide slide--flow">
-    <div class="slide-number">09 / 10</div>
-    <div class="slide-inner">
-      <h2>想定スケジュール</h2>
-      <p>2026年春シーズン（3〜5月）に向けて、以下のような流れを想定しています。</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">STEP 1</div>
-          <div class="step-title">企画・お打ち合わせ</div>
-          <div class="step-body">
-            ・目的・ターゲットの確認<br>
-            ・希望プラン／商品候補の選定<br>
-            ・契約形態（年間/単一）の決定
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">STEP 2</div>
-          <div class="step-title">商品・素材のご提供</div>
-          <div class="step-body">
-            ・商品現物のご送付<br>
-            ・パッケージ画像・ロゴデータ<br>
-            ・既存のコピー・キーメッセージ等
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">STEP 3</div>
-          <div class="step-title">原稿・デザイン制作</div>
-          <div class="step-body">
-            ・鄭先生コメント執筆<br>
-            ・使用者の声の収集・編集<br>
-            ・コラム／動画／POP制作
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">STEP 4</div>
-          <div class="step-title">ご確認〜公開</div>
-          <div class="step-body">
-            ・原稿・デザインのご確認<br>
-            ・修正対応<br>
-            ・特設LPでの公開／SNS告知
-          </div>
-        </div>
-      </div>
-      <div class="contact-box" style="margin-top: 40px;">
-        <h3 style="margin-bottom: 18px; font-size: 26px;">お問い合わせ・ご相談</h3>
-        <p>「どのプランが適切か」「複数商品をまとめて掲載したい」など、お気軽にご相談ください。</p>
-        <p class="note" style="margin-top: 18px;">
-          具体的なメニュー・見積もりは、個別にご提示いたします。<br>
-          <strong>GLOBAL DAILY 担当大坂</strong>までご連絡ください。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slide 10: 연간 가격표 -->
-  <section class="slide slide--annual">
-    <div class="slide-number">10 / 10</div>
-    <div class="slide-inner">
-      <div class="impact-tag" style="border-color: rgba(255,215,0,0.6); color: #ffd700;">ANNUAL PLAN PRICING</div>
-      <h2>年間プラン料金表</h2>
-      <p>年間契約で<strong class="em-gold">20〜25%割引</strong>。Platinumは<strong class="em-platinum">25%OFF</strong>となります。</p>
+  <!-- Mobile Bottom Sheet -->
+  <div class="bottomsheet-overlay" id="bsOverlay" onclick="closeBottomSheet()">
+    <div class="bottomsheet" onclick="event.stopPropagation()">
+      <div class="bs-handle"><div class="bs-handle-bar"></div></div>
       
-      <div class="annual-price-grid">
-        <div class="annual-price-card">
-          <div class="tier">BASIC</div>
-          <div class="single-price">単発 30万×4 = 120万</div>
-          <div class="annual-price">96<span style="font-size:20px;">万円</span></div>
-          <div class="discount">20% OFF</div>
+      <div class="bs-product-visual" id="bsVisual">
+        <img src="" alt="" id="bsImg">
+      </div>
+
+      <div class="bs-product-info-bar">
+        <h3 class="bs-product-name" id="bsName">商品名</h3>
+        <p class="bs-product-price" id="bsPrice">¥0</p>
+      </div>
+
+      <div class="bs-content">
+        <div class="bs-tei-voice">
+          <div class="tei-voice-head">
+            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg" alt="鄭先生">
+            <div class="tei-voice-meta">
+              <p class="tei-voice-name">鄭世彬</p>
+              <p class="tei-voice-title">日本薬粧研究家</p>
+            </div>
+          </div>
+          <p class="tei-voice-text" id="bsTip"></p>
         </div>
-        <div class="annual-price-card">
-          <div class="tier">STANDARD</div>
-          <div class="single-price">単発 45万×4 = 180万</div>
-          <div class="annual-price">144<span style="font-size:20px;">万円</span></div>
-          <div class="discount">20% OFF</div>
-        </div>
-        <div class="annual-price-card">
-          <div class="tier">GOLD</div>
-          <div class="single-price">単発 60万×4 = 240万</div>
-          <div class="annual-price">192<span style="font-size:20px;">万円</span></div>
-          <div class="discount">20% OFF</div>
-        </div>
-        <div class="annual-price-card annual-price-card--platinum">
-          <div class="tier">PLATINUM</div>
-          <div class="single-price">単発 90万×4 = 360万</div>
-          <div class="annual-price">270<span style="font-size:20px;">万円</span></div>
-          <div class="discount">25% OFF</div>
+
+        <a href="#" class="bs-column-link" id="bsColumn" style="display:none;">
+          <div class="bs-column-icon"><i class="fas fa-book-open"></i></div>
+          <div class="bs-column-text">
+            <p class="bs-column-label">関連コラム</p>
+            <p class="bs-column-title" id="bsColumnTitle">コラムタイトル</p>
+          </div>
+          <span class="bs-column-arrow">→</span>
+        </a>
+
+        <div class="bs-voices" id="bsVoices">
+          <div class="bs-voices-header">
+            <span class="bs-voices-label">モニター体験レビュー</span>
+            <span class="bs-voices-count" id="bsVoiceCount">0件</span>
+          </div>
+          <div class="bs-voice-list" id="bsVoiceList"></div>
         </div>
       </div>
 
-      <div style="margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px;">
-        <div style="padding: 24px; background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.3); border-radius: 12px;">
-          <h4 style="font-size: 20px; color: #ffd700; margin-bottom: 14px;">年間契約のメリット</h4>
-          <ul style="font-size: 17px;">
-            <li>毎シーズン<strong>100万リーチ</strong>広告配信</li>
-            <li><strong class="em-sakura">商品カード +1点</strong>無料追加</li>
-            <li>シーズンごとに商品入替OK</li>
-            <li>同じURLに1年間トラフィック蓄積</li>
-          </ul>
-        </div>
-        <div style="padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px;">
-          <h4 style="font-size: 20px; margin-bottom: 14px;">広告配信スケジュール</h4>
-          <p style="font-size: 17px; line-height: 1.9; opacity: 0.9;">
-            <strong style="color: #ffb7c5;">単発契約</strong><br>
-            初回シーズンのみ：5万PV + 100万リーチ<br><br>
-            <strong style="color: #a8e6cf;">年間契約</strong><br>
-            毎シーズン：SNS広告100万リーチ
-          </p>
-        </div>
+      <div class="bs-actions">
+        <a href="#" class="bs-official-btn" id="bsOfficialBtn" target="_blank">
+          <i class="fas fa-external-link-alt"></i> 公式サイト
+        </a>
+        <button class="bs-line-btn" onclick="shareToLineFromBS()">
+          <i class="fab fa-line"></i>
+        </button>
+        <button class="bs-heart-btn" id="bsHeartBtn" onclick="toggleListFromBottomSheet()">
+          <i class="far fa-heart"></i>
+        </button>
       </div>
-
-      <p class="note" style="margin-top: 28px; text-align: center;">
-        © 2026 JAPANKURU × 日本藥妝研究室 / GLOBAL DAILY
-      </p>
     </div>
-  </section>
+  </div>
 
-</div>
+  <!-- Toast -->
+  <div class="toast" id="toast"><i class="fas fa-check"></i> <span id="toastText"></span></div>
 
-<div class="nav-hint">スクロールして次のスライドへ ▶︎</div>
+  <script>
+    const chePhoto = 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/07/450201440_25790834523893691_8746826967770698278_n.jpg';
 
+    function isMobile() { return window.innerWidth <= 768; }
+
+    let currentModalId = null;
+    let currentBsId = null;
+
+    // Sakura animation
+    function createSakuraPetals() {
+      const hero = document.getElementById('hero');
+      for (let i = 0; i < 20; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'sakura-petal';
+        petal.style.left = Math.random() * 100 + '%';
+        petal.style.animationDuration = (Math.random() * 6 + 10) + 's';
+        petal.style.animationDelay = (Math.random() * 15) + 's';
+        hero.appendChild(petal);
+      }
+    }
+    createSakuraPetals();
+
+    // Scroll effects
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      const stickyBar = document.getElementById('stickyBar');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        stickyBar.classList.add('visible');
+      } else {
+        header.classList.remove('scrolled');
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    // Product Data
+    const tabData = {
+      cosme: {
+        title: 'コスメ・美容',
+        products: [
+          { 
+            id: 1, 
+            name: 'Bioré The CLEANSE オイルメイク落とし', 
+            brand: '花王',
+            price: 350, 
+            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp', 
+            label: 'type-deal', 
+            labelText: '台湾より安い',
+            plan: 'basic',
+            originalUrl: 'https://www.kao.co.jp/biore/lineup/cleanse/',
+            tip: '<strong>台湾より30%以上安い！</strong>花王が2023年に発売した革命的クレンジングオイル。独自の「瞬浮技術」により、肌を擦らずにメイクを浮かせて落とします。ウォータープルーフマスカラも、頑固なアイライナーも、わずか数秒でスルッと溶け出す感覚は、一度使うと手放せなくなります。オイルなのにベタつかず、洗い上がりはさっぱり。マツエクをしている方も安心して使え、W洗顔不要なので時短にもなります。私は毎日愛用していますが、肌への負担が少なく、毛穴の黒ずみも気にならなくなりました。台湾で同じ製品を買うと500元以上しますが、日本では350円前後。この価格差を知ってしまうと、日本で買わない理由がありません。',
+            tipFull: '<strong>台湾より30%以上安い！</strong>花王が2023年に発売した革命的クレンジングオイル。独自の「瞬浮技術」により、肌を擦らずにメイクを浮かせて落とします。ウォータープルーフマスカラも、頑固なアイライナーも、わずか数秒でスルッと溶け出す感覚は、一度使うと手放せなくなります。オイルなのにベタつかず、洗い上がりはさっぱり。マツエクをしている方も安心して使え、W洗顔不要なので時短にもなります。私は毎日愛用していますが、肌への負担が少なく、毛穴の黒ずみも気にならなくなりました。台湾で同じ製品を買うと500元以上しますが、日本では350円前後。この価格差を知ってしまうと、日本で買わない理由がありません。',
+            column: null, 
+            hasVideo: false,
+            voices: [
+              { initial: 'M', name: 'Mei', attr: '20代・混合肌', text: '本当に擦らなくてもメイクが落ちる！目元のアイライナーもスルッと。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/example1/' },
+              { initial: 'Y', name: 'Yuki', attr: '30代・乾燥肌', text: '台湾で買うより断然安い！まとめ買いしました。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/example2/' },
+              { initial: 'L', name: 'Lin', attr: '20代・OL', text: 'マツエクしてても使えるのが嬉しい。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/example3/' },
+              { initial: 'S', name: 'Saki', attr: '40代・主婦', text: '家族みんなで使ってます。コスパ良すぎ！', date: '2024.09', color: '#009688', snsUrl: 'https://www.instagram.com/p/example4/' },
+              { initial: 'A', name: 'Amy', attr: '20代・学生', text: '友達に勧められて買ったけど大正解。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/example5/' }
+            ],
+            voiceCount: 5
+          },
+          { 
+            id: 2, 
+            name: 'Yunth 生VC美白美容液', 
+            brand: 'Yunth',
+            price: 3960, 
+            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png', 
+            label: 'type-exclusive', 
+            labelText: '日本限定',
+            plan: 'platinum',
+            originalUrl: 'https://yunth.jp/products/vc-serum',
+            tip: '純度100%生ビタミンC。個包装で酸化を防ぎ、開封30秒の鮮度で届ける日本限定美容液。',
+            tipFull: '日本限定＆SNSで大バズり中の美白美容液。水を一滴も使わない純度100%のビタミンCを、個包装で酸化から守ります。',
+            column: 'https://japankuru.com/yunth', 
+            hasVideo: true,
+            videoId: 'dQw4w9WgXcQ',
+            voices: [
+              { initial: 'L', name: 'Lisa', attr: '20代・混合肌', text: '個包装だから酸化しなくて良い！毎朝使ってます。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/yunth1/' },
+              { initial: 'M', name: 'Miki', attr: '30代・敏感肌', text: '敏感肌でもピリピリしなかった。透明感が出てきた気がする。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/yunth2/' },
+              { initial: 'Y', name: 'Yuna', attr: '20代', text: '友達へのお土産に買いました。喜んでくれた！', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/yunth3/' },
+              { initial: 'A', name: 'Amy', attr: '30代・乾燥肌', text: '朝使うと夕方まで肌がトーンアップしてる感じ。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/yunth4/' },
+              { initial: 'K', name: 'Kana', attr: '20代', text: 'シミが薄くなってきた気がする！リピ確定。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/yunth5/' },
+              { initial: 'R', name: 'Rina', attr: '30代・OL', text: '30秒で使い切るのが最初は焦ったけど慣れると気持ちいい。', date: '2024.07', color: '#795548', snsUrl: 'https://www.instagram.com/p/yunth6/' },
+              { initial: 'N', name: 'Nana', attr: '20代・学生', text: 'インスタで見て気になってた！実際使ったら本当に良かった。', date: '2024.06', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/yunth7/' },
+              { initial: 'H', name: 'Hana', attr: '40代', text: '年齢肌のくすみが気になってたけど、これを使い始めてから褒められることが増えました。', date: '2024.06', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/yunth8/' },
+              { initial: 'C', name: 'Chie', attr: '30代・主婦', text: '子育てで忙しくても個包装だから楽チン。', date: '2024.05', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/yunth9/' },
+              { initial: 'T', name: 'Tomo', attr: '20代', text: '彼氏にも勧めたら肌キレイになったって言われた！', date: '2024.05', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/yunth10/' }
+            ],
+            voiceCount: 10
+          },
+          { 
+            id: 3, 
+            name: '紫外線予報 さらさらUVスティック', 
+            brand: '石澤研究所',
+            price: 1870, 
+            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg', 
+            label: 'type-hot', 
+            labelText: '話題',
+            plan: 'platinum',
+            originalUrl: 'https://www.ishizawa-lab.co.jp/shigaisen/sarasara-uv-stick.html',
+            tip: '発売直後に購入制限がかかった話題作！手を汚さないスティックUV。子供もOKで家族で使える。',
+            tipFull: '台湾より安い＆2024年最も話題になった日焼け止め。発売直後、各店舗で購入制限がかかるほどの人気。',
+            column: 'https://japankuru.com/uv-stick', 
+            hasVideo: true,
+            videoId: 'dQw4w9WgXcQ',
+            voices: [
+              { initial: 'S', name: 'Saki', attr: '30代・主婦', text: '子供に塗るのが楽！暴れても大丈夫。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/uv1/' },
+              { initial: 'R', name: 'Rina', attr: '20代・OL', text: 'メイクの上から塗り直しできるのが最高。', date: '2024.11', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/uv2/' },
+              { initial: 'E', name: 'Emi', attr: '40代', text: 'ベタつかないから夏でも快適に使えた。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/uv3/' },
+              { initial: 'N', name: 'Nana', attr: '20代', text: 'コンパクトでポーチに入る！旅行に必須。', date: '2024.10', color: '#009688', snsUrl: 'https://www.instagram.com/p/uv4/' },
+              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌だけど荒れなかった。リピします。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' },
+              { initial: 'T', name: 'Tomo', attr: '20代', text: '塗った後サラサラで気持ちいい。', date: '2024.09', color: '#795548', snsUrl: 'https://www.instagram.com/p/uv6/' },
+              { initial: 'C', name: 'Chie', attr: '30代', text: '家族4人で使ってます。コスパ良い。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/uv7/' },
+              { initial: 'J', name: 'Jun', attr: '40代・男性', text: '男でも使いやすい。ゴルフの時に重宝。', date: '2024.08', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/uv8/' },
+              { initial: 'W', name: 'Waka', attr: '20代', text: 'インスタで見て買った。本当に良かった！', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/uv9/' },
+              { initial: 'F', name: 'Fumi', attr: '30代', text: '台湾で買うより全然安い。まとめ買いした。', date: '2024.07', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/uv10/' }
+            ],
+            voiceCount: 10
+          }
+        ]
+      },
+      medicine: {
+        title: '医薬品',
+        products: [
+          { 
+            id: 4, 
+            name: 'パブロンエース Pro-X', 
+            brand: '大正製薬',
+            price: 1518, 
+            image: 'https://placehold.co/400x250/f4f6f8/666?text=パブロン', 
+            label: 'type-exclusive', 
+            labelText: '日本限定',
+            plan: 'gold',
+            originalUrl: 'https://www.taisho.co.jp/pabron/',
+            tip: '<strong>日本限定のロングセラー風邪薬。</strong>家族で使える定番アイテム。',
+            tipFull: '<strong>日本限定のロングセラー風邪薬。</strong>家族で使える定番アイテム。日本の薬局でしか買えない処方です。',
+            column: 'https://japankuru.com/pabron', 
+            hasVideo: true,
+            videoId: 'dQw4w9WgXcQ',
+            voices: [
+              { initial: 'C', name: 'Chen', attr: '40代', text: '毎回日本に来るたびに買います。台湾では手に入らない。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/pab1/' },
+              { initial: 'W', name: 'Wang', attr: '30代', text: '家族全員で使える。効き目がしっかりしてる。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/pab2/' },
+              { initial: 'L', name: 'Lee', attr: '50代', text: '20年以上これ一筋。信頼できる。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/pab3/' },
+              { initial: 'H', name: 'Huang', attr: '30代', text: '子供用もあるのが嬉しい。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/pab4/' },
+              { initial: 'Z', name: 'Zhang', attr: '40代', text: '日本出張のたびにまとめ買い。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/pab5/' }
+            ],
+            voiceCount: 5
+          }
+        ]
+      },
+      health: {
+        title: '健康食品',
+        products: [
+          { 
+            id: 7, 
+            name: 'コラーゲンC ゼリー ピーチ味', 
+            brand: 'EARTH製薬',
+            price: 645, 
+            image: 'https://placehold.co/400x250/f0f4f0/666?text=コラーゲン', 
+            label: 'type-exclusive', 
+            labelText: '日本限定',
+            plan: 'standard',
+            originalUrl: 'https://www.earth.jp/products/collagen-c-jelly/',
+            tip: '<strong>日本限定＆お土産に最適なコラーゲンゼリー。</strong>ロングセラー商品。',
+            tipFull: '<strong>日本限定＆お土産に最適なコラーゲンゼリー。</strong>ロングセラー商品。桃味で美味しく続けられます。',
+            column: 'https://japankuru.com/collagen', 
+            hasVideo: false,
+            voices: [
+              { initial: 'A', name: 'Amy', attr: '30代', text: 'お土産で配りました。みんな美味しいって喜んでくれた！', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/col1/' },
+              { initial: 'J', name: 'Jenny', attr: '40代', text: '毎日食べてます。肌の調子が良くなった気がする。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/col2/' },
+              { initial: 'S', name: 'Sara', attr: '20代', text: 'ピーチ味が美味しい！続けやすい。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/col3/' },
+              { initial: 'M', name: 'Mary', attr: '50代', text: '半年続けて肌のハリが戻ってきた。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/col4/' },
+              { initial: 'K', name: 'Kate', attr: '30代', text: '値段もお手頃で続けやすい。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/col5/' }
+            ],
+            voiceCount: 5
+          }
+        ]
+      },
+      daily: {
+        title: '日用品',
+        products: [
+          { 
+            id: 10, 
+            name: 'MONDAMIN PREMIUM CARE', 
+            brand: 'EARTH製薬',
+            price: 275, 
+            image: 'https://placehold.co/400x250/f6f4f8/666?text=モンダミン', 
+            label: 'type-deal', 
+            labelText: '台湾より安い',
+            plan: 'basic',
+            originalUrl: 'https://www.earth.jp/mondahmin/',
+            tip: '<strong>台湾より安い＆ロングセラーのマウスウォッシュ。</strong>家族で使える大容量もあり。',
+            tipFull: '<strong>台湾より安い＆ロングセラーのマウスウォッシュ。</strong>家族で使える大容量もあり。ゴールドミント味でスッキリ。',
+            column: null, 
+            hasVideo: false,
+            voices: [
+              { initial: 'K', name: 'Kim', attr: '30代', text: '大容量がお得！家族みんなで使ってます。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/mon1/' },
+              { initial: 'L', name: 'Lee', attr: '40代', text: '毎回日本で買いだめしてます。台湾より断然安い。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/mon2/' },
+              { initial: 'P', name: 'Park', attr: '30代', text: '口臭が気にならなくなった。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/mon3/' },
+              { initial: 'C', name: 'Choi', attr: '50代', text: '歯医者さんにも勧められた。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/mon4/' },
+              { initial: 'Y', name: 'Yang', attr: '20代', text: 'ミント感が強すぎなくて好き。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/mon5/' }
+            ],
+            voiceCount: 5
+          }
+        ]
+      }
+    };
+
+    let myList = JSON.parse(localStorage.getItem('cheGuide2026') || '[]');
+    let currentTab = 'cosme';
+
+    function renderTabs() {
+      const container = document.getElementById('tabContents');
+      container.innerHTML = '';
+
+      Object.keys(tabData).forEach(function(key) {
+        const data = tabData[key];
+        const isActive = key === currentTab;
+        let productsHtml = data.products.map(function(p) { return renderProduct(p); }).join('');
+        container.innerHTML += '<div class="tab-content ' + (isActive ? 'active' : '') + '" id="tab-' + key + '"><div class="products-grid">' + productsHtml + '</div></div>';
+      });
+    }
+
+    function renderProduct(p) {
+      const isInList = myList.includes(p.id);
+      const isBasicPlan = !p.column;
+      let avatars = '';
+      if (p.voices) {
+        avatars = p.voices.slice(0, 5).map(function(v) { 
+          return '<span class="monitor-avatar" style="background-color:' + v.color + '">' + v.initial + '</span>';
+        }).join('');
+      }
+
+      const hasVideoClass = p.hasVideo ? 'item-thumb-video' : '';
+      const videoOverlay = p.hasVideo ? '<div class="video-overlay"><div class="video-play-btn"><i class="fas fa-play"></i></div><span class="video-label">動画で見る</span></div>' : '';
+      const basicPlanClass = isBasicPlan ? ' basic-plan' : '';
+
+      let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '">';
+      html += '<div class="item-thumb ' + hasVideoClass + '" onclick="openDetailModal(' + p.id + ')">';
+      html += '<img src="' + p.image + '" alt="' + p.name + '">';
+      if (p.label) html += '<span class="item-label ' + p.label + '">' + p.labelText + '</span>';
+      html += videoOverlay;
+      html += '<div class="media-indicators">';
+      if (p.hasVideo) html += '<span class="media-tag"><i class="fas fa-play"></i> 動画</span>';
+      if (p.column) html += '<span class="media-tag"><i class="fas fa-pen"></i> 記事</span>';
+      html += '</div>';
+      html += '<button class="btn-like-float ' + (isInList ? 'active' : '') + '" onclick="toggleList(' + p.id + ', event)"><i class="' + (isInList ? 'fas' : 'far') + ' fa-heart"></i></button>';
+      html += '</div>';
+      
+      html += '<div class="item-content" onclick="handleCardClick(' + p.id + ', event)">';
+      html += '<h3 class="item-name">' + p.name + '</h3>';
+      html += '<div class="item-price-row"><span class="item-price">¥' + p.price.toLocaleString() + '</span>';
+      if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
+      html += '</div>';
+
+      html += '<div class="che-section"><div class="che-header"><img src="' + chePhoto + '" class="che-face"><span class="che-name">鄭先生の推薦</span></div>';
+      html += '<div class="che-comment-box"><p class="che-text' + (isBasicPlan ? ' full-text' : '') + '">' + p.tip + '</p></div></div>';
+
+      // Column preview for premium plan (has column)
+      if (p.column) {
+        html += '<a href="' + p.column + '" class="column-preview" target="_blank" onclick="event.stopPropagation()">';
+        html += '<div class="column-preview-icon"><i class="fas fa-book-open"></i></div>';
+        html += '<div class="column-preview-content">';
+        html += '<p class="column-preview-label">詳しい解説コラム</p>';
+        html += '<p class="column-preview-title">「' + p.name + '」を徹底レビュー！使い方・効果・口コミまとめ</p>';
+        html += '</div>';
+        html += '<span class="column-preview-arrow"><i class="fas fa-chevron-right"></i></span>';
+        html += '</a>';
+
+        // Voice preview for premium plan - show 2 reviews
+        if (p.voices && p.voices.length > 0) {
+          html += '<div class="voice-preview-section">';
+          html += '<div class="voice-preview-header"><i class="fas fa-comment-dots"></i> モニターの声</div>';
+          p.voices.slice(0, 2).forEach(function(v) {
+            html += '<div class="voice-preview-card">';
+            html += '<div class="voice-preview-top">';
+            html += '<div class="voice-preview-avatar" style="background-color:' + v.color + '">' + v.initial + '</div>';
+            html += '<span class="voice-preview-name">' + v.name + '</span>';
+            html += '<span class="voice-preview-attr">' + v.attr + '</span>';
+            html += '</div>';
+            html += '<p class="voice-preview-text">' + v.text + '</p>';
+            html += '</div>';
+          });
+          html += '</div>';
+        }
+      }
+
+      if (p.voices && p.voices.length > 0) {
+        html += '<div class="monitor-preview"><div class="monitor-avatars">' + avatars + '</div>';
+        html += '<span class="monitor-count">体験レビュー ' + p.voiceCount + '件</span>';
+        html += '<i class="fas fa-chevron-right monitor-arrow"></i></div>';
+      }
+
+      // Original URL link - REMOVED from card, moved to modal
+      
+      html += '<div class="card-footer"><button class="btn-main" onclick="event.stopPropagation(); openDetailModal(' + p.id + ')"><span>詳細を見る</span></button></div>';
+      html += '</div>';
+      
+      html += '<button class="expand-toggle" onclick="toggleCardExpand(this, event)"><i class="fas fa-chevron-down"></i> <span></span></button>';
+      html += '</article>';
+
+      return html;
+    }
+
+    function shareItem(title) {
+      if (navigator.share) {
+        navigator.share({ title: title, url: location.href });
+      } else {
+        navigator.clipboard.writeText(location.href);
+        showToast('リンクをコピーしました！');
+      }
+    }
+
+    function toggleCardExpand(btn, event) {
+      event.stopPropagation();
+      const card = btn.closest('.item-card');
+      card.classList.toggle('expanded');
+    }
+
+    function handleCardClick(id, event) {
+      if (isMobile()) {
+        const card = event.currentTarget.closest('.item-card');
+        if (!card.classList.contains('expanded')) {
+          card.classList.add('expanded');
+          return;
+        }
+      }
+      openDetailModal(id);
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
+      document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(function(content) { content.classList.remove('active'); });
+      document.getElementById('tab-' + tab).classList.add('active');
+    }
+
+    function getAllProducts() {
+      let all = [];
+      Object.values(tabData).forEach(function(t) { all = all.concat(t.products); });
+      return all;
+    }
+
+    function scrollToProduct(id) {
+      let targetTab = 'cosme';
+      Object.keys(tabData).forEach(function(key) {
+        if (tabData[key].products.some(function(p) { return p.id === id; })) targetTab = key;
+      });
+      switchTab(targetTab);
+      setTimeout(function() {
+        const card = document.querySelector('.item-card[data-id="' + id + '"]');
+        if (card) {
+          const offset = 140;
+          window.scrollTo({ top: card.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+          card.classList.add('target-highlight');
+          setTimeout(function() { card.classList.remove('target-highlight'); }, 2000);
+        }
+      }, 100);
+    }
+
+    function openDetailModal(id) {
+      const all = getAllProducts();
+      const p = all.find(function(x) { return x.id === id; });
+      if (!p) return;
+      isMobile() ? openBottomSheet(p) : openPcModal(p);
+    }
+
+    function openPcModal(p) {
+      const modal = document.getElementById('detailModal');
+      const visual = document.getElementById('modalVisual');
+
+      if (p.hasVideo && p.videoId) {
+        visual.classList.add('has-video');
+        visual.innerHTML = '<iframe src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0" allowfullscreen></iframe>';
+      } else {
+        visual.classList.remove('has-video');
+        visual.innerHTML = '<img src="' + p.image + '" alt="' + p.name + '" class="modal-product-img">';
+      }
+
+      document.getElementById('modalName').textContent = p.name;
+      document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
+      document.getElementById('modalTip').innerHTML = p.tipFull || p.tip;
+
+      const voicesDiv = document.getElementById('modalVoices');
+      const voiceList = document.getElementById('modalVoiceList');
+
+      if (p.voices && p.voices.length > 0) {
+        voicesDiv.style.display = 'block';
+        document.getElementById('modalVoiceCount').textContent = p.voiceCount + '件';
+        voiceList.innerHTML = p.voices.map(function(v) {
+          return '<div class="modal-voice-card"><div class="modal-voice-top"><div class="modal-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="modal-voice-info"><p class="modal-voice-name">' + v.name + '</p><p class="modal-voice-attr">' + v.attr + '</p></div></div><p class="modal-voice-text">' + v.text + '</p><div class="modal-voice-footer"><span class="modal-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="sns-link-btn" onclick="event.stopPropagation()"><i class="fab fa-instagram"></i> 投稿を見る</a></div></div>';
+        }).join('');
+      } else {
+        voicesDiv.style.display = 'none';
+      }
+
+      const ctaBtn = document.getElementById('modalCta');
+      if (p.column) {
+        ctaBtn.href = p.column;
+        ctaBtn.style.display = 'block';
+      } else {
+        ctaBtn.style.display = 'none';
+      }
+
+      // Set official URL
+      const officialBtn = document.getElementById('modalOfficialBtn');
+      if (p.originalUrl) {
+        officialBtn.href = p.originalUrl;
+        officialBtn.style.display = 'flex';
+      } else {
+        officialBtn.style.display = 'none';
+      }
+
+      currentModalId = p.id;
+      updateModalHeartBtn();
+      modal.classList.add('active');
+    }
+
+    function openBottomSheet(p) {
+      const visual = document.getElementById('bsVisual');
+
+      if (p.hasVideo && p.videoId) {
+        visual.classList.add('has-video');
+        visual.innerHTML = '<iframe src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0&playsinline=1" allowfullscreen></iframe>';
+      } else {
+        visual.classList.remove('has-video');
+        visual.innerHTML = '<img src="' + p.image + '" alt="' + p.name + '">';
+      }
+
+      document.getElementById('bsName').textContent = p.name;
+      document.getElementById('bsPrice').textContent = '¥' + p.price.toLocaleString();
+      document.getElementById('bsTip').innerHTML = p.tipFull || p.tip;
+
+      const columnLink = document.getElementById('bsColumn');
+      if (p.column) {
+        columnLink.href = p.column;
+        columnLink.style.display = 'flex';
+        document.getElementById('bsColumnTitle').textContent = p.name + 'の詳しい解説';
+      } else {
+        columnLink.style.display = 'none';
+      }
+
+      const voicesDiv = document.getElementById('bsVoices');
+      const voiceList = document.getElementById('bsVoiceList');
+
+      if (p.voices && p.voices.length > 0) {
+        voicesDiv.style.display = 'block';
+        document.getElementById('bsVoiceCount').textContent = p.voiceCount + '件';
+        voiceList.innerHTML = p.voices.map(function(v) {
+          return '<div class="bs-voice-card"><div class="bs-voice-top"><div class="bs-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="bs-voice-info"><p class="bs-voice-name">' + v.name + '</p><p class="bs-voice-attr">' + v.attr + '</p></div></div><p class="bs-voice-text">' + v.text + '</p><div class="bs-voice-footer"><span class="bs-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="bs-sns-link" onclick="event.stopPropagation()"><i class="fab fa-instagram"></i> 投稿を見る</a></div></div>';
+        }).join('');
+      } else {
+        voicesDiv.style.display = 'none';
+      }
+
+      // Set official URL
+      const officialBtn = document.getElementById('bsOfficialBtn');
+      if (p.originalUrl) {
+        officialBtn.href = p.originalUrl;
+        officialBtn.style.display = 'flex';
+      } else {
+        officialBtn.style.display = 'none';
+      }
+
+      currentBsId = p.id;
+      updateBsHeartBtn();
+      document.getElementById('bsOverlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBottomSheet() {
+      document.getElementById('bsOverlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      currentBsId = null;
+    }
+
+    function updateBsHeartBtn() {
+      const btn = document.getElementById('bsHeartBtn');
+      const isInList = myList.includes(currentBsId);
+      btn.classList.toggle('active', isInList);
+      btn.innerHTML = isInList ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+    }
+
+    function toggleListFromBottomSheet() {
+      if (!currentBsId) return;
+      toggleList(currentBsId);
+      updateBsHeartBtn();
+    }
+
+    function shareToLineFromBS() {
+      if (!currentBsId) return;
+      const all = getAllProducts();
+      const p = all.find(function(x) { return x.id === currentBsId; });
+      if (p) {
+        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + location.href);
+        window.open('https://line.me/R/msg/text/?' + text, '_blank');
+      }
+    }
+
+    function shareProductFromBS() {
+      if (!currentBsId) return;
+      const all = getAllProducts();
+      const p = all.find(function(x) { return x.id === currentBsId; });
+      if (p) shareItem(p.name);
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.remove('active');
+      currentModalId = null;
+    }
+
+    function updateModalHeartBtn() {
+      const btn = document.getElementById('modalHeartBtn');
+      const isInList = myList.includes(currentModalId);
+      btn.classList.toggle('active', isInList);
+      btn.innerHTML = isInList ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+    }
+
+    function shareToLineProduct() {
+      if (!currentModalId) return;
+      const all = getAllProducts();
+      const p = all.find(function(x) { return x.id === currentModalId; });
+      if (p) {
+        const text = encodeURIComponent(p.name + '\n¥' + p.price.toLocaleString() + '\n\n' + location.href);
+        window.open('https://line.me/R/msg/text/?' + text, '_blank');
+      }
+    }
+
+    function toggleList(id, event) {
+      if (event) {
+        event.stopPropagation();
+        const btn = event.currentTarget;
+        const icon = btn.querySelector('i');
+        
+        if (myList.includes(id)) {
+          myList = myList.filter(function(x) { return x !== id; });
+          btn.classList.remove('active');
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+          showToast('お気に入りから削除しました');
+        } else {
+          myList.push(id);
+          btn.classList.add('active');
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          btn.style.transform = 'scale(1.3)';
+          setTimeout(function() { btn.style.transform = 'scale(1)'; }, 200);
+          showToast('リストに追加しました！');
+        }
+        
+        localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+        updateCount();
+      } else {
+        if (myList.includes(id)) {
+          myList = myList.filter(function(x) { return x !== id; });
+        } else {
+          myList.push(id);
+          showToast('リストに追加しました');
+        }
+        localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+        updateCount();
+        renderTabs();
+      }
+    }
+
+    function toggleListFromModal() {
+      if (!currentModalId) return;
+      toggleList(currentModalId);
+      updateModalHeartBtn();
+    }
+
+    function updateCount() {
+      document.getElementById('listCount').textContent = myList.length;
+    }
+
+    function openListModal() {
+      const modal = document.getElementById('listModal');
+      const container = document.getElementById('listItems');
+      const footer = document.getElementById('listFooter');
+      const all = getAllProducts();
+
+      if (myList.length === 0) {
+        container.innerHTML = '<div class="list-empty"><i class="far fa-heart"></i><p>まだ商品が追加されていません</p></div>';
+        footer.style.display = 'none';
+      } else {
+        container.innerHTML = myList.map(function(id) {
+          const p = all.find(function(x) { return x.id === id; });
+          if (!p) return '';
+          return '<div class="list-item"><img src="' + p.image + '" class="list-item-img"><div class="list-item-info"><h4>' + p.name + '</h4><p>¥' + p.price.toLocaleString() + '</p></div><button class="list-item-remove" onclick="removeFromList(' + id + ')"><i class="fas fa-times"></i></button></div>';
+        }).join('');
+        footer.style.display = 'flex';
+      }
+      modal.classList.add('active');
+    }
+
+    function closeListModal() {
+      document.getElementById('listModal').classList.remove('active');
+    }
+
+    function removeFromList(id) {
+      myList = myList.filter(function(x) { return x !== id; });
+      localStorage.setItem('cheGuide2026', JSON.stringify(myList));
+      updateCount();
+      renderTabs();
+      openListModal();
+    }
+
+    function shareToLine() {
+      const all = getAllProducts();
+      const items = myList.map(function(id) {
+        const p = all.find(function(x) { return x.id === id; });
+        return p ? '・' + p.name + ' ¥' + p.price.toLocaleString() : '';
+      }).filter(Boolean).join('\n');
+      
+      const text = encodeURIComponent('【鄭先生のおすすめ2026春】私のお買い物リスト\n\n' + items + '\n\n詳細はこちら：' + location.href);
+      window.open('https://line.me/R/msg/text/?' + text, '_blank');
+    }
+
+    function copyUrl() {
+      navigator.clipboard.writeText(location.href);
+      showToast('URLをコピーしました！');
+    }
+
+    function copyCode(code) {
+      navigator.clipboard.writeText(code);
+      showToast('クーポンコードをコピーしました！');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastText').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 2500);
+    }
+
+    // Tab button events
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() { switchTab(btn.dataset.tab); });
+    });
+
+    // Store tab events
+    document.querySelectorAll('.store-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.store-tab').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        const store = btn.dataset.store;
+        document.querySelectorAll('.store-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.getElementById('store-' + store).classList.add('active');
+      });
+    });
+
+    // Modal outside click close
+    document.getElementById('detailModal').addEventListener('click', function(e) {
+      if (e.target === document.getElementById('detailModal')) closeDetailModal();
+    });
+
+    document.getElementById('listModal').addEventListener('click', function(e) {
+      if (e.target === document.getElementById('listModal')) closeListModal();
+    });
+
+    // Initialize
+    renderTabs();
+    updateCount();
+  </script>
 </body>
 </html>
