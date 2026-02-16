@@ -327,9 +327,9 @@
       transform: translateX(-50%);
       border-radius: 20px;
     }
-    /* Slide 2: IMG_0021 - arms spread wide, bubble top-center */
+    /* Slide 2: IMG_0008 - happy overhead pose, bubble top-center */
     .tei-speech-2 {
-      top: 30px;
+      top: -10px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 20px;
@@ -2084,7 +2084,76 @@
     .follow-buttons a:nth-child(3) { background: #06C755; }
     .follow-buttons a:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-    /* === Sticky Bar === */
+    /* Card hint divider */
+    .hint-divider {
+      color: var(--ink-faint);
+      margin: 0 4px;
+    }
+
+    /* Onboarding tooltip */
+    .onboarding-tip {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 998;
+      animation: onboard-in 0.5s ease-out;
+      display: none;
+    }
+    .onboarding-tip.show {
+      display: block;
+    }
+    .onboarding-tip-inner {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(212,112,122,0.2);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 380px;
+    }
+    .onboarding-face {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-soft);
+      flex-shrink: 0;
+    }
+    .onboarding-content p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-light);
+      margin: 0;
+    }
+    .onboarding-content strong {
+      color: var(--accent);
+    }
+    .onboarding-close {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--ink-muted);
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    @keyframes onboard-in {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @media (max-width: 480px) {
+      .onboarding-tip { left: 16px; right: 16px; transform: none; }
+      .onboarding-tip-inner { max-width: 100%; }
+      @keyframes onboard-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    /* Sticky Bar === */
     .sticky-bar {
       position: fixed;
       bottom: 0;
@@ -2917,6 +2986,23 @@
 
     .list-empty i { font-size: 32px; margin-bottom: 12px; color: var(--ink-faint); display: block; }
 
+    /* Screenshot tip in list modal */
+    .list-screenshot-tip {
+      padding: 12px 24px;
+      background: #FFF8F0;
+      border-top: 1px solid #f0e8e0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+    .list-screenshot-tip i {
+      color: var(--accent);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
     .list-footer {
       padding: 16px 24px;
       border-top: 1px solid #eee;
@@ -3386,7 +3472,7 @@
           </div>
           <div class="tei-speech tei-speech-2 speech-slide" data-slide="2">
             <p class="speech-text">
-              「從上千種商品中，<br><em>我幫你嚴選好了！</em>」
+              「從上千種商品中，<br><em>我幫你嚴選好了！</em><br>請慢慢看吧～」
             </p>
           </div>
           <!-- Rotating photos -->
@@ -3569,6 +3655,20 @@
       <i class="fas fa-hand-pointer"></i>
       <span class="hint-pc">點擊卡片可查看<strong>體驗評價</strong></span>
       <span class="hint-mobile">點擊卡片<strong>展開詳情</strong></span>
+      <span class="hint-divider">|</span>
+      <i class="far fa-heart" style="color:var(--accent)"></i>
+      <span>按 ♡ 可儲存到<strong>我的購物清單</strong></span>
+    </div>
+
+    <!-- First-visit onboarding tooltip -->
+    <div class="onboarding-tip" id="onboardingTip">
+      <div class="onboarding-tip-inner">
+        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-scaled.png" alt="鄭老師" class="onboarding-face">
+        <div class="onboarding-content">
+          <p>按下 <i class="far fa-heart" style="color:var(--accent)"></i> 就能儲存商品！<br>出發前確認你的<strong>購物清單</strong>吧 🛍️</p>
+        </div>
+        <button class="onboarding-close" onclick="closeOnboarding()">✕</button>
+      </div>
     </div>
 
     <div class="tabs-nav">
@@ -3861,6 +3961,10 @@
         <button class="modal-close" onclick="closeListModal()" style="position:static;"><i class="fas fa-times"></i></button>
       </div>
       <div class="list-items" id="listItems"></div>
+      <div class="list-screenshot-tip" id="listScreenshotTip" style="display: none;">
+        <i class="fas fa-camera"></i>
+        <span>小提示：截圖保存清單，到店裡直接對照購買！</span>
+      </div>
       <div class="list-footer" id="listFooter" style="display: none;">
         <button class="share-btn line" onclick="shareToLine()"><i class="fab fa-line"></i> LINE</button>
         <button class="share-btn copy" onclick="copyUrl()"><i class="fas fa-link"></i> 複製網址</button>
@@ -4211,7 +4315,7 @@
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
-      html += '<div class="che-section"><div class="che-header"><img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-1-scaled.png" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
+      html += '<div class="che-section"><div class="che-header"><img src="' + chePhoto + '" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
       html += '<div class="che-comment-box"><p class="che-text' + '' + '">' + p.tip + '</p></div></div>';
 
       // Column preview for plans with column (standard, gold, platinum)
@@ -4292,6 +4396,12 @@
       document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
       document.querySelectorAll('.tab-content').forEach(function(content) { content.classList.remove('active'); });
       document.getElementById('tab-' + tab).classList.add('active');
+      // Scroll tabs-nav into view if out of viewport
+      var tabsNav = document.querySelector('.tabs-nav');
+      var rect = tabsNav.getBoundingClientRect();
+      if (rect.top < 60 || rect.top > window.innerHeight * 0.5) {
+        window.scrollTo({ top: tabsNav.offsetTop - 70, behavior: 'smooth' });
+      }
     }
 
     function getAllProducts() {
@@ -4554,11 +4664,13 @@
       const modal = document.getElementById('listModal');
       const container = document.getElementById('listItems');
       const footer = document.getElementById('listFooter');
+      const screenshotTip = document.getElementById('listScreenshotTip');
       const all = getAllProducts();
 
       if (myList.length === 0) {
         container.innerHTML = '<div class="list-empty"><i class="far fa-heart"></i><p>尚未加入任何商品</p></div>';
         footer.style.display = 'none';
+        screenshotTip.style.display = 'none';
       } else {
         container.innerHTML = myList.map(function(id) {
           const p = all.find(function(x) { return x.id === id; });
@@ -4566,6 +4678,7 @@
           return '<div class="list-item"><img src="' + p.image + '" class="list-item-img"><div class="list-item-info"><h4>' + p.name + '</h4><p>¥' + p.price.toLocaleString() + '</p></div><button class="list-item-remove" onclick="removeFromList(' + id + ')"><i class="fas fa-times"></i></button></div>';
         }).join('');
         footer.style.display = 'flex';
+        screenshotTip.style.display = 'flex';
       }
       modal.classList.add('active');
     }
@@ -4694,6 +4807,38 @@
         });
       });
     })();
+    // Onboarding tooltip - show once for first-time visitors
+    (function() {
+      if (localStorage.getItem('cheOnboarded')) return;
+      var tip = document.getElementById('onboardingTip');
+      var shown = false;
+      
+      var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !shown) {
+          shown = true;
+          setTimeout(function() {
+            tip.classList.add('show');
+          }, 1500);
+          // Auto-hide after 8 seconds
+          setTimeout(function() {
+            closeOnboarding();
+          }, 9500);
+        }
+      }, { threshold: 0.3 });
+      
+      var productsSection = document.querySelector('.products-section');
+      if (productsSection) observer.observe(productsSection);
+    })();
+
+    function closeOnboarding() {
+      var tip = document.getElementById('onboardingTip');
+      if (tip) {
+        tip.style.opacity = '0';
+        tip.style.transition = 'opacity 0.3s';
+        setTimeout(function() { tip.style.display = 'none'; }, 300);
+      }
+      localStorage.setItem('cheOnboarded', '1');
+    }
   </script>
 </body>
 </html>
