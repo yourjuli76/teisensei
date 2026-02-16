@@ -1678,14 +1678,11 @@
       padding: 60px 20px;
       background: #fff;
     }
-
     .sakura-inner {
       max-width: 900px;
       margin: 0 auto;
     }
-
     .sakura-header { margin-bottom: 32px; }
-
     .sakura-header .label {
       display: inline-block;
       background: var(--ink);
@@ -1695,26 +1692,181 @@
       letter-spacing: 0.15em;
       margin-bottom: 12px;
     }
-
     .sakura-header h2 {
       font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: 22px;
       color: var(--ink);
       font-weight: 500;
     }
-
     .sakura-header h2 span { color: var(--accent); }
-
     .sakura-updated {
       font-size: 11px;
       color: var(--ink-muted);
       margin-top: 8px;
     }
-    .sakura-updated i {
-      margin-right: 4px;
-      font-size: 10px;
+    .sakura-updated i { margin-right: 4px; font-size: 10px; }
+
+    /* -- Sakura 4 Stages Timeline -- */
+    .sakura-stages {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .sakura-stage {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: all 0.2s;
+    }
+    .sakura-stage:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .sakura-stage.is-highlight {
+      border: 2px solid var(--accent);
+    }
+    .sakura-stage-img {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .sakura-stage-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .sakura-stage:hover .sakura-stage-img img { transform: scale(1.05); }
+    .sakura-stage-num {
+      position: absolute; top: 8px; left: 8px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sakura-stage-body { padding: 12px; }
+    .sakura-stage-name { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
+    .sakura-stage-sub { font-size: 11px; color: var(--ink-muted); margin-bottom: 6px; }
+    .sakura-stage-desc { font-size: 12px; color: var(--ink-light); line-height: 1.5; margin: 0 0 6px; }
+    .sakura-stage-timing {
+      display: inline-block;
+      font-size: 10px; padding: 2px 8px;
+      background: var(--warm-bg); border-radius: 999px;
+      color: var(--ink-muted);
+    }
+    .sakura-stage-msg {
+      margin-bottom: 32px; padding: 12px 16px;
+      background: linear-gradient(90deg, #FFF0F3 0%, var(--warm-bg) 100%);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      font-size: 14px; color: var(--ink);
+    }
+    .sakura-stage-msg strong { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .sakura-stages {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; gap: 12px;
+        padding-bottom: 8px; margin: 0 -20px 32px; padding-left: 20px; padding-right: 20px;
+      }
+      .sakura-stage {
+        flex: 0 0 70%; min-width: 220px; scroll-snap-align: start;
+      }
     }
 
+    /* -- Date Matcher -- */
+    .sakura-date-picker {
+      background: linear-gradient(135deg, var(--accent) 0%, #b84d65 100%);
+      border-radius: 16px; padding: 28px 24px; margin-bottom: 32px;
+      color: #fff; text-align: center;
+    }
+    .sakura-date-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px; font-weight: 700; margin: 0 0 4px;
+    }
+    .sakura-date-sub { font-size: 13px; opacity: 0.9; margin: 0 0 16px; }
+    .sakura-date-form {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 8px;
+    }
+    .sakura-date-wrap {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.15); border-radius: 999px; padding: 3px 10px 3px 3px;
+    }
+    .sakura-date-input {
+      width: 130px; padding: 9px 12px; border: none; border-radius: 999px;
+      font-size: 14px; background: #fff; color: var(--ink);
+    }
+    .sakura-date-input:focus { outline: 2px solid #FFB7C5; }
+    .sakura-date-label { font-size: 11px; color: rgba(255,255,255,0.8); }
+    .sakura-date-btn {
+      padding: 10px 24px; font-size: 14px; font-weight: 700;
+      border: 2px solid #fff; border-radius: 999px;
+      background: transparent; color: #fff; cursor: pointer; transition: all 0.2s;
+    }
+    .sakura-date-btn:hover { background: #fff; color: var(--accent); }
+
+    /* Result Card */
+    .sakura-result {
+      display: none; background: #fff; border-radius: 16px;
+      overflow: hidden; color: var(--ink); box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      margin-top: 16px; text-align: left; position: relative;
+      animation: sakuraFadeUp 0.4s ease-out;
+    }
+    .sakura-result.is-visible { display: block; }
+    @keyframes sakuraFadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .sakura-result-close {
+      position: absolute; top: 10px; right: 10px; z-index: 5;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(0,0,0,0.5); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 16px; transition: background 0.2s;
+    }
+    .sakura-result-close:hover { background: rgba(0,0,0,0.7); }
+    .sakura-result-img { width: 100%; height: 140px; object-fit: cover; }
+    .sakura-result-body { padding: 18px; }
+    .sakura-result-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .sakura-result-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #FFF0F3; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .sakura-result-badge {
+      font-size: 9px; letter-spacing: 0.08em; color: var(--accent);
+      text-transform: uppercase; font-weight: 700;
+    }
+    .sakura-result-city { font-size: 18px; font-weight: 700; margin: 0; }
+    .sakura-result-status {
+      font-size: 14px; margin: 0 0 10px; padding: 8px 10px;
+      background: linear-gradient(90deg, #FFF0F3 0%, transparent 100%);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+    }
+    .sakura-result-dates {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 4px; font-size: 12px; margin-bottom: 12px;
+    }
+    .sakura-result-date {
+      padding: 6px 8px; background: var(--warm-bg); border-radius: 6px;
+    }
+    .sakura-result-date.is-match {
+      background: var(--accent); color: #fff;
+    }
+    .sakura-result-shop-tip {
+      margin-top: 12px; padding: 12px;
+      background: linear-gradient(135deg, #FFF0F3 0%, var(--warm-bg) 100%);
+      border-radius: 12px; border-left: 3px solid var(--accent);
+    }
+    .sakura-result-shop-label {
+      font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .sakura-result-shop-text { font-size: 13px; color: var(--ink); line-height: 1.5; margin: 0; }
+
+    @media (max-width: 600px) {
+      .sakura-date-picker { padding: 20px 16px; }
+      .sakura-result-dates { grid-template-columns: 1fr; }
+    }
+
+    /* -- City Grid (existing, refined) -- */
     .sakura-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1723,80 +1875,48 @@
       border-radius: 12px;
       overflow: hidden;
     }
-
     .sakura-city {
       padding: 20px 12px;
       text-align: center;
       border-right: 1px solid #eee;
       position: relative;
     }
-
     .sakura-city:last-child { border-right: none; }
-
     .sakura-city.active {
       background: linear-gradient(180deg, #FFF8F9 0%, #fff 100%);
     }
-
     .sakura-city.active::before {
       content: 'BEST';
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 9px;
-      padding: 2px 6px;
+      position: absolute; top: 8px; right: 8px;
+      background: var(--accent); color: #fff;
+      font-size: 9px; padding: 2px 6px;
     }
-
     .bloom-status {
-      display: inline-block;
-      font-size: 9px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-bottom: 8px;
+      display: inline-block; font-size: 9px; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px; margin-bottom: 8px;
     }
     .status-upcoming { background: #FFF0E6; color: #E08A4A; }
     .status-blooming { background: #FFE8EC; color: var(--accent); }
     .status-full { background: #FFEBF0; color: #D4507A; }
     .status-done { background: #f0f0f0; color: #999; }
     .status-waiting { background: #E8F4FF; color: #5B8DB8; }
-
     .sakura-city .name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
     .sakura-city .bloom-label { font-size: 10px; color: var(--ink-muted); }
     .sakura-city .bloom-date { font-size: 20px; font-weight: 700; color: var(--accent); }
     .sakura-city .full { font-size: 12px; color: var(--ink-muted); margin-top: 6px; }
     .sakura-city .full strong { color: var(--ink); }
-
-    .city-tip {
-      font-size: 10px;
-      color: var(--ink-muted);
-      margin-top: 10px;
-      line-height: 1.4;
-    }
+    .city-tip { font-size: 10px; color: var(--ink-muted); margin-top: 10px; line-height: 1.4; }
 
     .sakura-footer {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      margin-top: 20px; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
     }
-
     .sakura-source { font-size: 11px; color: var(--ink-muted); }
     .sakura-source a { color: var(--ink-muted); }
-
     .sakura-tip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f8f8f8;
-      padding: 10px 16px;
-      font-size: 13px;
-      color: var(--ink-light);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #f8f8f8; padding: 10px 16px; font-size: 13px; color: var(--ink-light);
     }
-
     .sakura-tip strong { color: var(--ink); }
 
     @media (max-width: 768px) {
@@ -3725,6 +3845,98 @@
         <p class="sakura-updated"><i class="fas fa-sync-alt"></i> 最後更新：2026/2/14</p>
       </div>
 
+      <!-- 4 Stages Timeline -->
+      <div class="sakura-stages">
+        <div class="sakura-stage">
+          <div class="sakura-stage-img">
+            <span class="sakura-stage-num">1</span>
+            <img src="https://gvs.weathernews.jp/s/topics/img/202503/202503260365_top_img_A.jpg?1743466944" alt="開花" loading="lazy">
+          </div>
+          <div class="sakura-stage-body">
+            <div class="sakura-stage-name">開花</div>
+            <div class="sakura-stage-sub">かいか</div>
+            <p class="sakura-stage-desc">5～6朵花綻放就算「開花」宣言</p>
+            <span class="sakura-stage-timing">基準日</span>
+          </div>
+        </div>
+        <div class="sakura-stage is-highlight">
+          <div class="sakura-stage-img">
+            <span class="sakura-stage-num">2</span>
+            <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=600&q=80" alt="滿開" loading="lazy">
+          </div>
+          <div class="sakura-stage-body">
+            <div class="sakura-stage-name">滿開</div>
+            <div class="sakura-stage-sub">まんかい</div>
+            <p class="sakura-stage-desc">80%以上綻放！最佳觀賞時機</p>
+            <span class="sakura-stage-timing">開花 +7天</span>
+          </div>
+        </div>
+        <div class="sakura-stage">
+          <div class="sakura-stage-img">
+            <span class="sakura-stage-num">3</span>
+            <img src="https://www.hirosakipark.jp/sakura/wp-content/uploads/2021/04/enjoy04-01.jpg" alt="散り始め" loading="lazy">
+          </div>
+          <div class="sakura-stage-body">
+            <div class="sakura-stage-name">開始飄落</div>
+            <div class="sakura-stage-sub">ちりはじめ</div>
+            <p class="sakura-stage-desc">花瓣開始飄落的浪漫時刻</p>
+            <span class="sakura-stage-timing">滿開 +4天</span>
+          </div>
+        </div>
+        <div class="sakura-stage">
+          <div class="sakura-stage-img">
+            <span class="sakura-stage-num">4</span>
+            <img src="https://www.543life.com/content/wp-content/uploads/2024/04/main_240407-670x670.webp" alt="桜吹雪" loading="lazy">
+          </div>
+          <div class="sakura-stage-body">
+            <div class="sakura-stage-name">櫻花吹雪</div>
+            <div class="sakura-stage-sub">さくらふぶき</div>
+            <p class="sakura-stage-desc">花瓣隨風飛舞，如雪般夢幻</p>
+            <span class="sakura-stage-timing">飄落 +3天</span>
+          </div>
+        </div>
+      </div>
+      <div class="sakura-stage-msg">
+        🌸 從開花到櫻花吹雪，大約有<strong>2週</strong>時間可以賞櫻！過了滿開也別擔心～
+      </div>
+
+      <!-- Date Matcher -->
+      <div class="sakura-date-picker">
+        <div class="sakura-date-title">🗓️ 你的旅行日期是？</div>
+        <p class="sakura-date-sub">輸入日期，幫你找出最適合賞櫻＋購物的城市</p>
+        <div class="sakura-date-form">
+          <div class="sakura-date-wrap">
+            <input type="date" class="sakura-date-input" id="skTravelStart" value="2026-03-28">
+            <span class="sakura-date-label">出發</span>
+          </div>
+          <div class="sakura-date-wrap">
+            <input type="date" class="sakura-date-input" id="skTravelEnd" value="2026-04-03">
+            <span class="sakura-date-label">回程</span>
+          </div>
+          <button type="button" class="sakura-date-btn" id="skDateBtn">查詢</button>
+        </div>
+        <div class="sakura-result" id="skResultCard">
+          <button type="button" class="sakura-result-close" id="skResultClose">✕</button>
+          <img class="sakura-result-img" id="skResultImg" src="" alt="">
+          <div class="sakura-result-body">
+            <div class="sakura-result-header">
+              <div class="sakura-result-icon" id="skResultIcon">🌺</div>
+              <div>
+                <div class="sakura-result-badge" id="skResultBadge">BEST MATCH</div>
+                <div class="sakura-result-city" id="skResultCity">東京</div>
+              </div>
+            </div>
+            <div class="sakura-result-status" id="skResultStatus">滿開！最佳觀賞時期</div>
+            <div class="sakura-result-dates" id="skResultDates"></div>
+            <div class="sakura-result-shop-tip" id="skResultTip" style="display:none;">
+              <div class="sakura-result-shop-label">🛍️ <span id="skResultCityName2"></span> 購物情報</div>
+              <p class="sakura-result-shop-text" id="skResultTipText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- City Grid -->
       <div class="sakura-grid">
         <div class="sakura-city">
           <div class="name">福岡</div>
@@ -4901,6 +5113,84 @@
       }
       localStorage.setItem('cheOnboarded', '1');
     }
+
+    /* === Sakura Date Matcher === */
+    (function() {
+      var skCities = [
+        { name:'福岡', bloom:'3/20', full:'3/28', fall:'4/1', snow:'4/4', img:'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80', tip:'博多車站周邊藥妝店多，記得領取免稅優惠券！推薦順序：博多→天神地下街' },
+        { name:'東京', bloom:'3/24', full:'4/1', fall:'4/5', snow:'4/8', img:'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=600&q=80', tip:'新宿・澀谷折扣最多！上野阿美橫丁也有超便宜藥妝。花粉季記得準備口罩和過敏藥' },
+        { name:'大阪', bloom:'3/27', full:'4/3', fall:'4/7', snow:'4/10', img:'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=600&q=80', tip:'心齋橋是購物天堂！道頓堀周邊藥妝店有外國人專用優惠券，松本清・大國藥妝都很近' },
+        { name:'京都', bloom:'3/28', full:'4/5', fall:'4/9', snow:'4/12', img:'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80', tip:'四條河原町有免稅藥妝店集中區，建議賞完哲學之道後去河原町購物' },
+        { name:'名古屋', bloom:'3/24', full:'4/2', fall:'4/6', snow:'4/9', img:'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=600&q=80', tip:'榮地區藥妝店密集，名古屋車站地下街也有很多好買的！別忘了逛驚安殿堂' },
+        { name:'札幌', bloom:'4/25', full:'5/2', fall:'5/6', snow:'5/9', img:'https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=600&q=80', tip:'狸小路有優惠券可用，5月沒有花粉困擾，可以輕鬆購物！' },
+        { name:'沖繩', bloom:'1/15', full:'2/1', fall:'2/8', snow:'2/12', img:'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=600&q=80', tip:'國際通有觀光客專用折扣，記得在DFS免稅店逛逛' }
+      ];
+
+      function skParseDate(str, yr) {
+        yr = yr || 2026;
+        var p = str.split('/'); return new Date(yr, parseInt(p[0])-1, parseInt(p[1]));
+      }
+
+      document.getElementById('skDateBtn').addEventListener('click', function() {
+        var sv = document.getElementById('skTravelStart').value;
+        var ev = document.getElementById('skTravelEnd').value;
+        if (!sv || !ev) return;
+        var start = new Date(sv), end = new Date(ev);
+        var best = null, bestScore = -999, bestStage = '';
+
+        skCities.forEach(function(c) {
+          var bloom = skParseDate(c.bloom), full = skParseDate(c.full);
+          var fall = skParseDate(c.fall), snow = skParseDate(c.snow);
+          var os = new Date(Math.max(start, bloom));
+          var oe = new Date(Math.min(end, snow));
+          var overlap = (oe - os) / 864e5;
+          if (overlap > 0) {
+            var mid = new Date((start.getTime() + end.getTime()) / 2);
+            var dist = Math.abs(mid - full) / 864e5;
+            var score = overlap * 10 - dist;
+            if (score > bestScore) {
+              bestScore = score; best = c;
+              bestStage = mid < bloom ? 'before' : mid < full ? 'bloom' : mid < fall ? 'full' : mid < snow ? 'fall' : 'snow';
+            }
+          }
+        });
+
+        if (!best) { alert('該期間沒有適合賞櫻的城市，建議調整日期！'); return; }
+
+        var info = {
+          before: { icon:'🌱', badge:'即將開花', status:'還在含苞待放中！' },
+          bloom:  { icon:'🌸', badge:'開花中',   status:'開花中！已經可以賞櫻了' },
+          full:   { icon:'🌺', badge:'BEST MATCH', status:'滿開！最佳觀賞時期 🎉' },
+          fall:   { icon:'🍃', badge:'開始飄落',  status:'花瓣飄落中，別有一番風味' },
+          snow:   { icon:'💨', badge:'櫻花吹雪',  status:'櫻花吹雪！最後的浪漫' }
+        }[bestStage];
+
+        document.getElementById('skResultImg').src = best.img;
+        document.getElementById('skResultIcon').textContent = info.icon;
+        document.getElementById('skResultBadge').textContent = info.badge;
+        document.getElementById('skResultCity').textContent = best.name;
+        document.getElementById('skResultStatus').textContent = info.status;
+        document.getElementById('skResultDates').innerHTML =
+          '<div class="sakura-result-date '+(bestStage==='bloom'?'is-match':'')+'">🌸 開花 '+best.bloom+'</div>' +
+          '<div class="sakura-result-date '+(bestStage==='full'?'is-match':'')+'">🌺 滿開 '+best.full+'</div>' +
+          '<div class="sakura-result-date '+(bestStage==='fall'?'is-match':'')+'">🍃 飄落 '+best.fall+'</div>' +
+          '<div class="sakura-result-date '+(bestStage==='snow'?'is-match':'')+'">💨 吹雪 ~'+best.snow+'</div>';
+
+        if (best.tip) {
+          document.getElementById('skResultCityName2').textContent = best.name;
+          document.getElementById('skResultTipText').textContent = best.tip;
+          document.getElementById('skResultTip').style.display = 'block';
+        }
+
+        var card = document.getElementById('skResultCard');
+        card.classList.add('is-visible');
+        card.scrollIntoView({ behavior:'smooth', block:'center' });
+      });
+
+      document.getElementById('skResultClose').addEventListener('click', function() {
+        document.getElementById('skResultCard').classList.remove('is-visible');
+      });
+    })();
   </script>
 </body>
 </html>
