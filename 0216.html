@@ -1705,15 +1705,27 @@
 
     .sakura-header h2 span { color: var(--accent); }
 
+    .sakura-updated {
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin-top: 8px;
+    }
+    .sakura-updated i {
+      margin-right: 4px;
+      font-size: 10px;
+    }
+
     .sakura-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       border: 1px solid #eee;
       background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     .sakura-city {
-      padding: 24px 16px;
+      padding: 20px 12px;
       text-align: center;
       border-right: 1px solid #eee;
       position: relative;
@@ -1736,11 +1748,32 @@
       padding: 2px 6px;
     }
 
-    .sakura-city .name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .bloom-status {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .status-upcoming { background: #FFF0E6; color: #E08A4A; }
+    .status-blooming { background: #FFE8EC; color: var(--accent); }
+    .status-full { background: #FFEBF0; color: #D4507A; }
+    .status-done { background: #f0f0f0; color: #999; }
+    .status-waiting { background: #E8F4FF; color: #5B8DB8; }
+
+    .sakura-city .name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
     .sakura-city .bloom-label { font-size: 10px; color: var(--ink-muted); }
     .sakura-city .bloom-date { font-size: 20px; font-weight: 700; color: var(--accent); }
     .sakura-city .full { font-size: 12px; color: var(--ink-muted); margin-top: 6px; }
     .sakura-city .full strong { color: var(--ink); }
+
+    .city-tip {
+      font-size: 10px;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      line-height: 1.4;
+    }
 
     .sakura-footer {
       margin-top: 20px;
@@ -1768,8 +1801,10 @@
 
     @media (max-width: 768px) {
       .sakura-grid { grid-template-columns: repeat(2, 1fr); }
-      .sakura-city:nth-child(2), .sakura-city:nth-child(4) { border-right: none; }
-      .sakura-city:nth-child(5) { grid-column: span 2; }
+      .sakura-city { padding: 16px 10px; }
+      .sakura-city:nth-child(even) { border-right: none; }
+      .sakura-city:last-child:nth-child(odd) { grid-column: span 2; }
+      .city-tip { font-size: 9px; }
     }
 
     /* === Store Guide === */
@@ -3687,46 +3722,73 @@
       <div class="sakura-header">
         <span class="label">SAKURA 2026</span>
         <h2>日本 <span>櫻花</span>開花預測</h2>
+        <p class="sakura-updated"><i class="fas fa-sync-alt"></i> 最後更新：2026/2/14</p>
       </div>
 
       <div class="sakura-grid">
         <div class="sakura-city">
           <div class="name">福岡</div>
+          <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-label">開花</p>
           <p class="bloom-date">3/20</p>
           <p class="full">滿開 <strong>3/28</strong></p>
+          <p class="city-tip">📍 博多車站周邊藥妝店最多</p>
         </div>
         <div class="sakura-city active">
           <div class="name">東京</div>
+          <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-label">開花</p>
           <p class="bloom-date">3/24</p>
           <p class="full">滿開 <strong>4/1</strong></p>
+          <p class="city-tip">📍 新宿・澀谷有最多折扣</p>
         </div>
         <div class="sakura-city">
           <div class="name">大阪</div>
+          <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-label">開花</p>
           <p class="bloom-date">3/27</p>
           <p class="full">滿開 <strong>4/3</strong></p>
+          <p class="city-tip">📍 心齋橋是購物天堂</p>
         </div>
         <div class="sakura-city">
           <div class="name">京都</div>
+          <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-label">開花</p>
           <p class="bloom-date">3/28</p>
           <p class="full">滿開 <strong>4/5</strong></p>
+          <p class="city-tip">📍 四條河原町有免稅藥妝</p>
+        </div>
+        <div class="sakura-city">
+          <div class="name">名古屋</div>
+          <span class="bloom-status status-upcoming">即將開花</span>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">3/24</p>
+          <p class="full">滿開 <strong>4/2</strong></p>
+          <p class="city-tip">📍 榮地區藥妝店密集</p>
         </div>
         <div class="sakura-city">
           <div class="name">札幌</div>
+          <span class="bloom-status status-waiting">尚早</span>
           <p class="bloom-label">開花</p>
           <p class="bloom-date">4/25</p>
           <p class="full">滿開 <strong>5/2</strong></p>
+          <p class="city-tip">📍 狸小路有優惠券可用</p>
+        </div>
+        <div class="sakura-city">
+          <div class="name">沖繩</div>
+          <span class="bloom-status status-done">已結束</span>
+          <p class="bloom-label">開花</p>
+          <p class="bloom-date">1/15</p>
+          <p class="full">滿開 <strong>2/1</strong></p>
+          <p class="city-tip">📍 國際通有觀光客專用折扣</p>
         </div>
       </div>
 
       <div class="sakura-footer">
-        <p class="sakura-source">資料來源：<a href="#">Weather News</a> 依2024年平年值預測</p>
+        <p class="sakura-source">資料來源：<a href="https://weathernews.jp/s/sakura/" target="_blank">Weather News</a> 2026年預測（每週更新）</p>
         <div class="sakura-tip">
           <i class="fas fa-lightbulb"></i>
-          推薦<strong>3/25〜4/5</strong>！別忘了花粉對策
+          台灣旅客推薦<strong>3/25〜4/5</strong>東京・大阪賞櫻＋購物！別忘了花粉對策商品
         </div>
       </div>
     </div>
