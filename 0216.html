@@ -1776,10 +1776,10 @@
       max-width: 380px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       pointer-events: none;
-      padding-top: 32px;
+      padding: 20px 0;
     }
     /* Speech bubble above photo */
     .sakura-speech {
@@ -2170,9 +2170,39 @@
     .sakura-ended-text { font-size:13px;color:#9a918a;margin:0 0 16px;line-height:1.6; }
 
     /* === Store Guide === */
+    /* === Sensei Section Lead (Speech Bubble) === */
+    .sensei-lead {
+      display: flex; align-items: flex-start; gap: 12px;
+      max-width: 560px; margin: 0 auto 28px;
+    }
+    .sensei-lead-img {
+      width: 44px; height: 44px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .sensei-lead-bubble {
+      position: relative;
+      background: #FFF8F5;
+      padding: 14px 18px;
+      border-radius: 0 18px 18px 18px;
+      flex: 1;
+    }
+    .sensei-lead-name {
+      font-size: 10px; font-weight: 600; color: #C85070;
+      margin-bottom: 4px;
+    }
+    .sensei-lead-text {
+      font-size: 13px; color: #2d2926;
+      line-height: 1.7; margin: 0;
+    }
+    @media (max-width: 768px) {
+      .sensei-lead { margin: 0 0 20px; }
+      .sensei-lead-img { width: 36px; height: 36px; }
+      .sensei-lead-text { font-size: 12px; }
+    }
+
     /* === Store Guide (Premium Redesign) === */
     .store-guide { padding: 0; background: #FAF8F5; }
-    .sg-inner { max-width: 780px; margin: 0 auto; padding: 48px 20px; }
+    .sg-inner { max-width: 1000px; margin: 0 auto; padding: 48px 20px; }
     .sg-header { text-align: center; margin-bottom: 28px; }
     .sg-header h2 {
       font-size: 24px; font-weight: 700; color: #2d2926;
@@ -2295,13 +2325,15 @@
     }
     .sg-sensei-tip p { font-size: 12px; color: #2d2926; line-height: 1.6; margin: 0; }
 
-    /* === TAB 2: Stores — Horizontal Swipe Cards === */
+    /* === TAB 2: Stores — Horizontal Scroll (PC + Mobile) === */
+    .sg-stores-wrap { position: relative; }
     .sg-stores-scroll {
       display: flex; gap: 14px;
       overflow-x: auto; scroll-snap-type: x mandatory;
       padding: 4px 0 16px;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
     .sg-stores-scroll::-webkit-scrollbar { display: none; }
     .sg-store-card {
@@ -2311,8 +2343,26 @@
       transition: transform 0.2s;
     }
     .sg-store-card:hover { transform: translateY(-2px); }
+    /* PC Arrow buttons */
+    .sg-arrow {
+      display: none; position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.95); border: 1px solid #e0dbd6;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      cursor: pointer; z-index: 2;
+      font-size: 16px; color: #6b635d;
+      align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .sg-arrow:hover { background: #C85070; color: #fff; border-color: #C85070; }
+    .sg-arrow-left { left: -16px; }
+    .sg-arrow-right { right: -16px; }
+    @media (min-width: 769px) {
+      .sg-arrow { display: flex; }
+      .sg-store-card { flex: 0 0 300px; }
+    }
     .sg-store-hero {
-      height: 180px; background-size: cover; background-position: center;
+      height: 150px; background-size: cover; background-position: center;
       position: relative;
     }
     .sg-store-badge {
@@ -2322,6 +2372,19 @@
       background: rgba(255,255,255,0.95); color: #C85070;
       backdrop-filter: blur(8px);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+    .sg-store-hero-name {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px; font-weight: 800; color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      letter-spacing: 0.02em;
+      z-index: 1;
+    }
+    .sg-store-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
     }
     .sg-store-body { padding: 16px; }
     .sg-store-name-row { margin-bottom: 4px; }
@@ -2347,10 +2410,19 @@
       font-size: 10px; color: #6b635d; line-height: 1.55;
       padding: 8px 10px; background: #FFF8F0; border-radius: 8px;
     }
-    /* Scroll hint */
+    .sg-store-detail p {
+      font-size: 10px; color: #9a918a; line-height: 1.6;
+      margin: 0 0 8px; padding: 6px 8px;
+      background: #FAFAFA; border-radius: 6px;
+      border-left: 2px solid #e0dbd6;
+    }
     .sg-scroll-hint {
       text-align: center; margin-top: 8px;
       font-size: 11px; color: #b0a8a0;
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .sg-scroll-hint { display: block; }
     }
 
     /* === TAB 3: Coupon — Premium Card === */
@@ -2395,7 +2467,6 @@
       .sg-tax-fact { padding: 12px 4px; }
       .sg-tax-fact-num { font-size: 18px; }
       .sg-tax-how-steps { flex-direction: column; gap: 6px; }
-      .sg-store-card { flex: 0 0 260px; }
       .sg-store-hero { height: 160px; }
     }
 
@@ -3826,7 +3897,7 @@
       <span class="header-season">2026 春季號</span>
       <nav class="header-nav">
         <a class="header-nav-item" href="#sakura-section">櫻花情報</a>
-        <a class="header-nav-item" href="#products-section">推薦商品</a>
+        <a class="header-nav-item" href="#products-section">鄭老師推薦</a>
         <a class="header-nav-item" href="#store-guide">購買指南</a>
         <a class="header-nav-item" href="#articles-section">相關文章</a>
       </nav>
@@ -3837,7 +3908,7 @@
   <nav class="section-nav" id="sectionNav">
     <div class="section-nav-inner">
       <a class="section-nav-item" href="#sakura-section">櫻花情報</a>
-      <a class="section-nav-item" href="#products-section">推薦商品</a>
+      <a class="section-nav-item" href="#products-section">鄭老師推薦</a>
       <a class="section-nav-item" href="#store-guide">購買指南</a>
       <a class="section-nav-item" href="#articles-section">相關文章</a>
     </div>
@@ -4096,8 +4167,16 @@
   <!-- Products Section -->
   <section class="products-section" id="products-section">
     <div class="section-header">
-      <h2>分類推薦</h2>
-      <p>依照需求，找到最適合的商品吧</p>
+      <h2>鄭老師推薦商品</h2>
+      <p>14年日本藥妝研究，嚴選推薦</p>
+    </div>
+
+    <div class="sensei-lead">
+      <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師" class="sensei-lead-img">
+      <div class="sensei-lead-bubble">
+        <div class="sensei-lead-name">鄭老師 鄭世彬</div>
+        <p class="sensei-lead-text">「這些是我自己也在用的愛用品，每一款都是實際體驗後才推薦的！」</p>
+      </div>
     </div>
 
     <div class="card-hint">
@@ -4353,9 +4432,17 @@
     <div class="sg-inner">
 
       <div class="sg-header">
-        <h2>購買指南</h2>
+        <h2>鄭老師的購買指南</h2>
         <div class="sg-header-line"></div>
-        <p>讓你的日本藥妝購物不踩雷</p>
+        <p>14年實戰經驗，教你怎麼買最划算</p>
+      </div>
+
+      <div class="sensei-lead">
+        <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師" class="sensei-lead-img">
+        <div class="sensei-lead-bubble">
+          <div class="sensei-lead-name">鄭老師 鄭世彬</div>
+          <p class="sensei-lead-text">「日本全國有超過2萬家藥妝店！我來幫大家整理各家的特色和優勢。」</p>
+        </div>
       </div>
 
       <div class="sg-tabs">
@@ -4424,9 +4511,113 @@
 
       <!-- Tab 2: 藥妝店指南 (Horizontal Swipe) -->
       <div class="sg-panel" id="sg-stores">
-        <div class="sg-stores-scroll">
+        <div class="sg-stores-wrap">
+          <button class="sg-arrow sg-arrow-left" id="sgArrowL">‹</button>
+          <button class="sg-arrow sg-arrow-right" id="sgArrowR">›</button>
+        <div class="sg-stores-scroll" id="sgStoresScroll">
+
+          <!-- 1. 唐吉訶德 -->
           <div class="sg-store-card">
-            <div class="sg-store-hero" style="background-image: url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=600&q=80');">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #1E40AF, #6366F1);">
+              <span class="sg-store-hero-name">ドン・キホーテ</span>
+              <span class="sg-store-badge">深夜購物天堂</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>唐吉訶德</h3>
+                <span class="sg-store-jp">ドン・キホーテ</span>
+              </div>
+              <p class="sg-store-desc">近年大幅強化藥妝品項，甚至規劃整層樓的空間宛如塞了一間藥妝店。24小時或深夜營業，觀光完再去也來得及。</p>
+              <div class="sg-store-highlights">
+                <span>深夜營業</span>
+                <span>藥妝整層</span>
+                <span>免稅+優惠券</span>
+                <span>伴手禮豐富</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>不只是藥妝，零食、家電、伴手禮一站搞定。藥妝市場太大，唐吉訶德和BIC CAMERA、友都八喜等電器量販店近年都強化藥妝品項。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】唐吉訶德推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 2. 大國藥妝 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #F97316, #EA580C);">
+              <span class="sg-store-hero-name">ダイコクドラッグ</span>
+              <span class="sg-store-badge">價格破壞王</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>大國藥妝</h3>
+                <span class="sg-store-jp">ダイコクドラッグ</span>
+              </div>
+              <p class="sg-store-desc">全國超過120家，鬧區必見的橘色招牌。價格破壞力驚人，購物清單上的必買品項幾乎都能用最優惠價格買到。</p>
+              <div class="sg-store-highlights">
+                <span>價格破壞力</span>
+                <span>一站式購足</span>
+                <span>中文店員多</span>
+                <span>原店退稅</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>大阪心齋橋・道頓堀旗艦店設有免稅熱門商品專區。部分門市有退稅專屬樓層，大幅加快退稅速度。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】大國藥妝推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 3. OS藥妝 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+              <span class="sg-store-hero-name">オーエスドラッグ</span>
+              <span class="sg-store-badge">代購者聖地</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>OS藥妝</h3>
+                <span class="sg-store-jp">オーエスドラッグ</span>
+              </div>
+              <p class="sg-store-desc">大阪發跡，全國約70家。規模不大但重點商品常以驚喜價銷售，許多代購和掃貨者的愛店。OTC醫藥品品項齊全。</p>
+              <div class="sg-store-highlights">
+                <span>驚喜價格</span>
+                <span>OTC齊全</span>
+                <span>代購最愛</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>⚠️ 至今仍未提供退稅服務，但價格本身已經夠便宜。美妝保養品和生活用品相對較少，適合代購常備藥一次購齊。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】OS藥妝推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 4. COSMOS -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #EC4899, #DB2777);">
+              <span class="sg-store-hero-name">コスモス</span>
+              <span class="sg-store-badge">破盤價注意</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>COSMOS</h3>
+                <span class="sg-store-jp">コスモス</span>
+              </div>
+              <p class="sg-store-desc">九州發跡，全國約1,300家。針對人氣品項不定時推出驚人的破盤價，在藥妝激戰中殺出血路。</p>
+              <div class="sg-store-highlights">
+                <span>破盤價</span>
+                <span>九州發跡</span>
+                <span>免稅對應</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>⚠️ 許多破盤價商品僅限第一件，第二件起回到促銷價或正常價。掃貨時一定要注意店內遊戲規則！</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】COSMOS推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 5. 松本清 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #FBBF24, #F59E0B);">
+              <span class="sg-store-hero-name">マツモトキヨシ</span>
               <span class="sg-store-badge">品牌最齊全</span>
             </div>
             <div class="sg-store-body">
@@ -4434,69 +4625,141 @@
                 <h3>松本清</h3>
                 <span class="sg-store-jp">マツモトキヨシ</span>
               </div>
-              <p class="sg-store-desc">日本最大連鎖藥妝店，全國1,700家以上。自有品牌「matsukiyo」品質好又便宜。</p>
+              <p class="sg-store-desc">創立超過90年，全日本超過1,900家，華語圈知名度最高。OTC醫藥品、保健食品到美妝保養品，品項最齊全。</p>
               <div class="sg-store-highlights">
-                <span>PB商品CP值高</span>
-                <span>免稅對應完善</span>
-                <span>中文服務</span>
+                <span>品項最多</span>
+                <span>限定組合</span>
+                <span>PB商品</span>
+                <span>台灣也有</span>
               </div>
-              <div class="sg-store-sensei">💡 matsukiyo的維他命和面膜是隱藏好物，比大牌便宜一半！</div>
+              <div class="sg-store-detail">
+                <p>花王、高絲、資生堂等大廠都會推出松本清專賣版本或限定組合。喜歡特殊版本的人非常適合來挖寶！</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】松本清推薦重點</div>
             </div>
           </div>
+
+          <!-- 6. 可開嘉來 -->
           <div class="sg-store-card">
-            <div class="sg-store-hero" style="background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=600&q=80');">
-              <span class="sg-store-badge">價格最便宜</span>
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #14B8A6, #0D9488);">
+              <span class="sg-store-hero-name">ココカラファイン</span>
+              <span class="sg-store-badge">日本規模No.1</span>
             </div>
             <div class="sg-store-body">
               <div class="sg-store-name-row">
-                <h3>大國藥妝</h3>
-                <span class="sg-store-jp">ダイコクドラッグ</span>
-              </div>
-              <p class="sg-store-desc">以低價著稱的大阪發跡藥妝店。限時特賣和驚喜價是招牌，關西店鋪特別多。</p>
-              <div class="sg-store-highlights">
-                <span>價格戰王者</span>
-                <span>限時特賣多</span>
-                <span>關西密集</span>
-              </div>
-              <div class="sg-store-sensei">💡 限時特賣真的很便宜，但要注意免稅最低金額的計算方式！</div>
-            </div>
-          </div>
-          <div class="sg-store-card">
-            <div class="sg-store-hero" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80');">
-              <span class="sg-store-badge">醫藥品專門</span>
-            </div>
-            <div class="sg-store-body">
-              <div class="sg-store-name-row">
-                <h3>杉藥局</h3>
-                <span class="sg-store-jp">スギ薬局</span>
-              </div>
-              <p class="sg-store-desc">在地人最愛的藥局。處方藥對應，醫藥品種類特別豐富，價格不被觀光客哄抬。</p>
-              <div class="sg-store-highlights">
-                <span>處方藥對應</span>
-                <span>醫藥品最多</span>
-                <span>在地人價格</span>
-              </div>
-              <div class="sg-store-sensei">💡 想找真正的「藥」來這裡準沒錯，感冒藥、胃腸藥比觀光區便宜很多。</div>
-            </div>
-          </div>
-          <div class="sg-store-card">
-            <div class="sg-store-hero" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80');">
-              <span class="sg-store-badge">美妝強項</span>
-            </div>
-            <div class="sg-store-body">
-              <div class="sg-store-name-row">
-                <h3>可可卡拉</h3>
+                <h3>可開嘉來</h3>
                 <span class="sg-store-jp">ココカラファイン</span>
               </div>
-              <p class="sg-store-desc">美妝品牌陳列特別用心，高端＋開架都有。店內環境整潔，適合慢慢選購。</p>
+              <p class="sg-store-desc">2021年與松本清合併，集團約3,500家，日本規模第一大。松本清自有品牌和限定品這裡也買得到！</p>
               <div class="sg-store-highlights">
-                <span>高端美妝</span>
-                <span>店內整潔</span>
-                <span>美妝諮詢</span>
+                <span>日本最大集團</span>
+                <span>松本清PB共享</span>
+                <span>全國展開</span>
               </div>
-              <div class="sg-store-sensei">💡 美妝控必去！化妝品陳列最好逛，工作人員也很專業。</div>
+              <div class="sg-store-detail">
+                <p>華人圈知名度不算高，但其實是松本清集團一員。許多松本清限定品也能在這裡找到。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】可開嘉來推薦重點</div>
             </div>
           </div>
+
+          <!-- 7. AINZ&TULPE -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+              <span class="sg-store-hero-name">アインズ＆トルぺ</span>
+              <span class="sg-store-badge">美妝聖地</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>AINZ&TULPE</h3>
+                <span class="sg-store-jp">アインズ＆トルぺ</span>
+              </div>
+              <p class="sg-store-desc">北海道發跡，美妝保養品才是強項。資生堂人氣品牌AYURA納入旗下，自有品牌LIPS and HIPS也受歡迎。</p>
+              <div class="sg-store-highlights">
+                <span>美妝特化</span>
+                <span>AYURA專櫃</span>
+                <span>自有品牌</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>新宿東口外的分店是許多日本美妝迷必訪的藥妝聖地。近年積極向東京、大阪的藥妝激戰區展店。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】AINZ&TULPE推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 8. SUGI藥局 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #34D399, #059669);">
+              <span class="sg-store-hero-name">スギ薬局</span>
+              <span class="sg-store-badge">急速竄升中</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>SUGI藥局</h3>
+                <span class="sg-store-jp">スギ薬局</span>
+              </div>
+              <p class="sg-store-desc">在台灣與大樹藥局合作跨境購物，知名度急速上升。疫情期間大舉在上野、新宿、心齋橋等激戰區展店。</p>
+              <div class="sg-store-highlights">
+                <span>台灣合作</span>
+                <span>激戰區展店</span>
+                <span>處方藥對應</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>原本主攻住宅區，近年積極進入觀光客密集區域，門市能見度大幅提升。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】SUGI藥局推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 9. welcia藥局 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #F43F5E, #E11D48);">
+              <span class="sg-store-hero-name">ウェルシア薬局</span>
+              <span class="sg-store-badge">24H深夜綠洲</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>welcia藥局</h3>
+                <span class="sg-store-jp">ウェルシア薬局</span>
+              </div>
+              <p class="sg-store-desc">大部分門市在住宅區，但新宿西口旗艦店兩層樓，OTC、美妝、零食齊全，像塞了一間小超商。24小時營業！</p>
+              <div class="sg-store-highlights">
+                <span>24小時</span>
+                <span>零食也有</span>
+                <span>新宿旗艦店</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>新宿西口旗艦店地點佳，成為深夜時段除唐吉訶德以外的新購物綠洲。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】welcia藥局推薦重點</div>
+            </div>
+          </div>
+
+          <!-- 10. 鶴羽藥妝 -->
+          <div class="sg-store-card">
+            <div class="sg-store-hero" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);">
+              <span class="sg-store-hero-name">ツルハドラッグ</span>
+              <span class="sg-store-badge">北海道老舖</span>
+            </div>
+            <div class="sg-store-body">
+              <div class="sg-store-name-row">
+                <h3>鶴羽藥妝</h3>
+                <span class="sg-store-jp">ツルハドラッグ</span>
+              </div>
+              <p class="sg-store-desc">北海道旭川市誕生，歷史將近百年的北海道藥妝集團。近年強化大阪心齋橋、道頓堀一帶的大型門市展店。</p>
+              <div class="sg-store-highlights">
+                <span>北海道老舖</span>
+                <span>大阪擴張中</span>
+                <span>大型門市</span>
+              </div>
+              <div class="sg-store-detail">
+                <p>大部分分店集中於北海道，近年在關西心齋橋、道頓堀一帶開設多家大型門市。</p>
+              </div>
+              <div class="sg-store-sensei">💡【待鄭老師提供】鶴羽藥妝推薦重點</div>
+            </div>
+          </div>
+
+        </div>
         </div>
         <div class="sg-scroll-hint">← 左右滑動查看更多 →</div>
       </div>
@@ -4530,7 +4793,15 @@
       <div class="related-articles">
         <div class="related-header">
           <h2>想看更多？</h2>
-          <p>JAPANKURU的推薦文章</p>
+          <p>鄭老師和JAPANKURU的推薦文章</p>
+        </div>
+
+        <div class="sensei-lead" style="max-width: 600px;">
+          <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師" class="sensei-lead-img">
+          <div class="sensei-lead-bubble">
+            <div class="sensei-lead-name">鄭老師 鄭世彬</div>
+            <p class="sensei-lead-text">「想深入了解日本藥妝的話，這幾篇文章一定要讀！」</p>
+          </div>
         </div>
         <div class="articles-grid">
           <a href="#" class="article-card">
@@ -5696,7 +5967,24 @@
         document.getElementById('skSpeechText').textContent = '日期輸入好了嗎？我來幫你找最適合的城市！🌸';
         document.getElementById('skTravelStart').focus();
       });
-    // Store Guide Tabs
+    // Store Guide Tabs & Scroll Arrows
+
+    // Store scroll arrows
+    (function() {
+      var scroller = document.getElementById('sgStoresScroll');
+      var leftBtn = document.getElementById('sgArrowL');
+      var rightBtn = document.getElementById('sgArrowR');
+      if (scroller && leftBtn && rightBtn) {
+        var scrollAmt = 314; // card width + gap
+        leftBtn.addEventListener('click', function() {
+          scroller.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
+        });
+        rightBtn.addEventListener('click', function() {
+          scroller.scrollBy({ left: scrollAmt, behavior: 'smooth' });
+        });
+      }
+    })();
+
     document.querySelectorAll('.sg-tab').forEach(function(tab) {
       tab.addEventListener('click', function() {
         document.querySelectorAll('.sg-tab').forEach(function(t) { t.classList.remove('is-active'); });
