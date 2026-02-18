@@ -1009,20 +1009,21 @@
 
     .tab-btn {
       background: var(--white);
-      border: 1px solid #e5e5e5;
-      padding: 12px 24px;
+      border: 1px solid #e8e4e0;
+      padding: 10px 22px;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
-      color: var(--ink-light);
+      color: #6b635d;
+      border-radius: 8px;
     }
 
-    .tab-btn:hover { border-color: var(--ink-faint); }
+    .tab-btn:hover { border-color: #C85070; color: #C85070; }
 
     .tab-btn.active {
-      background: var(--ink);
-      border-color: var(--ink);
+      background: #C85070;
+      border-color: #C85070;
       color: #fff;
     }
 
@@ -1086,8 +1087,9 @@
     /* Card */
     .item-card {
       background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -1096,8 +1098,8 @@
     }
 
     .item-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(212, 112, 122, 0.12), 0 8px 16px rgba(0,0,0,0.06);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
 
     /* Basic Plan styles removed for public LP */
@@ -1375,17 +1377,19 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 4px;
-      background: var(--accent);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(45,41,38,0.7);
       color: #fff;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.02em;
     }
 
-    .item-label.type-deal { background: #c4956a; }
-    .item-label.type-exclusive { background: var(--blue); }
-    .item-label.type-hot { background: #e74c3c; }
+    .item-label.type-deal { background: #B8977E; }
+    .item-label.type-exclusive { background: #7C9CB8; }
+    .item-label.type-hot { background: #C85070; }
 
     .media-indicators {
       position: absolute;
@@ -1408,7 +1412,7 @@
     }
 
     .item-content {
-      padding: 20px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -1419,11 +1423,11 @@
     }
 
     .item-name {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.4;
+      margin-bottom: 6px;
+      line-height: 1.5;
     }
 
     .item-price-row {
@@ -1438,11 +1442,12 @@
     .item-price { font-size: 18px; font-weight: 800; color: var(--ink); }
 
     .price-label {
-      font-size: 10px;
+      font-size: 9px;
       padding: 2px 6px;
-      background: var(--accent);
-      color: #fff;
+      background: #FFF0F3;
+      color: #C85070;
       border-radius: 4px;
+      font-weight: 600;
     }
 
     .che-section { margin-bottom: 20px; }
@@ -2790,27 +2795,35 @@
       max-width: 560px;
       width: 100%;
       max-height: 90vh;
-      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
       position: relative;
       border-radius: 16px;
     }
-
     .modal-close {
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(255,255,255,0.9);
-      border: none;
-      width: 40px;
-      height: 40px;
+      background: #fff;
+      border: 1px solid #e0dbd6;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       cursor: pointer;
-      color: var(--ink-light);
+      color: #2d2926;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: #C85070; color: #fff; border-color: #C85070; }
+    .modal-scroll-area {
+      overflow-y: auto;
+      flex: 1;
+      border-radius: 16px;
     }
 
     .modal-visual {
@@ -4092,7 +4105,7 @@
     </div>
 
     <div class="featured-carousel">
-      <article class="featured-card" onclick="scrollToProduct(1)">
+      <article class="featured-card" onclick="openDetailModal(1)">
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4102,7 +4115,7 @@
         </div>
       </article>
 
-      <article class="featured-card" onclick="scrollToProduct(7)">
+      <article class="featured-card" onclick="openDetailModal(7)">
         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4112,7 +4125,7 @@
         </div>
       </article>
 
-      <article class="featured-card" onclick="scrollToProduct(4)">
+      <article class="featured-card" onclick="openDetailModal(4)">
         <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4122,7 +4135,7 @@
         </div>
       </article>
 
-      <article class="featured-card" onclick="scrollToProduct(2)">
+      <article class="featured-card" onclick="openDetailModal(2)">
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png" alt="Yunth" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4132,7 +4145,7 @@
         </div>
       </article>
 
-      <article class="featured-card" onclick="scrollToProduct(3)">
+      <article class="featured-card" onclick="openDetailModal(3)">
         <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4142,7 +4155,7 @@
         </div>
       </article>
 
-      <article class="featured-card" onclick="scrollToProduct(10)">
+      <article class="featured-card" onclick="openDetailModal(10)">
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
@@ -4194,7 +4207,7 @@
     <div class="tabs-nav">
       <button class="tab-btn active" data-tab="cosme">彩妝・美容</button>
       <button class="tab-btn" data-tab="medicine">醫藥品</button>
-      <button class="tab-btn" data-tab="health">健康食品・食品</button>
+      <button class="tab-btn" data-tab="health">健康輔助食品</button>
       <button class="tab-btn" data-tab="daily">日用品</button>
     </div>
 
@@ -4855,9 +4868,10 @@
   </footer>
 
   <!-- PC Detail Modal -->
-  <div class="modal-overlay" id="detailModal">
+  <div class="modal-overlay" id="detailModal" onclick="if(event.target===this)closeDetailModal()">
     <div class="detail-modal">
       <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-scroll-area">
       <div class="modal-visual" id="modalVisual">
         <img src="" alt="" class="modal-product-img" id="modalImg">
       </div>
@@ -4896,6 +4910,7 @@
           </button>
         </div>
         <a href="#" class="modal-cta" id="modalCta" target="_blank" style="display:none;">閱讀專欄 →</a>
+      </div>
       </div>
     </div>
   </div>
