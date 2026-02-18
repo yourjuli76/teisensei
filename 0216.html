@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PNDM26');</script>
+  <!-- End Google Tag Manager -->
   <title>鄭老師的推薦 2026春 | JAPANKURU × 日本藥妝研究室</title>
+  <meta property="og:title" content="鄭老師的推薦 2026春 | 日本藥妝購物攻略">
+  <meta property="og:description" content="14年日本藥妝研究經驗，鄭老師嚴選推薦商品＋免稅攻略＋藥妝店指南。2026櫻花季購物必看！">
+  <meta property="og:image" content="https://www.japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg">
+  <meta property="og:url" content="https://www.japankuru.com/tw/special/sakura-shopping-2026/">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JAPANKURU">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.japankuru.com/tw/special/sakura-shopping-2026/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
@@ -54,9 +71,9 @@
       top: 48px; /* TODO: JAPANKURU 실제 헤더 높이에 맞춰 조정 */
       left: 0; right: 0;
       z-index: 999;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,252,250,0.95);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(200,80,112,0.06);
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -70,22 +87,34 @@
       min-width: max-content;
     }
     .section-nav-item {
-      padding: 10px 14px;
-      font-size: 11px;
+      padding: 10px 16px;
+      font-size: 12px;
       font-weight: 600;
-      color: #9a918a;
+      color: #b0a8a0;
       text-decoration: none;
       border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      transition: all 0.25s;
       flex-shrink: 0;
-      display: flex; align-items: center; gap: 4px;
+      display: flex; align-items: center; gap: 5px;
+      letter-spacing: 0.03em;
+    }
+    .section-nav-item::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #d4c8c0;
+      transition: all 0.25s;
+      flex-shrink: 0;
     }
     .section-nav-item:hover,
     .section-nav-item.is-active {
       color: #C85070;
       border-bottom-color: #C85070;
     }
-    .section-nav-item .nav-emoji { font-size: 13px; }
+    .section-nav-item.is-active::before {
+      background: #C85070;
+      box-shadow: 0 0 0 2px rgba(200,80,112,0.2);
+    }
 
     @media (max-width: 768px) {
       .section-nav { display: block; }
@@ -143,18 +172,21 @@
       align-items: center; gap: 4px;
     }
     .header-nav-item {
-      padding: 6px 12px;
+      padding: 7px 16px;
       font-size: 12px; font-weight: 600;
-      color: #6b635d; text-decoration: none;
+      color: #9a918a; text-decoration: none;
       border-radius: 999px;
-      transition: all 0.2s;
+      transition: all 0.25s;
       white-space: nowrap;
+      letter-spacing: 0.02em;
+      position: relative;
     }
     .header-nav-item:hover {
-      color: #C85070; background: #FFF0F3;
+      color: #2d2926;
     }
     .header-nav-item.is-active {
-      color: #C85070; background: #FFF0F3;
+      color: #fff;
+      background: #C85070;
     }
     @media (min-width: 769px) {
       .header-nav { display: flex; }
@@ -236,7 +268,7 @@
     .tag-target { background: var(--ink); color: #fff; }
 
     .hero h1 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: clamp(1.5rem, 3.8vw, 2.6rem);
       font-weight: 600;
       line-height: 1.5;
@@ -414,7 +446,7 @@
     }
 
     .speech-text {
-      font-family: 'Noto Serif TC', 'Zen Kurenaido', serif;
+      font-family: 'Noto Sans TC', 'Zen Kurenaido', serif;
       font-size: 15px;
       line-height: 1.7;
       color: var(--ink);
@@ -516,7 +548,7 @@
     }
 
     .split-eyebrow {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 13px;
       letter-spacing: 0.35em;
       color: var(--accent);
@@ -537,7 +569,7 @@
     }
 
     .split-title {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 30px;
       font-weight: 500;
       color: var(--ink);
@@ -620,7 +652,7 @@
     }
 
     .split-logo-text {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -630,7 +662,7 @@
     .split-content { position: relative; z-index: 2; }
 
     .split-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 48px;
       font-weight: 400;
       font-style: italic;
@@ -642,7 +674,7 @@
     }
 
     .split-brand {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -655,7 +687,7 @@
     }
 
     .split-headline {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 22px;
       font-weight: 500;
       line-height: 1.5;
@@ -793,7 +825,7 @@
     }
 
     .featured-title {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 22px;
       font-weight: 500;
       color: var(--ink);
@@ -875,7 +907,7 @@
     /* Featured card tag styles removed */
 
     .featured-card-title {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 20px;
       font-weight: 700;
       line-height: 1.3;
@@ -939,7 +971,7 @@
     }
 
     .section-transition p {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 15px;
       color: var(--ink-muted);
       letter-spacing: 0.1em;
@@ -952,13 +984,20 @@
       margin: 0 auto;
     }
 
+    .section-header-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #C85070;
+      margin-bottom: 6px;
+    }
     .section-header {
       text-align: center;
       margin-bottom: 40px;
     }
 
     .section-header h2 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 22px;
       font-weight: 500;
       color: var(--ink);
@@ -1464,6 +1503,7 @@
       height: 48px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center 15%;
       border: 2px solid var(--accent-soft);
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
@@ -1757,10 +1797,11 @@
     .sakura-hero {
       position: relative;
       background: linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 50%, #FFF5F0 100%);
-      overflow: hidden;
       min-height: 480px;
+      overflow: visible;
+      z-index: 1;
     }
-    .sakura-hero::before {
+    .sakura-hero-inner::before {
       content: ''; position: absolute; top: -60px; right: -60px;
       width: 240px; height: 240px; border-radius: 50%;
       background: radial-gradient(circle, rgba(212,96,122,0.08) 0%, transparent 70%);
@@ -1781,31 +1822,38 @@
       max-width: 380px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       pointer-events: none;
-      padding: 20px 0;
+      overflow: visible;
     }
-    /* Speech bubble above photo */
+    .sakura-hero-cutout {
+      position: relative;
+      max-height: 420px;
+      width: auto;
+      object-fit: contain;
+    }
+    /* Speech bubble — natural flow above photo */
     .sakura-speech {
       pointer-events: auto;
       background: #fff;
       border: 1px solid rgba(212,96,122,0.15);
       border-radius: 14px;
       padding: 10px 14px;
-      font-size: 12px; line-height: 1.6;
+      font-size: 13px; line-height: 1.6;
       color: #2d2926;
-      max-width: 280px;
-      margin-bottom: 8px;
+      max-width: 220px;
       box-shadow: 0 2px 12px rgba(212,96,122,0.08);
       position: relative;
+      z-index: 10;
+      margin-bottom: 0;
+      align-self: flex-start;
+      margin-left: 20px;
       animation: skSpeechIn 0.4s ease-out;
-    }
-    @keyframes skSpeechIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    }    @keyframes skSpeechIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
     .sakura-speech::after {
       content: '';
-      position: absolute; bottom: -7px; left: 50%;
-      transform: translateX(-50%);
+      position: absolute; bottom: -7px; right: 30px;
       width: 0; height: 0;
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
@@ -1860,7 +1908,7 @@
       font-size: 13px; font-weight: 600; color: #2d2926;
     }
     .sakura-hero h2 {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Sans TC', serif;
       font-size: clamp(1.3rem, 3.2vw, 1.75rem);
       font-weight: 700; line-height: 1.5;
       color: #2d2926;
@@ -1937,9 +1985,9 @@
         padding-top: 16px;
         pointer-events: auto;
       }
-      .sakura-speech { max-width: 240px; font-size: 11px; }
+      .sakura-speech { max-width: 240px; font-size: 11px; position:relative; top:auto; left:auto; transform:none; margin-bottom:8px; }
       .sakura-hero-cutout {
-        width: 55%; max-width: 240px;
+        width: 55%; max-width: 240px; max-height: 320px; object-fit: contain;
       }
       .sakura-hero-text {
         margin-left: 0;
@@ -2076,7 +2124,7 @@
       color: #C85070; margin-bottom: 8px;
     }
     .sakura-section-title {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Sans TC', serif;
       font-size: 20px; font-weight: 700; color: #2d2926; margin: 0 0 24px;
     }
 
@@ -2209,6 +2257,13 @@
     .store-guide { padding: 0; background: #FAF8F5; }
     .sg-inner { max-width: 1000px; margin: 0 auto; padding: 48px 20px; }
     .sg-header { text-align: center; margin-bottom: 28px; }
+    .sg-header-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #C85070;
+      margin-bottom: 6px;
+    }
     .sg-header h2 {
       font-size: 24px; font-weight: 700; color: #2d2926;
       letter-spacing: -0.02em;
@@ -2491,7 +2546,7 @@
     }
 
     .related-header h2 {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 20px;
       font-weight: 500;
       color: var(--ink);
@@ -2550,12 +2605,12 @@
 
     .outro-cta {
       text-align: center;
-      padding: 40px;
+      padding: 0;
       background: var(--paper-warm);
     }
 
     .outro-greeting {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 18px;
       color: var(--ink);
       margin-bottom: 8px;
@@ -2567,13 +2622,11 @@
       margin-bottom: 20px;
     }
 
-    .outro-follow { margin-top: 24px; }
-    .follow-label { font-size: 12px; color: var(--ink-muted); margin-bottom: 12px; }
-
-    .follow-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    @media (max-width: 600px) {
+      .outro-cta { flex-direction: column !important; }
+      .outro-cta > div:first-child { width: 100% !important; height: 200px !important; }
+      .outro-cta > div:last-child { text-align: center !important; padding: 24px 20px !important; }
+      .outro-cta > div:last-child > div:last-child { justify-content: center; }
     }
 
     .follow-buttons a {
@@ -2857,7 +2910,7 @@
     .modal-body { padding: 24px; }
 
     .modal-product-name {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 18px;
       font-weight: 600;
       color: var(--ink);
@@ -2890,6 +2943,7 @@
       height: 52px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center 15%;
       border: 2px solid var(--accent-soft);
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
@@ -3850,7 +3904,7 @@
       text-align: center;
     }
     .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Noto Sans TC', sans-serif;
       font-size: 36px;
       font-weight: 600;
       color: var(--accent);
@@ -3895,15 +3949,19 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNDM26"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <!-- Header -->
   <header class="header" id="header">
     <div class="header-inner">
       <div class="collab-logo">
-        <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
+        <img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
         <span class="collab-x">×</span>
         <div class="partner-logo">
-          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
+          <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/teisensei_company.png" alt="日本藥妝研究室" class="partner-logo-img">
           <span class="partner-name">日本藥妝研究室</span>
         </div>
       </div>
@@ -3973,11 +4031,11 @@
             持續跑遍藥妝店14年，每當有新商品就親自試用，只介紹那些「想推薦給台灣朋友」的好物。
           </p>
           <div class="story-books">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2018-日本藥妝美研購4-JAPANCOSMEGOBEAUTY4S_page-0001-scaled.jpg" alt="著書2">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2020-日本藥妝美研購6-20200621034608124765.webp" alt="著書3">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2023-日本藥妝美研購7-20221216040749386921.webp" alt="著書4">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2025-日本藥妝美研購9-.jpg" alt="著書5">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/12.晶冠日本藥妝美研購3.jpg" alt="著書1">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2018-日本藥妝美研購4-JAPANCOSMEGOBEAUTY4S_page-0001-scaled.jpg" alt="著書2">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2020-日本藥妝美研購6-20200621034608124765.webp" alt="著書3">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2023-日本藥妝美研購7-20221216040749386921.webp" alt="著書4">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/2025-日本藥妝美研購9-.jpg" alt="著書5">
             <span class="books-more">+4</span>
           </div>
         </div>
@@ -4010,9 +4068,9 @@
           </div>
           <!-- Rotating photos -->
           <div class="tei-photo-stack">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9993-拷贝-scaled.png" alt="鄭世彬" class="tei-photo tei-slide active" data-slide="0">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭世彬" class="tei-photo tei-slide" data-slide="1">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0008-拷贝-scaled.png" alt="鄭世彬" class="tei-photo tei-slide" data-slide="2">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9993-拷贝-scaled.png" alt="鄭世彬" class="tei-photo tei-slide active" data-slide="0">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭世彬" class="tei-photo tei-slide" data-slide="1">
+            <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0008-拷贝-scaled.png" alt="鄭世彬" class="tei-photo tei-slide" data-slide="2">
           </div>
           <div class="tei-name-tag">
             <p class="name-jp">鄭 世彬</p>
@@ -4055,7 +4113,7 @@
 
     <div class="split-container">
       <div class="split-panel" onclick="openDetailModal(1)">
-        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
         <div class="split-logo"><span class="split-logo-text">Kao</span></div>
         <div class="split-content">
           <span class="split-num">01</span>
@@ -4067,7 +4125,7 @@
       </div>
 
       <div class="split-panel" onclick="openDetailModal(2)">
-        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
         <div class="split-logo"><span class="split-logo-text">Yunth</span></div>
         <div class="split-content">
           <span class="split-num">02</span>
@@ -4079,7 +4137,7 @@
       </div>
 
       <div class="split-panel" onclick="openDetailModal(3)">
-        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
         <div class="split-logo"><span class="split-logo-text">石澤研究所</span></div>
         <div class="split-content">
           <span class="split-num">03</span>
@@ -4106,7 +4164,7 @@
 
     <div class="featured-carousel">
       <article class="featured-card" onclick="openDetailModal(1)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">Bioré The CLEANSE</h3>
@@ -4116,7 +4174,7 @@
       </article>
 
       <article class="featured-card" onclick="openDetailModal(7)">
-        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">膠原蛋白C<br>果凍</h3>
@@ -4126,7 +4184,7 @@
       </article>
 
       <article class="featured-card" onclick="openDetailModal(4)">
-        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">Pabron Ace<br>Pro-X</h3>
@@ -4136,7 +4194,7 @@
       </article>
 
       <article class="featured-card" onclick="openDetailModal(2)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png" alt="Yunth" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png" alt="Yunth" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">Yunth<br>生VC美白美容液</h3>
@@ -4146,7 +4204,7 @@
       </article>
 
       <article class="featured-card" onclick="openDetailModal(3)">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">紫外線予報<br>UV防曬棒</h3>
@@ -4156,7 +4214,7 @@
       </article>
 
       <article class="featured-card" onclick="openDetailModal(10)">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">MONDAMIN<br>PREMIUM CARE</h3>
@@ -4180,6 +4238,7 @@
   <!-- Products Section -->
   <section class="products-section" id="products-section">
     <div class="section-header">
+      <div class="section-header-label">RECOMMENDED</div>
       <h2>鄭老師推薦商品</h2>
       <p>14年日本藥妝研究，嚴選推薦</p>
     </div>
@@ -4196,7 +4255,7 @@
     <!-- First-visit onboarding tooltip -->
     <div class="onboarding-tip" id="onboardingTip">
       <div class="onboarding-tip-inner">
-        <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-scaled.png" alt="鄭老師" class="onboarding-face">
+        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-scaled.png" alt="鄭老師" class="onboarding-face">
         <div class="onboarding-content">
           <p>按下 <i class="far fa-heart" style="color:var(--accent)"></i> 就能儲存商品！<br>出發前確認你的<strong>購物清單</strong>吧 🛍️</p>
         </div>
@@ -4223,19 +4282,12 @@
           <div class="sakura-speech-name">鄭老師</div>
           <span id="skSpeechText">日期輸入好了嗎？我來幫你找最適合的城市！🌸</span>
         </div>
-        <span class="sakura-hero-petal">🌸</span>
-        <span class="sakura-hero-petal">🌸</span>
-        <span class="sakura-hero-petal">🌸</span>
-        <img class="sakura-hero-cutout" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭老師">
+        <img class="sakura-hero-cutout" loading="eager" width="380" height="500" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭老師">
       </div>
 
       <!-- RIGHT: Text + Picker -->
       <div class="sakura-hero-text">
         <span class="sakura-hero-label">🌸 SAKURA × SHOPPING 2026</span>
-        <div class="sakura-hero-sensei-tag">
-          <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9993-1-150x150.jpg" alt="鄭老師">
-          <span>鄭老師（鄭世彬）</span>
-        </div>
         <h2>賞櫻季節，<br>也是<em>藥妝購物</em>的最佳時機</h2>
         <p class="sakura-hero-quote" id="skSenseiText">
           每年3～4月，日本的藥妝店都會推出櫻花限定商品。<br>
@@ -4310,7 +4362,7 @@
         <div class="sakura-stage" data-stage-idx="0">
           <div class="sakura-stage-img">
             <span class="sakura-stage-num">1</span>
-            <img src="https://gvs.weathernews.jp/s/topics/img/202503/202503260365_top_img_A.jpg?1743466944" alt="開花" loading="lazy">
+            <img decoding="async" src="https://gvs.weathernews.jp/s/topics/img/202503/202503260365_top_img_A.jpg?1743466944" alt="開花" loading="lazy">
           </div>
           <div class="sakura-stage-body">
             <div class="sakura-stage-name">開花</div>
@@ -4322,7 +4374,7 @@
         <div class="sakura-stage" data-stage-idx="1">
           <div class="sakura-stage-img">
             <span class="sakura-stage-num">2</span>
-            <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=600&q=80" alt="滿開" loading="lazy">
+            <img decoding="async" src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=600&q=80" alt="滿開" loading="lazy">
           </div>
           <div class="sakura-stage-body">
             <div class="sakura-stage-name">滿開</div>
@@ -4334,7 +4386,7 @@
         <div class="sakura-stage" data-stage-idx="2">
           <div class="sakura-stage-img">
             <span class="sakura-stage-num">3</span>
-            <img src="https://www.hirosakipark.jp/sakura/wp-content/uploads/2021/04/enjoy04-01.jpg" alt="散り始め" loading="lazy">
+            <img decoding="async" src="https://www.hirosakipark.jp/sakura/wp-content/uploads/2021/04/enjoy04-01.jpg" alt="散り始め" loading="lazy">
           </div>
           <div class="sakura-stage-body">
             <div class="sakura-stage-name">開始飄落</div>
@@ -4346,7 +4398,7 @@
         <div class="sakura-stage" data-stage-idx="3">
           <div class="sakura-stage-img">
             <span class="sakura-stage-num">4</span>
-            <img src="https://www.543life.com/content/wp-content/uploads/2024/04/main_240407-670x670.webp" alt="桜吹雪" loading="lazy">
+            <img decoding="async" src="https://www.543life.com/content/wp-content/uploads/2024/04/main_240407-670x670.webp" alt="桜吹雪" loading="lazy">
           </div>
           <div class="sakura-stage-body">
             <div class="sakura-stage-name">櫻花吹雪</div>
@@ -4437,6 +4489,7 @@
     <div class="sg-inner">
 
       <div class="sg-header">
+        <div class="sg-header-label">BUYING GUIDE</div>
         <h2>鄭老師的購買指南</h2>
         <div class="sg-header-line"></div>
         <p>14年實戰經驗，教你怎麼買最划算</p>
@@ -4499,7 +4552,7 @@
             </div>
 
             <div class="sg-sensei-tip">
-              <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師">
+              <img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師">
               <p>住宅區的藥妝店通常比觀光區便宜10〜30%。先在觀光區看好想買的東西、記下品名，然後去住宅區比價再買，這是我14年的秘訣！</p>
             </div>
           </div>
@@ -4766,7 +4819,7 @@
         <div class="sg-coupon-card">
           <div class="sg-coupon-flag">JAPANKURU 獨家優惠券</div>
           <div class="sg-coupon-hero">
-            <img src="https://www.japankuru.com/gld-kanri/data/uploads/2025/10/20251202%E3%80%90Web%E3%80%91JAPAN-KURU%EF%BC%88%E7%B9%81%E4%BD%93%EF%BC%89%E4%BC%81%E6%A5%AD%E3%81%82%E3%82%8A_2026.0831-Large.jpeg" alt="KOJIMA x BicCamera 優惠券" class="sg-coupon-img">
+            <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2025/10/20251202%E3%80%90Web%E3%80%91JAPAN-KURU%EF%BC%88%E7%B9%81%E4%BD%93%EF%BC%89%E4%BC%81%E6%A5%AD%E3%81%82%E3%82%8A_2026.0831-Large.jpeg" alt="KOJIMA x BicCamera 優惠券" class="sg-coupon-img">
           </div>
           <div class="sg-coupon-body">
             <div class="sg-coupon-title">KOJIMA × BicCamera</div>
@@ -4775,7 +4828,7 @@
             <span class="sg-coupon-save-note">📲 截圖保存，結帳時出示即可</span>
           </div>
           <div class="sg-sensei-tip" style="margin: 0 20px 20px; border-radius: 12px;">
-            <img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師">
+            <img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg" alt="鄭老師">
             <p>這是JAPANKURU專屬的優惠券！買相機或Apple產品差額非常大，越貴越划算。外面找不到這張喔 😉</p>
           </div>
         </div>
@@ -4790,45 +4843,62 @@
       <div class="related-articles">
         <div class="related-header">
           <h2>想看更多？</h2>
-          <p>JAPANKURU的推薦文章</p>
+          <p>JAPANKURU 為你精選的日本情報</p>
         </div>
         <div class="articles-grid">
-          <a href="#" class="article-card">
-            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600');"></div>
-            <span class="article-category">飯店</span>
+          <a href="https://www.japankuru.com/tw/shopping/" target="_blank" rel="noopener" class="article-card">
+            <div class="article-img" style="background-image: url('https://www.japankuru.com/gld-kanri/data/uploads/2025/03/Newdays_CC23-scaled.jpg');"></div>
+            <span class="article-category">購物</span>
             <div class="article-body">
-              <h3 class="article-title">東京人氣飯店10選</h3>
-              <p class="article-meta">5分鐘閱讀</p>
+              <h3 class="article-title">日本購物攻略</h3>
+              <p class="article-meta">藥妝・伴手禮・免稅指南</p>
             </div>
           </a>
-          <a href="#" class="article-card">
-            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600');"></div>
+          <a href="https://www.japankuru.com/tw/food/" target="_blank" rel="noopener" class="article-card">
+            <div class="article-img" style="background-image: url('https://www.japankuru.com/gld-kanri/data/uploads/2025/09/DSC06407-800x533.jpg');"></div>
             <span class="article-category">美食</span>
             <div class="article-body">
-              <h3 class="article-title">絕對要吃！日本美食BEST15</h3>
-              <p class="article-meta">7分鐘閱讀</p>
+              <h3 class="article-title">日本美食情報</h3>
+              <p class="article-meta">拉麵・壽司・甜點・在地美食</p>
             </div>
           </a>
-          <a href="#" class="article-card">
-            <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');"></div>
-            <span class="article-category">觀光</span>
+          <a href="https://www.japankuru.com/tw/tour/" target="_blank" rel="noopener" class="article-card">
+            <div class="article-img" style="background-image: url('https://img.japankuru.com/prg_img/img/img2022031611391515680600.jpg');"></div>
+            <span class="article-category">旅遊</span>
             <div class="article-body">
-              <h3 class="article-title">櫻花季的IG打卡景點</h3>
-              <p class="article-meta">6分鐘閱讀</p>
+              <h3 class="article-title">日本旅遊攻略</h3>
+              <p class="article-meta">景點・交通・行程規劃</p>
             </div>
           </a>
         </div>
       </div>
 
-      <div class="outro-cta">
-        <p class="outro-greeting">在日本的購物，您享受了嗎？</p>
-        <p class="outro-text">下次預計推出「夏季號」，敬請期待！── 鄭世彬</p>
-        <div class="outro-follow">
-          <p class="follow-label">接收下一期通知</p>
-          <div class="follow-buttons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-line"></i></a>
+      <div class="outro-cta" style="display:flex; align-items:center; gap:0; max-width:680px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.04);">
+        <!-- 좌: 사진 -->
+        <div style="flex-shrink:0; width:200px; align-self:stretch; background:linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 100%); display:flex; align-items:flex-end; justify-content:center;">
+          <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭世彬" loading="lazy" decoding="async" style="width:180px; display:block; filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.06));">
+        </div>
+        <!-- 우: 텍스트 + 공유 -->
+        <div style="flex:1; padding:32px 28px; text-align:left;">
+          <p style="font-size:18px; font-weight:700; color:#2d2926; margin:0 0 8px; line-height:1.4;">在日本的購物，您享受了嗎？</p>
+          <p style="font-size:13px; color:#9a918a; margin:0 0 20px; line-height:1.6;">下次預計推出「夏季號」，敬請期待！── 鄭世彬</p>
+          <p style="font-size:11px; color:#b5ada6; margin:0 0 10px;">覺得實用嗎？分享給也要去日本的朋友吧</p>
+          <div style="display:flex; gap:8px;">
+            <a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'fb','width=600,height=400')" 
+               style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#1877F2; border-radius:50%; color:#fff; font-size:15px; cursor:pointer; transition:transform 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a onclick="window.open('https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(location.href),'line','width=600,height=400')" 
+               style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:#06C755; border-radius:50%; color:#fff; font-size:15px; cursor:pointer; transition:transform 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <i class="fab fa-line"></i>
+            </a>
+            <a onclick="if(navigator.share){navigator.share({title:document.title,url:location.href})}else{navigator.clipboard.writeText(location.href).then(()=>alert('已複製連結！'))}" 
+               style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:rgba(45,41,38,0.06); border-radius:50%; color:#2d2926; font-size:14px; cursor:pointer; transition:transform 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              <i class="fas fa-share-alt"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -4849,21 +4919,59 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-collab">
-          <img src="https://japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU">
-          <span>×</span>
-          <span>日本藥妝研究室</span>
+  <footer style="background:#2d2926; color:#fff; padding:32px 24px 24px;">
+    <div style="max-width:1000px; margin:0 auto;">
+
+      <!-- Row 1: 로고 + SNS 팔로우 -->
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div>
+          <a href="https://www.japankuru.com/tw/" target="_blank" rel="noopener" style="display:block; margin-bottom:8px;">
+            <img src="https://www.japankuru.com/gld-kanri/data/themes/japankuru/assets/images/logo.svg" alt="JAPANKURU" style="height:22px; filter:brightness(0) invert(1);" loading="lazy" decoding="async">
+          </a>
+          <p style="font-size:11px; color:rgba(255,255,255,0.4); margin:0; line-height:1.5;">在日台灣人內容團隊｜每日從東京直送第一手情報</p>
         </div>
-        <div class="footer-links">
-          <a href="#">日本藥妝研究室 Facebook</a>
-          <a href="#">JAPANKURU台灣</a>
-          <a href="#">Instagram</a>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+          <p style="font-size:11px; color:rgba(255,255,255,0.5); margin:0;">追蹤我們，每天獲取最新日本情報</p>
+          <div style="display:flex; gap:8px;">
+            <a href="https://www.facebook.com/japankurutw/" target="_blank" rel="noopener"
+               style="display:inline-flex; align-items:center; gap:5px; padding:6px 14px; background:rgba(255,255,255,0.1); border-radius:14px; color:rgba(255,255,255,0.8); text-decoration:none; font-size:11px; font-weight:500; transition:background 0.2s;"
+               onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+              <i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/japankuru_tc/" target="_blank" rel="noopener"
+               style="display:inline-flex; align-items:center; gap:5px; padding:6px 14px; background:rgba(255,255,255,0.1); border-radius:14px; color:rgba(255,255,255,0.8); text-decoration:none; font-size:11px; font-weight:500; transition:background 0.2s;"
+               onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+              <i class="fab fa-instagram" style="color:#E4405F;"></i> Instagram
+            </a>
+            <a href="https://www.threads.com/@japankuru_tc" target="_blank" rel="noopener"
+               style="display:inline-flex; align-items:center; gap:5px; padding:6px 14px; background:rgba(255,255,255,0.1); border-radius:14px; color:rgba(255,255,255,0.8); text-decoration:none; font-size:11px; font-weight:500; transition:background 0.2s;"
+               onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+              <i class="fab fa-threads"></i> Threads
+            </a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 JAPANKURU × JapanCosmeLab</div>
+
+      <!-- Row 2: 사이트 카테고리 -->
+      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+        <a href="https://www.japankuru.com/tw/shopping/" target="_blank" rel="noopener" style="padding:4px 10px; background:rgba(255,255,255,0.05); border-radius:10px; color:rgba(255,255,255,0.45); text-decoration:none; font-size:11px;">購物攻略</a>
+        <a href="https://www.japankuru.com/tw/food/" target="_blank" rel="noopener" style="padding:4px 10px; background:rgba(255,255,255,0.05); border-radius:10px; color:rgba(255,255,255,0.45); text-decoration:none; font-size:11px;">美食情報</a>
+        <a href="https://www.japankuru.com/tw/tour/" target="_blank" rel="noopener" style="padding:4px 10px; background:rgba(255,255,255,0.05); border-radius:10px; color:rgba(255,255,255,0.45); text-decoration:none; font-size:11px;">旅遊攻略</a>
+        <a href="https://www.japankuru.com/tw/culture/" target="_blank" rel="noopener" style="padding:4px 10px; background:rgba(255,255,255,0.05); border-radius:10px; color:rgba(255,255,255,0.45); text-decoration:none; font-size:11px;">文化體驗</a>
+        <a href="https://www.japankuru.com/tw/coupon/" target="_blank" rel="noopener" style="padding:4px 10px; background:rgba(255,255,255,0.05); border-radius:10px; color:rgba(255,255,255,0.45); text-decoration:none; font-size:11px;">優惠券</a>
+        <a href="https://www.japankuru.com/tw/" target="_blank" rel="noopener" style="padding:4px 10px; color:rgba(200,80,112,0.6); text-decoration:none; font-size:11px; font-weight:600;">前往網站 →</a>
+      </div>
+
+      <!-- Row 3: 콜라보 + 저작권 -->
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.05);">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:9px; color:rgba(255,255,255,0.2);">with</span>
+          <a href="https://www.facebook.com/JapanCosmeLab" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;">日本藥妝研究室 <i class="fab fa-facebook" style="font-size:9px;"></i></a>
+          <a href="https://www.instagram.com/japancosmelab/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;"><i class="fab fa-instagram" style="font-size:9px;"></i></a>
+        </div>
+        <p style="font-size:9px; color:rgba(255,255,255,0.15); margin:0;">© 2026 JAPANKURU (Global Daily Co., Ltd.)</p>
+      </div>
+
     </div>
   </footer>
 
@@ -4873,7 +4981,7 @@
       <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-times"></i></button>
       <div class="modal-scroll-area">
       <div class="modal-visual" id="modalVisual">
-        <img src="" alt="" class="modal-product-img" id="modalImg">
+        <img loading="lazy" decoding="async" src="" alt="" class="modal-product-img" id="modalImg">
       </div>
       <div class="modal-body">
         <h2 class="modal-product-name" id="modalName">商品名</h2>
@@ -4881,7 +4989,7 @@
         
         <div class="modal-tei-voice">
           <div class="tei-voice-head">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9997-拷贝-scaled.png" alt="鄭老師" loading="lazy">
+            <img decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭老師" loading="lazy">
             <div class="tei-voice-meta">
               <p class="tei-voice-name">鄭世彬</p>
               <p class="tei-voice-title">日本藥妝研究家</p>
@@ -4940,7 +5048,7 @@
       <div class="bs-handle"><div class="bs-handle-bar"></div></div>
       
       <div class="bs-product-visual" id="bsVisual">
-        <img src="" alt="" id="bsImg">
+        <img loading="lazy" decoding="async" src="" alt="" id="bsImg">
       </div>
 
       <div class="bs-product-info-bar">
@@ -4951,7 +5059,7 @@
       <div class="bs-content">
         <div class="bs-tei-voice">
           <div class="tei-voice-head">
-            <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9997-拷贝-scaled.png" alt="鄭老師" loading="lazy">
+            <img decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭老師" loading="lazy">
             <div class="tei-voice-meta">
               <p class="tei-voice-name">鄭世彬</p>
               <p class="tei-voice-title">日本藥妝研究家</p>
@@ -5001,7 +5109,7 @@
   <div class="toast" id="toast"><i class="fas fa-check"></i> <span id="toastText"></span></div>
 
   <script>
-    const chePhoto = 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-scaled.png';
+    const chePhoto = 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png';
 
     function isMobile() { return window.innerWidth <= 768; }
 
@@ -5259,7 +5367,7 @@
 
       let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '">';
       html += '<div class="item-thumb ' + hasVideoClass + '" onclick="openDetailModal(' + p.id + ')">';
-      html += '<img src="' + p.image + '" alt="' + p.name + '">';
+      html += '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '">';
       if (p.label) html += '<span class="item-label ' + p.label + '">' + p.labelText + '</span>';
       html += videoOverlay;
       html += '<div class="media-indicators">';
@@ -5277,7 +5385,7 @@
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
-      html += '<div class="che-section"><div class="che-header"><img src="' + chePhoto + '" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
+      html += '<div class="che-section"><div class="che-header"><img loading="lazy" decoding="async" src="' + chePhoto + '" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
       html += '<div class="che-comment-box"><p class="che-text' + '' + '">' + p.tip + '</p></div></div>';
 
       // Column preview for plans with column (standard, gold, platinum)
@@ -5358,11 +5466,11 @@
       document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
       document.querySelectorAll('.tab-content').forEach(function(content) { content.classList.remove('active'); });
       document.getElementById('tab-' + tab).classList.add('active');
-      // Scroll tabs-nav into view if out of viewport
+      // Scroll tabs-nav into view only if completely out of viewport
       var tabsNav = document.querySelector('.tabs-nav');
       var rect = tabsNav.getBoundingClientRect();
-      if (rect.top < 60 || rect.top > window.innerHeight * 0.5) {
-        window.scrollTo({ top: tabsNav.offsetTop - 70, behavior: 'smooth' });
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        window.scrollTo({ top: tabsNav.offsetTop - 90, behavior: 'smooth' });
       }
     }
 
@@ -5408,10 +5516,10 @@
 
       if (p.hasVideo && p.videoId) {
         visual.classList.add('has-video');
-        visual.innerHTML = '<iframe src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0" allowfullscreen></iframe>';
+        visual.innerHTML = '<iframe loading="lazy" src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0" allowfullscreen></iframe>';
       } else {
         visual.classList.remove('has-video');
-        visual.innerHTML = '<img src="' + p.image + '" alt="' + p.name + '" class="modal-product-img">';
+        visual.innerHTML = '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '" class="modal-product-img">';
       }
 
       document.getElementById('modalName').textContent = p.name;
@@ -5458,10 +5566,10 @@
 
       if (p.hasVideo && p.videoId) {
         visual.classList.add('has-video');
-        visual.innerHTML = '<iframe src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0&playsinline=1" allowfullscreen></iframe>';
+        visual.innerHTML = '<iframe loading="lazy" src="https://www.youtube.com/embed/' + p.videoId + '?autoplay=0&rel=0&playsinline=1" allowfullscreen></iframe>';
       } else {
         visual.classList.remove('has-video');
-        visual.innerHTML = '<img src="' + p.image + '" alt="' + p.name + '">';
+        visual.innerHTML = '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '">';
       }
 
       document.getElementById('bsName').textContent = p.name;
@@ -5637,7 +5745,7 @@
         container.innerHTML = myList.map(function(id) {
           const p = all.find(function(x) { return x.id === id; });
           if (!p) return '';
-          return '<div class="list-item"><img src="' + p.image + '" class="list-item-img"><div class="list-item-info"><h4>' + p.name + '</h4><p>¥' + p.price.toLocaleString() + '</p></div><button class="list-item-remove" onclick="removeFromList(' + id + ')"><i class="fas fa-times"></i></button></div>';
+          return '<div class="list-item"><img loading="lazy" decoding="async" src="' + p.image + '" class="list-item-img"><div class="list-item-info"><h4>' + p.name + '</h4><p>¥' + p.price.toLocaleString() + '</p></div><button class="list-item-remove" onclick="removeFromList(' + id + ')"><i class="fas fa-times"></i></button></div>';
         }).join('');
         footer.style.display = 'flex';
         screenshotTip.style.display = 'flex';
@@ -5839,7 +5947,7 @@
               '<div class="sakura-ended-title">2026年的櫻花季已結束</div>' +
               '<p class="sakura-ended-text">感謝大家今年的賞櫻！<br>接下來進入夏季，別忘了防曬和消暑對策商品～</p>' +
               '<div style="display:flex;align-items:flex-start;gap:12px;max-width:460px;margin:16px auto 0;padding:16px;background:#FFF8F0;border-radius:12px;">' +
-                '<img src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9993-1-150x150.jpg" alt="鄭老師" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">' +
+                '<img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9993-1-150x150.jpg" alt="鄭老師" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">' +
                 '<p style="font-size:13px;line-height:1.6;margin:0;">櫻花季結束了，但夏天的日本也很精彩！防曬、止汗、防蚊⋯⋯我的推薦商品都在上面，記得看看唷 ☀️</p>' +
               '</div>' +
             '</div>';
