@@ -38,13 +38,20 @@
       --ink-faint: #c5c5c5;
       --paper: #fefefe;
       --paper-warm: #faf9f7;
-      --accent: #d4707a;
-      --accent-soft: #f2e4e6;
-      --sakura: #FFB7C5;
-      --gold: #C9A962;
-      --blue: #5B8DB8;
-      --green: #7A9A7E;
-      --bg: #FFFBFC;
+
+      /* 핑크 계열 통일 — 3단계로만 */
+      --accent: #C8566A;          /* 메인 핑크 (버튼, 강조) — 기존보다 약간 차분하게 */
+      --accent-mid: var(--accent-mid);      /* 중간 핑크 (호버, 보조) */
+      --accent-soft: #f5e8ea;     /* 연핑크 배경 */
+      --accent-pale: #fdf5f6;     /* 극연핑크 배경 */
+
+      --sakura: #F5B8C4;          /* 꽃잎 색 — 살짝 더 차분하게 */
+      --sakura-light: #fce8ed;
+
+      --gold: #B8935A;            /* 골드 — 더 깊게 */
+      --blue: #4A7BA8;
+      --green: #6A8A6E;
+      --bg: #FEFCFD;              /* 기본 배경 — 아주 살짝만 핑크빛 */
       --white: #fff;
     }
 
@@ -108,11 +115,11 @@
     }
     .section-nav-item:hover,
     .section-nav-item.is-active {
-      color: #C85070;
-      border-bottom-color: #C85070;
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
     .section-nav-item.is-active::before {
-      background: #C85070;
+      background: var(--accent);
       box-shadow: 0 0 0 2px rgba(200,80,112,0.2);
     }
 
@@ -186,7 +193,7 @@
     }
     .header-nav-item.is-active {
       color: #fff;
-      background: #C85070;
+      background: var(--accent);
     }
     @media (min-width: 769px) {
       .header-nav { display: flex; }
@@ -198,7 +205,7 @@
       margin-top: 52px;
       padding-top: 60px;
       min-height: 90vh;
-      background: linear-gradient(180deg, #fff0f3 0%, #fff 60%, #fff 100%);
+      background: linear-gradient(180deg, #fff8f9 0%, #fff 70%, #fff 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -216,24 +223,55 @@
       border-radius: 50%;
     }
 
+    /* ===== 벚꽃 꽃잎 전체 페이지 ===== */
+    #sakura-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
     .sakura-petal {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: linear-gradient(135deg, var(--sakura) 0%, #FFD6E0 100%);
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, var(--sakura) 0%, var(--sakura-light) 100%);
       border-radius: 150% 0 150% 0;
       opacity: 0;
       animation: fall linear infinite;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
+    }
+    .sakura-petal.petal-sm { width: 7px; height: 7px; }
+    .sakura-petal.petal-lg { width: 14px; height: 14px; background: linear-gradient(135deg, var(--sakura) 0%, var(--sakura-light) 100%); }
+    /* 초여름 전환 암시 — 연두 꽃잎 */
+    .sakura-petal.petal-green {
+      background: linear-gradient(135deg, #c8e0c0 0%, #d8ead2 100%);
+      border-radius: 0 150% 0 150%;
+      width: 9px; height: 9px;
     }
 
     @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.6; }
-      100% { transform: translateY(100vh) rotate(720deg) translateX(100px); opacity: 0; }
+      0% { transform: translateY(-30px) rotate(0deg) translateX(0); opacity: 0; }
+      8% { opacity: 0.35; }
+      85% { opacity: 0.28; }
+      100% { transform: translateY(105vh) rotate(800deg) translateX(60px); opacity: 0; }
     }
+
+    /* ===== 봄 → 초여름 컬러 플로우 =====
+       hero/split: 벚꽃 핑크
+       featured/products: 중립 (전환 구간)
+       store/outro: 신록 초록빛 (초여름 암시)
+    ===================================== */
+    .split-banner-section { background: #fff; }
+    .featured-section { background: #faf9f8; }
+    .products-section { background: #fff; }
+
+    /* 스토어 가이드 이후 — 살짝 초록빛 따뜻한 톤 */
+    .store-guide { background: linear-gradient(180deg, #f8faf7 0%, #f5f8f4 100%); }
+    .outro-section { background: #f6f9f5; }
 
     .hero-inner {
       max-width: 1100px;
@@ -289,7 +327,7 @@
       left: 0;
       width: 100%;
       height: 14px;
-      background: rgba(212, 112, 122, 0.15);
+      background: rgba(200, 86, 106, 0.10);
       z-index: -1;
       transform: skewX(-15deg);
     }
@@ -303,7 +341,7 @@
 
     .hero-subtitle em {
       font-style: normal;
-      background: linear-gradient(transparent 60%, rgba(212, 112, 122, 0.18) 60%);
+      background: linear-gradient(transparent 60%, rgba(200, 86, 106, 0.12) 60%);
       padding: 0 2px;
     }
 
@@ -341,13 +379,13 @@
     }
 
     .hero-cta-btn {
-      background: linear-gradient(135deg, var(--accent), #c45d67);
+      background: var(--accent);
       color: #fff;
       padding: 20px 42px;
       border-radius: 50px;
       font-weight: 700;
       font-size: 16px;
-      box-shadow: 0 10px 30px rgba(212, 112, 122, 0.35);
+      box-shadow: 0 8px 24px rgba(200, 86, 106, 0.28);
       border: none;
       cursor: pointer;
       transition: all 0.3s;
@@ -359,7 +397,7 @@
     }
 
     @keyframes cta-pulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(212, 112, 122, 0.35); }
+      0%, 100% { box-shadow: 0 10px 30px rgba(200, 86, 106, 0.25); }
       50% { box-shadow: 0 12px 40px rgba(212, 112, 122, 0.55); }
     }
 
@@ -740,7 +778,7 @@
       align-items: center;
       gap: 14px;
       padding: 20px 50px;
-      background: linear-gradient(135deg, var(--accent), #c45d67);
+      background: var(--accent);
       color: #fff;
       font-size: 15px;
       font-weight: 700;
@@ -839,6 +877,33 @@
       line-height: 1.8;
     }
 
+    .featured-carousel-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-arrow {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--ink);
+      transition: all 0.2s;
+    }
+    .carousel-arrow:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.08); }
+    .carousel-arrow-left { left: 8px; }
+    .carousel-arrow-right { right: 8px; }
+    @media (min-width: 769px) { .carousel-arrow { display: flex; align-items: center; justify-content: center; } }
+
     .featured-carousel {
       display: flex;
       gap: 20px;
@@ -882,12 +947,41 @@
       transition: transform 0.6s ease;
     }
 
+    /* contain 카드: 상품 전체 보이게 */
+    .featured-card-contain {
+      background: #f0f2f5;
+    }
+    .featured-card-contain .featured-card-bg {
+      object-fit: contain;
+      padding: 12px 12px 130px;
+      background: transparent;
+    }
+
+    /* 상단 로고 스트립 - overlay(z-index 없음) 위에 표시 */
+    .featured-card-logo-strip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 16px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+    }
+    .featured-card-logo-strip img {
+      max-height: 44px;
+      max-width: 120px;
+      object-fit: contain;
+      display: block;
+    }
+
     .featured-card:hover .featured-card-bg { transform: scale(1.1); }
 
     .featured-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.0) 70%);
+      z-index: 2;
     }
 
     .featured-card-inner {
@@ -898,6 +992,7 @@
       flex-direction: column;
       justify-content: flex-end;
       color: #fff;
+      z-index: 4;
     }
 
     .featured-card-tag {
@@ -988,7 +1083,7 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: #C85070;
+      color: var(--accent);
       margin-bottom: 6px;
     }
     .section-header {
@@ -1017,11 +1112,11 @@
       padding: 14px 20px;
       margin: 0 auto 30px;
       max-width: 500px;
-      background: linear-gradient(135deg, var(--accent-soft) 0%, #fef8f8 100%);
+      background: linear-gradient(135deg, var(--accent-soft) 0%, #fefcfd 100%);
       border-radius: 50px;
       font-size: 13px;
       color: var(--ink-light);
-      border: 1px solid rgba(212, 112, 122, 0.15);
+      border: 1px solid rgba(200, 86, 106, 0.1);
     }
 
     .card-hint i { color: var(--accent); }
@@ -1041,30 +1136,45 @@
     .tabs-nav {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 48px;
+      border-bottom: 1px solid #ede9e5;
+      position: relative;
     }
 
     .tab-btn {
-      background: var(--white);
-      border: 1px solid #e8e4e0;
-      padding: 10px 22px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 14px 28px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
+      letter-spacing: 0.06em;
       cursor: pointer;
-      transition: all 0.2s;
-      color: #6b635d;
-      border-radius: 8px;
+      transition: color 0.25s;
+      color: var(--ink-muted);
+      position: relative;
+      bottom: -1px;
+      white-space: nowrap;
     }
 
-    .tab-btn:hover { border-color: #C85070; color: #C85070; }
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 50%; right: 50%;
+      height: 2px;
+      background: var(--accent);
+      transition: left 0.3s ease, right 0.3s ease;
+    }
+
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn:hover::after { left: 20%; right: 20%; }
 
     .tab-btn.active {
-      background: #C85070;
-      border-color: #C85070;
-      color: #fff;
+      color: var(--ink);
+      font-weight: 700;
     }
+    .tab-btn.active::after { left: 0; right: 0; }
 
     @media (max-width: 600px) {
       .tabs-nav {
@@ -1072,16 +1182,16 @@
         top: 56px;
         z-index: 100;
         background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(10px);
-        flex-wrap: nowrap;
+        backdrop-filter: blur(12px);
         overflow-x: auto;
         justify-content: flex-start;
-        padding: 12px 16px;
-        margin: 0 -24px 20px;
-        border-bottom: 1px solid #eee;
+        padding: 0 16px;
+        margin: 0 -24px 28px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
       .tabs-nav::-webkit-scrollbar { display: none; }
-      .tab-btn { flex: 0 0 auto; padding: 10px 18px; font-size: 12px; }
+      .tab-btn { padding: 12px 20px; font-size: 12px; }
     }
 
     .tab-content {
@@ -1141,14 +1251,32 @@
       box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
 
-    /* Basic Plan styles removed for public LP */
+    /* 상품 카드 content 영역 브랜드 로고 */
+    .item-brand-logo-row {
+      margin-bottom: 6px;
+    }
+    .item-brand-logo-img {
+      max-height: 32px;
+      max-width: 100px;
+      object-fit: contain;
+      display: block;
+    }
+    @media (max-width: 580px) {
+      .item-brand-logo-img { max-height: 26px; max-width: 80px; }
+    }
+
+    /* Plan 구분 상단 스트라이프 */
+    .item-card[data-plan="platinum"] {
+      border-top: 3px solid #B8935A;
+    }
+    .item-card[data-plan="gold"] {
+      border-top: 3px solid var(--accent);
+    }
 
     /* Plan Badge - positioned in content area */
     .plan-badge {
       display: none !important;
     }
-
-    /* Plan badge styles removed */
 
     .plan-badge i { font-size: 9px; }
 
@@ -1428,7 +1556,7 @@
 
     .item-label.type-deal { background: #B8977E; }
     .item-label.type-exclusive { background: #7C9CB8; }
-    .item-label.type-hot { background: #C85070; }
+    .item-label.type-hot { background: var(--accent); }
 
     .media-indicators {
       position: absolute;
@@ -1483,8 +1611,8 @@
     .price-label {
       font-size: 9px;
       padding: 2px 6px;
-      background: #FFF0F3;
-      color: #C85070;
+      background: var(--accent-pale);
+      color: var(--accent);
       border-radius: 4px;
       font-weight: 600;
     }
@@ -1581,7 +1709,7 @@
     .column-preview-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--accent) 0%, #e8919a 100%);
+      background: var(--accent);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1796,7 +1924,7 @@
 
     .sakura-hero {
       position: relative;
-      background: linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 50%, #FFF5F0 100%);
+      background: linear-gradient(160deg, #fff8f9 0%, #fef2f4 50%, #fff9f7 100%);
       min-height: 480px;
       overflow: visible;
       z-index: 1;
@@ -1804,7 +1932,7 @@
     .sakura-hero-inner::before {
       content: ''; position: absolute; top: -60px; right: -60px;
       width: 240px; height: 240px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,96,122,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(200, 86, 106, 0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1843,7 +1971,7 @@
       font-size: 13px; line-height: 1.6;
       color: #2d2926;
       max-width: 220px;
-      box-shadow: 0 2px 12px rgba(212,96,122,0.08);
+      box-shadow: 0 2px 12px rgba(200, 86, 106, 0.06);
       position: relative;
       z-index: 10;
       margin-bottom: 0;
@@ -1858,10 +1986,10 @@
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
       border-top: 7px solid #fff;
-      filter: drop-shadow(0 1px 1px rgba(212,96,122,0.1));
+      filter: drop-shadow(0 1px 1px rgba(200, 86, 106, 0.08));
     }
     .sakura-speech-name {
-      font-size: 10px; color: #C85070; font-weight: 700; margin-bottom: 3px;
+      font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 3px;
     }
     .sakura-hero-cutout {
       width: 100%;
@@ -1892,7 +2020,7 @@
       display: inline-block;
       font-size: 10px; letter-spacing: 0.15em;
       padding: 5px 14px;
-      background: #C85070; color: #fff;
+      background: var(--accent); color: #fff;
       border-radius: 999px;
       margin-bottom: 14px;
     }
@@ -1916,7 +2044,7 @@
     }
     .sakura-hero h2 em {
       font-style: normal;
-      background: linear-gradient(transparent 55%, rgba(212,96,122,0.25) 55%);
+      background: linear-gradient(transparent 55%, rgba(200, 86, 106, 0.16) 55%);
     }
     .sakura-hero-quote {
       font-size: 13.5px; line-height: 1.85;
@@ -1950,12 +2078,12 @@
       width: 128px; padding: 8px 10px; border: none; border-radius: 999px;
       font-size: 13px; background: transparent; color: #2d2926;
     }
-    .sakura-date-input:focus { outline: 2px solid #FFB7C5; background: #fff; }
+    .sakura-date-input:focus { outline: 2px solid var(--sakura); background: #fff; }
     .sakura-date-label { font-size: 11px; color: #9a918a; }
     .sakura-date-btn {
       padding: 10px 22px; font-size: 13px; font-weight: 700;
       border: none; border-radius: 999px;
-      background: linear-gradient(135deg, #C85070, #D4607A); color: #fff;
+      background: var(--accent); color: #fff;
       cursor: pointer; transition: all 0.2s;
       box-shadow: 0 2px 8px rgba(200,80,112,0.3);
     }
@@ -1967,11 +2095,11 @@
     .sakura-date-retry-btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 10px 20px; font-size: 13px; font-weight: 600;
-      border: 1.5px solid #C85070; border-radius: 999px;
-      background: #fff; color: #C85070;
+      border: 1.5px solid var(--accent); border-radius: 999px;
+      background: #fff; color: var(--accent);
       cursor: pointer; transition: all 0.2s;
     }
-    .sakura-date-retry-btn:hover { background: #FFF0F3; }
+    .sakura-date-retry-btn:hover { background: var(--accent-pale); }
 
     /* Mobile: stack vertically, sensei becomes relative again */
     @media (max-width: 768px) {
@@ -2024,7 +2152,7 @@
     .sk-result-badge {
       font-size: 9px; letter-spacing: 0.06em;
       padding: 2px 8px; border-radius: 999px;
-      background: #C85070; color: #fff; font-weight: 700;
+      background: var(--accent); color: #fff; font-weight: 700;
     }
     .sk-result-status {
       font-size: 12px; color: #6b635d; margin-bottom: 12px;
@@ -2045,7 +2173,7 @@
     .sk-progress-fill {
       position: absolute;
       top: 15px; left: 28px;
-      height: 3px; background: linear-gradient(90deg, #F5A0B5, #C85070);
+      height: 3px; background: linear-gradient(90deg, #F5A0B5, var(--accent));
       border-radius: 2px;
       transition: width 0.6s ease-out;
     }
@@ -2062,7 +2190,7 @@
     }
     /* Color per stage */
     .sk-stage[data-stage="bloom"] .sk-stage-dot { background: #F5A0B5; }
-    .sk-stage[data-stage="full"] .sk-stage-dot { background: #E87A9A; }
+    .sk-stage[data-stage="full"] .sk-stage-dot { background: var(--accent-mid); }
     .sk-stage[data-stage="fall"] .sk-stage-dot { background: #D4887C; }
     .sk-stage[data-stage="snow"] .sk-stage-dot { background: #B8A0C8; }
     .sk-stage.is-future .sk-stage-dot { background: #e8e4e0 !important; color: #b0a8a0; }
@@ -2075,17 +2203,17 @@
       font-size: 10px; color: #9a918a; font-weight: 600;
       text-align: center;
     }
-    .sk-stage.is-current .sk-stage-label { color: #C85070; font-weight: 700; }
+    .sk-stage.is-current .sk-stage-label { color: var(--accent); font-weight: 700; }
     .sk-stage-date {
       font-size: 11px; color: #6b635d; font-weight: 600;
     }
-    .sk-stage.is-current .sk-stage-date { color: #C85070; }
+    .sk-stage.is-current .sk-stage-date { color: var(--accent); }
 
     /* Sensei comment below progress */
     .sk-result-sensei {
       display: flex; align-items: flex-start; gap: 8px;
       margin-top: 10px; padding: 10px;
-      background: #FFF8F0; border-radius: 10px;
+      background: var(--accent-pale); border-radius: 10px;
     }
     .sk-result-sensei img {
       width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; object-fit: cover;
@@ -2099,7 +2227,7 @@
       margin-top: 8px; text-align: center;
     }
     .sk-result-retry-btn {
-      font-size: 12px; color: #C85070; font-weight: 600;
+      font-size: 12px; color: var(--accent); font-weight: 600;
       background: none; border: none; cursor: pointer;
       text-decoration: underline; text-underline-offset: 3px;
     }
@@ -2116,12 +2244,12 @@
     /* -- Below-banner detail section -- */
     .sakura-section {
       padding: 48px 20px;
-      background: linear-gradient(180deg, #FFF5F0 0%, #FFF7F8 30%, #FFEFF3 100%);
+      background: linear-gradient(180deg, var(--accent-pale) 0%, var(--accent-pale) 30%, var(--sakura-light) 100%);
     }
     .sakura-inner { max-width: 900px; margin: 0 auto; }
     .sakura-section-label {
       font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #C85070; margin-bottom: 8px;
+      color: var(--accent); margin-bottom: 8px;
     }
     .sakura-section-title {
       font-family: 'Noto Sans TC', serif;
@@ -2138,14 +2266,14 @@
       border: 1px solid #eee; transition: all 0.2s;
     }
     .sakura-stage:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .sakura-stage.is-highlight { border: 2px solid #C85070; }
+    .sakura-stage.is-highlight { border: 2px solid var(--accent); }
     .sakura-stage-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
     .sakura-stage-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.4s; }
     .sakura-stage:hover .sakura-stage-img img { transform: scale(1.05); }
     .sakura-stage-num {
       position: absolute; top: 8px; left: 8px;
       width: 24px; height: 24px; border-radius: 50%;
-      background: #C85070; color: #fff;
+      background: var(--accent); color: #fff;
       font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
     }
@@ -2159,11 +2287,11 @@
     }
     .sakura-stage-msg {
       margin-bottom: 24px; padding: 12px 16px;
-      background: linear-gradient(90deg, #FFF0F3 0%, #FAF8F5 100%);
-      border-left: 3px solid #C85070; border-radius: 0 12px 12px 0;
+      background: linear-gradient(90deg, var(--accent-pale) 0%, #FAF8F5 100%);
+      border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;
       font-size: 14px;
     }
-    .sakura-stage-msg strong { color: #C85070; }
+    .sakura-stage-msg strong { color: var(--accent); }
 
     @media (max-width: 768px) {
       .sakura-stages {
@@ -2185,14 +2313,14 @@
     }
     .sakura-city:last-child { border-right: none; }
     .bloom-status { display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:8px; }
-    .status-upcoming { background: #FFF0E6; color: #E08A4A; }
-    .status-blooming { background: #FFE8EC; color: #C85070; }
-    .status-full { background: #FFEBF0; color: #D4507A; }
+    .status-upcoming { background: var(--accent-pale); color: #E08A4A; }
+    .status-blooming { background: var(--accent-soft); color: var(--accent); }
+    .status-full { background: var(--accent-soft); color: var(--accent); }
     .status-done { background: #f0f0f0; color: #999; }
     .status-waiting { background: #E8F4FF; color: #5B8DB8; }
     .sakura-city .name { font-size:14px;font-weight:700;margin-bottom:4px; }
     .sakura-city .bloom-label { font-size:10px;color:#9a918a; }
-    .sakura-city .bloom-date { font-size:20px;font-weight:700;color:#C85070; }
+    .sakura-city .bloom-date { font-size:20px;font-weight:700;color:var(--accent); }
     .sakura-city .full { font-size:12px;color:#9a918a;margin-top:6px; }
     .sakura-city .full strong { color:#2d2926; }
     .city-tip { font-size:10px;color:#9a918a;margin-top:10px;line-height:1.4; }
@@ -2234,13 +2362,13 @@
     }
     .sensei-lead-bubble {
       position: relative;
-      background: #FFF8F5;
+      background: var(--accent-pale);
       padding: 14px 18px;
       border-radius: 0 18px 18px 18px;
       flex: 1;
     }
     .sensei-lead-name {
-      font-size: 10px; font-weight: 600; color: #C85070;
+      font-size: 10px; font-weight: 600; color: var(--accent);
       margin-bottom: 4px;
     }
     .sensei-lead-text {
@@ -2261,7 +2389,7 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: #C85070;
+      color: var(--accent);
       margin-bottom: 6px;
     }
     .sg-header h2 {
@@ -2269,7 +2397,7 @@
       letter-spacing: -0.02em;
     }
     .sg-header-line {
-      width: 40px; height: 2px; background: #C85070;
+      width: 40px; height: 2px; background: var(--accent);
       margin: 10px auto 8px; border-radius: 1px;
     }
     .sg-header p { font-size: 13px; color: #9a918a; }
@@ -2286,9 +2414,9 @@
       cursor: pointer; transition: all 0.25s;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
-    .sg-tab:hover { color: #C85070; box-shadow: 0 2px 8px rgba(200,80,112,0.12); }
+    .sg-tab:hover { color: var(--accent); box-shadow: 0 2px 8px rgba(200,80,112,0.12); }
     .sg-tab.is-active {
-      background: linear-gradient(135deg, #C85070, #E87A9A);
+      background: var(--accent);
       color: #fff;
       box-shadow: 0 4px 16px rgba(200,80,112,0.25);
     }
@@ -2331,12 +2459,12 @@
     }
     .sg-tax-fact {
       text-align: center; padding: 16px 8px;
-      background: linear-gradient(180deg, #FFF8F5 0%, #fff 100%);
+      background: linear-gradient(180deg, var(--accent-pale) 0%, #fff 100%);
       border-radius: 14px; border: 1px solid rgba(200,80,112,0.08);
     }
     .sg-tax-fact-icon { font-size: 22px; margin-bottom: 4px; }
     .sg-tax-fact-num {
-      font-size: 22px; font-weight: 800; color: #C85070;
+      font-size: 22px; font-weight: 800; color: var(--accent);
       line-height: 1.2;
     }
     .sg-tax-fact-text { font-size: 10px; color: #9a918a; margin-top: 3px; line-height: 1.4; }
@@ -2355,7 +2483,7 @@
     }
     .sg-tax-how-step-num {
       width: 22px; height: 22px; border-radius: 50%;
-      background: #C85070; color: #fff;
+      background: var(--accent); color: #fff;
       font-size: 11px; font-weight: 700;
       display: inline-flex; align-items: center; justify-content: center;
       margin-bottom: 4px;
@@ -2364,7 +2492,7 @@
 
     .sg-tax-alert {
       padding: 14px 16px; border-radius: 12px;
-      background: linear-gradient(135deg, #FFF8F0, #FFF5E6);
+      background: linear-gradient(135deg, var(--accent-pale), #FFF5E6);
       border: 1px solid rgba(224,138,74,0.15);
       margin-bottom: 16px;
     }
@@ -2378,7 +2506,7 @@
     /* Shared sensei tip */
     .sg-sensei-tip {
       display: flex; align-items: flex-start; gap: 10px;
-      padding: 14px; background: #FFF8F0; border-radius: 12px;
+      padding: 14px; background: var(--accent-pale); border-radius: 12px;
     }
     .sg-sensei-tip img {
       width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
@@ -2414,7 +2542,7 @@
       align-items: center; justify-content: center;
       transition: all 0.2s;
     }
-    .sg-arrow:hover { background: #C85070; color: #fff; border-color: #C85070; }
+    .sg-arrow:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .sg-arrow-left { left: -16px; }
     .sg-arrow-right { right: -16px; }
     @media (min-width: 769px) {
@@ -2429,7 +2557,7 @@
       position: absolute; bottom: 10px; left: 10px;
       font-size: 10px; font-weight: 700;
       padding: 4px 12px; border-radius: 999px;
-      background: rgba(255,255,255,0.95); color: #C85070;
+      background: rgba(255,255,255,0.95); color: var(--accent);
       backdrop-filter: blur(8px);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       z-index: 1;
@@ -2463,12 +2591,12 @@
     }
     .sg-store-highlights span {
       font-size: 9px; padding: 3px 8px;
-      background: #FFF0F3; color: #C85070; font-weight: 600;
+      background: var(--accent-pale); color: var(--accent); font-weight: 600;
       border-radius: 6px;
     }
     .sg-store-sensei {
       font-size: 10px; color: #6b635d; line-height: 1.55;
-      padding: 8px 10px; background: #FFF8F0; border-radius: 8px;
+      padding: 8px 10px; background: var(--accent-pale); border-radius: 8px;
     }
     .sg-store-detail p {
       font-size: 10px; color: #9a918a; line-height: 1.6;
@@ -2487,19 +2615,34 @@
 
     /* === TAB 3: Coupon — Premium Card === */
     .sg-coupon-card {
+      border: 2.5px dashed var(--accent);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+    }
+    .sg-coupon-card::before {
+      content: '✂ - - - - - - - - - - - - - - - - - - - - - - -';
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      opacity: 0.5;
+      padding: 8px 16px 0;
+      letter-spacing: 1px;
+    }
       background: #fff; border-radius: 20px; overflow: hidden;
       box-shadow: 0 8px 40px rgba(200,80,112,0.1);
       border: 1px solid rgba(200,80,112,0.1);
     }
     .sg-coupon-flag {
-      background: linear-gradient(135deg, #C85070, #E87A9A);
+      background: var(--accent);
       color: #fff; font-size: 12px; font-weight: 700;
       padding: 10px 16px; text-align: center;
       letter-spacing: 0.05em;
     }
     .sg-coupon-hero {
       padding: 20px; text-align: center;
-      background: linear-gradient(180deg, #FFF8F5 0%, #fff 100%);
+      background: linear-gradient(180deg, var(--accent-pale) 0%, #fff 100%);
     }
     .sg-coupon-img {
       max-width: 100%; max-height: 420px;
@@ -2509,13 +2652,13 @@
     .sg-coupon-body { padding: 20px 24px; text-align: center; }
     .sg-coupon-title { font-size: 20px; font-weight: 700; color: #2d2926; }
     .sg-coupon-sub {
-      font-size: 13px; color: #C85070; font-weight: 600; margin-bottom: 10px;
+      font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 10px;
     }
     .sg-coupon-expire { font-size: 10px; color: #9a918a; margin-bottom: 6px; }
     .sg-coupon-save-note {
-      font-size: 13px; font-weight: 700; color: #C85070;
+      font-size: 13px; font-weight: 700; color: var(--accent);
       margin-bottom: 16px;
-      padding: 8px 16px; background: #FFF0F3; border-radius: 999px;
+      padding: 8px 16px; background: var(--accent-pale); border-radius: 999px;
       display: inline-block;
     }
 
@@ -2872,7 +3015,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       transition: all 0.2s;
     }
-    .modal-close:hover { background: #C85070; color: #fff; border-color: #C85070; }
+    .modal-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .modal-scroll-area {
       overflow-y: auto;
       flex: 1;
@@ -3560,7 +3703,7 @@
     /* Screenshot tip in list modal */
     .list-screenshot-tip {
       padding: 12px 24px;
-      background: #FFF8F0;
+      background: var(--accent-pale);
       border-top: 1px solid #f0e8e0;
       display: flex;
       align-items: center;
@@ -3665,7 +3808,7 @@
       position: absolute;
       top: 20px;
       right: 10px;
-      background: linear-gradient(135deg, var(--accent), #c45d67);
+      background: var(--accent);
       color: #fff;
       font-size: 12px;
       font-weight: 700;
@@ -4045,7 +4188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             查看2026年春季推薦
             <i class="fas fa-shopping-bag"></i>
           </button>
-          <p class="hero-cta-sub">本季嚴選 <strong>6款</strong> 必買好物</p>
+          <p class="hero-cta-sub">本季嚴選 <strong id="heroProductCount">6款</strong> 必買好物</p>
         </div>
       </div>
       <div class="hero-visual-area">
@@ -4162,7 +4305,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="featured-subtitle">在社群媒體上關注度急速上升的商品精選。</p>
     </div>
 
-    <div class="featured-carousel">
+    <div class="featured-carousel-wrap">
+      <button class="carousel-arrow carousel-arrow-left" onclick="scrollCarousel(-1)" aria-label="前へ"><i class="fas fa-chevron-left"></i></button>
+      <div class="featured-carousel" id="featuredCarousel">
+      <article class="featured-card featured-card-contain" onclick="openDetailModal(5)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/02/ホワイトクリアジェル-scaled.jpg" alt="Cure White Clear Gel" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
+        <div class="featured-card-logo-strip"><img src="https://www.japankuru.com/gld-kanri/data/uploads/2026/02/Cure_symbol_logo-_1_.png" alt="Cure"></div>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">Cure<br>White Clear Gel</h3>
+          <p class="featured-card-copy">四效去角質凝膠<br>美肌橡皮擦</p>
+          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
+        </div>
+      </article>
+
       <article class="featured-card" onclick="openDetailModal(1)">
         <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
@@ -4223,6 +4379,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
     </div>
+      <button class="carousel-arrow carousel-arrow-right" onclick="scrollCarousel(1)" aria-label="次へ"><i class="fas fa-chevron-right"></i></button>
+    </div>
 
     <div class="scroll-hint">
       <span>滑動查看更多</span>
@@ -4264,10 +4422,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="tabs-nav">
-      <button class="tab-btn active" data-tab="cosme">彩妝・美容</button>
+      <button class="tab-btn active" data-tab="cosme">美妝保養</button>
       <button class="tab-btn" data-tab="medicine">醫藥品</button>
       <button class="tab-btn" data-tab="health">健康輔助食品</button>
-      <button class="tab-btn" data-tab="daily">日用品</button>
+      <button class="tab-btn" data-tab="daily">生活用品</button>
     </div>
 
     <div id="tabContents"></div>
@@ -4875,7 +5033,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="outro-cta" style="display:flex; align-items:center; gap:0; max-width:680px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.04);">
         <!-- 좌: 사진 -->
-        <div style="flex-shrink:0; width:200px; align-self:stretch; background:linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 100%); display:flex; align-items:flex-end; justify-content:center;">
+        <div style="flex-shrink:0; width:200px; align-self:stretch; background:linear-gradient(160deg, var(--accent-pale) 0%, var(--sakura-light) 100%); display:flex; align-items:flex-end; justify-content:center;">
           <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭世彬" loading="lazy" decoding="async" style="width:180px; display:block; filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.06));">
         </div>
         <!-- 우: 텍스트 + 공유 -->
@@ -4963,23 +5121,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Row 3: 콜라보 + 저작권 -->
-<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.05);">
-  <div style="display:flex; align-items:center; gap:8px;">
-    <span style="font-size:9px; color:rgba(255,255,255,0.2);">with</span>
-    <a href="https://www.facebook.com/JapanCosmeLab" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;">日本藥妝研究室 <i class="fab fa-facebook" style="font-size:9px;"></i></a>
-    <a href="https://www.instagram.com/japancosmelab/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;"><i class="fab fa-instagram" style="font-size:9px;"></i></a>
-  </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:14px; border-top:1px solid rgba(255,255,255,0.05);">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:9px; color:rgba(255,255,255,0.2);">with</span>
+          <a href="https://www.facebook.com/JapanCosmeLab" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;">日本藥妝研究室 <i class="fab fa-facebook" style="font-size:9px;"></i></a>
+          <a href="https://www.instagram.com/japancosmelab/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.3); font-size:10px; text-decoration:none;"><i class="fab fa-instagram" style="font-size:9px;"></i></a>
+        </div>
+        <p style="font-size:9px; color:rgba(255,255,255,0.15); margin:0;">© 2026 JAPANKURU (Global Daily Co., Ltd.)</p>
+      </div>
 
-  <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
-    <p style="font-size:11px; color:rgba(255,255,255,0.7); margin:0; line-height:1.3;
-          background:rgba(255,255,255,0.06); padding:4px 8px; border-radius:999px;">
-  本頁面以臺灣消費者為對象，並以繁體中文撰寫。
-</p>
-
-    <p style="font-size:9px; color:rgba(255,255,255,0.15); margin:0;">© 2026 JAPANKURU (Global Daily Co., Ltd.)</p>
-  </div>
-
-
+    </div>
   </footer>
 
   <!-- PC Detail Modal -->
@@ -4991,6 +5142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img loading="lazy" decoding="async" src="" alt="" class="modal-product-img" id="modalImg">
       </div>
       <div class="modal-body">
+        <div class="modal-brand-logo" id="modalBrandLogo" style="display:none; margin-bottom:12px;"><img id="modalBrandLogoImg" src="" alt="" style="max-height:56px; max-width:200px; object-fit:contain;"></div>
         <h2 class="modal-product-name" id="modalName">商品名</h2>
         <div class="modal-product-price" id="modalPrice">¥0</div>
         
@@ -5059,6 +5211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="bs-product-info-bar">
+        <div class="bs-brand-logo" id="bsBrandLogo" style="display:none; margin-bottom:6px;"><img id="bsBrandLogoImg" src="" alt="" style="max-height:46px; max-width:150px; object-fit:contain;"></div>
         <h3 class="bs-product-name" id="bsName">商品名</h3>
         <p class="bs-product-price" id="bsPrice">¥0</p>
       </div>
@@ -5123,22 +5276,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     let currentModalId = null;
     let currentBsId = null;
 
-    // Sakura animation
+    // Sakura petals — 봄→초여름 전환 (핑크 80% + 연두 20%)
     function createSakuraPetals() {
-      const hero = document.getElementById('hero');
-      for (let i = 0; i < 20; i++) {
+      const count = window.innerWidth <= 768 ? 16 : 28;
+      const pinkSizes = ['', 'petal-sm', 'petal-lg'];
+      for (let i = 0; i < count; i++) {
         const petal = document.createElement('div');
-        petal.className = 'sakura-petal';
+        const isGreen = Math.random() < 0.2;
+        petal.className = 'sakura-petal ' + (isGreen ? 'petal-green' : pinkSizes[Math.floor(Math.random() * pinkSizes.length)]);
         petal.style.left = Math.random() * 100 + '%';
-        petal.style.animationDuration = (Math.random() * 6 + 10) + 's';
-        petal.style.animationDelay = (Math.random() * 15) + 's';
-        hero.appendChild(petal);
+        petal.style.top = '-20px';
+        petal.style.animationDuration = (Math.random() * 8 + 10) + 's';
+        petal.style.animationDelay = (Math.random() * 22) + 's';
+        petal.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+        document.body.appendChild(petal);
       }
     }
     createSakuraPetals();
 
+    // 스크롤에 따라 body 배경: 벚꽃 핑크 → 신록 초록으로 서서히 전환
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function lerpColor(r1,g1,b1, r2,g2,b2, t) {
+      return 'rgb(' + Math.round(lerp(r1,r2,t)) + ',' + Math.round(lerp(g1,g2,t)) + ',' + Math.round(lerp(b1,b2,t)) + ')';
+    }
+    function updateSeasonBg() {
+      const scrolled = window.scrollY;
+      const total = document.body.scrollHeight - window.innerHeight;
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
+      // 벚꽃: rgb(255,248,249) → 신록: rgb(247,251,246)
+      const bg = lerpColor(255,248,249, 247,251,246, progress);
+      document.body.style.backgroundColor = bg;
+    }
+    updateSeasonBg();
+
+    // Hero 상품 수 동적 계산
+    function updateHeroProductCount() {
+      const total = Object.values(tabData).reduce(function(acc, t) { return acc + t.products.length; }, 0);
+      const el = document.getElementById('heroProductCount');
+      if (el) el.textContent = total + '款';
+    }
+
+    // Featured carousel 화살표
+    function scrollCarousel(dir) {
+      const carousel = document.getElementById('featuredCarousel');
+      if (carousel) carousel.scrollBy({ left: dir * 300, behavior: 'smooth' });
+    }
+
     // Scroll effects
     window.addEventListener('scroll', function() {
+      updateSeasonBg();
       const header = document.getElementById('header');
       const stickyBar = document.getElementById('stickyBar');
       const backToTop = document.getElementById('backToTop');
@@ -5161,6 +5347,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       cosme: {
         title: '彩妝・美容',
         products: [
+          { 
+            id: 5, 
+            slug: 'cure-white-clear-gel',
+            name: 'Cure藥用去角質凝膠', 
+            brand: 'Cure',
+            price: 2500, 
+            priceDisplay: '2,500円（含稅2,750円）',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/02/ホワイトクリアジェル-scaled.jpg', 
+            logo: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/02/Cure_symbol_logo-_1_.png',
+            label: 'type-hot', 
+            labelText: '話題',
+            plan: 'gold',
+            originalUrl: 'https://www.cure-j.com/',
+            tip: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
+            tipFull: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
+            column: 'https://japankuru.com/cure-white-clear-gel', 
+            columnTitle: 'Cure－White Clear Gel 四效去角質凝膠｜每週加強保養的美肌橡皮擦',
+            hasVideo: false,
+            voices: [
+              { initial: 'A', name: 'Annie', attr: '20代・混合肌', text: '每週用兩次，角質問題改善好多！後續保養的吸收感明顯不同。', date: '2025.01', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/cure1/' },
+              { initial: 'Y', name: 'Yuka', attr: '30代・乾燥肌', text: '超溫和！我是敏感肌用起來完全不會刺激，搓完皮膚滑到不可思議。', date: '2025.01', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/cure2/' },
+              { initial: 'M', name: 'Mei', attr: '20代・學生', text: '來日本必買清單第一名！比台灣便宜很多，這次帶了三條回去。', date: '2025.01', color: '#FF6B9D', snsUrl: 'https://www.instagram.com/p/cure3/' },
+              { initial: 'J', name: 'Jessica', attr: '30代・OL', text: '以前覺得去角質很麻煩，用過這個之後完全愛上！根本是保養的必要步驟。', date: '2025.01', color: '#009688', snsUrl: 'https://www.instagram.com/p/cure4/' },
+              { initial: 'L', name: 'Lin', attr: '40代', text: '毛孔細緻了，底妝的服貼感也變好！年齡肌的救星。', date: '2025.01', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/cure5/' }
+            ],
+            voiceCount: 5
+          },
           { 
             id: 1, 
             slug: 'biore-cleanse',
@@ -5372,7 +5585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const videoOverlay = p.hasVideo ? '<div class="video-overlay"><div class="video-play-btn"><i class="fas fa-play"></i></div><span class="video-label">觀看影片</span></div>' : '';
       const basicPlanClass = '';
 
-      let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '">';
+      let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '" data-plan="' + (p.plan || '') + '">';
       html += '<div class="item-thumb ' + hasVideoClass + '" onclick="openDetailModal(' + p.id + ')">';
       html += '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '">';
       if (p.label) html += '<span class="item-label ' + p.label + '">' + p.labelText + '</span>';
@@ -5385,10 +5598,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       html += '</div>';
       
       html += '<div class="item-content" onclick="handleCardClick(' + p.id + ', event)">';
-      
-      
+      if (p.logo) html += '<div class="item-brand-logo-row"><img src="' + p.logo + '" alt="' + (p.brand || '') + '" class="item-brand-logo-img"></div>';
       html += '<h3 class="item-name">' + p.name + '</h3>';
-      html += '<div class="item-price-row"><span class="item-price">¥' + p.price.toLocaleString() + '</span>';
+      html += '<div class="item-price-row"><span class="item-price">' + (p.priceDisplay || ('¥' + p.price.toLocaleString())) + '</span>';
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
@@ -5401,7 +5613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         html += '<div class="column-preview-icon"><i class="fas fa-book-open"></i></div>';
         html += '<div class="column-preview-content">';
         html += '<p class="column-preview-label">詳細解說專欄</p>';
-        html += '<p class="column-preview-title">「' + p.name + '」徹底評測！</p>';
+        html += '<p class="column-preview-title">「' + (p.columnTitle || (p.name + '」徹底評測！')) + '</p>';
         html += '</div>';
         html += '<span class="column-preview-arrow"><i class="fas fa-chevron-right"></i></span>';
         html += '</a>';
@@ -5530,8 +5742,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
 
       document.getElementById('modalName').textContent = p.name;
-      document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
+      document.getElementById('modalPrice').textContent = p.priceDisplay || ('¥' + p.price.toLocaleString());
       document.getElementById('modalTip').innerHTML = p.tipFull || p.tip;
+
+      // Brand logo
+      const logoArea = document.getElementById('modalBrandLogo');
+      const logoImg = document.getElementById('modalBrandLogoImg');
+      if (p.logo) {
+        logoImg.src = p.logo;
+        logoImg.alt = p.brand || '';
+        logoArea.style.display = 'block';
+      } else {
+        logoArea.style.display = 'none';
+      }
 
       const voicesDiv = document.getElementById('modalVoices');
       const voiceList = document.getElementById('modalVoiceList');
@@ -5549,6 +5772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const ctaBtn = document.getElementById('modalCta');
       if (p.column) {
         ctaBtn.href = p.column;
+        ctaBtn.textContent = (p.columnTitle || '閱讀詳細專欄') + ' →';
         ctaBtn.style.display = 'block';
       } else {
         ctaBtn.style.display = 'none';
@@ -5580,14 +5804,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
 
       document.getElementById('bsName').textContent = p.name;
-      document.getElementById('bsPrice').textContent = '¥' + p.price.toLocaleString();
+      document.getElementById('bsPrice').textContent = p.priceDisplay || ('¥' + p.price.toLocaleString());
       document.getElementById('bsTip').innerHTML = p.tipFull || p.tip;
+
+      // Brand logo
+      const bsLogoArea = document.getElementById('bsBrandLogo');
+      const bsLogoImg = document.getElementById('bsBrandLogoImg');
+      if (p.logo) {
+        bsLogoImg.src = p.logo;
+        bsLogoImg.alt = p.brand || '';
+        bsLogoArea.style.display = 'block';
+      } else {
+        bsLogoArea.style.display = 'none';
+      }
 
       const columnLink = document.getElementById('bsColumn');
       if (p.column) {
         columnLink.href = p.column;
         columnLink.style.display = 'flex';
-        document.getElementById('bsColumnTitle').textContent = p.name + '的詳細解說';
+        document.getElementById('bsColumnTitle').textContent = p.columnTitle || (p.name + '的詳細解說');
       } else {
         columnLink.style.display = 'none';
       }
@@ -5828,6 +6063,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Initialize
     renderTabs();
     updateCount();
+    updateHeroProductCount();
 
     // Scroll-triggered fade-in animations
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
@@ -5953,7 +6189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               '<div class="sakura-ended-emoji">🌿</div>' +
               '<div class="sakura-ended-title">2026年的櫻花季已結束</div>' +
               '<p class="sakura-ended-text">感謝大家今年的賞櫻！<br>接下來進入夏季，別忘了防曬和消暑對策商品～</p>' +
-              '<div style="display:flex;align-items:flex-start;gap:12px;max-width:460px;margin:16px auto 0;padding:16px;background:#FFF8F0;border-radius:12px;">' +
+              '<div style="display:flex;align-items:flex-start;gap:12px;max-width:460px;margin:16px auto 0;padding:16px;background:var(--accent-pale);border-radius:12px;">' +
                 '<img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9993-1-150x150.jpg" alt="鄭老師" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">' +
                 '<p style="font-size:13px;line-height:1.6;margin:0;">櫻花季結束了，但夏天的日本也很精彩！防曬、止汗、防蚊⋯⋯我的推薦商品都在上面，記得看看唷 ☀️</p>' +
               '</div>' +
