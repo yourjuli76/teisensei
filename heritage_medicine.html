@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本の家庭薬 老舗特集 — Preview v3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Shippori+Mincho+B1:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1e1a16;
+      --ink-mid: #3d3530;
+      --ink-light: #6b5f55;
+      --ink-muted: #a09488;
+      --cream: #faf7f2;
+      --cream-dark: #f0ebe2;
+      --warm-white: #fffdf9;
+      --accent: #c85070;
+      --accent-soft: #f5e6ea;
+      --gold: #b8945a;
+      --gold-light: #d4aa72;
+      --gold-soft: #fdf3e3;
+      --border: #e8e0d4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #e8e2d8;
+      color: var(--ink);
+    }
+
+    .ctx {
+      background: #2d2926;
+      color: #6a6058;
+      text-align: center;
+      padding: 10px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+    .ctx strong { color: #c5b99a; }
+
+    /* ══════════════════════════════════════════
+       INTRO — タイポグラフィブロック
+    ══════════════════════════════════════════ */
+    .intro-section {
+      background: var(--ink);
+      padding: 80px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-bg-text {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(120px, 18vw, 220px);
+      color: rgba(255,255,255,0.028);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .intro-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 40px; }
+      .intro-expert-card { order: -1; }
+    }
+
+    .intro-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .kicker-line { width: 28px; height: 1px; background: var(--gold); }
+    .kicker-text {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .intro-headline {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(22px, 3.2vw, 34px);
+      font-weight: 600;
+      color: #f5f0e8;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .intro-headline em {
+      font-style: normal;
+      color: var(--gold-light);
+    }
+
+    .intro-body {
+      font-size: 13.5px;
+      line-height: 2.1;
+      color: #9a8e84;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .intro-body strong {
+      color: #c8bdb0;
+      font-weight: 500;
+    }
+
+    .intro-stats {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .intro-stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 14px;
+    }
+    .intro-stat-num {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 26px;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+    .intro-stat-label {
+      font-size: 10px;
+      color: #6a6058;
+      margin-top: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    /* 鄭先生カード */
+    .intro-expert-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,98,0.2);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .expert-photo {
+      width: 100%;
+      aspect-ratio: 3 / 3.5;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+    }
+    .expert-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 3.5;
+      background: linear-gradient(160deg, #3a3028 0%, #2a2420 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .expert-photo-placeholder svg {
+      width: 64px;
+      height: 64px;
+      opacity: 0.3;
+    }
+    .expert-photo-placeholder span {
+      font-size: 11px;
+      color: #5a5048;
+      letter-spacing: 0.06em;
+    }
+    .expert-card-body {
+      padding: 16px 18px 20px;
+    }
+    .expert-card-name {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 18px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .expert-card-title {
+      font-size: 11px;
+      color: #6a6058;
+      line-height: 1.6;
+    }
+    .expert-card-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(201,169,98,0.12);
+      color: var(--gold);
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(201,169,98,0.2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ══════════════════════════════════════════
+       PRODUCTS SECTION
+    ══════════════════════════════════════════ */
+    .products-section {
+      background: var(--cream);
+      padding: 60px 24px 80px;
+    }
+    .products-inner { max-width: 960px; margin: 0 auto; }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .eyebrow-rule {
+      flex: 1; max-width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .eyebrow-rule.r { background: linear-gradient(90deg, var(--gold), transparent); }
+    .eyebrow-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-bottom: 36px;
+    }
+
+    /* TABS */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 8px 20px;
+      border: 1.5px solid var(--border);
+      background: var(--warm-white);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-light);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .tab-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--gold-light);
+    }
+
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeUp 0.35s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARD GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 560px) { .card-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+
+    /* FLIP CARD */
+    .flip-card {
+      aspect-ratio: 3 / 4.2;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+    .flip-inner {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%; height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* FRONT */
+    .flip-front {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .flip-card:hover .flip-front {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border-color: rgba(184,148,90,0.35);
+    }
+
+    .card-img-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream-dark);
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .flip-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+    .card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #e8e2d8 0%, #d8d0c4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-img-placeholder svg { width: 40px; height: 40px; opacity: 0.25; }
+
+    .card-year {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: rgba(30,26,22,0.82);
+      color: var(--gold-light);
+      font-size: 9px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(4px);
+    }
+    .card-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(30,26,22,0.7));
+      color: #c5b99a;
+      font-size: 10px;
+      text-align: center;
+      padding: 20px 8px 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .flip-card:hover .card-hint { opacity: 1; }
+
+    .card-info {
+      padding: 11px 12px 13px;
+      flex-shrink: 0;
+    }
+    .card-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .card-product {
+      font-size: 11px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* BACK */
+    .flip-back {
+      background: var(--ink);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      padding: 14px 15px;
+    }
+    .back-quote-mark {
+      font-family: 'Shippori Mincho B1', Georgia, serif;
+      font-size: 48px;
+      color: rgba(201,169,98,0.18);
+      line-height: 1;
+      margin-bottom: 2px;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .back-comment {
+      font-size: 10.5px;
+      line-height: 1.9;
+      color: #b0a498;
+      flex: 1;
+      overflow-y: auto;
+      font-style: italic;
+    }
+    .back-comment::-webkit-scrollbar { width: 3px; }
+    .back-comment::-webkit-scrollbar-thumb { background: #3a3028; border-radius: 3px; }
+    .back-rule {
+      height: 1px;
+      background: rgba(201,169,98,0.15);
+      margin: 10px 0 8px;
+      flex-shrink: 0;
+    }
+    .back-close {
+      font-size: 9px;
+      color: #4a4038;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER STRIP
+    ══════════════════════════════════════════ */
+    .footer-strip {
+      background: var(--ink);
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-strip p {
+      font-size: 11px;
+      color: #4a4038;
+      letter-spacing: 0.06em;
+    }
+    .footer-strip strong { color: var(--gold); }
+
+  </style>
+</head>
+<body>
+
+<div class="ctx">上部に既存LPコンテンツ &nbsp;|&nbsp; <strong>家庭薬老舗特集コーナー（夏LP組込み用・プレビュー）</strong></div>
+
+<!-- ══════════════════
+     INTRO BLOCK
+══════════════════ -->
+<section class="intro-section">
+  <div class="intro-bg-text">家庭薬</div>
+
+  <div class="intro-inner">
+
+    <!-- テキスト側 -->
+    <div class="intro-text">
+      <div class="intro-kicker">
+        <span class="kicker-line"></span>
+        <span class="kicker-text">Japan Heritage Medicine</span>
+      </div>
+
+      <h2 class="intro-headline">
+        おばあちゃんの薬箱に入っていた<br>
+        あの小瓶が、<em>百年以上</em><br>
+        日本の家庭を守ってきた。
+      </h2>
+
+      <p class="intro-body">
+        日本には、広告で語られることなく、<strong>世代から世代へと静かに受け継がれてきた薬</strong>がある。
+        「家庭薬」——明治・大正時代に誕生し、処方は幾度も磨かれながらも、
+        その本質は創業当時のまま今日に受け継がれている。<br><br>
+        有名インフルエンサーが薦めるわけでも、ランキング上位というわけでもない。
+        ただ、<strong>日本人が子どもの頃から自宅に常備してきた、本物の日常薬</strong>だ。
+      </p>
+
+      <div class="intro-stats">
+        <div class="intro-stat">
+          <div class="intro-stat-num">100年+</div>
+          <div class="intro-stat-label">創業百年以上の老舗</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-num">10社</div>
+          <div class="intro-stat-label">厳選掲載ブランド</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-num">14年</div>
+          <div class="intro-stat-label">鄭先生の調研歴</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鄭先生カード -->
+    <div class="intro-expert-card">
+      <img class="expert-photo" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9993-拷贝-scaled.png" alt="鄭先生" loading="lazy">
+      <div class="expert-card-body">
+        <div class="expert-card-name">鄭 ○○ 先生</div>
+        <div class="expert-card-title">
+          日本薬粧研究室 主宰<br>
+          日本薬粧調査歴 14年
+        </div>
+        <span class="expert-card-tag">Supervised by Expert</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════
+     PRODUCTS + TABS
+══════════════════ -->
+<section class="products-section">
+  <div class="products-inner">
+
+    <div class="section-eyebrow">
+      <span class="eyebrow-rule"></span>
+      <span class="eyebrow-label">Expert Selection</span>
+      <span class="eyebrow-rule r"></span>
+    </div>
+    <h2 class="section-heading">鄭先生が選ぶ 老舗ブランド10選</h2>
+    <p class="section-sub">カードをクリックすると、鄭先生の専門コメントをご覧いただけます</p>
+
+    <nav class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'cold')">風邪・呼吸器</button>
+      <button class="tab-btn" onclick="switchTab(this,'stomach')">胃腸・消化</button>
+      <button class="tab-btn" onclick="switchTab(this,'skin')">外傷・皮膚</button>
+      <button class="tab-btn" onclick="switchTab(this,'kanpo')">滋養・漢方</button>
+    </nav>
+
+    <!-- ── TAB: 風邪 ── -->
+    <div class="tab-pane active" id="pane-cold">
+      <div class="card-grid">
+
+        <!-- Card 1 -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80&fit=crop" alt="風邪薬" loading="lazy">
+                <span class="card-year">創業 1871年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 A</div>
+                <div class="card-product">代表商品名・総合感冒薬</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                創業から150年以上の歴史を持つ、日本を代表する風邪薬ブランドのひとつです。漢方由来の成分と現代薬学を組み合わせた独自処方で、特に風邪の初期症状に高い効果を発揮します。日本では多くのお母さんが家庭に常備している定番薬で、その信頼度は世代を超えています。台湾の薬粧店ではなかなか見かけませんが、日本旅行の際にはぜひ手に取ってみてください。服用方法がシンプルで、成分説明も明確なため、日本語が苦手な方でも安心して使えます。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=400&q=80&fit=crop" alt="葛根湯" loading="lazy">
+                <span class="card-year">創業 1905年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 B</div>
+                <div class="card-product">代表商品名・葛根湯エキス</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                葛根湯は日本で最も知られる漢方系感冒薬のひとつで、このブランドの製品は特に中高年層から厚い信頼を受けています。創業百年以上の確かな品質。苦みが苦手な方、漢方の味に慣れていない方にも、顆粒タイプで飲みやすい設計です。「なんとなく調子が悪い」と感じた段階で早めに服用するのが最も効果的で、高熱になってから飲むよりも初期対応に適しています。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1550572017-edd951aa8ca6?w=400&q=80&fit=crop" alt="のど飴" loading="lazy">
+                <span class="card-year">創業 1888年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 C</div>
+                <div class="card-product">代表商品名・のど飴</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                パッケージデザインがほとんど変わっていない、「古くからの友人」のような安心感があるのど飴ブランドです。天然草本成分を使用しており、のどの痛みや乾燥に素早く作用します。台湾でも輸入品として入手できますが、日本で購入する方がコストパフォーマンスが良く、フレーバーの選択肢も豊富。私が毎回日本旅行で買ってくる定番土産のひとつで、年配の方への贈り物としても大変喜ばれます。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── TAB: 胃腸 ── -->
+    <div class="tab-pane" id="pane-stomach">
+      <div class="card-grid">
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1626315869436-d6781ba69d6e?w=400&q=80&fit=crop" alt="胃腸薬" loading="lazy">
+                <span class="card-year">創業 1893年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 D</div>
+                <div class="card-product">代表商品名・胃腸薬</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                日本でほぼ誰もが知っている胃腸薬ブランドです。創業130年以上、天然生薬をベースにした処方で食べすぎや飲みすぎ後の不調に特に効果的。日本旅行中の「食べすぎ問題」に備えるなら、これを一本持っておくと安心です。顆粒タイプで持ち運びやすく、旅行中の常備薬として最適。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=80&fit=crop" alt="整腸薬" loading="lazy">
+                <span class="card-year">創業 1910年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 E</div>
+                <div class="card-product">代表商品名・整腸薬</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                腸内環境を整える「整腸菌」のパイオニア的ブランドで、台湾のプロバイオティクス市場に相当する位置付けながら、はるかに長い歴史を持っています。消化不良や旅行中の腹部不快感にも対応。腸が敏感な方、水や食事が変わることで体調を崩しやすい方に特にお勧めしたい一品です。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── TAB: 外傷・皮膚 ── -->
+    <div class="tab-pane" id="pane-skin">
+      <div class="card-grid">
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80&fit=crop" alt="軟膏" loading="lazy">
+                <span class="card-year">創業 1897年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 F</div>
+                <div class="card-product">代表商品名・万能軟膏</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                日本外用薬の古典とも言える存在です。あの独特の香りは、日本人にとってまさに「子どもの頃の記憶の香り」。擦り傷・虫刺され・軽いやけどと幅広く使えるオールラウンダーです。初めて使う方はあの匂いに驚くかもしれませんが、慣れると不思議なほど安心感があります。日本の家庭薬文化を最も体感できる一品といっても過言ではありません。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1616671276441-2f2c277b8bf6?w=400&q=80&fit=crop" alt="かゆみ止め" loading="lazy">
+                <span class="card-year">創業 1902年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 G</div>
+                <div class="card-product">代表商品名・かゆみ止め</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                夏の日本、虫が多い季節に欠かせないかゆみ止めの老舗ブランド。塗った瞬間のひんやり感が心地よく、べたつかず速乾なので外出先でも使いやすい。成分も比較的マイルドで、子どもから大人まで使えます。私は毎年夏の日本渡航時に必ず数本まとめ買いして、家族のお土産にしています。台湾のものより効き目がはっきりしていて、好評です。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── TAB: 滋養・漢方 ── -->
+    <div class="tab-pane" id="pane-kanpo">
+      <div class="card-grid">
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=400&q=80&fit=crop" alt="滋養強壮" loading="lazy">
+                <span class="card-year">創業 1878年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 H</div>
+                <div class="card-product">代表商品名・滋養強壮薬</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                明治時代から続く滋養強壮薬の老舗ブランド。漢方成分を科学的に配合した独自処方で、疲労回復・体力増強に特化しています。日本では特に中高年層からの信頼が厚く、贈り物としても人気。本格的な日本の漢方文化に触れる入口としてもおすすめできる一品です。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80&fit=crop" alt="ドリンク剤" loading="lazy">
+                <span class="card-year">創業 1921年</span>
+                <span class="card-hint">クリックで詳細</span>
+              </div>
+              <div class="card-info">
+                <div class="card-brand">ブランド名 I</div>
+                <div class="card-product">代表商品名・生薬ドリンク</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="back-quote-mark">"</div>
+              <div class="back-comment">
+                日本の滋養強壮ドリンクを代表する老舗ブランド。100年以上の歴史を持ちながら現在も変わらぬ人気を誇ります。生薬エキスを独自製法で凝縮したその味は「確かに効いている感覚」があり、疲れた夜に飲むと翌朝の回復に違いが出ると言われています。台湾でも徐々に認知度が高まっており、注目のブランドです。
+                <br><br>※ こちらは約500字のプレースホルダーコメントです。
+              </div>
+              <div class="back-rule"></div>
+              <div class="back-close">もう一度クリックで戻る</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer-strip">
+  <p>本コーナーは有料掲載企画です &nbsp;|&nbsp; <strong>JAPANKURU × 日本家庭薬メーカー連合</strong> &nbsp;|&nbsp; 2026 夏</p>
+</div>
+
+<div class="ctx">下部に既存LPのコンテンツが続く</div>
+
+<script>
+  function switchTab(btn, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pane-' + id).classList.add('active');
+    document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
+  }
+</script>
+
+</body>
+</html>
