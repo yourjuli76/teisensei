@@ -23,10 +23,10 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
@@ -38,27 +38,20 @@
       --ink-faint: #c5c5c5;
       --paper: #fefefe;
       --paper-warm: #faf9f7;
-
-      /* 핑크 계열 통일 — 3단계로만 */
-      --accent: #C8566A;          /* 메인 핑크 (버튼, 강조) — 기존보다 약간 차분하게 */
-      --accent-mid: var(--accent-mid);      /* 중간 핑크 (호버, 보조) */
-      --accent-soft: #f5e8ea;     /* 연핑크 배경 */
-      --accent-pale: #fdf5f6;     /* 극연핑크 배경 */
-
-      --sakura: #F5B8C4;          /* 꽃잎 색 — 살짝 더 차분하게 */
-      --sakura-light: #fce8ed;
-
-      --gold: #B8935A;            /* 골드 — 더 깊게 */
-      --blue: #4A7BA8;
-      --green: #6A8A6E;
-      --bg: #FEFCFD;              /* 기본 배경 — 아주 살짝만 핑크빛 */
+      --accent: #d4707a;
+      --accent-soft: #f2e4e6;
+      --sakura: #FFB7C5;
+      --gold: #C9A962;
+      --blue: #5B8DB8;
+      --green: #7A9A7E;
+      --bg: #FFFBFC;
       --white: #fff;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body { 
-      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif; 
+      font-family: 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif; 
       background: var(--bg); 
       color: var(--ink-light); 
       line-height: 1.8;
@@ -69,9 +62,7 @@
       body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0)); }
     }
 
-    /* === Header === */
-
-    /* === Mobile Section Nav (sticky under header) === */
+        /* === Mobile Section Nav (sticky under header) === */
     .section-nav {
       display: none;
       position: fixed;
@@ -115,11 +106,11 @@
     }
     .section-nav-item:hover,
     .section-nav-item.is-active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: #C85070;
+      border-bottom-color: #C85070;
     }
     .section-nav-item.is-active::before {
-      background: var(--accent);
+      background: #C85070;
       box-shadow: 0 0 0 2px rgba(200,80,112,0.2);
     }
 
@@ -193,7 +184,7 @@
     }
     .header-nav-item.is-active {
       color: #fff;
-      background: var(--accent);
+      background: #C85070;
     }
     @media (min-width: 769px) {
       .header-nav { display: flex; }
@@ -205,7 +196,7 @@
       margin-top: 52px;
       padding-top: 60px;
       min-height: 90vh;
-      background: linear-gradient(180deg, #fff8f9 0%, #fff 70%, #fff 100%);
+      background: linear-gradient(180deg, #fff0f3 0%, #fff 60%, #fff 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -223,55 +214,24 @@
       border-radius: 50%;
     }
 
-    /* ===== 벚꽃 꽃잎 전체 페이지 ===== */
-    #sakura-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
     .sakura-petal {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: linear-gradient(135deg, var(--sakura) 0%, var(--sakura-light) 100%);
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--sakura) 0%, #FFD6E0 100%);
       border-radius: 150% 0 150% 0;
       opacity: 0;
       animation: fall linear infinite;
       pointer-events: none;
-      z-index: 0;
-    }
-    .sakura-petal.petal-sm { width: 7px; height: 7px; }
-    .sakura-petal.petal-lg { width: 14px; height: 14px; background: linear-gradient(135deg, var(--sakura) 0%, var(--sakura-light) 100%); }
-    /* 초여름 전환 암시 — 연두 꽃잎 */
-    .sakura-petal.petal-green {
-      background: linear-gradient(135deg, #c8e0c0 0%, #d8ead2 100%);
-      border-radius: 0 150% 0 150%;
-      width: 9px; height: 9px;
+      z-index: 1;
     }
 
     @keyframes fall {
-      0% { transform: translateY(-30px) rotate(0deg) translateX(0); opacity: 0; }
-      8% { opacity: 0.35; }
-      85% { opacity: 0.28; }
-      100% { transform: translateY(105vh) rotate(800deg) translateX(60px); opacity: 0; }
+      0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(100vh) rotate(720deg) translateX(100px); opacity: 0; }
     }
-
-    /* ===== 봄 → 초여름 컬러 플로우 =====
-       hero/split: 벚꽃 핑크
-       featured/products: 중립 (전환 구간)
-       store/outro: 신록 초록빛 (초여름 암시)
-    ===================================== */
-    .split-banner-section { background: #fff; }
-    .featured-section { background: #faf9f8; }
-    .products-section { background: #fff; }
-
-    /* 스토어 가이드 이후 — 살짝 초록빛 따뜻한 톤 */
-    .store-guide { background: linear-gradient(180deg, #f8faf7 0%, #f5f8f4 100%); }
-    .outro-section { background: #f6f9f5; }
 
     .hero-inner {
       max-width: 1100px;
@@ -327,7 +287,7 @@
       left: 0;
       width: 100%;
       height: 14px;
-      background: rgba(200, 86, 106, 0.10);
+      background: rgba(212, 112, 122, 0.15);
       z-index: -1;
       transform: skewX(-15deg);
     }
@@ -341,7 +301,7 @@
 
     .hero-subtitle em {
       font-style: normal;
-      background: linear-gradient(transparent 60%, rgba(200, 86, 106, 0.12) 60%);
+      background: linear-gradient(transparent 60%, rgba(212, 112, 122, 0.18) 60%);
       padding: 0 2px;
     }
 
@@ -379,13 +339,13 @@
     }
 
     .hero-cta-btn {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #c45d67);
       color: #fff;
       padding: 20px 42px;
       border-radius: 50px;
       font-weight: 700;
       font-size: 16px;
-      box-shadow: 0 8px 24px rgba(200, 86, 106, 0.28);
+      box-shadow: 0 10px 30px rgba(212, 112, 122, 0.35);
       border: none;
       cursor: pointer;
       transition: all 0.3s;
@@ -397,7 +357,7 @@
     }
 
     @keyframes cta-pulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(200, 86, 106, 0.25); }
+      0%, 100% { box-shadow: 0 10px 30px rgba(212, 112, 122, 0.35); }
       50% { box-shadow: 0 12px 40px rgba(212, 112, 122, 0.55); }
     }
 
@@ -678,8 +638,6 @@
       display: none !important;
     }
 
-
-
     .split-logo {
       position: absolute;
       top: 25px;
@@ -778,7 +736,7 @@
       align-items: center;
       gap: 14px;
       padding: 20px 50px;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #c45d67);
       color: #fff;
       font-size: 15px;
       font-weight: 700;
@@ -798,31 +756,31 @@
     @media (max-width: 900px) {
       .split-banner-section { padding: 60px 0; }
       .split-container {
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        height: 420px;
+        flex-direction: column;
+        overflow-x: unset;
+        height: auto;
         border-radius: 0;
         box-shadow: none;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        gap: 12px;
+        padding: 0 16px;
       }
-      .split-container::-webkit-scrollbar { display: none; }
       .split-panel {
-        flex: 0 0 85vw;
-        height: 380px;
-        scroll-snap-align: center;
-        margin-left: 20px;
+        flex: none !important;
+        width: 100%;
+        height: 200px;
+        margin-left: 0 !important;
         border-radius: 12px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        padding: 30px 24px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        padding: 24px 20px;
       }
-      .split-panel:last-child { margin-right: 20px; }
+      .split-panel:last-child { margin-right: 0; }
       .split-panel:not(:last-child) { border-right: none; }
-      .split-panel:hover { flex: 0 0 85vw; }
-      .split-desc { max-height: 100px; opacity: 1; margin-top: 12px; }
-      .split-btn { opacity: 1; transform: translateY(0); margin-top: 14px; }
-      .split-title { font-size: 24px; }
+      .split-panel:hover { flex: none; }
+      .split-desc { max-height: unset; opacity: 1; margin-top: 8px; }
+      .split-btn { opacity: 1; transform: translateY(0); margin-top: 10px; }
+      .split-title { font-size: 20px; }
+      .split-num { font-size: 11px; }
+      .split-headline { font-size: 16px; }
       .sakura-float { display: none; }
     }
 
@@ -877,33 +835,6 @@
       line-height: 1.8;
     }
 
-    .featured-carousel-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .carousel-arrow {
-      display: none;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
-      cursor: pointer;
-      font-size: 16px;
-      color: var(--ink);
-      transition: all 0.2s;
-    }
-    .carousel-arrow:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.08); }
-    .carousel-arrow-left { left: 8px; }
-    .carousel-arrow-right { right: 8px; }
-    @media (min-width: 769px) { .carousel-arrow { display: flex; align-items: center; justify-content: center; } }
-
     .featured-carousel {
       display: flex;
       gap: 20px;
@@ -947,41 +878,12 @@
       transition: transform 0.6s ease;
     }
 
-    /* contain 카드: 상품 전체 보이게 */
-    .featured-card-contain {
-      background: #f0f2f5;
-    }
-    .featured-card-contain .featured-card-bg {
-      object-fit: contain;
-      padding: 12px 12px 130px;
-      background: transparent;
-    }
-
-    /* 상단 로고 스트립 - overlay(z-index 없음) 위에 표시 */
-    .featured-card-logo-strip {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 14px 16px;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-    }
-    .featured-card-logo-strip img {
-      max-height: 44px;
-      max-width: 120px;
-      object-fit: contain;
-      display: block;
-    }
-
     .featured-card:hover .featured-card-bg { transform: scale(1.1); }
 
     .featured-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.0) 70%);
-      z-index: 2;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%);
     }
 
     .featured-card-inner {
@@ -992,16 +894,13 @@
       flex-direction: column;
       justify-content: flex-end;
       color: #fff;
-      z-index: 4;
     }
 
     .featured-card-tag {
       display: none !important;
     }
 
-    /* Featured card tag styles removed */
-
-    .featured-card-title {
+        .featured-card-title {
       font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
       font-size: 20px;
       font-weight: 700;
@@ -1051,11 +950,28 @@
     }
 
     @media (max-width: 768px) {
-      .featured-section { padding: 50px 0 40px; }
-      .featured-header { padding: 0 20px; }
-      .featured-card { flex: 0 0 240px; height: 320px; }
-      .featured-card:first-child { margin-left: 16px; }
-      .featured-card:last-child { margin-right: 16px; }
+      .featured-section { padding: 40px 0 30px; }
+      .featured-header { padding: 0 16px; }
+      .featured-carousel {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 0 16px;
+        overflow-x: unset;
+      }
+      .featured-card {
+        flex: none !important;
+        width: 100% !important;
+        height: 180px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 10px;
+      }
+      .featured-card:first-child { margin-left: 0; }
+      .featured-card:last-child { margin-right: 0; }
+      .featured-card-title { font-size: 13px; }
+      .featured-card-copy { font-size: 11px; }
+      .scroll-hint { display: none; }
     }
 
     /* === Section Transition === */
@@ -1083,7 +999,7 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: var(--accent);
+      color: #C85070;
       margin-bottom: 6px;
     }
     .section-header {
@@ -1104,108 +1020,17 @@
       color: var(--ink-muted);
     }
 
-    .card-hint {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      margin: 0 auto 30px;
-      max-width: 500px;
-      background: linear-gradient(135deg, var(--accent-soft) 0%, #fefcfd 100%);
-      border-radius: 50px;
-      font-size: 13px;
-      color: var(--ink-light);
-      border: 1px solid rgba(200, 86, 106, 0.1);
-    }
+    
 
-    .card-hint i { color: var(--accent); }
-    .card-hint strong { color: var(--accent); font-weight: 600; }
-    .card-hint .hint-mobile { display: none; }
+    
+    
+    
 
-    @media (max-width: 580px) {
-      .card-hint .hint-pc { display: none; }
-      .card-hint .hint-mobile { display: inline; }
-    }
+    
 
-    @media (max-width: 600px) {
-      .card-hint { font-size: 12px; padding: 12px 16px; margin: 0 16px 24px; max-width: none; }
-    }
+    
 
-    /* Tabs */
-    .tabs-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 48px;
-      border-bottom: 1px solid #ede9e5;
-      position: relative;
-    }
-
-    .tab-btn {
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 14px 28px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: color 0.25s;
-      color: var(--ink-muted);
-      position: relative;
-      bottom: -1px;
-      white-space: nowrap;
-    }
-
-    .tab-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 50%; right: 50%;
-      height: 2px;
-      background: var(--accent);
-      transition: left 0.3s ease, right 0.3s ease;
-    }
-
-    .tab-btn:hover { color: var(--ink); }
-    .tab-btn:hover::after { left: 20%; right: 20%; }
-
-    .tab-btn.active {
-      color: var(--ink);
-      font-weight: 700;
-    }
-    .tab-btn.active::after { left: 0; right: 0; }
-
-    @media (max-width: 600px) {
-      .tabs-nav {
-        position: sticky;
-        top: 56px;
-        z-index: 100;
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(12px);
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 0 16px;
-        margin: 0 -24px 28px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .tabs-nav::-webkit-scrollbar { display: none; }
-      .tab-btn { padding: 12px 20px; font-size: 12px; }
-    }
-
-    .tab-content {
-      display: none;
-      opacity: 0;
-      transform: translateY(16px);
-    }
-
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.4s ease forwards;
-    }
-
-    @keyframes fadeIn {
+        @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -1217,262 +1042,37 @@
 
     .target-highlight { animation: highlight-flash 1.5s ease-out forwards; z-index: 5; }
 
-    /* Products Grid - Masonry Layout */
-    .products-grid {
-      column-count: 3;
-      column-gap: 20px;
-    }
-
-    .products-grid .item-card {
-      break-inside: avoid;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 900px) { 
-      .products-grid { column-count: 2; } 
-    }
-    @media (max-width: 580px) { .products-grid { grid-template-columns: 1fr; } }
-
-    /* Card */
-    .item-card {
-      background: #fff;
-      border: none;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-
-    .item-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-    }
-
-    /* 상품 카드 content 영역 브랜드 로고 */
-    .item-brand-logo-row {
-      margin-bottom: 6px;
-    }
-    .item-brand-logo-img {
-      max-height: 32px;
-      max-width: 100px;
-      object-fit: contain;
-      display: block;
-    }
-    @media (max-width: 580px) {
-      .item-brand-logo-img { max-height: 26px; max-width: 80px; }
-    }
-
-    /* Plan 구분 상단 스트라이프 */
-    .item-card[data-plan="platinum"] {
-      border-top: 3px solid #B8935A;
-    }
-    .item-card[data-plan="gold"] {
-      border-top: 3px solid var(--accent);
-    }
-
-    /* Plan Badge - positioned in content area */
-    .plan-badge {
-      display: none !important;
-    }
-
-    .plan-badge i { font-size: 9px; }
+                        .plan-badge i { font-size: 9px; }
 
     /* Mobile Compact View */
     @media (max-width: 580px) {
-      .products-grid {
-        column-count: unset;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .products-grid .item-card {
-        break-inside: unset;
-        margin-bottom: 0;
-      }
-
-      .item-card {
-        flex-direction: row;
-        align-items: stretch;
-        border-radius: 12px;
-        min-height: 120px;
-      }
-
-      .item-card.basic-plan::before {
-        left: auto;
-        right: 12px;
-        top: -1px;
-      }
-
-      .item-card .item-thumb {
-        width: 110px;
-        min-width: 110px;
-        aspect-ratio: unset;
-        height: auto;
-        border-bottom: none;
-        border-right: 1px solid #f0f0f0;
-        border-radius: 12px 0 0 12px;
-      }
-
-      .item-card .item-thumb img {
-        padding: 10px;
-      }
-
-      .item-card .video-overlay { display: none; }
-      .item-card .media-indicators { display: none; }
-
-      .item-card .btn-like-float {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-        top: 6px;
-        right: 6px;
-      }
-
-      .item-card .item-label {
-        font-size: 8px;
-        padding: 2px 6px;
-        top: 6px;
-        left: 6px;
-      }
-
-      .item-card .item-content {
-        padding: 12px;
-        flex: 1;
-        justify-content: center;
-      }
-
-      .item-card .item-name {
-        font-size: 13px;
-        margin-bottom: 4px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      .item-card .item-price-row {
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-      }
-
-      .item-card .item-price {
-        font-size: 15px;
-      }
-
-      .item-card .price-label {
-        font-size: 9px;
-      }
-
-      /* Hide long content in compact mode */
-      .item-card .che-section { display: none; }
-      .item-card .monitor-preview { display: none; }
-      .item-card .column-preview { display: none; }
-      .item-card .voice-preview-section { display: none; }
       
-      .item-card .plan-badge { 
-        font-size: 9px; 
-        padding: 3px 8px;
-        margin-bottom: 8px;
-      }
 
-      /* Compact footer */
-      .item-card .card-footer {
-        gap: 6px;
-      }
+      
 
-      .item-card .btn-main {
-        padding: 10px;
-        font-size: 11px;
-      }
+      
 
-      .item-card .btn-badge {
-        font-size: 8px;
-        padding: 1px 5px;
-      }
+      
 
-      .item-card .btn-share {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-      }
+      
 
-      /* Expanded card state */
-      .item-card.expanded {
-        flex-direction: column;
-      }
+      
+            .card.expanded .ci.has-video .video-overlay { display: flex; }
+      .card.expanded .media-indicators { display: flex; }
 
-      .item-card.expanded .item-thumb {
-        width: 100%;
-        aspect-ratio: 16/10;
-        border-right: none;
-        border-bottom: 1px solid #f0f0f0;
-        border-radius: 12px 12px 0 0;
-      }
+      
 
-      .item-card.expanded .item-thumb img {
-        padding: 20px;
-      }
-
-      .item-card.expanded .che-section { display: block; }
-      .item-card.expanded .monitor-preview { display: flex; }
-      .item-card.expanded .column-preview { display: flex; }
-      .item-card.expanded .voice-preview-section { display: block; }
-      .item-card.expanded .video-overlay { display: flex; }
-      .item-card.expanded .media-indicators { display: flex; }
-
-      .item-card.expanded .item-content {
-        padding: 16px;
-      }
-
-      .item-card.expanded .item-name {
-        font-size: 16px;
-        -webkit-line-clamp: unset;
-      }
-
-      .item-card.expanded .item-price {
-        font-size: 18px;
-      }
-
-      /* Expand toggle button */
-      .expand-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: 100%;
-        padding: 10px;
-        background: #f8f8f8;
-        border: none;
-        font-size: 11px;
-        color: var(--ink-muted);
-        cursor: pointer;
-        border-top: 1px solid #eee;
-        border-radius: 0 0 12px 12px;
-      }
-
-      .item-card:not(.expanded) .expand-toggle {
-        border-radius: 0 0 12px 0;
-      }
+      
 
       .expand-toggle i {
         transition: transform 0.3s;
       }
 
-      .item-card.expanded .expand-toggle i {
-        transform: rotate(180deg);
-      }
+      
 
-      .item-card.expanded .expand-toggle span::after {
-        content: '收起';
-      }
+      
 
-      .item-card:not(.expanded) .expand-toggle span::after {
-        content: '查看詳情';
-      }
+      
     }
 
     .item-thumb {
@@ -1491,9 +1091,9 @@
       transition: transform 0.4s;
     }
 
-    .item-card:hover .item-thumb img { transform: scale(1.05); }
+    
 
-    .item-thumb-video .video-overlay {
+    .ci.has-video .video-overlay, .item-thumb-video .video-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
@@ -1540,101 +1140,43 @@
     .btn-like-float:hover { transform: scale(1.1); }
     .btn-like-float.active { color: var(--accent); }
 
-    .item-label {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 9px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 6px;
-      background: rgba(45,41,38,0.7);
-      color: #fff;
-      backdrop-filter: blur(4px);
-      letter-spacing: 0.02em;
-    }
+    
 
     .item-label.type-deal { background: #B8977E; }
     .item-label.type-exclusive { background: #7C9CB8; }
-    .item-label.type-hot { background: var(--accent); }
+    .item-label.type-hot { background: #C85070; }
 
-    .media-indicators {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
+    .media-indicators { display: none !important; position: absolute; bottom: 8px; left: 8px;
       display: flex;
       gap: 4px;
     }
 
     .media-tag {
-      font-size: 10px;
-      font-weight: 700;
+      font-size: 9px;
+      font-weight: 800;
       color: #fff;
-      background: rgba(0,0,0,0.7);
-      padding: 4px 8px;
-      border-radius: 4px;
+      background: rgba(200,80,100,.88);
+      padding: 3px 8px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       gap: 4px;
+      letter-spacing: .04em;
     }
 
-    .item-content {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
+    
 
     .item-content-inner {
       flex: 1;
     }
 
-    .item-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
+    
 
-    .item-price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #f0f0f0;
-    }
+    
 
-    .item-price { font-size: 18px; font-weight: 800; color: var(--ink); }
+    
 
-    .price-label {
-      font-size: 9px;
-      padding: 2px 6px;
-      background: var(--accent-pale);
-      color: var(--accent);
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .che-section { margin-bottom: 20px; }
-
-    .che-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .che-face {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 15%;
-      border: 2px solid var(--accent-soft);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+    
 
     .che-name { font-size: 13px; font-weight: 700; color: var(--ink); }
 
@@ -1663,18 +1205,7 @@
 
     .che-text strong { color: var(--accent); }
 
-    .monitor-preview {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: #f8f9fa;
-      border: 1px solid #e8e8e8;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      transition: all 0.3s;
-      position: relative;
-    }
+    
 
     .monitor-preview::before {
       content: '';
@@ -1709,7 +1240,7 @@
     .column-preview-icon {
       width: 48px;
       height: 48px;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent) 0%, #e8919a 100%);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1748,106 +1279,35 @@
       font-size: 14px;
     }
 
-    .monitor-avatars { display: flex; }
+    
 
-    .monitor-avatar {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      color: #fff;
-      margin-right: -8px;
-      border: 2px solid #fff;
-    }
+    
 
-    .monitor-count {
-      flex: 1;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-    }
+    
 
-    .monitor-arrow { font-size: 11px; color: var(--accent); }
+    
 
-    /* Voice Preview for Premium Plan */
-    .voice-preview-section {
-      margin-bottom: 16px;
-    }
-
-    .voice-preview-header {
-      font-size: 11px;
-      color: var(--ink-muted);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .voice-preview-header i {
+        .voice-preview-header i {
       color: var(--accent);
     }
 
-    .voice-preview-card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 8px;
-      border-left: 3px solid var(--accent);
-    }
+    
 
     .voice-preview-card:last-child {
       margin-bottom: 0;
     }
 
-    .voice-preview-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
+    
 
-    .voice-preview-avatar {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      color: #fff;
-    }
+    
 
-    .voice-preview-name {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--ink);
-    }
+    
 
-    .voice-preview-attr {
-      font-size: 10px;
-      color: var(--ink-muted);
-    }
+    
 
-    .voice-preview-text {
-      font-size: 12px;
-      color: var(--ink-light);
-      line-height: 1.6;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+    
 
-    .card-footer {
-      display: flex;
-      gap: 8px;
-      margin-top: auto;
-    }
+    
 
     /* Original URL Link */
     .original-url-link {
@@ -1894,37 +1354,18 @@
 
     .btn-main:hover { background: #333; transform: translateY(-2px); }
 
-    .btn-badge {
-      font-size: 9px;
-      background: rgba(255,255,255,0.2);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
+    
 
-    .btn-share {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      border: 1px solid #e0e0e0;
-      background: #fff;
-      color: var(--ink-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 16px;
-    }
+    
 
     /* Expand toggle - hidden on PC */
     .expand-toggle {
       display: none;
     }
 
-    /* === Sakura — 鄭老師的賞櫻購物筆記 === */
-
-    .sakura-hero {
+        .sakura-hero {
       position: relative;
-      background: linear-gradient(160deg, #fff8f9 0%, #fef2f4 50%, #fff9f7 100%);
+      background: linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 50%, #FFF5F0 100%);
       min-height: 480px;
       overflow: visible;
       z-index: 1;
@@ -1932,7 +1373,7 @@
     .sakura-hero-inner::before {
       content: ''; position: absolute; top: -60px; right: -60px;
       width: 240px; height: 240px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(200, 86, 106, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212,96,122,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1971,7 +1412,7 @@
       font-size: 13px; line-height: 1.6;
       color: #2d2926;
       max-width: 220px;
-      box-shadow: 0 2px 12px rgba(200, 86, 106, 0.06);
+      box-shadow: 0 2px 12px rgba(212,96,122,0.08);
       position: relative;
       z-index: 10;
       margin-bottom: 0;
@@ -1986,10 +1427,10 @@
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
       border-top: 7px solid #fff;
-      filter: drop-shadow(0 1px 1px rgba(200, 86, 106, 0.08));
+      filter: drop-shadow(0 1px 1px rgba(212,96,122,0.1));
     }
     .sakura-speech-name {
-      font-size: 10px; color: var(--accent); font-weight: 700; margin-bottom: 3px;
+      font-size: 10px; color: #C85070; font-weight: 700; margin-bottom: 3px;
     }
     .sakura-hero-cutout {
       width: 100%;
@@ -2020,7 +1461,7 @@
       display: inline-block;
       font-size: 10px; letter-spacing: 0.15em;
       padding: 5px 14px;
-      background: var(--accent); color: #fff;
+      background: #C85070; color: #fff;
       border-radius: 999px;
       margin-bottom: 14px;
     }
@@ -2044,7 +1485,7 @@
     }
     .sakura-hero h2 em {
       font-style: normal;
-      background: linear-gradient(transparent 55%, rgba(200, 86, 106, 0.16) 55%);
+      background: linear-gradient(transparent 55%, rgba(212,96,122,0.25) 55%);
     }
     .sakura-hero-quote {
       font-size: 13.5px; line-height: 1.85;
@@ -2078,12 +1519,12 @@
       width: 128px; padding: 8px 10px; border: none; border-radius: 999px;
       font-size: 13px; background: transparent; color: #2d2926;
     }
-    .sakura-date-input:focus { outline: 2px solid var(--sakura); background: #fff; }
+    .sakura-date-input:focus { outline: 2px solid #FFB7C5; background: #fff; }
     .sakura-date-label { font-size: 11px; color: #9a918a; }
     .sakura-date-btn {
       padding: 10px 22px; font-size: 13px; font-weight: 700;
       border: none; border-radius: 999px;
-      background: var(--accent); color: #fff;
+      background: linear-gradient(135deg, #C85070, #D4607A); color: #fff;
       cursor: pointer; transition: all 0.2s;
       box-shadow: 0 2px 8px rgba(200,80,112,0.3);
     }
@@ -2095,11 +1536,11 @@
     .sakura-date-retry-btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 10px 20px; font-size: 13px; font-weight: 600;
-      border: 1.5px solid var(--accent); border-radius: 999px;
-      background: #fff; color: var(--accent);
+      border: 1.5px solid #C85070; border-radius: 999px;
+      background: #fff; color: #C85070;
       cursor: pointer; transition: all 0.2s;
     }
-    .sakura-date-retry-btn:hover { background: var(--accent-pale); }
+    .sakura-date-retry-btn:hover { background: #FFF0F3; }
 
     /* Mobile: stack vertically, sensei becomes relative again */
     @media (max-width: 768px) {
@@ -2152,7 +1593,7 @@
     .sk-result-badge {
       font-size: 9px; letter-spacing: 0.06em;
       padding: 2px 8px; border-radius: 999px;
-      background: var(--accent); color: #fff; font-weight: 700;
+      background: #C85070; color: #fff; font-weight: 700;
     }
     .sk-result-status {
       font-size: 12px; color: #6b635d; margin-bottom: 12px;
@@ -2173,7 +1614,7 @@
     .sk-progress-fill {
       position: absolute;
       top: 15px; left: 28px;
-      height: 3px; background: linear-gradient(90deg, #F5A0B5, var(--accent));
+      height: 3px; background: linear-gradient(90deg, #F5A0B5, #C85070);
       border-radius: 2px;
       transition: width 0.6s ease-out;
     }
@@ -2190,7 +1631,7 @@
     }
     /* Color per stage */
     .sk-stage[data-stage="bloom"] .sk-stage-dot { background: #F5A0B5; }
-    .sk-stage[data-stage="full"] .sk-stage-dot { background: var(--accent-mid); }
+    .sk-stage[data-stage="full"] .sk-stage-dot { background: #E87A9A; }
     .sk-stage[data-stage="fall"] .sk-stage-dot { background: #D4887C; }
     .sk-stage[data-stage="snow"] .sk-stage-dot { background: #B8A0C8; }
     .sk-stage.is-future .sk-stage-dot { background: #e8e4e0 !important; color: #b0a8a0; }
@@ -2203,17 +1644,17 @@
       font-size: 10px; color: #9a918a; font-weight: 600;
       text-align: center;
     }
-    .sk-stage.is-current .sk-stage-label { color: var(--accent); font-weight: 700; }
+    .sk-stage.is-current .sk-stage-label { color: #C85070; font-weight: 700; }
     .sk-stage-date {
       font-size: 11px; color: #6b635d; font-weight: 600;
     }
-    .sk-stage.is-current .sk-stage-date { color: var(--accent); }
+    .sk-stage.is-current .sk-stage-date { color: #C85070; }
 
     /* Sensei comment below progress */
     .sk-result-sensei {
       display: flex; align-items: flex-start; gap: 8px;
       margin-top: 10px; padding: 10px;
-      background: var(--accent-pale); border-radius: 10px;
+      background: #FFF8F0; border-radius: 10px;
     }
     .sk-result-sensei img {
       width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; object-fit: cover;
@@ -2227,7 +1668,7 @@
       margin-top: 8px; text-align: center;
     }
     .sk-result-retry-btn {
-      font-size: 12px; color: var(--accent); font-weight: 600;
+      font-size: 12px; color: #C85070; font-weight: 600;
       background: none; border: none; cursor: pointer;
       text-decoration: underline; text-underline-offset: 3px;
     }
@@ -2240,16 +1681,15 @@
       .sk-stage-date { font-size: 10px; }
     }
 
-
     /* -- Below-banner detail section -- */
     .sakura-section {
       padding: 48px 20px;
-      background: linear-gradient(180deg, var(--accent-pale) 0%, var(--accent-pale) 30%, var(--sakura-light) 100%);
+      background: linear-gradient(180deg, #FFF5F0 0%, #FFF7F8 30%, #FFEFF3 100%);
     }
     .sakura-inner { max-width: 900px; margin: 0 auto; }
     .sakura-section-label {
       font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 8px;
+      color: #C85070; margin-bottom: 8px;
     }
     .sakura-section-title {
       font-family: 'Noto Sans TC', serif;
@@ -2266,14 +1706,14 @@
       border: 1px solid #eee; transition: all 0.2s;
     }
     .sakura-stage:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .sakura-stage.is-highlight { border: 2px solid var(--accent); }
+    .sakura-stage.is-highlight { border: 2px solid #C85070; }
     .sakura-stage-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
     .sakura-stage-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.4s; }
     .sakura-stage:hover .sakura-stage-img img { transform: scale(1.05); }
     .sakura-stage-num {
       position: absolute; top: 8px; left: 8px;
       width: 24px; height: 24px; border-radius: 50%;
-      background: var(--accent); color: #fff;
+      background: #C85070; color: #fff;
       font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
     }
@@ -2287,11 +1727,11 @@
     }
     .sakura-stage-msg {
       margin-bottom: 24px; padding: 12px 16px;
-      background: linear-gradient(90deg, var(--accent-pale) 0%, #FAF8F5 100%);
-      border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;
+      background: linear-gradient(90deg, #FFF0F3 0%, #FAF8F5 100%);
+      border-left: 3px solid #C85070; border-radius: 0 12px 12px 0;
       font-size: 14px;
     }
-    .sakura-stage-msg strong { color: var(--accent); }
+    .sakura-stage-msg strong { color: #C85070; }
 
     @media (max-width: 768px) {
       .sakura-stages {
@@ -2312,19 +1752,19 @@
       border-right: 1px solid #eee; position: relative;
     }
     .sakura-city:last-child { border-right: none; }
-    .bloom-status { display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:8px; }
-    .status-upcoming { background: var(--accent-pale); color: #E08A4A; }
-    .status-blooming { background: var(--accent-soft); color: var(--accent); }
-    .status-full { background: var(--accent-soft); color: var(--accent); }
+    
+    .status-upcoming { background: #FFF0E6; color: #E08A4A; }
+    .status-blooming { background: #FFE8EC; color: #C85070; }
+    .status-full { background: #FFEBF0; color: #D4507A; }
     .status-done { background: #f0f0f0; color: #999; }
     .status-waiting { background: #E8F4FF; color: #5B8DB8; }
     .sakura-city .name { font-size:14px;font-weight:700;margin-bottom:4px; }
-    .sakura-city .bloom-label { font-size:10px;color:#9a918a; }
-    .sakura-city .bloom-date { font-size:20px;font-weight:700;color:var(--accent); }
+    .sakura-city 
+    .sakura-city 
     .sakura-city .full { font-size:12px;color:#9a918a;margin-top:6px; }
     .sakura-city .full strong { color:#2d2926; }
-    .city-tip { font-size:10px;color:#9a918a;margin-top:10px;line-height:1.4; }
-    .city-sub { font-size: 11px; color: #9a918a; margin-top: 4px; }
+    
+    
     .sakura-footer {
       margin-top:20px;display:flex;justify-content:space-between;
       align-items:center;flex-wrap:wrap;gap:12px;
@@ -2341,7 +1781,7 @@
       .sakura-city { padding: 16px 10px; }
       .sakura-city:nth-child(even) { border-right: none; }
       .sakura-city:last-child:nth-child(odd) { grid-column: span 2; }
-      .city-tip { font-size: 9px; }
+      
     }
 
     /* Season ended */
@@ -2362,13 +1802,13 @@
     }
     .sensei-lead-bubble {
       position: relative;
-      background: var(--accent-pale);
+      background: #FFF8F5;
       padding: 14px 18px;
       border-radius: 0 18px 18px 18px;
       flex: 1;
     }
     .sensei-lead-name {
-      font-size: 10px; font-weight: 600; color: var(--accent);
+      font-size: 10px; font-weight: 600; color: #C85070;
       margin-bottom: 4px;
     }
     .sensei-lead-text {
@@ -2389,7 +1829,7 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: var(--accent);
+      color: #C85070;
       margin-bottom: 6px;
     }
     .sg-header h2 {
@@ -2397,7 +1837,7 @@
       letter-spacing: -0.02em;
     }
     .sg-header-line {
-      width: 40px; height: 2px; background: var(--accent);
+      width: 40px; height: 2px; background: #C85070;
       margin: 10px auto 8px; border-radius: 1px;
     }
     .sg-header p { font-size: 13px; color: #9a918a; }
@@ -2414,9 +1854,9 @@
       cursor: pointer; transition: all 0.25s;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
-    .sg-tab:hover { color: var(--accent); box-shadow: 0 2px 8px rgba(200,80,112,0.12); }
+    .sg-tab:hover { color: #C85070; box-shadow: 0 2px 8px rgba(200,80,112,0.12); }
     .sg-tab.is-active {
-      background: var(--accent);
+      background: linear-gradient(135deg, #C85070, #E87A9A);
       color: #fff;
       box-shadow: 0 4px 16px rgba(200,80,112,0.25);
     }
@@ -2459,12 +1899,12 @@
     }
     .sg-tax-fact {
       text-align: center; padding: 16px 8px;
-      background: linear-gradient(180deg, var(--accent-pale) 0%, #fff 100%);
+      background: linear-gradient(180deg, #FFF8F5 0%, #fff 100%);
       border-radius: 14px; border: 1px solid rgba(200,80,112,0.08);
     }
     .sg-tax-fact-icon { font-size: 22px; margin-bottom: 4px; }
     .sg-tax-fact-num {
-      font-size: 22px; font-weight: 800; color: var(--accent);
+      font-size: 22px; font-weight: 800; color: #C85070;
       line-height: 1.2;
     }
     .sg-tax-fact-text { font-size: 10px; color: #9a918a; margin-top: 3px; line-height: 1.4; }
@@ -2483,7 +1923,7 @@
     }
     .sg-tax-how-step-num {
       width: 22px; height: 22px; border-radius: 50%;
-      background: var(--accent); color: #fff;
+      background: #C85070; color: #fff;
       font-size: 11px; font-weight: 700;
       display: inline-flex; align-items: center; justify-content: center;
       margin-bottom: 4px;
@@ -2492,7 +1932,7 @@
 
     .sg-tax-alert {
       padding: 14px 16px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent-pale), #FFF5E6);
+      background: linear-gradient(135deg, #FFF8F0, #FFF5E6);
       border: 1px solid rgba(224,138,74,0.15);
       margin-bottom: 16px;
     }
@@ -2506,7 +1946,7 @@
     /* Shared sensei tip */
     .sg-sensei-tip {
       display: flex; align-items: flex-start; gap: 10px;
-      padding: 14px; background: var(--accent-pale); border-radius: 12px;
+      padding: 14px; background: #FFF8F0; border-radius: 12px;
     }
     .sg-sensei-tip img {
       width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
@@ -2542,7 +1982,7 @@
       align-items: center; justify-content: center;
       transition: all 0.2s;
     }
-    .sg-arrow:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .sg-arrow:hover { background: #C85070; color: #fff; border-color: #C85070; }
     .sg-arrow-left { left: -16px; }
     .sg-arrow-right { right: -16px; }
     @media (min-width: 769px) {
@@ -2557,7 +1997,7 @@
       position: absolute; bottom: 10px; left: 10px;
       font-size: 10px; font-weight: 700;
       padding: 4px 12px; border-radius: 999px;
-      background: rgba(255,255,255,0.95); color: var(--accent);
+      background: rgba(255,255,255,0.95); color: #C85070;
       backdrop-filter: blur(8px);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       z-index: 1;
@@ -2591,12 +2031,12 @@
     }
     .sg-store-highlights span {
       font-size: 9px; padding: 3px 8px;
-      background: var(--accent-pale); color: var(--accent); font-weight: 600;
+      background: #FFF0F3; color: #C85070; font-weight: 600;
       border-radius: 6px;
     }
     .sg-store-sensei {
       font-size: 10px; color: #6b635d; line-height: 1.55;
-      padding: 8px 10px; background: var(--accent-pale); border-radius: 8px;
+      padding: 8px 10px; background: #FFF8F0; border-radius: 8px;
     }
     .sg-store-detail p {
       font-size: 10px; color: #9a918a; line-height: 1.6;
@@ -2615,34 +2055,19 @@
 
     /* === TAB 3: Coupon — Premium Card === */
     .sg-coupon-card {
-      border: 2.5px dashed var(--accent);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      background: #fff;
-    }
-    .sg-coupon-card::before {
-      content: '✂ - - - - - - - - - - - - - - - - - - - - - - -';
-      display: block;
-      font-size: 11px;
-      color: var(--accent);
-      opacity: 0.5;
-      padding: 8px 16px 0;
-      letter-spacing: 1px;
-    }
       background: #fff; border-radius: 20px; overflow: hidden;
       box-shadow: 0 8px 40px rgba(200,80,112,0.1);
       border: 1px solid rgba(200,80,112,0.1);
     }
     .sg-coupon-flag {
-      background: var(--accent);
+      background: linear-gradient(135deg, #C85070, #E87A9A);
       color: #fff; font-size: 12px; font-weight: 700;
       padding: 10px 16px; text-align: center;
       letter-spacing: 0.05em;
     }
     .sg-coupon-hero {
       padding: 20px; text-align: center;
-      background: linear-gradient(180deg, var(--accent-pale) 0%, #fff 100%);
+      background: linear-gradient(180deg, #FFF8F5 0%, #fff 100%);
     }
     .sg-coupon-img {
       max-width: 100%; max-height: 420px;
@@ -2652,13 +2077,13 @@
     .sg-coupon-body { padding: 20px 24px; text-align: center; }
     .sg-coupon-title { font-size: 20px; font-weight: 700; color: #2d2926; }
     .sg-coupon-sub {
-      font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 10px;
+      font-size: 13px; color: #C85070; font-weight: 600; margin-bottom: 10px;
     }
     .sg-coupon-expire { font-size: 10px; color: #9a918a; margin-bottom: 6px; }
     .sg-coupon-save-note {
-      font-size: 13px; font-weight: 700; color: var(--accent);
+      font-size: 13px; font-weight: 700; color: #C85070;
       margin-bottom: 16px;
-      padding: 8px 16px; background: var(--accent-pale); border-radius: 999px;
+      padding: 8px 16px; background: #FFF0F3; border-radius: 999px;
       display: inline-block;
     }
 
@@ -2933,11 +2358,7 @@
       gap: 20px;
     }
 
-    .footer-collab {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    
 
     .footer-collab img {
       height: 20px;
@@ -3015,7 +2436,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       transition: all 0.2s;
     }
-    .modal-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .modal-close:hover { background: #C85070; color: #fff; border-color: #C85070; }
     .modal-scroll-area {
       overflow-y: auto;
       flex: 1;
@@ -3703,7 +3124,7 @@
     /* Screenshot tip in list modal */
     .list-screenshot-tip {
       padding: 12px 24px;
-      background: var(--accent-pale);
+      background: #FFF8F0;
       border-top: 1px solid #f0e8e0;
       display: flex;
       align-items: center;
@@ -3808,7 +3229,7 @@
       position: absolute;
       top: 20px;
       right: 10px;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #c45d67);
       color: #fff;
       font-size: 12px;
       font-weight: 700;
@@ -3869,12 +3290,12 @@
       font-size: 120px;
       color: var(--accent);
     }
-    .hero-deco.deco-bag { top: 15%; left: 5%; transform: rotate(-15deg); }
-    .hero-deco.deco-cart { bottom: 20%; right: 8%; transform: rotate(10deg); }
-    .hero-deco.deco-tag { top: 60%; left: 12%; transform: rotate(5deg); font-size: 80px; }
+    .hero-deco
+    .hero-deco
+    .hero-deco
     @media (max-width: 900px) {
       .hero-deco { font-size: 60px; opacity: 0.05; }
-      .hero-deco.deco-tag { font-size: 40px; }
+      .hero-deco
     }
 
     /* Sakura photo background with crossfade */
@@ -4089,6 +3510,414 @@
       .hero-cta-area { text-align: center; }
     }
 
+    /* ══════════════════════════════════════
+       card_final_clean — 카테고리 카드 CSS
+       ══════════════════════════════════════ */
+    :root {
+      --warm2: #f3ede6; --acc-s: #faeaeb;
+      --ink2: #3d3530;  --ink3: #8a7e78;
+      --r: 14px; --line: rgba(26,22,20,0.07); --gap: 14px;
+    }
+    .products-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px 80px; }
+    /* 카테고리 헤더 */
+    .cat-hd { display:flex; align-items:center; gap:14px; padding:40px 0 24px; }
+    .products-wrap > .cat-hd:first-child { padding-top: 20px; }
+    .cat-ic  { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .cat-nm  { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:var(--ink); }
+    .cat-sb  { font-size:12px; color:var(--ink3); margin-top:2px; }
+    .cat-ln  { flex:1; height:1px; background:var(--line); }
+    /* 그리드 */
+    .card-grid { display:flex; flex-wrap:wrap; gap:20px; }
+    .c1 { flex:0 0 calc(33.333% - 14px); width:calc(33.333% - 14px); }
+    .c2 { flex:0 0 calc(66.666% - 7px);  width:calc(66.666% - 7px);  }
+    @media(max-width:1000px){ .c1{ flex:0 0 calc(50% - 10px); width:calc(50% - 10px); } .c2{ flex:0 0 100%; width:100%; } }
+    @media(max-width:580px){ .c1,.c2{ flex:0 0 100%; width:100%; } }
+    /* 카드 */
+    .card { background:#FFFBFC; border-radius:var(--r); overflow:hidden; border:1px solid var(--line); cursor:pointer; box-shadow:0 2px 14px rgba(0,0,0,.05); transition:transform .3s,box-shadow .3s,border-color .3s; display:flex; flex-direction:column; height:100%; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(200,80,100,.14); border-color:rgba(200,80,100,.2); }
+    /* 이미지 영역 */
+    .ci { aspect-ratio:4/3; overflow:hidden; background:var(--warm2); position:relative; flex-shrink:0; }
+    .ci img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .55s; }
+    .card:hover .ci img { transform:scale(1.05); }
+    .ci::after { content:''; position:absolute; bottom:0; left:0; right:0; height:70px; background:linear-gradient(to top,rgba(0,0,0,.45),transparent); z-index:1; pointer-events:none; }
+    .ci-empty { aspect-ratio:3/2; background:var(--warm2); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; flex-shrink:0; position:relative; overflow:hidden; }
+    .ci-empty i { font-size:26px; color:rgba(26,22,20,.12); }
+    .ci-empty span { font-size:10px; color:var(--ink3); letter-spacing:.15em; }
+    /* 가로 카드 */
+    .card-h { flex-direction:row !important; }
+    .card-h .ci-h { width:180px; flex:0 0 180px; overflow:hidden; border-radius:var(--r) 0 0 var(--r); position:relative; background:var(--warm2); display:flex; align-items:center; justify-content:center; }
+    .card-h .ci-h img { width:100%; height:100%; object-fit:contain; padding:12px; display:block; transition:transform .55s; background:var(--warm2); }
+    .card-h:hover .ci-h img { transform:scale(1.05); }
+    .card-h .cb { flex:1; min-width:0; display:flex; flex-direction:column; padding:18px 20px 14px; }
+    @media(max-width:680px){ .card-h{ flex-direction:column !important; } .card-h .ci-h{ width:100%; flex:none; border-radius:var(--r) var(--r) 0 0; aspect-ratio:3/2; } }
+    /* 오버레이 요소 */
+    .c-cat { position:absolute; top:10px; left:10px; z-index:2; background:rgba(255,255,255,.93); backdrop-filter:blur(6px); font-size:10px; font-weight:700; color:var(--ink2); padding:3px 9px; border-radius:14px; }
+    .cpill { position:absolute; bottom:10px; right:10px; z-index:2; background:rgba(20,16,14,.82); backdrop-filter:blur(6px); border-radius:14px; padding:4px 11px; display:flex; align-items:baseline; gap:3px; }
+    .cpill-n { font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#fff; line-height:1; }
+    .cpill-s { font-size:9px; color:rgba(255,255,255,.55); }
+    /* 카드 바디 */
+    .cb { padding:18px 20px 0; flex:1; display:flex; flex-direction:column; gap:7px; }
+    .c-brand { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); }
+    .c-name  { font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; line-height:1.4; color:var(--ink); }
+    .c-jp    { display:block; font-size:10px; color:var(--ink3); font-weight:400; margin-top:1px; }
+    .c-mprice { background:var(--warm2); border-radius:8px; padding:8px 11px; display:flex; flex-direction:column; gap:4px; }
+    .c-mrow  { display:flex; align-items:center; justify-content:space-between; font-size:11px; }
+    .c-mnm   { color:var(--ink2); font-weight:500; font-size:12px; }
+    .c-mpr   { color:var(--acc); font-weight:700; font-family:'Noto Serif TC',serif; font-size:13px; }
+    .c-hook  { display:flex; align-items:flex-start; gap:7px; background:var(--acc-s); border-left:3px solid var(--acc); padding:8px 11px; border-radius:0 8px 8px 0; }
+    .hic     { color:var(--acc); font-size:12px; flex-shrink:0; margin-top:2px; }
+    .htx     { font-size:13px; color:var(--ink2); line-height:1.7; font-weight:500; }
+    .c-chips { display:flex; gap:5px; flex-wrap:wrap; }
+    .chip    { background:var(--warm2); padding:4px 10px; border-radius:10px; font-size:11px; color:var(--ink3); white-space:nowrap; }
+    .c-cmt   { font-size:12px; color:var(--ink2); line-height:1.85; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .c-long  { font-size:12px; color:var(--ink2); line-height:1.85; display:flex; flex-direction:column; gap:6px; }
+    .c-long p { margin:0; }
+    .c-coming { font-size:11px; color:var(--ink3); background:var(--warm2); padding:10px 12px; border-radius:8px; text-align:center; flex:1; }
+    .pr-inline { display:inline-block; font-size:8px; font-weight:700; background:var(--acc); color:#fff; padding:2px 6px; border-radius:3px; vertical-align:middle; margin-right:4px; }
+    /* 카드 푸터 */
+    .cf { padding:12px 20px 14px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); margin-top:auto; flex-shrink:0; }
+    .card-h .cf { padding:10px 0 0; margin-top:auto; }
+    .koc { display:flex; align-items:center; }
+    .kav { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; border:2px solid #FFFBFC; margin-left:-5px; }
+    .kav:first-child { margin-left:0; }
+    .kn  { font-size:11px; color:var(--ink3); margin-left:8px; }
+    .c-btn { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:700; color:var(--acc); cursor:pointer; background:none; border:none; padding:0; }
+    /* 팁 블록 3종 */
+    .tip-c2 { background:var(--acc-s); border-radius:var(--r); padding:32px 28px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; height:100%; }
+    .tip-c2::before { content:'"'; font-family:'Noto Serif TC',serif; font-size:140px; font-weight:700; line-height:.7; color:rgba(200,80,100,.12); position:absolute; top:4px; left:14px; pointer-events:none; }
+    .tip-c2-tag   { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--acc); margin-bottom:12px; display:block; }
+    .tip-c2-title { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; color:var(--ink); line-height:1.45; margin-bottom:12px; }
+    .tip-c2-text  { font-size:12px; color:var(--ink2); line-height:1.95; }
+    .tip-full { padding:32px 0 8px; display:flex; align-items:flex-start; gap:0; position:relative; border-top:1px solid rgba(200,80,100,.12); margin-top:4px; }
+    .tip-full::before { content:'"'; font-family:'Noto Serif TC',serif; font-size:72px; font-weight:700; line-height:.8; color:var(--acc); opacity:.18; flex-shrink:0; margin-right:16px; margin-top:-4px; }
+    .tip-full-tag   { font-size:9px; font-weight:700; letter-spacing:.18em; color:var(--acc); margin-bottom:8px; display:block; }
+    .tip-full-title { font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:var(--ink); line-height:1.4; margin-bottom:8px; }
+    .tip-full-text  { font-size:12px; color:var(--ink2); line-height:1.95; max-width:680px; }
+    .tip-c1 { border-left:3px solid rgba(200,80,100,.25); padding:20px 18px 20px 22px; display:flex; flex-direction:column; justify-content:center; height:100%; position:relative; }
+    .tip-c1::before { content:'"'; font-family:'Noto Serif TC',serif; font-size:80px; font-weight:700; line-height:.7; color:rgba(200,80,100,.08); position:absolute; top:6px; right:10px; pointer-events:none; }
+    .tip-c1-tag   { font-size:9px; font-weight:700; letter-spacing:.15em; color:var(--acc); margin-bottom:10px; display:block; }
+    .tip-c1-title { font-family:'Noto Serif TC',serif; font-size:14px; font-weight:700; color:var(--ink); line-height:1.45; margin-bottom:8px; }
+    .tip-c1-text  { font-size:11px; color:var(--ink2); line-height:1.9; }
+    @media(max-width:680px){ .tip-c2,.tip-c1{ height:auto; } .tip-full{ padding:24px 0 8px; } .tip-full::before{ font-size:52px; margin-right:10px; } }
+    /* ── 모바일 카드 compact / expanded ── */
+    @media (max-width: 580px) {
+      /* 그리드: 1열 세로 */
+      .card-grid { flex-direction: column; gap: 10px; }
+      .c1, .c2 { flex: 0 0 100%; width: 100%; }
+
+      /* compact: 가로형 */
+      .card {
+        flex-direction: row !important;
+        min-height: 110px;
+        border-radius: 12px;
+      }
+      /* 가로카드(card-h) compact — 가로형 유지, 이미지 120px */
+      .card.card-h { flex-direction: row !important; min-height: 120px; }
+      .card.card-h .ci-h {
+        width: 120px !important; min-width: 120px !important; flex: none !important;
+        aspect-ratio: unset !important; height: auto !important;
+        border-radius: 12px 0 0 12px !important;
+      }
+      .card.card-h .ci-h img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+      }
+      /* card-h compact 숨김 */
+      .card.card-h:not(.expanded) .c-long { display: none; }
+      .card.card-h:not(.expanded) .c-chips { display: none; }
+      .card.card-h:not(.expanded) .che-section { display: none; }
+      .card.card-h:not(.expanded) 
+      .card.card-h:not(.expanded) .c-drug-info { display: none; }
+      .card.card-h:not(.expanded) .vp-section { display: none; }
+      .card.card-h .cb { padding: 12px 14px 0; }
+      /* card-h expanded — 세로 전환 */
+      .card.card-h.expanded { flex-direction: column !important; }
+      .card.card-h.expanded .ci-h {
+        width: 100% !important; min-width: unset !important;
+        aspect-ratio: 16/9 !important; height: auto !important;
+        border-radius: 12px 12px 0 0 !important;
+      }
+      .card.card-h.expanded .cb { padding: 14px 16px 0; }
+
+      /* 이미지 영역 — compact 좌측 고정 */
+      .card .ci {
+        width: 110px; min-width: 110px;
+        aspect-ratio: unset; height: auto;
+        border-radius: 12px 0 0 12px;
+        flex-shrink: 0;
+      }
+      .card .ci::after { display: none; }
+      .card .ci img { object-fit: cover; }
+
+      /* ci-empty compact */
+      .card .ci-empty {
+        width: 110px; min-width: 110px;
+        aspect-ratio: unset; height: auto;
+        border-radius: 12px 0 0 12px;
+      }
+
+      /* 가격 pill — compact 숨김 */
+      .card:not(.expanded) .cpill { display: none; }
+      .card:not(.expanded) .c-cat { font-size: 8px; padding: 2px 6px; }
+
+      /* 바디 — compact */
+      .card .cb { padding: 10px 12px; gap: 4px; }
+      .card:not(.expanded) .cb { justify-content: center; }
+
+      /* compact 시 숨길 요소 */
+      .card:not(.expanded) .c-brand { display: none; }
+      .card:not(.expanded) .c-hook  { display: none; }
+      .card:not(.expanded) .c-chips { display: none; }
+      .card:not(.expanded) .c-cmt  { display: none; }
+      .card:not(.expanded) .c-long { display: none; }
+      .card:not(.expanded) .c-mprice { display: none; }
+      .card:not(.expanded) .c-coming { display: none; }
+      .card:not(.expanded) .c-drug-info { display: none; }
+      .card:not(.expanded) .che-section { display: none; }
+      .card:not(.expanded) 
+      .card:not(.expanded) .vp-section  { display: none; }
+
+      /* compact 풋터 */
+      .card:not(.expanded) .cf { border-top: none; padding: 6px 12px 8px; }
+      .card:not(.expanded) .kn { font-size: 10px; }
+
+      /* 상품명 compact */
+      .card:not(.expanded) .c-name {
+        font-size: 14px;
+        display: -webkit-box; -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical; overflow: hidden;
+      }
+      .card:not(.expanded) .c-jp { display: none; }
+
+      /* ── expanded 상태 ── */
+      .card.expanded {
+        flex-direction: column !important;
+      }
+      .card.expanded .ci {
+        width: 100%; min-width: unset;
+        aspect-ratio: 16/10;
+        border-radius: 12px 12px 0 0;
+      }
+      .card.expanded .ci-empty {
+        width: 100%; min-width: unset;
+        aspect-ratio: 16/10;
+        border-radius: 12px 12px 0 0;
+      }
+      .card.expanded .ci::after { display: block; }
+      .card.expanded .cpill { display: flex; }
+      .card.expanded .cb { padding: 14px 16px; gap: 8px; }
+      .card.expanded .c-name {
+        font-size: 16px;
+        -webkit-line-clamp: unset;
+      }
+      .card.expanded .c-hook      { display: flex !important; }
+      .card.expanded .che-section { display: flex !important; }
+      .card.expanded 
+      .card.expanded .vp-section   { display: block !important; }
+      .card.expanded .c-chips { display: flex; }
+      .card.expanded .c-cmt   { display: block; }
+      .card.expanded .c-long  { display: flex; }
+      .card.expanded .c-mprice { display: flex; }
+      .card.expanded .c-coming { display: block; }
+
+      /* expand toggle 버튼 */
+      .expand-toggle {
+        display: flex !important;
+        width: 100%; padding: 9px;
+        background: #f8f6f4; border: none;
+        font-size: 11px; color: #8a7e78;
+        cursor: pointer; border-top: 1px solid var(--line);
+        border-radius: 0 0 12px 12px;
+        align-items: center; justify-content: center; gap: 6px;
+      }
+      .expand-toggle i { transition: transform 0.3s; }
+      .card.expanded .expand-toggle { position: sticky; bottom: 0; z-index: 5; background: rgba(248,246,244,.97); }
+      .card.expanded .expand-toggle i { transform: rotate(180deg); }
+      .card.expanded .expand-toggle span::after { content: '收起'; }
+      .card:not(.expanded) .expand-toggle span::after { content: '展開詳情 ↓'; }
+    }
+
+    /* PC: expand-toggle 숨김 */
+    @media (min-width: 581px) {
+      .expand-toggle { display: none; }
+      /* PC에서는 항상 상세 표시 */
+      .che-section { display: flex !important; }
+      
+      .vp-section   { display: block !important; }
+    }
+
+    /* 鄭선생님 코멘트 — 인용구 스타일
+       사진/이름 없이, 큰 따옴표 + 코멘트 + 서명 한 줄
+    */
+    .che-section {
+      position: relative;
+      background: #fff8f9;
+      border-radius: 8px;
+      padding: 14px 14px 10px 20px;
+      overflow: hidden;
+    }
+    /* 큰 따옴표 배경 */
+    .che-section::before {
+      content: '\201C';
+      font-family: 'Noto Serif TC', Georgia, serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--acc);
+      opacity: .15;
+      position: absolute;
+      top: -4px; left: 6px;
+      pointer-events: none;
+    }
+        .che-face       { display: none; }
+    
+    .che-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .che-name-line {
+      font-size: 10px; font-weight: 700;
+      color: var(--acc);
+      margin-top: 4px;
+    }
+    
+    .che-text {
+      font-size: 11.5px;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin: 0;
+      font-style: italic;
+    }
+
+        /* KOC 미리보기 — vp-section */
+    .vp-section { display: block; }
+    .vp-header  { font-size: 11px; font-weight: 700; color: var(--ink3); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+    .vp-card    { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .vp-card:last-child { border-bottom: none; }
+    .vp-top     { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+    .vp-av      { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .vp-nm      { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .vp-attr    { font-size: 11px; color: var(--ink3); margin-left: auto; }
+    .vp-text    { font-size: 12px; color: var(--ink2); line-height: 1.7; }
+
+    /* 플레이스홀더 video badge — video-pill과 동일 스타일 */
+    .video-badge-static {
+      position: absolute;
+      bottom: 8px; left: 8px;
+      background: rgba(200,80,100,.88);
+      color: #fff;
+      font-size: 9px; font-weight: 800;
+      padding: 3px 9px; border-radius: 10px;
+      display: flex; align-items: center; gap: 4px;
+      letter-spacing: .04em; z-index: 2;
+      pointer-events: none;
+    }
+    .video-badge-static i { font-size: 7px; color: #fff; }
+
+    /* 약품 정보 블록 */
+    .c-drug-info {
+      font-size: 11px;
+      color: var(--ink3);
+      line-height: 1.8;
+      padding: 8px 10px;
+      background: var(--warm2);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .c-drug-info p { margin: 0; }
+    .c-drug-disclaimer {
+      color: var(--ink3);
+      opacity: .75;
+      font-size: 9px;
+      margin-top: 2px !important;
+    }
+
+    /* 카테고리 필터바 */
+    .cat-filter-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: #fff;
+      border-top: 2px solid var(--acc);
+      border-bottom: 1px solid rgba(200,80,100,.12);
+      box-shadow: 0 2px 12px rgba(200,80,100,.08);
+      padding: 8px 16px;
+      display: flex; align-items: center;
+      gap: 6px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-filter-bar::-webkit-scrollbar { display: none; }
+    .cat-fl {
+      font-size: 10px; font-weight: 700;
+      color: var(--acc); letter-spacing: .08em;
+      white-space: nowrap; flex-shrink: 0;
+      padding-right: 10px;
+      border-right: 1px solid rgba(200,80,100,.2);
+      margin-right: 2px;
+    }
+    .cat-fb {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      font-size: 11px; font-weight: 600;
+      color: #3d3530;
+      background: #ede8e3;
+      border: 1.5px solid #d6cfc8;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .cat-fb:hover {
+      background: #faeaeb;
+      border-color: rgba(200,80,100,.4);
+      color: #c8606c;
+    }
+    .cat-fb.active {
+      background: #c8606c !important;
+      color: #ffffff !important;
+      border-color: #c8606c !important;
+      box-shadow: 0 2px 8px rgba(200,80,100,.35);
+      font-weight: 700;
+    }
+
+    .featured-card-coming { background: #2a2a2a; cursor: default; }
+    .featured-card-coming .featured-card-inner { opacity: 0.4; }
+
+    /* ── 영상 뱃지 A안: 이미지 하단 좌측 pill ── */
+    .video-pill {
+      position: absolute;
+      bottom: 8px; left: 8px; z-index: 3;
+      background: rgba(200,80,100,.88);
+      color: #fff;
+      font-size: 9px; font-weight: 800;
+      padding: 3px 9px; border-radius: 10px;
+      display: flex; align-items: center; gap: 4px;
+      letter-spacing: .04em;
+      pointer-events: none;
+    }
+    .video-pill i { font-size: 7px; }
+
+    /* ── 영상 뱃지 C안: 푸터 chip ── */
+    .vid-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #faeaeb;
+      color: #c8606c;
+      font-size: 10px; font-weight: 800;
+      padding: 3px 9px; border-radius: 10px;
+      border: 1px solid rgba(200,80,100,.25);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .vid-chip i { font-size: 7px; }
+
+    .card-highlight {
+      animation: card-flash 2s ease-out forwards;
+    }
+    @keyframes card-flash {
+      0%   { box-shadow: 0 0 0 3px rgba(200,80,100,.6); }
+      100% { box-shadow: 0 2px 14px rgba(0,0,0,.05); }
+    }
   </style>
 </head>
 <body>
@@ -4188,7 +4017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             查看2026年春季推薦
             <i class="fas fa-shopping-bag"></i>
           </button>
-          <p class="hero-cta-sub">本季嚴選 <strong id="heroProductCount">6款</strong> 必買好物</p>
+          <p class="hero-cta-sub">本季嚴選 <strong>6款</strong> 必買好物</p>
         </div>
       </div>
       <div class="hero-visual-area">
@@ -4248,45 +4077,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="split-header">
       <span class="split-eyebrow">Special Feature 2026 Spring</span>
-      <h2 class="split-title">「為什麼是這3個？」<br>鄭老師揭曉，選定的理由</h2>
+      <h2 class="split-title">鄭老師嚴選推薦<br>3款必買家庭藥妝</h2>
       <p class="split-subtitle">
-        歷經14年研究、試用過數千種產品的專家，<br>2026年春天，向台灣朋友們推薦「一定要買」的3款好物。
+        14年藥妝研究，嚴選推薦。附詳細解說專欄＋體驗者評價。
       </p>
     </div>
 
     <div class="split-container">
-      <div class="split-panel" onclick="openDetailModal(1)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" class="split-bg" alt="Bioré">
-        <div class="split-logo"><span class="split-logo-text">Kao</span></div>
+      <div class="split-panel" onclick="scrollToProduct(4)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-aceprox-man-holding-two.jpg" class="split-bg" alt="パブロン">
+        <div class="split-logo"><span class="split-logo-text">大正製藥</span></div>
         <div class="split-content">
           <span class="split-num">01</span>
-          <span class="split-brand">Bioré The Cleanse</span>
-          <h3 class="split-headline">不用搓揉的革命。<br>「瞬浮技術」改變常識。</h3>
-          <p class="split-desc">2023年，花王投入美容界的革命。只要塗上，彩妝就會浮起，用水沖掉就好。</p>
+          <span class="split-brand">パブロン 綜合感冒藥</span>
+          <h3 class="split-headline">ゴールドA ／ エースPro-X<br>日本國民感冒藥。</h3>
+          <p class="split-desc">近百年長銷品牌。針對咳嗽、喉痛、鼻塞等症狀設計，台日人氣家庭常備藥。</p>
           <span class="split-btn">查看詳情 <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
 
-      <div class="split-panel" onclick="openDetailModal(2)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=800&q=80" class="split-bg" alt="Yunth">
-        <div class="split-logo"><span class="split-logo-text">Yunth</span></div>
+      <div class="split-panel" onclick="scrollToProduct(20)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg" class="split-bg" alt="健榮製藥氧化鎂E便秘藥">
+        <div class="split-logo"><span class="split-logo-text">健榮製藥</span></div>
         <div class="split-content">
           <span class="split-num">02</span>
-          <span class="split-brand">生VC美白美容液</span>
-          <h3 class="split-headline">30秒的新鮮度。<br>對抗氧化的新美白。</h3>
-          <p class="split-desc">不使用一滴水的100%純度維他命C。獨立包裝守護開封後30秒的黃金時間。</p>
+          <span class="split-brand">氧化鎂Ｅ便秘藥</span>
+          <h3 class="split-headline">非刺激性。<br>日本便秘藥新話題。</h3>
+          <p class="split-desc">國產氧化鎂，滲透壓機制軟化糞便，較不易引發腹痛與依賴性。微甜檸檬風味。</p>
           <span class="split-btn">查看詳情 <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
 
-      <div class="split-panel" onclick="openDetailModal(3)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=800&q=80" class="split-bg" alt="紫外線予報">
-        <div class="split-logo"><span class="split-logo-text">石澤研究所</span></div>
+      <div class="split-panel" onclick="scrollToProduct(21)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg" class="split-bg" alt="eclore美白牙齒系列">
+        <div class="split-logo"><span class="split-logo-text">eclore</span></div>
         <div class="split-content">
           <span class="split-num">03</span>
-          <span class="split-brand">紫外線予報 UV防曬棒</span>
-          <h3 class="split-headline">不弄髒手的新習慣。<br>全家都能用的溫和配方。</h3>
-          <p class="split-desc">上市後立刻限購的話題作。棒狀的創新與兒童也能使用的配方。</p>
+          <span class="split-brand">蛋殼生物磷灰石美白系列</span>
+          <h3 class="split-headline">牙膏 ／ 潔牙粉。<br>自然系亮白護理。</h3>
+          <p class="split-desc">奈米級3D蛋殼生物磷灰石，日常刷牙兼顧清潔與口腔保養。兩款各¥1,595。</p>
           <span class="split-btn">查看詳情 <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
@@ -4300,86 +4129,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Featured Carousel -->
   <section class="featured-section">
     <div class="featured-header">
-      <span class="featured-eyebrow">Trending Now</span>
-      <h2 class="featured-title">現在最受矚目的商品</h2>
-      <p class="featured-subtitle">在社群媒體上關注度急速上升的商品精選。</p>
+      <span class="featured-eyebrow">Trending Now 2026 Spring</span>
+      <h2 class="featured-title">話題嚴選商品</h2>
+      <p class="featured-subtitle">附解說專欄＋體驗者評價的推薦商品。</p>
     </div>
 
-    <div class="featured-carousel-wrap">
-      <button class="carousel-arrow carousel-arrow-left" onclick="scrollCarousel(-1)" aria-label="前へ"><i class="fas fa-chevron-left"></i></button>
-      <div class="featured-carousel" id="featuredCarousel">
-      <article class="featured-card featured-card-contain" onclick="openDetailModal(5)">
-        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/02/ホワイトクリアジェル-scaled.jpg" alt="Cure White Clear Gel" class="featured-card-bg">
+    <div class="featured-carousel">
+      <article class="featured-card" onclick="scrollToProduct(22)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg" alt="NAISHI-DOWN" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
-        <div class="featured-card-logo-strip"><img src="https://www.japankuru.com/gld-kanri/data/uploads/2026/02/Cure_symbol_logo-_1_.png" alt="Cure"></div>
+        <div class="featured-card-inner">
+          <h3 class="featured-card-title">NAISHI-DOWN<br>減脂錠</h3>
+          <p class="featured-card-copy">黑薑由來PMF成分<br>日本機能性表示食品</p>
+          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
+        </div>
+      </article>
+
+      <!-- Cure White Clear Gel (id:26) -->
+      <article class="featured-card" onclick="openDetailModal(26)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure White Clear Gel" class="featured-card-bg">
+        <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
           <h3 class="featured-card-title">Cure<br>White Clear Gel</h3>
-          <p class="featured-card-copy">四效去角質凝膠<br>美肌橡皮擦</p>
+          <p class="featured-card-copy">角質護理×美白雙效<br>日本熱銷限定</p>
           <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
         </div>
       </article>
 
-      <article class="featured-card" onclick="openDetailModal(1)">
-        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp" alt="Bioré" class="featured-card-bg">
+      <!-- ⚠️ 第一三共 2종 - 고료 확답 후 교체 예정 -->
+      <article class="featured-card featured-card-coming">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <h3 class="featured-card-title">Bioré The CLEANSE</h3>
-          <p class="featured-card-copy">比台灣便宜30%以上<br>革命性卸妝</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
+          <h3 class="featured-card-title">第一三共<br>準備中</h3>
+          <p class="featured-card-copy">Coming Soon</p>
         </div>
       </article>
 
-      <article class="featured-card" onclick="openDetailModal(7)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80" alt="コラーゲン" class="featured-card-bg">
+      <article class="featured-card featured-card-coming">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <h3 class="featured-card-title">膠原蛋白C<br>果凍</h3>
-          <p class="featured-card-copy">獨立包裝方便分送<br>美味持續的美容習慣</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
+          <h3 class="featured-card-title">第一三共<br>準備中</h3>
+          <p class="featured-card-copy">Coming Soon</p>
         </div>
       </article>
-
-      <article class="featured-card" onclick="openDetailModal(4)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="パブロン" class="featured-card-bg">
-        <div class="featured-card-overlay"></div>
-        <div class="featured-card-inner">
-          <h3 class="featured-card-title">Pabron Ace<br>Pro-X</h3>
-          <p class="featured-card-copy">被喜愛超過30年<br>日本的國民感冒藥</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
-        </div>
-      </article>
-
-      <article class="featured-card" onclick="openDetailModal(2)">
-        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png" alt="Yunth" class="featured-card-bg">
-        <div class="featured-card-overlay"></div>
-        <div class="featured-card-inner">
-          <h3 class="featured-card-title">Yunth<br>生VC美白美容液</h3>
-          <p class="featured-card-copy">100%純度生維他命C<br>日本限定美容液</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
-        </div>
-      </article>
-
-      <article class="featured-card" onclick="openDetailModal(3)">
-        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg" alt="紫外線予報" class="featured-card-bg">
-        <div class="featured-card-overlay"></div>
-        <div class="featured-card-inner">
-          <h3 class="featured-card-title">紫外線予報<br>UV防曬棒</h3>
-          <p class="featured-card-copy">上市後立刻限購<br>話題棒狀防曬</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
-        </div>
-      </article>
-
-      <article class="featured-card" onclick="openDetailModal(10)">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="モンダミン" class="featured-card-bg">
-        <div class="featured-card-overlay"></div>
-        <div class="featured-card-inner">
-          <h3 class="featured-card-title">MONDAMIN<br>PREMIUM CARE</h3>
-          <p class="featured-card-copy">全家都能用的大容量<br>金色薄荷的清爽感</p>
-          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
-        </div>
-      </article>
-    </div>
-      <button class="carousel-arrow carousel-arrow-right" onclick="scrollCarousel(1)" aria-label="次へ"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <div class="scroll-hint">
@@ -4393,42 +4185,495 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>我的推薦還有更多 ──</p>
   </div>
 
-  <!-- Products Section -->
+  <!-- Products Section (카테고리 레이아웃) -->
   <section class="products-section" id="products-section">
     <div class="section-header">
-      <div class="section-header-label">RECOMMENDED</div>
       <h2>鄭老師推薦商品</h2>
       <p>14年日本藥妝研究，嚴選推薦</p>
     </div>
 
-    <div class="card-hint">
-      <i class="fas fa-hand-pointer"></i>
-      <span class="hint-pc">點擊卡片可查看<strong>體驗評價</strong></span>
-      <span class="hint-mobile">點擊卡片<strong>展開詳情</strong></span>
-      <span class="hint-divider">|</span>
-      <i class="far fa-heart" style="color:var(--accent)"></i>
-      <span>按 ♡ 可儲存到<strong>我的購物清單</strong></span>
-    </div>
+    <!-- 카테고리 필터바 -->
+    <nav class="cat-filter-bar">
+      <span class="cat-fl">快速查找 →</span>
+      <button class="cat-fb active" onclick="window.scrollTo({top:document.getElementById('products-section').offsetTop-60,behavior:'smooth'})">全部</button>
+      <button class="cat-fb" onclick="document.getElementById('cat1').scrollIntoView({behavior:'smooth',block:'start'})">感冒・喉・鎮痛</button>
+      <button class="cat-fb" onclick="document.getElementById('cat2').scrollIntoView({behavior:'smooth',block:'start'})">腸胃・便秘</button>
+      <button class="cat-fb" onclick="document.getElementById('cat3').scrollIntoView({behavior:'smooth',block:'start'})">美容・護理</button>
+      <button class="cat-fb" onclick="document.getElementById('cat4').scrollIntoView({behavior:'smooth',block:'start'})">健康・疲勞</button>
+    </nav>
 
-    <!-- First-visit onboarding tooltip -->
-    <div class="onboarding-tip" id="onboardingTip">
-      <div class="onboarding-tip-inner">
-        <img loading="lazy" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9990-拷贝-scaled.png" alt="鄭老師" class="onboarding-face">
-        <div class="onboarding-content">
-          <p>按下 <i class="far fa-heart" style="color:var(--accent)"></i> 就能儲存商品！<br>出發前確認你的<strong>購物清單</strong>吧 🛍️</p>
+  <div class="products-wrap">
+
+  <!-- ══ 🤒 感冒・喉・鎮痛 ══ -->
+  <div class="cat-hd" id="cat1">
+    <div class="cat-ic" style="background:#FFF0E8;">🤒</div>
+    <div><div class="cat-nm">感冒・喉嚨・鎮痛</div><div class="cat-sb">感冒藥 / 喉嚨痛 / 止痛消炎</div></div>
+    <div class="cat-ln"></div>
+  </div>
+  <div class="card-grid">
+
+    <!-- パブロンゴールドA (id:4) -->
+    <div class="c1"><div class="card" data-id="4" onclick="handleCardClick(4,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-official-product.jpg" alt="パブロンゴールドA"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥2,057</span><span class="cpill-s">130錠〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(4,event)">
+        <div class="c-brand">大正製藥</div>
+        <div class="c-name">パブロンゴールドA<span class="c-jp">パブロンゴールドA</span></div>
+        <div class="c-hook"><i class="fas fa-shield-halved hic"></i><span class="htx">乙醯胺酚配方。多症狀全效型，全家皆可使用。</span></div>
+        <div class="c-chips"><span class="chip">乙醯胺酚</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">全家可用</span></div>
+        <div class="che-section">
+        <div class="che-meta">
+          <div class="che-name-line">― 鄭老師</div>
+          <p class="che-text">大正製藥「PABRON百保能」，近百年長銷的經典綜合感冒藥。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解。咳嗽・喉痛・鼻塞・退燒一次對應。</p>
         </div>
-        <button class="onboarding-close" onclick="closeOnboarding()">✕</button>
+      </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#E91E63">S</div>
+            <span class="vp-nm">Sharon Hsieh</span>
+            <span class="vp-attr">20代</span>
+          </div>
+          <p class="vp-text">最近開始養成一個習慣——出國一定會帶胃藥。</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#9C27B0">I</div>
+            <span class="vp-nm">IG體驗者①</span>
+            <span class="vp-attr">40代</span>
+          </div>
+          <p class="vp-text">這款是日本大正製藥的產品，在日本算是滿有名的老品牌！</p>
+        </div>
+      </div>
+      </div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#3F51B5">K</div><div class="kav" style="background:#009688">N</div><span class="kn">10則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(4)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
+    </div></div>
+
+    <!-- パブロンエースPro-X (id:5) -->
+    <div class="c1"><div class="card" data-id="5" onclick="handleCardClick(5,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-official-product.jpg" alt="パブロンエースProX"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥1,518</span><span class="cpill-s">18錠〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(5,event)">
+        <div class="c-brand">大正製藥</div>
+        <div class="c-name">パブロンエースPro-X<span class="c-jp">パブロンエースPro-X</span></div>
+        <div class="c-hook"><i class="fas fa-bolt hic"></i><span class="htx">布洛芬配方升級版。症狀明顯・發燒時的強效選擇。</span></div>
+        <div class="c-chips"><span class="chip">布洛芬</span><span class="chip">15歲以上</span><span class="chip">錠劑 ／ 微粒</span></div>
+        <div class="che-section">
+        <div class="che-meta">
+          <div class="che-name-line">― 鄭老師</div>
+          <p class="che-text">「Pro-X」採用布洛芬，退燒止痛效果更強（限15歲以上）。喉痛明顯・高燒時的強效選擇。與ゴールドA同一品牌，按症狀輕重選擇。</p>
+        </div>
+      </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#3F51B5">I</div>
+            <span class="vp-nm">IG體驗者②</span>
+            <span class="vp-attr">30代</span>
+          </div>
+          <p class="vp-text">我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的苦味。</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#FF5722">K</div>
+            <span class="vp-nm">kid0804</span>
+            <span class="vp-attr">30代</span>
+          </div>
+          <p class="vp-text">只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。</p>
+        </div>
+      </div>
+      </div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#3F51B5">K</div><div class="kav" style="background:#009688">N</div><span class="kn">10則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(5)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
+    </div></div>
+
+    <!-- トラフルダイレクトa — 껍데기 -->
+    <div class="c1"><div class="card">
+      <div class="ci-empty"><i class="fas fa-pills"></i><span>近期公開</span><div class="video-badge-static"><i class="fas fa-play"></i> 影片預告</div></div>
+      <div class="cb">
+        <div class="c-brand">第一三共</div>
+        <div class="c-name">トラフルダイレクトa<span class="c-jp">トラフルダイレクトa</span></div>
+        <div class="c-hook"><i class="fas fa-comment-medical hic"></i><span class="htx">口腔潰瘍専用。直接貼附快速止痛。</span></div>
+        <div class="c-chips"><span class="chip">口腔潰瘍</span><span class="chip">貼附型</span></div>
+        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+      </div>
+      <div class="cf"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:var(--ink3)">評價收集中</span><span class="vid-chip"><i class="fas fa-play"></i> 影片</span></div><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+    </div></div>
+
+    <!-- ペラックT錠a — 껍데기 -->
+    <div class="c1"><div class="card">
+      <div class="ci-empty"><i class="fas fa-lungs"></i><span>近期公開</span><div class="video-badge-static"><i class="fas fa-play"></i> 影片預告</div></div>
+      <div class="cb">
+        <div class="c-brand">第一三共</div>
+        <div class="c-name">ペラックT錠a<span class="c-jp">ペラックT錠a</span></div>
+        <div class="c-hook"><i class="fas fa-lungs hic"></i><span class="htx">喉嚨腫脹・疼痛專用。消炎鎮痛效果。</span></div>
+        <div class="c-chips"><span class="chip">喉嚨炎症</span><span class="chip">錠劑</span></div>
+        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+      </div>
+      <div class="cf"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:var(--ink3)">評價收集中</span><span class="vid-chip"><i class="fas fa-play"></i> 影片</span></div><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+    </div></div>
+
+    <!-- ロキソニンEXテープ — 껍데기 -->
+    <div class="c1"><div class="card">
+      <div class="ci-empty"><i class="fas fa-bandage"></i><span>近期公開</span></div>
+      <div class="cb">
+        <div class="c-brand">第一三共</div>
+        <div class="c-name">ロキソニンEXテープ<span class="c-jp">ロキソニンEXテープ</span></div>
+        <div class="c-hook"><i class="fas fa-bandage hic"></i><span class="htx">洛索洛芬鈉貼布。肩頸・腰痛快速止痛。</span></div>
+        <div class="c-chips"><span class="chip">鎮痛消炎</span><span class="chip">貼布型</span><span class="chip">第2類医薬品</span></div>
+        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+      </div>
+      <div class="cf"><span style="font-size:10px;color:var(--ink3)">評價收集中</span><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+    </div></div>
+
+    <!-- 팁 c1 -->
+    <div class="c1" style="align-self:stretch;">
+      <div class="tip-c1">
+        <span class="tip-c1-tag">🌸 春日旅遊提醒</span>
+        <div class="tip-c1-title">花粉症季節，出發前必備！</div>
+        <p class="tip-c1-text">春天是花粉高峰期。對花粉敏感的旅人建議備好抗組織胺與眼藥水。<br><br>感冒藥選法：有發燒選エースPro-X，一般咳嗽選ゴールドA。</p>
       </div>
     </div>
 
-    <div class="tabs-nav">
-      <button class="tab-btn active" data-tab="cosme">美妝保養</button>
-      <button class="tab-btn" data-tab="medicine">醫藥品</button>
-      <button class="tab-btn" data-tab="health">健康輔助食品</button>
-      <button class="tab-btn" data-tab="daily">生活用品</button>
+  </div><!-- /card-grid 感冒 -->
+
+  <!-- ══ 💊 腸胃・便秘 ══ -->
+  <div class="cat-hd" id="cat2">
+    <div class="cat-ic" style="background:#EEF4FF;">💊</div>
+    <div><div class="cat-nm">腸胃・便秘</div><div class="cat-sb">胃腸藥 / 便秘藥</div></div>
+    <div class="cat-ln"></div>
+  </div>
+  <div class="card-grid">
+
+    <!-- 健榮製藥 酸化Mg (id:20) -->
+    <div class="c1"><div class="card" data-id="20" onclick="handleCardClick(20,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg" alt="酸化マグネシウム"><span class="c-cat">便秘藥</span><div class="cpill"><span class="cpill-n">¥680</span><span class="cpill-s">40錠〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(20,event)">
+        <div class="c-brand">健榮製藥</div>
+        <div class="c-name">酸化マグネシウムE便秘薬<span class="c-jp">酸化マグネシウムE便秘薬</span></div>
+        <div class="c-hook"><i class="fas fa-leaf hic"></i><span class="htx">非刺激性。較不易引發腹痛與依賴性，溫和有效。</span></div>
+        <div class="c-chips"><span class="chip">國產氧化鎂</span><span class="chip">微甜檸檬風味</span></div>
+        <div class="che-section">
+        <div class="che-meta">
+          <div class="che-name-line">― 鄭老師</div>
+          <p class="che-text">健榮製藥氧化鎂E便秘藥，非刺激性便秘藥新話題。採用滲透壓機制軟化糞便，較不易引發腹痛與依賴性。微甜檸檬風味，接受度高。</p>
+        </div>
+      </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#FF5722">W</div>
+            <span class="vp-nm">Wei Wei</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#4CAF50">新</div>
+            <span class="vp-nm">新日一成</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div>
+      </div>
+      </div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">W</div><div class="kav" style="background:#9C27B0">新</div><div class="kav" style="background:#3F51B5">S</div><span class="kn">9則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(20)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
+    </div></div>
+
+    <!-- 大正胃腸薬K (id:25) — c2 가로카드 -->
+    <div class="c2"><div class="card card-h" data-id="25" onclick="handleCardClick(25,event)">
+      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-official-product.jpg" alt="大正胃腸薬K"><span class="c-cat">胃腸藥</span><div class="cpill"><span class="cpill-n">¥1,670</span><span class="cpill-s">16包〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(25,event)">
+        <div class="c-brand">大正製藥</div>
+        <div class="c-name">大正胃腸薬K<span class="c-jp">大正胃腸薬K</span></div>
+        <div class="c-hook"><i class="fas fa-pills hic"></i><span class="htx">安中散＋芍藥甘草湯。消化不良・壓力胃同時對應。</span></div>
+        <div class="c-chips"><span class="chip">5歲以上OK</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">1978年誕生</span></div>
+        <div class="che-section">
+          <div class="che-meta">
+            <div class="che-name-line">― 鄭老師</div>
+            <p class="che-text">大正製藥－大正胃腸藥K，兼顧敏弱胃調理，幫助消化與舒緩緊張胃。日本上班族高人氣胃腸藥。</p>
+            <p class="che-text" style="margin-top:6px;">獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」。5歲以上即可服用。</p>
+          </div>
+        </div>
+        <div class="c-drug-info">
+          <p>名稱：大正胃腸薬Ｋ</p>
+          <p>醫藥分類：第2類医薬品</p>
+          <p>適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感</p>
+        </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#E91E63">I</div>
+            <span class="vp-nm">IG體驗者①</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#9C27B0">S</div>
+            <span class="vp-nm">Sharon Hsieh</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div>
+      </div>
+        <div class="cf">
+          <div class="koc"><div class="kav" style="background:#E91E63">I</div><div class="kav" style="background:#9C27B0">S</div><span class="kn">3則</span></div>
+          <button class="c-btn" onclick="event.stopPropagation();openDetailModal(25)">詳情 <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div></div>
+
+  </div><!-- /card-grid 腸胃 -->
+  <!-- 팁 전체폭 -->
+  <div class="tip-full">
+    <div class="tip-full-body">
+      <span class="tip-full-tag">💬 旅遊省錢</span>
+      <div class="tip-full-title">免稅手續這樣做最划算！</div>
+      <p class="tip-full-text">同一天、同一間店購買滿¥5,500即可辦免稅。結帳時出示護照主動申請，集中在一間店購買更划算。腸胃藥＋便秘藥一起買，很容易達標！</p>
+    </div>
+  </div>
+
+  <!-- ══ ✨ 美容・護理 ══ -->
+  <div class="cat-hd" id="cat3">
+    <div class="cat-ic" style="background:#FFF4F5;">✨</div>
+    <div><div class="cat-nm">美容・護理</div><div class="cat-sb">口腔美白 / 美白補充 / 外傷用藥</div></div>
+    <div class="cat-ln"></div>
+  </div>
+  <div class="card-grid">
+
+    <!-- eclore (id:21) -->
+    <div class="c1"><div class="card" data-id="21" onclick="handleCardClick(21,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg" alt="eclore"><span class="c-cat">口腔美白</span><div class="cpill"><span class="cpill-n">¥1,595〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(21,event)">
+        <div class="c-brand">eclore</div>
+        <div class="c-name">3Dホワイトニング パウダー／ペースト<span class="c-jp">3Dホワイトニングパウダー・ペースト</span></div>
+        <div class="c-mprice">
+          <div class="c-mrow"><span class="c-mnm">潔牙粉 <small style="color:var(--ink3);font-size:9px">25g</small></span><span class="c-mpr">¥1,595</span></div>
+          <div class="c-mrow"><span class="c-mnm">薬用牙膏 <small style="color:var(--ink3);font-size:9px">90g</small></span><span class="c-mpr">¥1,595</span></div>
+        </div>
+        <div class="c-hook"><i class="fas fa-star hic"></i><span class="htx">蛋殼磷灰石40%。日常刷牙自然亮白護理。</span></div>
+        <div class="c-chips"><span class="chip">奈米級磷灰石</span><span class="chip">兩款互補</span></div>
+        <div class="che-section">
+        <div class="che-meta">
+          <div class="che-name-line">― 鄭老師</div>
+          <p class="che-text">eclore 3D蛋殼生物磷灰石美白系列。奈米級磷灰石含量高達40%，協助吸附牙齒表面污漬。日常刷牙自然亮白，牙膏＋潔牙粉兩款可搭配使用。</p>
+        </div>
+      </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#E91E63">S</div>
+            <span class="vp-nm">sacuralin</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#9C27B0">I</div>
+            <span class="vp-nm">IG體驗者①</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div>
+      </div>
+      </div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#FF5722">W</div><span class="kn">8則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(21)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
+    </div></div>
+
+    <!-- Cure White Clear Gel — 껍데기 -->
+    <div class="c1"><div class="card" data-id="26" onclick="handleCardClick(26,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure"><span class="c-cat">スキンケア</span><div class="cpill"><span class="cpill-n">準備中</span></div></div>
+      <div class="cb">
+        <div class="c-brand">Cure</div>
+        <div class="c-name">White Clear Gel<span class="c-jp">ホワイトクリアジェル</span></div>
+        <div class="c-hook"><i class="fas fa-droplet hic"></i><span class="htx">角質護理×美白雙效。日本熱銷限定角質凝膠。</span></div>
+        <div class="c-chips"><span class="chip">角質護理</span><span class="chip">美白成分</span><span class="chip">日本限定</span></div>
+        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+      </div>
+      <div class="cf"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:var(--ink3)">評價收集中</span></div><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+    </div></div>
+
+    <!-- トランシーノ — 껍데기 -->
+    <div class="c1"><div class="card">
+      <div class="ci-empty"><i class="fas fa-sun"></i><span>近期公開</span></div>
+      <div class="cb">
+        <div class="c-brand">第一三共</div>
+        <div class="c-name">トランシーノWhiteC プレミアム<span class="c-jp">トランシーノホワイトCプレミアム</span></div>
+        <div class="c-hook"><i class="fas fa-sun hic"></i><span class="htx">L-半胱胺酸＋維他命C。由內而外對抗黑斑。</span></div>
+        <div class="c-chips"><span class="chip">美白補充品</span><span class="chip">L-半胱胺酸</span></div>
+        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+      </div>
+      <div class="cf"><span style="font-size:10px;color:var(--ink3)">評價收集中</span><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+    </div></div>
+
+    <!-- オロナイン (id:23) — c2 가로카드 -->
+    <div class="c2"><div class="card card-h" data-id="23" onclick="handleCardClick(23,event)">
+      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg" alt="オロナイン"><span class="c-cat">外傷用藥</span><div class="cpill"><span class="cpill-n">¥385</span><span class="cpill-s">11g〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(23,event)">
+        <div class="c-brand">大塚製藥 <span class="pr-inline">PR</span></div>
+        <div class="c-name">オロナインH軟膏<span class="c-jp">オロナインH軟膏</span></div>
+        <div class="c-hook"><i class="fas fa-kit-medical hic"></i><span class="htx">低調卻有記憶點的深棕色外盒。在日長銷73年的家庭常備外傷用藥。</span></div>
+        <div class="c-chips"><span class="chip">指定第2類医薬品</span><span class="chip">11g ／ 50g</span></div>
+        <div class="che-section">
+          <div class="che-meta">
+            <div class="che-name-line">― 鄭老師</div>
+            <p class="che-text">身邊有很多日本朋友跟我說，發跡於四國・徳島縣的「Oronine H軟膏」根本就是他們童年回憶的一部分。因為許多人的家中都會常備有這一瓶，只要調皮搗蛋擦傷，或是粗心大意不小心被燙到，甚至是冬天皮膚乾裂時，家人就會拿出這罐軟膏。不過也有11公克和50公克的條裝版本，方便攜帶可以放在包包作為隨身應急藥膏。</p>
+            <p class="che-text" style="margin-top:6px;">「Oronine H軟膏」主要含有葡萄糖酸氯己定溶液（Chlorhexidine Gluconate），這是廣泛用於殺菌、消毒的有效成分。除了可以用於擦傷、刀傷、裂傷、乾裂、以及輕微燙傷等部位之外，亦可依適應症使用於痤瘡與粉刺等皮膚狀況。</p>
+          </div>
+        </div>
+        <div class="c-drug-info">
+          <p>名稱：オロナインH軟膏</p>
+          <p>醫藥分類：指定第2類医薬品</p>
+          <p>適應症：擦傷，裂傷，乾裂，輕微燙傷，痤瘡，粉刺</p>
+          <p class="c-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
+        </div>
+        <div class="cf">
+          <a href="https://www.otsuka.co.jp/ohn/lang_hk/" target="_blank" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--acc);text-decoration:none;border:1px solid rgba(200,80,100,.25);padding:5px 13px;border-radius:20px;"><i class="fas fa-external-link-alt" style="font-size:10px;"></i> 官方網站</a>
+          <button class="c-btn" onclick="event.stopPropagation();openDetailModal(23)">詳情 <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- 팁 c1 -->
+    <div class="c1" style="align-self:stretch;">
+      <div class="tip-c1">
+        <span class="tip-c1-tag">💬 入境資訊</span>
+        <div class="tip-c1-title">這些藥台灣帶得回去嗎？</div>
+        <p class="tip-c1-text">大部分藥品2個月份以內免申報。但含麻黃素成分的藥物需特別注意。建議出發前確認台灣海關最新規定！</p>
+      </div>
     </div>
 
-    <div id="tabContents"></div>
+  </div><!-- /card-grid 美容 -->
+
+  <!-- ══ 💪 健康・疲勞回復 ══ -->
+  <div class="cat-hd" id="cat4">
+    <div class="cat-ic" style="background:#F0FFF4;">💪</div>
+    <div><div class="cat-nm">健康・疲勞回復</div><div class="cat-sb">機能性食品 / 疲勞回復</div></div>
+    <div class="cat-ln"></div>
+  </div>
+  <div class="card-grid">
+
+    <!-- ナイシダウン (id:22) -->
+    <div class="c1"><div class="card" data-id="22" onclick="handleCardClick(22,event)">
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg" alt="ナイシダウン"><span class="c-cat">健康食品</span><div class="cpill"><span class="cpill-n">¥1,980</span><span class="cpill-s">60粒</span></div></div>
+      <div class="cb" onclick="handleCardClick(22,event)">
+        <div class="c-brand">井藤漢方製藥</div>
+        <div class="c-name">ナイシダウン 減脂錠<span class="c-jp">ナイシダウン</span></div>
+        <div class="c-hook"><i class="fas fa-fire-flame-curved hic"></i><span class="htx">日本機能性表示食品。輔助減少腹部內臟脂肪。</span></div>
+        <div class="c-chips"><span class="chip">黑薑PMF成分</span><span class="chip">每日2粒</span><span class="chip">60粒30日份</span></div>
+        <div class="che-section">
+        <div class="che-meta">
+          <div class="che-name-line">― 鄭老師</div>
+          <p class="che-text">井藤漢方「NAISHI-DOWN」以黑薑PMF成分為關鍵的日本機能性表示食品。有研究報告指出輔助BMI偏高者減少腹部脂肪。每日2粒，草本氣味弱易持續。</p>
+        </div>
+      </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#E91E63">新</div>
+            <span class="vp-nm">新日一成</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#9C27B0">I</div>
+            <span class="vp-nm">IG體驗者①</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div>
+      </div>
+      </div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">新</div><div class="kav" style="background:#9C27B0">I</div><span class="kn">4則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(22)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
+    </div></div>
+
+    <!-- リポビタンDX (id:24) — c2 가로카드 -->
+    <div class="c2"><div class="card card-h" data-id="24" onclick="handleCardClick(24,event)">
+      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg" alt="リポビタンDX"><span class="c-cat">抗疲勞</span><div class="cpill"><span class="cpill-n">¥1,650</span><span class="cpill-s">30錠〜</span></div></div>
+      <div class="cb" onclick="handleCardClick(24,event)">
+        <div class="c-brand">大正製藥</div>
+        <div class="c-name">リポビタンDX 錠劑<span class="c-jp">リポビタンDX</span></div>
+        <div class="c-hook"><i class="fas fa-moon hic"></i><span class="htx">抗疲勞＋改善淺眠。牛磺酸500mg＋甘胺酸W配方。</span></div>
+        <div class="c-chips"><span class="chip">指定医薬部外品</span><span class="chip">30〜270錠</span><span class="chip">日飲3粒</span></div>
+        <div class="che-section">
+          <div class="che-meta">
+            <div class="che-name-line">― 鄭老師</div>
+            <p class="che-text">大正製藥－Lipovitan力保美達DX，日本元氣補充飲系列的錠劑版本，改善疲勞同時兼顧睡眠情況。</p>
+            <p class="che-text" style="margin-top:6px;">誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒。錠劑版本每日3粒，含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」。</p>
+          </div>
+        </div>
+        <div class="c-drug-info">
+          <p>名稱：LIPOVITAN DX</p>
+          <p>醫藥分類：指定医薬部外品</p>
+          <p>效能：恢復及預防疲勞、改善難以入睡・淺睡、維持體力與集中力</p>
+          <p class="c-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
+        </div>
+        
+        <div class="vp-section">
+        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+        <div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#E91E63">I</div>
+            <span class="vp-nm">IG體驗者①</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div><div class="vp-card">
+          <div class="vp-top">
+            <div class="vp-av" style="background:#3F51B5">S</div>
+            <span class="vp-nm">sacuralin</span>
+            <span class="vp-attr">●代</span>
+          </div>
+          <p class="vp-text">●●●●●</p>
+        </div>
+      </div>
+        <div class="cf">
+          <div class="koc"><div class="kav" style="background:#E91E63">I</div><div class="kav" style="background:#3F51B5">S</div><span class="kn">4則</span></div>
+          <button class="c-btn" onclick="event.stopPropagation();openDetailModal(24)">詳情 <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div></div>
+
+  </div><!-- /card-grid 健康 -->
+  <!-- 팁 전체폭 -->
+  <div class="tip-full">
+    <div class="tip-full-body">
+      <span class="tip-full-tag">💬 旅行恢復</span>
+      <div class="tip-full-title">旅行後的身體恢復法</div>
+      <p class="tip-full-text">長途旅行後容易疲勞、睡眠變淺。建議搭配リポビタンDX補充牛磺酸，幫助身體快速回復到最佳狀態！旅行中每天走萬步以上，回家後好好補充是關鍵。</p>
+    </div>
+  </div>
+
+  </div><!-- /products-wrap -->
   </section>
 
   <!-- Sakura — 鄭老師的賞櫻購物筆記 -->
@@ -4575,6 +4820,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="sakura-grid">
         <div class="sakura-city">
+          <div class="name">名古屋</div>
+          <span class="bloom-status status-blooming">開花中 🌸</span>
+          <p class="bloom-date">🌸 3/17</p>
+          <p class="full">滿開 <strong>3/25</strong></p>
+          <p class="city-sub">飄落 3/29 ・ 吹雪 4/1</p>
+        </div>
+        <div class="sakura-city">
+          <div class="name">東京</div>
+          <span class="bloom-status status-upcoming">明日開花！</span>
+          <p class="bloom-date">🌸 3/19</p>
+          <p class="full">滿開 <strong>3/27</strong></p>
+          <p class="city-sub">飄落 3/31 ・ 吹雪 4/3</p>
+        </div>
+        <div class="sakura-city">
           <div class="name">福岡</div>
           <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-date">🌸 3/20</p>
@@ -4582,32 +4841,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="city-sub">飄落 4/1 ・ 吹雪 4/4</p>
         </div>
         <div class="sakura-city">
-          <div class="name">東京</div>
+          <div class="name">京都</div>
           <span class="bloom-status status-upcoming">即將開花</span>
-          <p class="bloom-date">🌸 3/24</p>
+          <p class="bloom-date">🌸 3/23</p>
           <p class="full">滿開 <strong>4/1</strong></p>
           <p class="city-sub">飄落 4/5 ・ 吹雪 4/8</p>
         </div>
         <div class="sakura-city">
           <div class="name">大阪</div>
           <span class="bloom-status status-upcoming">即將開花</span>
-          <p class="bloom-date">🌸 3/27</p>
-          <p class="full">滿開 <strong>4/3</strong></p>
-          <p class="city-sub">飄落 4/7 ・ 吹雪 4/10</p>
-        </div>
-        <div class="sakura-city">
-          <div class="name">京都</div>
-          <span class="bloom-status status-upcoming">即將開花</span>
-          <p class="bloom-date">🌸 3/28</p>
-          <p class="full">滿開 <strong>4/5</strong></p>
-          <p class="city-sub">飄落 4/9 ・ 吹雪 4/12</p>
-        </div>
-        <div class="sakura-city">
-          <div class="name">名古屋</div>
-          <span class="bloom-status status-upcoming">即將開花</span>
           <p class="bloom-date">🌸 3/24</p>
-          <p class="full">滿開 <strong>4/2</strong></p>
-          <p class="city-sub">飄落 4/6 ・ 吹雪 4/9</p>
+          <p class="full">滿開 <strong>3/31</strong></p>
+          <p class="city-sub">飄落 4/4 ・ 吹雪 4/7</p>
+        </div>
+        <div class="sakura-city">
+          <div class="name">仙台</div>
+          <span class="bloom-status status-waiting">尚早</span>
+          <p class="bloom-date">🌸 4/5</p>
+          <p class="full">滿開 <strong>4/11</strong></p>
+          <p class="city-sub">飄落 4/15 ・ 吹雪 4/18</p>
         </div>
         <div class="sakura-city">
           <div class="name">札幌</div>
@@ -4623,20 +4875,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="full">滿開 <strong>2/1</strong></p>
           <p class="city-sub">飄落 2/8 ・ 吹雪 2/12</p>
         </div>
-        <div class="sakura-city">
-          <div class="name">仙台</div>
-          <span class="bloom-status status-upcoming">即將開花</span>
-          <p class="bloom-date">🌸 4/5</p>
-          <p class="full">滿開 <strong>4/11</strong></p>
-          <p class="city-sub">飄落 4/15 ・ 吹雪 4/18</p>
-        </div>
       </div>
 
       <div class="sakura-footer">
-        <p class="sakura-source">資料來源：<a href="https://weathernews.jp/s/sakura/" target="_blank">Weather News</a> 2026年預測（每週更新）</p>
+        <p class="sakura-source">資料來源：日本氣象株式會社（JMC）<a href="https://n-kishou.com/corp/news-contents/sakura/" target="_blank">2026年第8次預報</a>（3/12更新）</p>
         <div class="sakura-tip">
           <i class="fas fa-lightbulb"></i>
-          台灣旅客推薦<strong>3/25〜4/5</strong>東京・大阪賞櫻＋購物！別忘了花粉對策商品
+          台灣旅客推薦<strong>3/19〜4/1</strong>東京・京都・大阪賞櫻！今年提早，3月底就是黃金期 🌸
         </div>
       </div>
     </div>
@@ -5033,7 +5278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="outro-cta" style="display:flex; align-items:center; gap:0; max-width:680px; margin:0 auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.04);">
         <!-- 좌: 사진 -->
-        <div style="flex-shrink:0; width:200px; align-self:stretch; background:linear-gradient(160deg, var(--accent-pale) 0%, var(--sakura-light) 100%); display:flex; align-items:flex-end; justify-content:center;">
+        <div style="flex-shrink:0; width:200px; align-self:stretch; background:linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 100%); display:flex; align-items:flex-end; justify-content:center;">
           <img src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭世彬" loading="lazy" decoding="async" style="width:180px; display:block; filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.06));">
         </div>
         <!-- 우: 텍스트 + 공유 -->
@@ -5142,7 +5387,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img loading="lazy" decoding="async" src="" alt="" class="modal-product-img" id="modalImg">
       </div>
       <div class="modal-body">
-        <div class="modal-brand-logo" id="modalBrandLogo" style="display:none; margin-bottom:12px;"><img id="modalBrandLogoImg" src="" alt="" style="max-height:56px; max-width:200px; object-fit:contain;"></div>
         <h2 class="modal-product-name" id="modalName">商品名</h2>
         <div class="modal-product-price" id="modalPrice">¥0</div>
         
@@ -5211,7 +5455,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="bs-product-info-bar">
-        <div class="bs-brand-logo" id="bsBrandLogo" style="display:none; margin-bottom:6px;"><img id="bsBrandLogoImg" src="" alt="" style="max-height:46px; max-width:150px; object-fit:contain;"></div>
         <h3 class="bs-product-name" id="bsName">商品名</h3>
         <p class="bs-product-price" id="bsPrice">¥0</p>
       </div>
@@ -5276,55 +5519,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     let currentModalId = null;
     let currentBsId = null;
 
-    // Sakura petals — 봄→초여름 전환 (핑크 80% + 연두 20%)
+    // Sakura animation
     function createSakuraPetals() {
-      const count = window.innerWidth <= 768 ? 16 : 28;
-      const pinkSizes = ['', 'petal-sm', 'petal-lg'];
-      for (let i = 0; i < count; i++) {
+      const hero = document.getElementById('hero');
+      for (let i = 0; i < 20; i++) {
         const petal = document.createElement('div');
-        const isGreen = Math.random() < 0.2;
-        petal.className = 'sakura-petal ' + (isGreen ? 'petal-green' : pinkSizes[Math.floor(Math.random() * pinkSizes.length)]);
+        petal.className = 'sakura-petal';
         petal.style.left = Math.random() * 100 + '%';
-        petal.style.top = '-20px';
-        petal.style.animationDuration = (Math.random() * 8 + 10) + 's';
-        petal.style.animationDelay = (Math.random() * 22) + 's';
-        petal.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-        document.body.appendChild(petal);
+        petal.style.animationDuration = (Math.random() * 6 + 10) + 's';
+        petal.style.animationDelay = (Math.random() * 15) + 's';
+        hero.appendChild(petal);
       }
     }
     createSakuraPetals();
 
-    // 스크롤에 따라 body 배경: 벚꽃 핑크 → 신록 초록으로 서서히 전환
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function lerpColor(r1,g1,b1, r2,g2,b2, t) {
-      return 'rgb(' + Math.round(lerp(r1,r2,t)) + ',' + Math.round(lerp(g1,g2,t)) + ',' + Math.round(lerp(b1,b2,t)) + ')';
-    }
-    function updateSeasonBg() {
-      const scrolled = window.scrollY;
-      const total = document.body.scrollHeight - window.innerHeight;
-      const progress = Math.min(Math.max(scrolled / total, 0), 1);
-      // 벚꽃: rgb(255,248,249) → 신록: rgb(247,251,246)
-      const bg = lerpColor(255,248,249, 247,251,246, progress);
-      document.body.style.backgroundColor = bg;
-    }
-    updateSeasonBg();
-
-    // Hero 상품 수 동적 계산
-    function updateHeroProductCount() {
-      const total = Object.values(tabData).reduce(function(acc, t) { return acc + t.products.length; }, 0);
-      const el = document.getElementById('heroProductCount');
-      if (el) el.textContent = total + '款';
-    }
-
-    // Featured carousel 화살표
-    function scrollCarousel(dir) {
-      const carousel = document.getElementById('featuredCarousel');
-      if (carousel) carousel.scrollBy({ left: dir * 300, behavior: 'smooth' });
-    }
-
     // Scroll effects
     window.addEventListener('scroll', function() {
-      updateSeasonBg();
       const header = document.getElementById('header');
       const stickyBar = document.getElementById('stickyBar');
       const backToTop = document.getElementById('backToTop');
@@ -5348,121 +5558,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         title: '彩妝・美容',
         products: [
           { 
-            id: 5, 
-            slug: 'cure-white-clear-gel',
-            name: 'Cure藥用去角質凝膠', 
-            brand: 'Cure',
-            price: 2500, 
-            priceDisplay: '2,500円（含稅2,750円）',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/02/ホワイトクリアジェル-scaled.jpg', 
-            logo: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/02/Cure_symbol_logo-_1_.png',
-            label: 'type-hot', 
-            labelText: '話題',
-            plan: 'gold',
-            originalUrl: 'https://www.cure-j.com/',
-            tip: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
-            tipFull: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
-            column: 'https://japankuru.com/cure-white-clear-gel', 
-            columnTitle: 'Cure－White Clear Gel 四效去角質凝膠｜每週加強保養的美肌橡皮擦',
-            hasVideo: false,
-            voices: [
-              { initial: 'A', name: 'Annie', attr: '20代・混合肌', text: '每週用兩次，角質問題改善好多！後續保養的吸收感明顯不同。', date: '2025.01', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/cure1/' },
-              { initial: 'Y', name: 'Yuka', attr: '30代・乾燥肌', text: '超溫和！我是敏感肌用起來完全不會刺激，搓完皮膚滑到不可思議。', date: '2025.01', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/cure2/' },
-              { initial: 'M', name: 'Mei', attr: '20代・學生', text: '來日本必買清單第一名！比台灣便宜很多，這次帶了三條回去。', date: '2025.01', color: '#FF6B9D', snsUrl: 'https://www.instagram.com/p/cure3/' },
-              { initial: 'J', name: 'Jessica', attr: '30代・OL', text: '以前覺得去角質很麻煩，用過這個之後完全愛上！根本是保養的必要步驟。', date: '2025.01', color: '#009688', snsUrl: 'https://www.instagram.com/p/cure4/' },
-              { initial: 'L', name: 'Lin', attr: '40代', text: '毛孔細緻了，底妝的服貼感也變好！年齡肌的救星。', date: '2025.01', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/cure5/' }
+            id: 21, slug: 'eclore-whitening', name: 'eclore 蛋殼生物磷灰石美白系列', brand: 'eclore',
+            price: 1595, priceNote: '牙膏90g ¥1,595 ／ 潔牙粉25g ¥1,595',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg',
+            label: 'type-hot', labelText: '話題', plan: 'platinum',
+            isMultiProduct: true,
+            subProducts: [
+              { name: '藥用3D蛋殼生物磷灰石牙膏', nameJp: '薬用３Dホワイトニングペースト', size: '90g', price: 1595 },
+              { name: '3D蛋殼生物磷灰石潔牙粉', nameJp: '３Dホワイトニングパウダー', size: '25g', price: 1595 }
             ],
-            voiceCount: 5
-          },
-          { 
-            id: 1, 
-            slug: 'biore-cleanse',
-            name: 'Bioré The CLEANSE 卸妝油', 
-            brand: '花王',
-            price: 350, 
-            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/20250303-001-01.webp', 
-            label: 'type-deal', 
-            labelText: '比台灣便宜',
-            plan: 'platinum',
-            originalUrl: 'https://www.kao.co.jp/biore/lineup/cleanse/',
-            tip: '<strong>比台灣便宜30%以上！</strong>花王獨家「瞬浮技術」不用搓揉就能浮起彩妝的革命性卸妝油。',
-            tipFull: '<strong>比台灣便宜30%以上！</strong>花王於2023年推出的革命性卸妝油。獨家「瞬浮技術」不用搓揉就能卸妝。',
-            column: 'https://japankuru.com/biore-cleanse', 
-            hasVideo: true,
-            videoId: 'odWKXZBhaTU',
+            originalUrl: 'https://eclore.jp/',
+            tip: 'Dr.Oral 3D WHITE口腔亮白護理系列，採用奈米級3D蛋殼生物磷灰石，協助吸附牙齒表面污漬，維持清新亮白印象。牙粉蛋殼生物磷灰石含量高達40%，搭配多種潔淨與保濕成分，',
+            tipFull: 'Dr.Oral 3D WHITE口腔亮白護理系列，採用奈米級3D蛋殼生物磷灰石，協助吸附牙齒表面污漬，維持清新亮白印象。牙粉蛋殼生物磷灰石含量高達40%，搭配多種潔淨與保濕成分，日常刷牙即可兼顧清潔與口腔保養。另有薬用牙膏款，輔助維持牙齦健康，是重視自然系亮白護理者的人氣選擇。',
+            column: null, hasVideo: false,
             voices: [
-              { initial: 'M', name: 'Mei', attr: '20代・混合肌', text: '真的不用搓揉就能卸妝！眼線也能輕鬆卸除。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/biore1/' },
-              { initial: 'Y', name: 'Yuki', attr: '30代・乾燥肌', text: '比在台灣買便宜太多了！大量囤貨。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/biore2/' },
-              { initial: 'L', name: 'Lin', attr: '20代・OL', text: '接睫毛也能用真的很開心。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/biore3/' },
-              { initial: 'S', name: 'Saki', attr: '40代・主婦', text: '全家都在用。CP值超高！', date: '2024.09', color: '#009688', snsUrl: 'https://www.instagram.com/p/biore4/' },
-              { initial: 'A', name: 'Amy', attr: '20代・學生', text: '朋友推薦買的，完全正確。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/biore5/' },
-              { initial: 'J', name: 'Jia', attr: '30代', text: '不用二次洗臉所以很省時！忙碌的早晨最棒了。', date: '2024.08', color: '#795548', snsUrl: 'https://www.instagram.com/p/biore6/' },
-              { initial: 'C', name: 'Chen', attr: '20代', text: '毛孔黑頭變得不那麼明顯了。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/biore7/' },
-              { initial: 'T', name: 'Tina', attr: '30代・敏感肌', text: '敏感肌但用起來沒有刺激感。', date: '2024.07', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/biore8/' },
-              { initial: 'W', name: 'Wang', attr: '40代', text: '跟女兒一起用。兩個人一瓶可以用一個月。', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/biore9/' },
-              { initial: 'H', name: 'Hana', attr: '20代', text: '每次來日本必買。', date: '2024.06', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/biore10/' }
-            ],
-            voiceCount: 10
-          },
-          { 
-            id: 2, 
-            slug: 'yunth-vc-serum',
-            name: 'Yunth 生VC美白精華液', 
-            brand: 'Yunth',
-            price: 3960, 
-            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/Yunth-生VC美白美容液.png', 
-            label: 'type-exclusive', 
-            labelText: '日本限定',
-            plan: 'platinum',
-            originalUrl: 'https://yunth.jp/products/vc-serum',
-            tip: '100%純度生維他命C。獨立包裝防止氧化，以開封30秒的新鮮度送達的日本限定精華液。',
-            tipFull: '日本限定＆在社群媒體上超火爆的美白精華液。不使用一滴水的100%純度維他命C，以獨立包裝防止氧化。',
-            column: 'https://japankuru.com/yunth', 
-            hasVideo: true,
-            videoId: 'odWKXZBhaTU',
-            voices: [
-              { initial: 'L', name: 'Lisa', attr: '20代・混合肌', text: '獨立包裝所以不會氧化！每天早上都在用。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/yunth1/' },
-              { initial: 'M', name: 'Miki', attr: '30代・敏感肌', text: '敏感肌也不會刺痛。感覺透明感出來了。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/yunth2/' },
-              { initial: 'Y', name: 'Yuna', attr: '20代', text: '買來當朋友的伴手禮。對方很開心！', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/yunth3/' },
-              { initial: 'A', name: 'Amy', attr: '30代・乾燥肌', text: '早上用的話到傍晚肌膚都有提亮的感覺。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/yunth4/' },
-              { initial: 'K', name: 'Kana', attr: '20代', text: '感覺斑點變淡了！確定回購。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/yunth5/' },
-              { initial: 'R', name: 'Rina', attr: '30代・OL', text: '一開始30秒用完會緊張，但習慣後很舒服。', date: '2024.07', color: '#795548', snsUrl: 'https://www.instagram.com/p/yunth6/' },
-              { initial: 'N', name: 'Nana', attr: '20代・學生', text: '在IG上看到很好奇！實際用了真的很好。', date: '2024.06', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/yunth7/' },
-              { initial: 'H', name: 'Hana', attr: '40代', text: '一直在意年齡肌的暗沈，但開始用這個之後被稱讚的次數增加了。', date: '2024.06', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/yunth8/' },
-              { initial: 'C', name: 'Chie', attr: '30代・主婦', text: '育兒再忙也因為獨立包裝很輕鬆。', date: '2024.05', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/yunth9/' },
-              { initial: 'T', name: 'Tomo', attr: '20代', text: '推薦給男友後他說皮膚變好了！', date: '2024.05', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/yunth10/' }
-            ],
-            voiceCount: 10
-          },
-          { 
-            id: 3, 
-            slug: 'uv-stick-sarasara',
-            name: '紫外線予報 清爽UV防曬棒', 
-            brand: '石澤研究所',
-            price: 1870, 
-            image: 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2025/12/outline-01.jpg', 
-            label: 'type-hot', 
-            labelText: '話題',
-            plan: 'platinum',
-            originalUrl: 'https://www.ishizawa-lab.co.jp/shigaisen/sarasara-uv-stick.html',
-            tip: '上市後立刻限購的話題作！不弄髒手的棒狀防曬。兒童也OK，全家都能用。',
-            tipFull: '比台灣便宜＆2024年最受矚目的防曬產品。上市後各店鋪都限購的超人氣商品。',
-            column: 'https://japankuru.com/uv-stick', 
-            hasVideo: true,
-            videoId: 'odWKXZBhaTU',
-            voices: [
-              { initial: 'S', name: 'Saki', attr: '30代・主婦', text: '幫小孩塗很輕鬆！再怎麼動也沒關係。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/uv1/' },
-              { initial: 'R', name: 'Rina', attr: '20代・OL', text: '可以在妝上面補擦真的太棒了。', date: '2024.11', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/uv2/' },
-              { initial: 'E', name: 'Emi', attr: '40代', text: '不黏膩所以夏天也能舒適使用。', date: '2024.10', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/uv3/' },
-              { initial: 'N', name: 'Nana', attr: '20代', text: '小巧可以放進化妝包！旅行必備。', date: '2024.10', color: '#009688', snsUrl: 'https://www.instagram.com/p/uv4/' },
-              { initial: 'H', name: 'Hana', attr: '30代・敏感肌', text: '敏感肌但沒有發炎。會回購。', date: '2024.09', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/uv5/' },
-              { initial: 'T', name: 'Tomo', attr: '20代', text: '塗完之後清爽很舒服。', date: '2024.09', color: '#795548', snsUrl: 'https://www.instagram.com/p/uv6/' },
-              { initial: 'C', name: 'Chie', attr: '30代', text: '全家4口人一起用。CP值很高。', date: '2024.08', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/uv7/' },
-              { initial: 'J', name: 'Jun', attr: '40代・男性', text: '男生也好用。打高爾夫的時候很好用。', date: '2024.08', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/uv8/' },
-              { initial: 'W', name: 'Waka', attr: '20代', text: '在IG上看到就買了。真的很好！', date: '2024.07', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/uv9/' },
-              { initial: 'F', name: 'Fumi', attr: '30代', text: '比在台灣買便宜太多。大量囤貨了。', date: '2024.07', color: '#2196F3', snsUrl: 'https://www.instagram.com/p/uv10/' }
-            ],
-            voiceCount: 10
+              { initial: 'S', name: 'sacuralin',   attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid0QxLhS5ZfpA6oHoehXyCF7su7pb3T3SYKaBwFJuoKfD8BHA1HTiTAZhVLqb7Wshwvl' },
+              { initial: 'I', name: 'IG體驗者①',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV98gOREhkk/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DV8qTpIj8qt/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者③',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV8oDEjiULt/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',     attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0E6xomLfbTaGgPKNcAs1HHVKMNY9JDspMALoBt2EpF3Nsz1FvMixWyMejYecgfRazl&id=100001466739903&locale=ja_JP' },
+              { initial: 'F', name: 'FB體驗者①',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26286331127664089&id=100001416789118&mibextid=wwXIfr&rdid=e5mww2xKSLxbbedj#' },
+              { initial: 'I', name: 'IG體驗者④',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DV7cpPSDx_i/?igsh=MW1mMWV3M2RyZjhvYQ%3D%3D&img_index=1' },
+              { initial: '新', name: '新日一成',    attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid09YZjzgTDsqonnDkJ3iaqePpkRuohDPszUWWvjmiYkGuxha1K5sGSJvNXR65bs58ol' }
+            ], voiceCount: 8
           }
         ]
       },
@@ -5470,29 +5588,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         title: '醫藥品',
         products: [
           { 
-            id: 4, 
-            slug: 'pabron-ace-prox',
-            name: 'Pabron Ace Pro-X', 
-            brand: '大正製藥',
-            price: 1518, 
-            image: 'https://placehold.co/400x250/f4f6f8/666?text=Pabron', 
-            label: 'type-exclusive', 
-            labelText: '日本限定',
-            plan: 'gold',
+            id: 4, slug: 'pabron-gold-a', name: 'パブロンゴールドA 綜合感冒藥', brand: '大正製藥',
+            price: 2057, priceNote: '130錠/28包 ¥2,057 ／ 210錠/44包 ¥3,025',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-official-product.jpg',
+            label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
             originalUrl: 'https://www.taisho.co.jp/pabron/',
-            tip: '<strong>日本限定的長銷感冒藥。</strong>全家都能用的經典款。',
-            tipFull: '<strong>日本限定的長銷感冒藥。</strong>全家都能用的經典款。只有日本藥局才買得到的配方。',
-            column: 'https://japankuru.com/pabron', 
-            hasVideo: true,
-            videoId: 'odWKXZBhaTU',
+            tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；',
+            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」升級，採用布洛芬，以布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            column: null, hasVideo: false,
             voices: [
-              { initial: 'C', name: 'Chen', attr: '40代', text: '每次來日本都會買。台灣買不到。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/pab1/' },
-              { initial: 'W', name: 'Wang', attr: '30代', text: '全家都能用。效果很確實。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/pab2/' },
-              { initial: 'L', name: 'Lee', attr: '50代', text: '20年以上只用這個。值得信賴。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/pab3/' },
-              { initial: 'H', name: 'Huang', attr: '30代', text: '也有兒童版真的很開心。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/pab4/' },
-              { initial: 'Z', name: 'Zhang', attr: '40代', text: '每次來日本出差都大量囤貨。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/pab5/' }
-            ],
-            voiceCount: 5
+              { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: 'I', name: 'IG體驗者①', attr: '40代・会社員', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '30代・会社員', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
+              { initial: 'I', name: 'IG體驗者③', attr: '30代・フリーランス', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
+              { initial: 'K', name: 'kid0804', attr: '30代・会社員', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
+              { initial: 'I', name: 'IG體驗者④', attr: '30代・会社員', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
+              { initial: 'F', name: 'FB體驗者①', attr: '20代・会社員', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
+              { initial: 'N', name: 'natsuki.chin', attr: '30代・フリーランス', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
+              { initial: '新', name: '新日一成', attr: '40代・個人事業主', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
+              { initial: 'F', name: 'FB體驗者②', attr: '30代・会社員', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
+            ], voiceCount: 10
+          },
+          { 
+            id: 5, slug: 'pabron-ace-prox', name: 'パブロンエースPro-X 感冒藥', brand: '大正製藥',
+            price: 1518, priceNote: '18錠/6包 ¥1,518 ／ 36錠/12包 ¥2,178',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-official-product.jpg',
+            label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
+            originalUrl: 'https://www.taisho.co.jp/pabron/',
+            tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。藍金版「Pro-X」採用布洛芬作為退燒止痛成分（限15歲以上使用）。',
+            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」升級，採用布洛芬，以布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            column: null, hasVideo: false,
+            voices: [
+              { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: 'I', name: 'IG體驗者①', attr: '40代・会社員', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '30代・会社員', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
+              { initial: 'I', name: 'IG體驗者③', attr: '30代・フリーランス', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
+              { initial: 'K', name: 'kid0804', attr: '30代・会社員', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
+              { initial: 'I', name: 'IG體驗者④', attr: '30代・会社員', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
+              { initial: 'F', name: 'FB體驗者①', attr: '20代・会社員', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
+              { initial: 'N', name: 'natsuki.chin', attr: '30代・フリーランス', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
+              { initial: '新', name: '新日一成', attr: '40代・個人事業主', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
+              { initial: 'F', name: 'FB體驗者②', attr: '30代・会社員', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
+            ], voiceCount: 10
+          },
+          { 
+            id: 20, slug: 'kenei-magnesium-oxide', name: '健榮製藥 氧化鎂Ｅ便秘藥', brand: '健榮製藥',
+            price: 680, priceNote: '40錠 ¥680 ／ 90錠 ¥1,200',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg',
+            label: 'type-hot', labelText: '新話題', plan: 'platinum',
+            originalUrl: 'https://www.kenei-pharm.com/',
+            tip: '健榮製藥－氧化鎂Ｅ便秘藥，日本藥妝店常見的非刺激性便秘藥。採用國產氧化鎂透過滲透壓機制增加腸道水分，協助軟化糞便，較不易引發腹痛與依賴性。',
+            tipFull: '健榮製藥－氧化鎂Ｅ便秘藥，日本藥妝店常見的非刺激性便秘藥。採用國產氧化鎂透過滲透壓機制增加腸道水分，協助軟化糞便，較不易引發腹痛與依賴性。速崩技術錠劑，搭配微甜檸檬風味，提升適口性，接受度較高。成人可依體質調整劑量，輕巧包裝方便攜帶，是慢性便秘管理的選擇之一。非刺激性瀉藥效果較溫和，是日本藥妝店便秘藥的新話題，也是慢性便秘管理的新選擇。',
+            column: null, hasVideo: false,
+            voices: [
+              { initial: 'W', name: 'Wei Wei', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02vNkKin39zi89gjSKPA7NNozyURvonfkLDmYBLkwa2gtLBPyd3Dq3uPLJ5cEU64LFl&id=100001466739903' },
+              { initial: '新', name: '新日一成', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0E938bxNDG3zkg2dqYHL981CiDUmiF1EtrEToUrom28V9gagqfhE45KG2LY1gbuwKl' },
+              { initial: 'S', name: 'Sharon Hsieh', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid028tT3vj9iSgPR5E8JZ9hmmk8bRwA6cDhBwSiSMkN9j1tYc8YNkkuSNCkYM5BMY4vDl' },
+              { initial: 'R', name: 'Rubylee', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DVU-hr4krds/?img_index=1' },
+              { initial: 'N', name: '日本零食好吃驚', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV4zkhXD7Kb/?img_index=1' },
+              { initial: 'C', name: 'chih_lin_kung', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DV9-_pyki69/?img_index=1' },
+              { initial: 'P', name: 'pudding', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DV8zHNnkhwb/' },
+              { initial: 'A', name: 'a35286296', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/DV8pTwsD1kM/?img_index=1' },
+              { initial: 'Y', name: 'YUNA', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26081505711511890&id=100002374528664&mibextid=wwXIfr&rdid=KbFxdcK1fawc7zq3#' }
+            ], voiceCount: 9
+          },
+          { 
+            id: 23, slug: 'oronine-h-ointment', name: 'Oronine H應急軟膏', brand: '大塚製藥',
+            price: 385, priceNote: '11g ¥385 ／ 50g ¥770',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg',
+            label: 'type-exclusive', labelText: 'PR', plan: 'basic', isPR: true,
+            originalUrl: 'https://www.otsuka.co.jp/',
+            tip: '「PR」大塚製藥－Oronine H應急軟膏，在日長銷73年的家庭常備外傷用藥。含葡萄糖酸氯己定溶液，適用擦傷、乾裂、輕微燙傷及痤瘡等。11g與50g兩種尺寸，方便隨身攜帶。',
+            tipFull: '「PR」大塚製藥－Oronine H應急軟膏 低調卻有記憶點的深棕色外盒，在日長銷73年的家庭常備外傷用藥。\n主要含有葡萄糖酸氯己定溶液（Chlorhexidine Gluconate），可用於擦傷、刀傷、裂傷、乾裂及輕微燙傷等部位的消毒外，亦可依適應症用於痤瘡與粉刺等皮膚狀況。\n名稱：オロナインH軟膏 醫藥分類：指定第2類医薬品\n適應症：擦傷，裂傷，乾裂，輕微燙傷，痤瘡，粉刺\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            column: null, hasVideo: false, voices: [], voiceCount: 0
+          },
+          { 
+            id: 25, slug: 'taisho-gaichoyaku-k', name: '大正胃腸藥K', brand: '大正製藥',
+            price: 1670, priceNote: '16包/70錠 ¥1,670 ／ 24包/110錠 ¥2,299 ／ 38包/190錠 ¥3,388 ／ 50包/230錠 ¥4,054',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-official-product.jpg',
+            label: 'type-exclusive', labelText: '日本限定', plan: 'basic',
+            originalUrl: 'https://www.taisho.co.jp/',
+            tip: '大正製藥－大正胃腸藥K，兼顧敏弱胃調理，幫助消化與舒緩緊張胃。獨家結合「安中散」與「芍藥甘草湯」，應對消化不良到壓力大引起的胃部不適。日本上班族高人氣家庭常備藥。',
+            tipFull: '大正製藥－大正胃腸藥K\n兼顧敏弱胃調理，幫助消化與舒緩緊張胃。日本上班族高人氣胃腸藥。\n獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」。5歲以上即可服用。\n名稱：大正胃腸薬Ｋ 醫藥分類：第2類医薬品\n適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感',
+            column: null, hasVideo: false,
+            voices: [
+              { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DVk6NJvmWOu/?img_index=1' },
+              { initial: 'S', name: 'Sharon Hsieh', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: 'I', name: 'IG體驗者②', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DV5MYIhEkKm/?img_index=1' }
+            ], voiceCount: 3
           }
         ]
       },
@@ -5500,67 +5683,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         title: '健康食品・食品',
         products: [
           { 
-            id: 7, 
-            slug: 'collagen-c-jelly',
-            name: '膠原蛋白C果凍 水蜜桃口味', 
-            brand: 'EARTH製藥',
-            price: 645, 
-            image: 'https://placehold.co/400x250/f0f4f0/666?text=膠原蛋白C', 
-            label: 'type-exclusive', 
-            labelText: '日本限定',
-            plan: 'standard',
-            originalUrl: 'https://www.earth.jp/products/collagen-c-jelly/',
-            tip: '<strong>日本限定＆最適合當伴手禮的膠原蛋白果凍。</strong>長銷商品。',
-            tipFull: '<strong>日本限定＆最適合當伴手禮的膠原蛋白果凍。</strong>長銷商品。水蜜桃口味，美味又能持續食用。',
-            column: 'https://japankuru.com/collagen', 
-            hasVideo: false,
+            id: 22, slug: 'naishidown-visceral-fat', name: 'NAISHI-DOWN減脂錠', brand: '井藤漢方製藥',
+            price: 1980, priceNote: '60粒 ¥1,980',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg',
+            label: 'type-hot', labelText: '話題', plan: 'gold',
+            originalUrl: 'https://www.itohkampo.co.jp/',
+            tip: '井藤漢方「NAISHI-DOWN減脂錠」為一款採用黑薑由來多甲氧基黃酮（PMF）為關鍵成分的日本機能性表示食品。具備有助於BMI偏高者輔助減少腹部脂肪的機能性。',
+            tipFull: '井藤漢方「NAISHI-DOWN減脂錠」為一款採用黑薑由來多甲氧基黃酮（PMF）為關鍵成分的日本機能性表示食品。黑薑由來的多甲氧基黃酮，在日本有研究報告指出，具備「有助於BMI偏高者輔助減少腹部脂肪（包含內臟脂肪與皮下脂肪）」的機能性。同時，也有報告指出在日常生活的基礎能量代謝下，幫助脂肪更有效率被消耗。每日建議攝取兩粒。草本氣味較弱，適合作為飲食控制期間的日常代謝輔助選擇。',
+            column: null, hasVideo: false,
             voices: [
-              { initial: 'A', name: 'Amy', attr: '30代', text: '買來當伴手禮分送。大家都說好吃很開心！', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/col1/' },
-              { initial: 'J', name: 'Jenny', attr: '40代', text: '每天都在吃。感覺皮膚狀況變好了。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/col2/' },
-              { initial: 'S', name: 'Sara', attr: '20代', text: '水蜜桃口味很好吃！容易持續。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/col3/' },
-              { initial: 'M', name: 'Mary', attr: '50代', text: '持續半年，肌膚彈性回來了。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/col4/' },
-              { initial: 'K', name: 'Kate', attr: '30代', text: '價格也很實惠，容易持續。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/col5/' }
-            ],
-            voiceCount: 5
+              { initial: '新', name: '新日一成', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0XzgFB6A6q2rUkE7rXSBuYYYN7fYZvNWYqojqrp25jnsSkjhNXPV67cYKVYvtE8HYl' },
+              { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV7X9uzD5uq/?igsh=MWgwa2p4OHZwMWhtNA%3D%3D&img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DV5MsQwkjrK/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者③', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DVU_IsDkh7a/?igsh=MXE1bXYxN3NjZzI3MA%3D%3D&img_index=1' }
+            ], voiceCount: 4
+          },
+          { 
+            id: 24, slug: 'lipovitan-dx', name: '力保美達DX錠劑', brand: '大正製藥',
+            price: 1650, priceNote: '30錠 ¥1,650 ／ 90錠 ¥4,268 ／ 180錠 ¥6,468 ／ 270錠 ¥8,668',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg',
+            label: 'type-hot', labelText: '話題', plan: 'basic',
+            originalUrl: 'https://www.taisho.co.jp/',
+            tip: '大正製藥－Lipovitan力保美達DX，日本元氣補充飲的錠劑版本。含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」，抗疲勞同時輔助改善淺眠等狀況。指定医薬部外品。',
+            tipFull: '大正製藥－Lipovitan力保美達DX\n日本元氣補充飲系列的錠劑版本，改善疲勞同時兼顧睡眠情況。\n誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒。錠劑版本每日3粒，含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」。\n名稱：LIPOVITAN DX 醫藥分類：指定医薬部外品\n效能：恢復及預防疲勞、改善難以入睡・淺睡、維持體力與集中力\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            column: null, hasVideo: false,
+            voices: [
+              { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DV54EL0EuHH/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DVU6niYEi4V/?img_index=1' },
+              { initial: 'S', name: 'sacuralin', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid02dJYFqBrcUBvnDoey24oD1prWWecrBedDWbEGYtZuSxPzQYfqNbwEBt5CggoRYiNLl' },
+              { initial: 'I', name: 'IG體驗者③', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV8K6MombB5/?img_index=1' }
+            ], voiceCount: 4
           }
         ]
       },
       daily: {
         title: '日用品',
-        products: [
-          { 
-            id: 10, 
-            slug: 'mondamin-premium-care',
-            name: 'MONDAMIN PREMIUM CARE', 
-            brand: 'EARTH製藥',
-            price: 275, 
-            image: 'https://placehold.co/400x250/f6f4f8/666?text=MONDAMIN', 
-            label: 'type-deal', 
-            labelText: '比台灣便宜',
-            plan: 'basic',
-            originalUrl: 'https://www.earth.jp/mondahmin/',
-            tip: '<strong>比台灣便宜！</strong>日本藥妝店的經典漱口水。我全家都在愛用。推薦給早上起床口腔黏膩感困擾的人、想讓刷牙後的清爽感持續更久的人。金色薄荷口味有清爽感但不會太刺激，每天都好用是重點。也有大容量款，全家用也很耐用。在台灣買同樣的產品要將近2倍的價格，所以很多人在日本期間大量囤貨。含有牙科醫師推薦的殺菌成分，預防口臭也很有效。旅行中的口腔護理也很方便，請一定要看看。',
-            tipFull: '<strong>比台灣便宜！</strong>日本藥妝店的經典漱口水。我全家都在愛用。推薦給早上起床口腔黏膩感困擾的人、想讓刷牙後的清爽感持續更久的人。金色薄荷口味有清爽感但不會太刺激，每天都好用是重點。也有大容量款，全家用也很耐用。在台灣買同樣的產品要將近2倍的價格，所以很多人在日本期間大量囤貨。含有牙科醫師推薦的殺菌成分，預防口臭也很有效。旅行中的口腔護理也很方便，請一定要看看。',
-            column: null, 
-            hasVideo: false,
-            voices: [
-              { initial: 'K', name: 'Kim', attr: '30代', text: '大容量很划算！全家都在用。', date: '2024.11', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/mon1/' },
-              { initial: 'L', name: 'Lee', attr: '40代', text: '每次來日本都囤貨。比台灣便宜太多了。', date: '2024.10', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/mon2/' },
-              { initial: 'P', name: 'Park', attr: '30代', text: '口臭不再困擾了。', date: '2024.09', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/mon3/' },
-              { initial: 'C', name: 'Choi', attr: '50代', text: '牙醫也推薦。', date: '2024.08', color: '#009688', snsUrl: 'https://www.instagram.com/p/mon4/' },
-              { initial: 'Y', name: 'Yang', attr: '20代', text: '薄荷味不會太強，很喜歡。', date: '2024.07', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/mon5/' }
-            ],
-            voiceCount: 5
-          }
-        ]
+        products: []  // ⚠️ 第一三共 스탠다드/베이식 상품 추가 예정
       }
     };
-
     let myList = JSON.parse(localStorage.getItem('cheGuide2026') || '[]');
     let currentTab = 'cosme';
 
     function renderTabs() {
       const container = document.getElementById('tabContents');
+      if (!container) return; // 카테고리 레이아웃으로 교체됨
       container.innerHTML = '';
 
       Object.keys(tabData).forEach(function(key) {
@@ -5585,7 +5751,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const videoOverlay = p.hasVideo ? '<div class="video-overlay"><div class="video-play-btn"><i class="fas fa-play"></i></div><span class="video-label">觀看影片</span></div>' : '';
       const basicPlanClass = '';
 
-      let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '" data-plan="' + (p.plan || '') + '">';
+      let html = '<article class="item-card' + basicPlanClass + '" data-id="' + p.id + '">';
       html += '<div class="item-thumb ' + hasVideoClass + '" onclick="openDetailModal(' + p.id + ')">';
       html += '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '">';
       if (p.label) html += '<span class="item-label ' + p.label + '">' + p.labelText + '</span>';
@@ -5598,9 +5764,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       html += '</div>';
       
       html += '<div class="item-content" onclick="handleCardClick(' + p.id + ', event)">';
-      if (p.logo) html += '<div class="item-brand-logo-row"><img src="' + p.logo + '" alt="' + (p.brand || '') + '" class="item-brand-logo-img"></div>';
+      
+      
       html += '<h3 class="item-name">' + p.name + '</h3>';
-      html += '<div class="item-price-row"><span class="item-price">' + (p.priceDisplay || ('¥' + p.price.toLocaleString())) + '</span>';
+      html += '<div class="item-price-row"><span class="item-price">¥' + p.price.toLocaleString() + '</span>';
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
@@ -5613,7 +5780,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         html += '<div class="column-preview-icon"><i class="fas fa-book-open"></i></div>';
         html += '<div class="column-preview-content">';
         html += '<p class="column-preview-label">詳細解說專欄</p>';
-        html += '<p class="column-preview-title">「' + (p.columnTitle || (p.name + '」徹底評測！')) + '</p>';
+        html += '<p class="column-preview-title">「' + p.name + '」徹底評測！</p>';
         html += '</div>';
         html += '<span class="column-preview-arrow"><i class="fas fa-chevron-right"></i></span>';
         html += '</a>';
@@ -5653,6 +5820,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return html;
     }
 
+
+    function getSnsIcon(url) {
+      if (!url) return '<i class="fas fa-external-link-alt"></i>';
+      if (url.includes('instagram.com')) return '<i class="fab fa-instagram"></i>';
+      if (url.includes('facebook.com')) return '<i class="fab fa-facebook-f"></i>';
+      if (url.includes('twitter.com') || url.includes('x.com')) return '<i class="fab fa-x-twitter"></i>';
+      if (url.includes('youtube.com')) return '<i class="fab fa-youtube"></i>';
+      if (url.includes('tiktok.com')) return '<i class="fab fa-tiktok"></i>';
+      return '<i class="fas fa-external-link-alt"></i>';
+    }
+
     function shareItem(title) {
       if (navigator.share) {
         navigator.share({ title: title, url: location.href });
@@ -5662,15 +5840,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
 
-    function toggleCardExpand(btn, event) {
-      event.stopPropagation();
-      const card = btn.closest('.item-card');
-      card.classList.toggle('expanded');
-    }
-
     function handleCardClick(id, event) {
       if (isMobile()) {
-        const card = event.currentTarget.closest('.item-card');
+        const card = event.currentTarget.closest('.card');
         if (!card.classList.contains('expanded')) {
           card.classList.add('expanded');
           return;
@@ -5679,18 +5851,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       openDetailModal(id);
     }
 
+    function toggleCardExpand(btn, event) {
+      event.stopPropagation();
+      const card = btn.closest('.card');
+      card.classList.toggle('expanded');
+    }
+
     function switchTab(tab) {
+      if (!document.querySelector('.tab-btn')) return;
       currentTab = tab;
       document.querySelectorAll('.tab-btn').forEach(function(btn) { btn.classList.remove('active'); });
-      document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+      var activeBtn = document.querySelector('[data-tab="' + tab + '"]');
+      if (activeBtn) activeBtn.classList.add('active');
       document.querySelectorAll('.tab-content').forEach(function(content) { content.classList.remove('active'); });
-      document.getElementById('tab-' + tab).classList.add('active');
-      // Scroll tabs-nav into view only if completely out of viewport
-      var tabsNav = document.querySelector('.tabs-nav');
-      var rect = tabsNav.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) {
-        window.scrollTo({ top: tabsNav.offsetTop - 90, behavior: 'smooth' });
-      }
+      var tabEl = document.getElementById('tab-' + tab);
+      if (tabEl) tabEl.classList.add('active');
     }
 
     function getAllProducts() {
@@ -5700,20 +5875,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function scrollToProduct(id) {
-      let targetTab = 'cosme';
-      Object.keys(tabData).forEach(function(key) {
-        if (tabData[key].products.some(function(p) { return p.id === id; })) targetTab = key;
-      });
-      switchTab(targetTab);
-      setTimeout(function() {
-        const card = document.querySelector('.item-card[data-id="' + id + '"]');
-        if (card) {
-          const offset = 140;
-          window.scrollTo({ top: card.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-          card.classList.add('target-highlight');
-          setTimeout(function() { card.classList.remove('target-highlight'); }, 2000);
-        }
-      }, 100);
+      // 상품 카드로 스크롤 → 하이라이트
+      var cardEl = document.querySelector('.card[data-id="' + id + '"]');
+      if (cardEl) {
+        var offset = 100;
+        var top = cardEl.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        // 하이라이트
+        cardEl.classList.add('card-highlight');
+        setTimeout(function() { cardEl.classList.remove('card-highlight'); }, 2000);
+      } else {
+        // 카드 없으면 모달 (플레이스홀더 등)
+        openDetailModal(id);
+      }
     }
 
     function openDetailModal(id) {
@@ -5724,7 +5898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Set URL parameter with slug
       const url = new URL(window.location.href);
       url.searchParams.set('product', p.slug);
-      window.history.replaceState({}, '', url);
+      try { window.history.replaceState({}, '', url); } catch(e) {}
 
       isMobile() ? openBottomSheet(p) : openPcModal(p);
     }
@@ -5740,21 +5914,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         visual.classList.remove('has-video');
         visual.innerHTML = '<img loading="lazy" decoding="async" src="' + p.image + '" alt="' + p.name + '" class="modal-product-img">';
       }
+      // 카드 앞면 .ci에도 has-video 클래스 토글
+      const cardEl = document.querySelector('.card[data-id="' + p.id + '"]');
+      if (cardEl) {
+        const ciEl = cardEl.querySelector('.ci');
+        if (ciEl) {
+          if (p.hasVideo) ciEl.classList.add('has-video');
+          else ciEl.classList.remove('has-video');
+        }
+      }
 
       document.getElementById('modalName').textContent = p.name;
-      document.getElementById('modalPrice').textContent = p.priceDisplay || ('¥' + p.price.toLocaleString());
+      document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
       document.getElementById('modalTip').innerHTML = p.tipFull || p.tip;
-
-      // Brand logo
-      const logoArea = document.getElementById('modalBrandLogo');
-      const logoImg = document.getElementById('modalBrandLogoImg');
-      if (p.logo) {
-        logoImg.src = p.logo;
-        logoImg.alt = p.brand || '';
-        logoArea.style.display = 'block';
-      } else {
-        logoArea.style.display = 'none';
-      }
 
       const voicesDiv = document.getElementById('modalVoices');
       const voiceList = document.getElementById('modalVoiceList');
@@ -5763,7 +5935,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         voicesDiv.style.display = 'block';
         document.getElementById('modalVoiceCount').textContent = p.voiceCount + '則';
         voiceList.innerHTML = p.voices.map(function(v) {
-          return '<div class="modal-voice-card"><div class="modal-voice-top"><div class="modal-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="modal-voice-info"><p class="modal-voice-name">' + v.name + '</p><p class="modal-voice-attr">' + v.attr + '</p></div></div><p class="modal-voice-text">' + v.text + '</p><div class="modal-voice-footer"><span class="modal-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="sns-link-btn" onclick="event.stopPropagation()"><i class="fab fa-instagram"></i> 查看貼文</a></div></div>';
+          return '<div class="modal-voice-card"><div class="modal-voice-top"><div class="modal-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="modal-voice-info"><p class="modal-voice-name">' + v.name + '</p><p class="modal-voice-attr">' + v.attr + '</p></div></div><p class="modal-voice-text">' + v.text + '</p><div class="modal-voice-footer"><span class="modal-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="sns-link-btn" onclick="event.stopPropagation()">' + getSnsIcon(v.snsUrl) + ' 查看貼文</a></div></div>';
         }).join('');
       } else {
         voicesDiv.style.display = 'none';
@@ -5772,7 +5944,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const ctaBtn = document.getElementById('modalCta');
       if (p.column) {
         ctaBtn.href = p.column;
-        ctaBtn.textContent = (p.columnTitle || '閱讀詳細專欄') + ' →';
         ctaBtn.style.display = 'block';
       } else {
         ctaBtn.style.display = 'none';
@@ -5804,25 +5975,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
 
       document.getElementById('bsName').textContent = p.name;
-      document.getElementById('bsPrice').textContent = p.priceDisplay || ('¥' + p.price.toLocaleString());
+      document.getElementById('bsPrice').textContent = '¥' + p.price.toLocaleString();
       document.getElementById('bsTip').innerHTML = p.tipFull || p.tip;
-
-      // Brand logo
-      const bsLogoArea = document.getElementById('bsBrandLogo');
-      const bsLogoImg = document.getElementById('bsBrandLogoImg');
-      if (p.logo) {
-        bsLogoImg.src = p.logo;
-        bsLogoImg.alt = p.brand || '';
-        bsLogoArea.style.display = 'block';
-      } else {
-        bsLogoArea.style.display = 'none';
-      }
 
       const columnLink = document.getElementById('bsColumn');
       if (p.column) {
         columnLink.href = p.column;
         columnLink.style.display = 'flex';
-        document.getElementById('bsColumnTitle').textContent = p.columnTitle || (p.name + '的詳細解說');
+        document.getElementById('bsColumnTitle').textContent = p.name + '的詳細解說';
       } else {
         columnLink.style.display = 'none';
       }
@@ -5834,7 +5994,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         voicesDiv.style.display = 'block';
         document.getElementById('bsVoiceCount').textContent = p.voiceCount + '則';
         voiceList.innerHTML = p.voices.map(function(v) {
-          return '<div class="bs-voice-card"><div class="bs-voice-top"><div class="bs-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="bs-voice-info"><p class="bs-voice-name">' + v.name + '</p><p class="bs-voice-attr">' + v.attr + '</p></div></div><p class="bs-voice-text">' + v.text + '</p><div class="bs-voice-footer"><span class="bs-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="bs-sns-link" onclick="event.stopPropagation()"><i class="fab fa-instagram"></i> 查看貼文</a></div></div>';
+          return '<div class="bs-voice-card"><div class="bs-voice-top"><div class="bs-voice-avatar" style="background-color:' + v.color + '">' + v.initial + '</div><div class="bs-voice-info"><p class="bs-voice-name">' + v.name + '</p><p class="bs-voice-attr">' + v.attr + '</p></div></div><p class="bs-voice-text">' + v.text + '</p><div class="bs-voice-footer"><span class="bs-voice-date">' + v.date + '</span><a href="' + v.snsUrl + '" target="_blank" class="bs-sns-link" onclick="event.stopPropagation()">' + getSnsIcon(v.snsUrl) + ' 查看貼文</a></div></div>';
         }).join('');
       } else {
         voicesDiv.style.display = 'none';
@@ -5859,7 +6019,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear URL parameter
       const url = new URL(window.location.href);
       url.searchParams.delete('product');
-      window.history.replaceState({}, '', url);
+      try { window.history.replaceState({}, '', url); } catch(e) {}
 
       document.getElementById('bsOverlay').classList.remove('is-open');
       document.body.style.overflow = '';
@@ -5901,7 +6061,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear URL parameter
       const url = new URL(window.location.href);
       url.searchParams.delete('product');
-      window.history.replaceState({}, '', url);
+      try { window.history.replaceState({}, '', url); } catch(e) {}
 
       document.getElementById('detailModal').classList.remove('active');
       currentModalId = null;
@@ -5949,6 +6109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         localStorage.setItem('cheGuide2026', JSON.stringify(myList));
         updateCount();
+        initCardHeartButtons(); // 카드 하트 상태 갱신
       } else {
         if (myList.includes(id)) {
           myList = myList.filter(function(x) { return x !== id; });
@@ -5958,7 +6119,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         localStorage.setItem('cheGuide2026', JSON.stringify(myList));
         updateCount();
-        renderTabs();
+        initCardHeartButtons(); // 카드 하트 상태 갱신
       }
     }
 
@@ -6063,7 +6224,126 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Initialize
     renderTabs();
     updateCount();
-    updateHeroProductCount();
+    // DOM이 완전히 준비된 후 배지 삽입
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        initCardHeartButtons();
+        initCardVideoOverlays();
+        updateCardVpSections();
+      });
+    } else {
+      initCardHeartButtons();
+      initCardVideoOverlays();
+    }
+
+    // 카드 앞면 하트(즐겨찾기) 버튼 동적 삽입
+    function initCardHeartButtons() {
+      document.querySelectorAll('.card[data-id]').forEach(function(card) {
+        const id = parseInt(card.getAttribute('data-id'));
+        const ciEl = card.querySelector('.ci') || card.querySelector('.ci-h');
+        if (!ciEl) return;
+        // 기존 버튼 제거 후 재생성 (상태 갱신용)
+        const existing = ciEl.querySelector('.btn-like-float');
+        if (existing) existing.remove();
+        const btn = document.createElement('button');
+        const isActive = myList.includes(id);
+        btn.className = 'btn-like-float' + (isActive ? ' active' : '');
+        btn.innerHTML = '<i class="' + (isActive ? 'fas' : 'far') + ' fa-heart"></i>';
+        btn.addEventListener('click', function(e) { toggleList(id, e); });
+        ciEl.appendChild(btn);
+      });
+    }
+
+    // 카드 영상 배지 — A안(이미지 하단 좌측 pill) + C안(footer chip)
+
+    // 카드 앞면 vp-section을 tabData 실제 데이터로 갱신
+    function updateCardVpSections() {
+      var all = getAllProducts();
+      all.forEach(function(p) {
+        var cardEl = document.querySelector('.card[data-id="' + p.id + '"]');
+        if (!cardEl) return;
+        var vpEl = cardEl.querySelector('.vp-section');
+        if (!vpEl) return;
+        if (!p.voices || p.voices.length === 0) {
+          vpEl.style.display = 'none';
+          return;
+        }
+        // 앞 2건만
+        // ● 더미 데이터면 vp-section 숨김
+        var realVoices = p.voices.filter(function(v) { return v.text && !v.text.includes('●'); });
+        if (realVoices.length === 0) { vpEl.style.display = 'none'; return; }
+        var cards = realVoices.slice(0, 2).map(function(v) {
+          var icon = v.snsUrl ? ('<a href="' + v.snsUrl + '" target="_blank" onclick="event.stopPropagation()" style="color:var(--acc);font-size:9px;text-decoration:none;margin-left:auto;flex-shrink:0;">' + getSnsIcon(v.snsUrl) + '</a>') : '';
+          return '<div class="vp-card">'
+            + '<div class="vp-top">'
+            + '<div class="vp-av" style="background:' + v.color + '">' + v.initial + '</div>'
+            + '<span class="vp-nm">' + v.name + '</span>'
+            + '<span class="vp-attr">' + v.attr + '</span>'
+            + icon
+            + '</div>'
+            + '<p class="vp-text">' + v.text + '</p>'
+            + '</div>';
+        }).join('');
+        vpEl.innerHTML = '<div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>' + cards;
+      });
+    }
+
+    function initCardVideoOverlays() {
+      const all = getAllProducts();
+      all.forEach(function(p) {
+        if (!p.hasVideo || !p.videoId) return;
+        const cardEl = document.querySelector('.card[data-id="' + p.id + '"]');
+        if (!cardEl) return;
+
+        // A안: .ci 하단 좌측 pill
+        const ciEl = cardEl.querySelector('.ci') || cardEl.querySelector('.ci-h');
+        if (ciEl && !ciEl.querySelector('.video-pill')) {
+          ciEl.style.position = 'relative';
+          const pill = document.createElement('div');
+          pill.className = 'video-pill';
+          pill.innerHTML = '<i class="fas fa-play"></i> 影片';
+          ciEl.appendChild(pill);
+        }
+
+        // C안: .cf 영역 KOC 옆 chip
+        const cfEl = cardEl.querySelector('.cf');
+        if (cfEl && !cfEl.querySelector('.vid-chip')) {
+          const chip = document.createElement('span');
+          chip.className = 'vid-chip';
+          chip.innerHTML = '<i class="fas fa-play"></i> 影片';
+          const kocEl = cfEl.querySelector('.koc');
+          if (kocEl) {
+            kocEl.insertAdjacentElement('afterend', chip);
+          } else {
+            cfEl.insertBefore(chip, cfEl.firstChild);
+          }
+        }
+      });
+    }
+
+
+    // 필터바 active 스크롤 연동
+    (function() {
+      var catIds = ['cat1','cat2','cat3','cat4'];
+      var fbBtns = document.querySelectorAll('.cat-fb');
+      if (!fbBtns.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            fbBtns.forEach(function(btn) { btn.classList.remove('active'); });
+            var idx = catIds.indexOf(id);
+            if (idx >= 0 && fbBtns[idx + 1]) fbBtns[idx + 1].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      catIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    })();
 
     // Scroll-triggered fade-in animations
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
@@ -6156,14 +6436,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* === Sakura Date Matcher + Seasonal Switch === */
     (function() {
       var skCities = [
+        { name:'名古屋', bloom:'3/17', full:'3/25', fall:'3/29', snow:'4/1', img:'', tip:'', sensei:'名古屋城和鶴舞公園是賞櫻好去處！今年東海地區提早開花，觀光客比東京少，可以悠閒享受 🎌' },
+        { name:'東京', bloom:'3/19', full:'3/27', fall:'3/31', snow:'4/3', img:'', tip:'', sensei:'東京推薦上野公園和目黑川！今年提早，3月下旬就是滿開！記得做好花粉對策再出門 😷' },
         { name:'福岡', bloom:'3/20', full:'3/28', fall:'4/1', snow:'4/4', img:'', tip:'', sensei:'福岡是日本最早開花的城市之一！舞鶴公園和西公園是賞櫻名所，搭配太宰府一日遊剛剛好 🚃' },
-        { name:'東京', bloom:'3/24', full:'4/1', fall:'4/5', snow:'4/8', img:'', tip:'', sensei:'東京推薦上野公園和目黑川！3月底花粉也很厲害，記得做好花粉對策再出門賞櫻 😷' },
-        { name:'大阪', bloom:'3/27', full:'4/3', fall:'4/7', snow:'4/10', img:'', tip:'', sensei:'大阪城公園和造幣局通り抜け是必去！造幣局只開放一週，要注意時間唷 🏯' },
-        { name:'京都', bloom:'3/28', full:'4/5', fall:'4/9', snow:'4/12', img:'', tip:'', sensei:'京都的哲學之道和蹴上傾斜鐵道超美！人很多但值得，建議一大早去 🌸' },
-        { name:'名古屋', bloom:'3/24', full:'4/2', fall:'4/6', snow:'4/9', img:'', tip:'', sensei:'名古屋城和鶴舞公園是賞櫻好去處！觀光客比東京少很多，可以悠閒享受 🎌' },
+        { name:'大阪', bloom:'3/24', full:'3/31', fall:'4/4', snow:'4/7', img:'', tip:'', sensei:'大阪城公園和造幣局通り抜け是必去！今年3月底就是滿開，造幣局只開放一週，要注意時間 🏯' },
+        { name:'京都', bloom:'3/23', full:'4/1', fall:'4/5', snow:'4/8', img:'', tip:'', sensei:'京都的哲學之道和蹴上傾斜鐵道超美！今年3/23就開花，4月初是滿開黃金期，建議一大早去 🌸' },
+        { name:'仙台', bloom:'4/5', full:'4/11', fall:'4/15', snow:'4/18', img:'', tip:'', sensei:'仙台的一目千本櫻超壯觀！白石川沿岸8公里的櫻花隧道，東北最美的賞櫻點 🚂' },
         { name:'札幌', bloom:'4/25', full:'5/2', fall:'5/6', snow:'5/9', img:'', tip:'', sensei:'5月的札幌完全沒有花粉！圓山公園可以邊烤肉邊賞櫻，是北海道獨特的體驗 🦌' },
-        { name:'沖繩', bloom:'1/15', full:'2/1', fall:'2/8', snow:'2/12', img:'', tip:'', sensei:'沖繩的櫻花是深粉色的寒緋櫻，和本州完全不同。1～2月在今帰仁城跡就能看到！' },
-        { name:'仙台', bloom:'4/5', full:'4/11', fall:'4/15', snow:'4/18', img:'', tip:'', sensei:'仙台的一目千本櫻超壯觀！白石川沿岸8公里的櫻花隧道，東北最美的賞櫻點 🚂' }
+        { name:'沖繩', bloom:'1/15', full:'2/1', fall:'2/8', snow:'2/12', img:'', tip:'', sensei:'沖繩的寒緋櫻是深粉色，和本州染井吉野完全不同。1～2月在今帰仁城跡就能看到！已結束' }
       ];
 
       function skParseDate(str, yr) {
@@ -6189,7 +6469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               '<div class="sakura-ended-emoji">🌿</div>' +
               '<div class="sakura-ended-title">2026年的櫻花季已結束</div>' +
               '<p class="sakura-ended-text">感謝大家今年的賞櫻！<br>接下來進入夏季，別忘了防曬和消暑對策商品～</p>' +
-              '<div style="display:flex;align-items:flex-start;gap:12px;max-width:460px;margin:16px auto 0;padding:16px;background:var(--accent-pale);border-radius:12px;">' +
+              '<div style="display:flex;align-items:flex-start;gap:12px;max-width:460px;margin:16px auto 0;padding:16px;background:#FFF8F0;border-radius:12px;">' +
                 '<img loading="lazy" decoding="async" src="https://japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9993-1-150x150.jpg" alt="鄭老師" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">' +
                 '<p style="font-size:13px;line-height:1.6;margin:0;">櫻花季結束了，但夏天的日本也很精彩！防曬、止汗、防蚊⋯⋯我的推薦商品都在上面，記得看看唷 ☀️</p>' +
               '</div>' +
