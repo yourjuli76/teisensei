@@ -49,6 +49,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
     
     body { 
       font-family: 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif; 
@@ -3519,6 +3520,7 @@
       --r: 14px; --line: rgba(26,22,20,0.07); --gap: 14px;
     }
     .products-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px 80px; }
+    @media (max-width: 580px) { .products-wrap { padding: 0 12px 80px; } }
     /* 카테고리 헤더 */
     .cat-hd { display:flex; align-items:center; gap:14px; padding:40px 0 24px; }
     .products-wrap > .cat-hd:first-child { padding-top: 20px; }
@@ -3527,7 +3529,7 @@
     .cat-sb  { font-size:12px; color:var(--ink3); margin-top:2px; }
     .cat-ln  { flex:1; height:1px; background:var(--line); }
     /* 그리드 */
-    .card-grid { display:flex; flex-wrap:wrap; gap:20px; }
+    .card-grid { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
     .c1 { flex:0 0 calc(33.333% - 14px); width:calc(33.333% - 14px); }
     .c2 { flex:0 0 calc(66.666% - 7px);  width:calc(66.666% - 7px);  }
     @media(max-width:1000px){ .c1{ flex:0 0 calc(50% - 10px); width:calc(50% - 10px); } .c2{ flex:0 0 100%; width:100%; } }
@@ -3544,9 +3546,9 @@
     .ci-empty i { font-size:26px; color:rgba(26,22,20,.12); }
     .ci-empty span { font-size:10px; color:var(--ink3); letter-spacing:.15em; }
     /* 가로 카드 */
-    .card-h { flex-direction:row !important; }
-    .card-h .ci-h { width:180px; flex:0 0 180px; overflow:hidden; border-radius:var(--r) 0 0 var(--r); position:relative; background:var(--warm2); display:flex; align-items:center; justify-content:center; }
-    .card-h .ci-h img { width:100%; height:100%; object-fit:contain; padding:12px; display:block; transition:transform .55s; background:var(--warm2); }
+    .card-h { flex-direction:row !important; align-items:stretch; }
+    .card-h .ci-h { width:200px; flex:0 0 200px; overflow:hidden; border-radius:var(--r) 0 0 var(--r); position:relative; background:var(--warm2); display:flex; flex-direction:column; }
+    .card-h .ci-h img { width:100%; height:200px; flex-shrink:0; object-fit:contain; padding:14px 10px; display:block; transition:transform .55s; }
     .card-h:hover .ci-h img { transform:scale(1.05); }
     .card-h .cb { flex:1; min-width:0; display:flex; flex-direction:column; padding:18px 20px 14px; }
     @media(max-width:680px){ .card-h{ flex-direction:column !important; } .card-h .ci-h{ width:100%; flex:none; border-radius:var(--r) var(--r) 0 0; aspect-ratio:3/2; } }
@@ -3638,6 +3640,7 @@
         border-radius: 12px 12px 0 0 !important;
       }
       .card.card-h.expanded .cb { padding: 14px 16px 0; }
+      .card.card-h.expanded .vp-section { display: block !important; }
 
       /* 이미지 영역 — compact 좌측 고정 */
       .card .ci {
@@ -3742,8 +3745,9 @@
       .expand-toggle { display: none; }
       /* PC에서는 항상 상세 표시 */
       .che-section { display: flex !important; }
-      
       .vp-section   { display: block !important; }
+      /* card-h(베이직 가로카드)는 PC에서도 vp 숨김 — 아바타+則만 cf에 표시 */
+      .card.card-h .vp-section { display: none !important; }
     }
 
     /* 鄭선생님 코멘트 — 인용구 스타일
@@ -3814,6 +3818,24 @@
       pointer-events: none;
     }
     .video-badge-static i { font-size: 7px; color: #fff; }
+
+
+    /* ci-h 패널 하단 약품정보 */
+    .ci-drug {
+      flex: 1;
+      background: rgba(0,0,0,.04);
+      border-top: 1px solid rgba(0,0,0,.06);
+      padding: 8px 10px;
+      font-size: 9.5px;
+      color: var(--ink3);
+      line-height: 1.7;
+    }
+    .ci-drug p { margin: 0; }
+    .ci-drug .ci-drug-disclaimer {
+      font-size: 8.5px;
+      opacity: .7;
+      margin-top: 2px;
+    }
 
     /* 약품 정보 블록 */
     .c-drug-info {
@@ -4217,13 +4239,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-official-product.jpg" alt="パブロンゴールドA"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥2,057</span><span class="cpill-s">130錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(4,event)">
         <div class="c-brand">大正製藥</div>
-        <div class="c-name">パブロンゴールドA<span class="c-jp">パブロンゴールドA</span></div>
+        <div class="c-name">百保能 綜合感冒藥<span class="c-jp">パブロンゴールドA</span></div>
         <div class="c-hook"><i class="fas fa-shield-halved hic"></i><span class="htx">乙醯胺酚配方。多症狀全效型，全家皆可使用。</span></div>
         <div class="c-chips"><span class="chip">乙醯胺酚</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">全家可用</span></div>
         <div class="che-section">
         <div class="che-meta">
           <div class="che-name-line">― 鄭老師</div>
-          <p class="che-text">大正製藥「PABRON百保能」，近百年長銷的經典綜合感冒藥。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解。咳嗽・喉痛・鼻塞・退燒一次對應。</p>
+          <p class="che-text">大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。</p>
+          <p class="c-drug-disclaimer" style="margin-top:6px;">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
         </div>
       </div>
         
@@ -4258,13 +4281,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-official-product.jpg" alt="パブロンエースProX"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥1,518</span><span class="cpill-s">18錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(5,event)">
         <div class="c-brand">大正製藥</div>
-        <div class="c-name">パブロンエースPro-X<span class="c-jp">パブロンエースPro-X</span></div>
+        <div class="c-name">百保能 強效感冒錠<span class="c-jp">パブロンエースPro-X</span></div>
         <div class="c-hook"><i class="fas fa-bolt hic"></i><span class="htx">布洛芬配方升級版。症狀明顯・發燒時的強效選擇。</span></div>
         <div class="c-chips"><span class="chip">布洛芬</span><span class="chip">15歲以上</span><span class="chip">錠劑 ／ 微粒</span></div>
         <div class="che-section">
         <div class="che-meta">
           <div class="che-name-line">― 鄭老師</div>
-          <p class="che-text">「Pro-X」採用布洛芬，退燒止痛效果更強（限15歲以上）。喉痛明顯・高燒時的強效選擇。與ゴールドA同一品牌，按症狀輕重選擇。</p>
+          <p class="che-text">大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。</p>
+          <p class="c-drug-disclaimer" style="margin-top:6px;">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
         </div>
       </div>
         
@@ -4299,7 +4323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci-empty"><i class="fas fa-pills"></i><span>近期公開</span><div class="video-badge-static"><i class="fas fa-play"></i> 影片預告</div></div>
       <div class="cb">
         <div class="c-brand">第一三共</div>
-        <div class="c-name">トラフルダイレクトa<span class="c-jp">トラフルダイレクトa</span></div>
+        <div class="c-name">口腔潰瘍貼布<span class="c-jp">トラフルダイレクトa</span></div>
         <div class="c-hook"><i class="fas fa-comment-medical hic"></i><span class="htx">口腔潰瘍専用。直接貼附快速止痛。</span></div>
         <div class="c-chips"><span class="chip">口腔潰瘍</span><span class="chip">貼附型</span></div>
         <p class="c-coming">商品詳情準備中，敬請期待。</p>
@@ -4312,7 +4336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci-empty"><i class="fas fa-lungs"></i><span>近期公開</span><div class="video-badge-static"><i class="fas fa-play"></i> 影片預告</div></div>
       <div class="cb">
         <div class="c-brand">第一三共</div>
-        <div class="c-name">ペラックT錠a<span class="c-jp">ペラックT錠a</span></div>
+        <div class="c-name">喉嚨消炎錠<span class="c-jp">ペラックT錠a</span></div>
         <div class="c-hook"><i class="fas fa-lungs hic"></i><span class="htx">喉嚨腫脹・疼痛專用。消炎鎮痛效果。</span></div>
         <div class="c-chips"><span class="chip">喉嚨炎症</span><span class="chip">錠劑</span></div>
         <p class="c-coming">商品詳情準備中，敬請期待。</p>
@@ -4325,7 +4349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci-empty"><i class="fas fa-bandage"></i><span>近期公開</span></div>
       <div class="cb">
         <div class="c-brand">第一三共</div>
-        <div class="c-name">ロキソニンEXテープ<span class="c-jp">ロキソニンEXテープ</span></div>
+        <div class="c-name">洛索洛芬鎮痛貼布<span class="c-jp">ロキソニンEXテープ</span></div>
         <div class="c-hook"><i class="fas fa-bandage hic"></i><span class="htx">洛索洛芬鈉貼布。肩頸・腰痛快速止痛。</span></div>
         <div class="c-chips"><span class="chip">鎮痛消炎</span><span class="chip">貼布型</span><span class="chip">第2類医薬品</span></div>
         <p class="c-coming">商品詳情準備中，敬請期待。</p>
@@ -4357,7 +4381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg" alt="酸化マグネシウム"><span class="c-cat">便秘藥</span><div class="cpill"><span class="cpill-n">¥680</span><span class="cpill-s">40錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(20,event)">
         <div class="c-brand">健榮製藥</div>
-        <div class="c-name">酸化マグネシウムE便秘薬<span class="c-jp">酸化マグネシウムE便秘薬</span></div>
+        <div class="c-name">健榮氧化鎂Ｅ便秘藥<span class="c-jp">酸化マグネシウムE便秘薬</span></div>
         <div class="c-hook"><i class="fas fa-leaf hic"></i><span class="htx">非刺激性。較不易引發腹痛與依賴性，溫和有效。</span></div>
         <div class="c-chips"><span class="chip">國產氧化鎂</span><span class="chip">微甜檸檬風味</span></div>
         <div class="che-section">
@@ -4395,24 +4419,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- 大正胃腸薬K (id:25) — c2 가로카드 -->
     <div class="c2"><div class="card card-h" data-id="25" onclick="handleCardClick(25,event)">
-      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-official-product.jpg" alt="大正胃腸薬K"><span class="c-cat">胃腸藥</span><div class="cpill"><span class="cpill-n">¥1,670</span><span class="cpill-s">16包〜</span></div></div>
+      <div class="ci-h">
+        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-official-product.jpg" alt="大正胃腸薬K">
+        <span class="c-cat">胃腸藥</span>
+        <div class="cpill"><span class="cpill-n">¥1,670</span><span class="cpill-s">16包〜</span></div>
+        <div class="ci-drug">
+          <p>名稱：大正胃腸薬Ｋ</p>
+          <p>醫藥分類：第2類医薬品</p>
+          <p>適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感</p>
+          <p class="ci-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
+        </div>
+      </div>
       <div class="cb" onclick="handleCardClick(25,event)">
         <div class="c-brand">大正製藥</div>
-        <div class="c-name">大正胃腸薬K<span class="c-jp">大正胃腸薬K</span></div>
-        <div class="c-hook"><i class="fas fa-pills hic"></i><span class="htx">安中散＋芍藥甘草湯。消化不良・壓力胃同時對應。</span></div>
+        <div class="c-name">大正胃腸藥K<span class="c-jp">大正胃腸薬K</span></div>
+        <div class="c-hook"><i class="fas fa-pills hic"></i><span class="htx">兼顧敏弱胃調理與舒緩緊張胃。日本上班族高人氣胃腸藥。</span></div>
         <div class="c-chips"><span class="chip">5歲以上OK</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">1978年誕生</span></div>
         <div class="che-section">
           <div class="che-meta">
             <div class="che-name-line">― 鄭老師</div>
-            <p class="che-text">大正製藥－大正胃腸藥K，兼顧敏弱胃調理，幫助消化與舒緩緊張胃。日本上班族高人氣胃腸藥。</p>
-            <p class="che-text" style="margin-top:6px;">獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」。5歲以上即可服用。</p>
+            <p class="che-text">日本藥妝店裡陳列的眾多胃腸藥當中，誕生於1978年的大正漢方胃腸藥也是眾多日本人推崇的經典家庭常備藥。獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」，能夠應對消化不良到壓力大引起的胃部不適，不少忙碌的日本上班族的抽屜或包包當中，都可見到這款長銷多年的胃腸藥。</p>
+            <p class="che-text" style="margin-top:6px;">說到「大正胃腸藥K」，則是日本藥妝通才知道的大正漢方胃腸藥「芍薬甘草湯增量版」！同樣是5歲以上就可服用，但「芍藥甘草湯」的添加劑量則是從140毫克增量至170毫克！</p>
           </div>
         </div>
-        <div class="c-drug-info">
-          <p>名稱：大正胃腸薬Ｋ</p>
-          <p>醫藥分類：第2類医薬品</p>
-          <p>適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感</p>
-        </div>
+
         
         <div class="vp-section">
         <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
@@ -4462,7 +4492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg" alt="eclore"><span class="c-cat">口腔美白</span><div class="cpill"><span class="cpill-n">¥1,595〜</span></div></div>
       <div class="cb" onclick="handleCardClick(21,event)">
         <div class="c-brand">eclore</div>
-        <div class="c-name">3Dホワイトニング パウダー／ペースト<span class="c-jp">3Dホワイトニングパウダー・ペースト</span></div>
+        <div class="c-name">eclore 3D美白潔牙粉・牙膏<span class="c-jp">３Dホワイトニングパウダー・ペースト</span></div>
         <div class="c-mprice">
           <div class="c-mrow"><span class="c-mnm">潔牙粉 <small style="color:var(--ink3);font-size:9px">25g</small></span><span class="c-mpr">¥1,595</span></div>
           <div class="c-mrow"><span class="c-mnm">薬用牙膏 <small style="color:var(--ink3);font-size:9px">90g</small></span><span class="c-mpr">¥1,595</span></div>
@@ -4507,7 +4537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure"><span class="c-cat">スキンケア</span><div class="cpill"><span class="cpill-n">準備中</span></div></div>
       <div class="cb">
         <div class="c-brand">Cure</div>
-        <div class="c-name">White Clear Gel<span class="c-jp">ホワイトクリアジェル</span></div>
+        <div class="c-name">Cure 角質美白凝膠<span class="c-jp">ホワイトクリアジェル</span></div>
         <div class="c-hook"><i class="fas fa-droplet hic"></i><span class="htx">角質護理×美白雙效。日本熱銷限定角質凝膠。</span></div>
         <div class="c-chips"><span class="chip">角質護理</span><span class="chip">美白成分</span><span class="chip">日本限定</span></div>
         <p class="c-coming">商品詳情準備中，敬請期待。</p>
@@ -4520,7 +4550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci-empty"><i class="fas fa-sun"></i><span>近期公開</span></div>
       <div class="cb">
         <div class="c-brand">第一三共</div>
-        <div class="c-name">トランシーノWhiteC プレミアム<span class="c-jp">トランシーノホワイトCプレミアム</span></div>
+        <div class="c-name">美白淡斑內服藥<span class="c-jp">トランシーノWhiteCプレミアム</span></div>
         <div class="c-hook"><i class="fas fa-sun hic"></i><span class="htx">L-半胱胺酸＋維他命C。由內而外對抗黑斑。</span></div>
         <div class="c-chips"><span class="chip">美白補充品</span><span class="chip">L-半胱胺酸</span></div>
         <p class="c-coming">商品詳情準備中，敬請期待。</p>
@@ -4530,10 +4560,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- オロナイン (id:23) — c2 가로카드 -->
     <div class="c2"><div class="card card-h" data-id="23" onclick="handleCardClick(23,event)">
-      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg" alt="オロナイン"><span class="c-cat">外傷用藥</span><div class="cpill"><span class="cpill-n">¥385</span><span class="cpill-s">11g〜</span></div></div>
+      <div class="ci-h">
+        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg" alt="オロナイン">
+        <span class="c-cat">外傷用藥</span>
+        <div class="cpill"><span class="cpill-n">¥385</span><span class="cpill-s">11g〜</span></div>
+        <div class="ci-drug">
+          <p>オロナインH軟膏</p>
+          <p>指定第2類医薬品</p>
+          <p>適應症：擦傷・裂傷・乾裂・燙傷・痤瘡</p>
+          <p class="ci-drug-disclaimer">※使用前請詳閱說明書</p>
+        </div>
+      </div>
       <div class="cb" onclick="handleCardClick(23,event)">
         <div class="c-brand">大塚製藥 <span class="pr-inline">PR</span></div>
-        <div class="c-name">オロナインH軟膏<span class="c-jp">オロナインH軟膏</span></div>
+        <div class="c-name">Oronine H應急軟膏<span class="c-jp">オロナインH軟膏</span></div>
         <div class="c-hook"><i class="fas fa-kit-medical hic"></i><span class="htx">低調卻有記憶點的深棕色外盒。在日長銷73年的家庭常備外傷用藥。</span></div>
         <div class="c-chips"><span class="chip">指定第2類医薬品</span><span class="chip">11g ／ 50g</span></div>
         <div class="che-section">
@@ -4542,12 +4582,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="che-text">身邊有很多日本朋友跟我說，發跡於四國・徳島縣的「Oronine H軟膏」根本就是他們童年回憶的一部分。因為許多人的家中都會常備有這一瓶，只要調皮搗蛋擦傷，或是粗心大意不小心被燙到，甚至是冬天皮膚乾裂時，家人就會拿出這罐軟膏。不過也有11公克和50公克的條裝版本，方便攜帶可以放在包包作為隨身應急藥膏。</p>
             <p class="che-text" style="margin-top:6px;">「Oronine H軟膏」主要含有葡萄糖酸氯己定溶液（Chlorhexidine Gluconate），這是廣泛用於殺菌、消毒的有效成分。除了可以用於擦傷、刀傷、裂傷、乾裂、以及輕微燙傷等部位之外，亦可依適應症使用於痤瘡與粉刺等皮膚狀況。</p>
           </div>
-        </div>
-        <div class="c-drug-info">
-          <p>名稱：オロナインH軟膏</p>
-          <p>醫藥分類：指定第2類医薬品</p>
-          <p>適應症：擦傷，裂傷，乾裂，輕微燙傷，痤瘡，粉刺</p>
-          <p class="c-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
         </div>
         <div class="cf">
           <a href="https://www.otsuka.co.jp/ohn/lang_hk/" target="_blank" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--acc);text-decoration:none;border:1px solid rgba(200,80,100,.25);padding:5px 13px;border-radius:20px;"><i class="fas fa-external-link-alt" style="font-size:10px;"></i> 官方網站</a>
@@ -4580,7 +4614,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg" alt="ナイシダウン"><span class="c-cat">健康食品</span><div class="cpill"><span class="cpill-n">¥1,980</span><span class="cpill-s">60粒</span></div></div>
       <div class="cb" onclick="handleCardClick(22,event)">
         <div class="c-brand">井藤漢方製藥</div>
-        <div class="c-name">ナイシダウン 減脂錠<span class="c-jp">ナイシダウン</span></div>
+        <div class="c-name">NAISHI-DOWN 減脂錠<span class="c-jp">ナイシダウン</span></div>
         <div class="c-hook"><i class="fas fa-fire-flame-curved hic"></i><span class="htx">日本機能性表示食品。輔助減少腹部內臟脂肪。</span></div>
         <div class="c-chips"><span class="chip">黑薑PMF成分</span><span class="chip">每日2粒</span><span class="chip">60粒30日份</span></div>
         <div class="che-section">
@@ -4618,25 +4652,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- リポビタンDX (id:24) — c2 가로카드 -->
     <div class="c2"><div class="card card-h" data-id="24" onclick="handleCardClick(24,event)">
-      <div class="ci-h"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg" alt="リポビタンDX"><span class="c-cat">抗疲勞</span><div class="cpill"><span class="cpill-n">¥1,650</span><span class="cpill-s">30錠〜</span></div></div>
+      <div class="ci-h">
+        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg" alt="リポビタンDX">
+        <span class="c-cat">抗疲勞</span>
+        <div class="cpill"><span class="cpill-n">¥1,650</span><span class="cpill-s">30錠〜</span></div>
+        <div class="ci-drug">
+          <p>名稱：LIPOVITAN DX</p>
+          <p>醫藥分類：指定医薬部外品</p>
+          <p>效能、效果：恢復及預防疲勞／改善難以入睡・淺睡・難以睡醒／維持及改善體力、身體抵抗力及集中力</p>
+          <p class="ci-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
+        </div>
+      </div>
       <div class="cb" onclick="handleCardClick(24,event)">
         <div class="c-brand">大正製藥</div>
-        <div class="c-name">リポビタンDX 錠劑<span class="c-jp">リポビタンDX</span></div>
-        <div class="c-hook"><i class="fas fa-moon hic"></i><span class="htx">抗疲勞＋改善淺眠。牛磺酸500mg＋甘胺酸W配方。</span></div>
+        <div class="c-name">力保美達DX 疲勞回復錠<span class="c-jp">リポビタンDX</span></div>
+        <div class="c-hook"><i class="fas fa-moon hic"></i><span class="htx">日本元氣補充飲系列的錠劑版本。改善疲勞同時兼顧睡眠情況。</span></div>
         <div class="c-chips"><span class="chip">指定医薬部外品</span><span class="chip">30〜270錠</span><span class="chip">日飲3粒</span></div>
         <div class="che-section">
           <div class="che-meta">
             <div class="che-name-line">― 鄭老師</div>
-            <p class="che-text">大正製藥－Lipovitan力保美達DX，日本元氣補充飲系列的錠劑版本，改善疲勞同時兼顧睡眠情況。</p>
-            <p class="che-text" style="margin-top:6px;">誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒。錠劑版本每日3粒，含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」。</p>
+            <p class="che-text">誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒，至今仍有許多日本上班族習慣「喝了再上」。力保美達的靈魂核心成分「牛磺酸」是胺基酸的一種，廣為人知的消除疲勞作用成分。</p>
+            <p class="che-text" style="margin-top:6px;">錠劑版本的「力保美達DX」，是近幾年異軍突起的抗疲B群人氣新選擇。每日建議攝取的3粒當中，不僅含有500毫克的牛磺酸和維生素B群，還搭配助眠系胺基酸「甘胺酸」，超級適合忙碌的現代人用來抵抗疲勞，同時輔助隨年齡增加而出現的難以入睡、淺眠或不易醒來等狀況。</p>
           </div>
         </div>
-        <div class="c-drug-info">
-          <p>名稱：LIPOVITAN DX</p>
-          <p>醫藥分類：指定医薬部外品</p>
-          <p>效能：恢復及預防疲勞、改善難以入睡・淺睡、維持體力與集中力</p>
-          <p class="c-drug-disclaimer">※使用前請詳閱說明書並依指示之適應症與用法用量使用。</p>
-        </div>
+
         
         <div class="vp-section">
         <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
@@ -5594,7 +5633,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
             originalUrl: 'https://www.taisho.co.jp/pabron/',
             tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；',
-            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」升級，採用布洛芬，以布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
               { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
@@ -5616,7 +5655,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
             originalUrl: 'https://www.taisho.co.jp/pabron/',
             tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。藍金版「Pro-X」採用布洛芬作為退燒止痛成分（限15歲以上使用）。',
-            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」升級，採用布洛芬，以布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
               { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
@@ -5669,7 +5708,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             label: 'type-exclusive', labelText: '日本限定', plan: 'basic',
             originalUrl: 'https://www.taisho.co.jp/',
             tip: '大正製藥－大正胃腸藥K，兼顧敏弱胃調理，幫助消化與舒緩緊張胃。獨家結合「安中散」與「芍藥甘草湯」，應對消化不良到壓力大引起的胃部不適。日本上班族高人氣家庭常備藥。',
-            tipFull: '大正製藥－大正胃腸藥K\n兼顧敏弱胃調理，幫助消化與舒緩緊張胃。日本上班族高人氣胃腸藥。\n獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」。5歲以上即可服用。\n名稱：大正胃腸薬Ｋ 醫藥分類：第2類医薬品\n適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感',
+            tipFull: '日本藥妝店裡陳列的眾多胃腸藥當中，誕生於1978年的大正漢方胃腸藥也是眾多日本人推崇的經典家庭常備藥。獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」，能夠應對消化不良到壓力大引起的胃部不適，不少忙碌的日本上班族的抽屜或包包當中，都可見到這款長銷多年的胃腸藥。\n說到「大正胃腸藥K」，則是日本藥妝通才知道的大正漢方胃腸藥「芍薬甘草湯增量版」！同樣是5歲以上就可服用，但「芍藥甘草湯」的添加劑量則是從140毫克增量至170毫克！\n\n名稱：大正胃腸薬Ｋ\n醫藥分類：第2類医薬品\n適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
               { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DVk6NJvmWOu/?img_index=1' },
@@ -5705,7 +5744,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             label: 'type-hot', labelText: '話題', plan: 'basic',
             originalUrl: 'https://www.taisho.co.jp/',
             tip: '大正製藥－Lipovitan力保美達DX，日本元氣補充飲的錠劑版本。含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」，抗疲勞同時輔助改善淺眠等狀況。指定医薬部外品。',
-            tipFull: '大正製藥－Lipovitan力保美達DX\n日本元氣補充飲系列的錠劑版本，改善疲勞同時兼顧睡眠情況。\n誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒。錠劑版本每日3粒，含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」。\n名稱：LIPOVITAN DX 醫藥分類：指定医薬部外品\n效能：恢復及預防疲勞、改善難以入睡・淺睡、維持體力與集中力\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
+            tipFull: '誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒，至今仍有許多日本上班族習慣「喝了再上」。力保美達的靈魂核心成分「牛磺酸」是胺基酸的一種，廣為人知的消除疲勞作用成分。\n錠劑版本的「力保美達DX」，是近幾年異軍突起的抗疲B群人氣新選擇。每日建議攝取的3粒當中，不僅含有500毫克的牛磺酸和維生素B群，還搭配助眠系胺基酸「甘胺酸」，超級適合忙碌的現代人用來抵抗疲勞，同時輔助隨年齡增加而出現的難以入睡、淺眠或不易醒來等狀況。\n\n名稱：LIPOVITAN DX\n醫藥分類：指定医薬部外品\n效能、效果：恢復及預防疲勞／改善難以入睡・淺睡・難以睡醒／維持及改善體力、身體抵抗力及集中力\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
               { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DV54EL0EuHH/?img_index=1' },
@@ -5841,13 +5880,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function handleCardClick(id, event) {
-      if (isMobile()) {
-        const card = event.currentTarget.closest('.card');
-        if (!card.classList.contains('expanded')) {
-          card.classList.add('expanded');
-          return;
-        }
-      }
       openDetailModal(id);
     }
 
