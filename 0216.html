@@ -995,6 +995,9 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    @media (max-width: 580px) {
+      .products-section { padding: 30px 0 60px; }
+    }
 
     .section-header-label {
       font-size: 10px;
@@ -2788,9 +2791,11 @@
     }
 
     .bs-handle {
-      padding: 12px;
+      padding: 10px 16px 8px;
       display: flex;
+      align-items: center;
       justify-content: center;
+      position: relative;
     }
 
     .bs-handle-bar {
@@ -2800,9 +2805,26 @@
       border-radius: 2px;
     }
 
+    .bs-close-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f2f2f2;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: #4a4a4a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     .bs-product-visual {
       position: relative;
-      aspect-ratio: 16/10;
+      aspect-ratio: 1/1;
       background: #fff;
       border-bottom: 1px solid #f0f0f0;
       overflow: hidden;
@@ -2817,7 +2839,29 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 20px;
+      padding: 24px;
+    }
+
+    /* 스크롤 유도 인디케이터 */
+    .bs-scroll-hint {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+      animation: hint-bounce 1.8s ease-in-out infinite;
+    }
+    @keyframes hint-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.85; }
+      50% { transform: translateX(-50%) translateY(4px); opacity: 1; }
     }
 
     .bs-product-visual iframe {
@@ -3627,10 +3671,17 @@
       /* card-h compact 숨김 */
       .card.card-h:not(.expanded) .c-long { display: none; }
       .card.card-h:not(.expanded) .c-chips { display: none; }
+      .card.card-h:not(.expanded) .c-hook { display: none; }
       .card.card-h:not(.expanded) .che-section { display: none; }
       .card.card-h:not(.expanded) .c-drug-info { display: none; }
       .card.card-h:not(.expanded) .vp-section { display: none; }
+      .card.card-h:not(.expanded) .ci-drug { display: none; }
+      .card.card-h:not(.expanded) .ci-h {
+        width: 110px !important; min-width: 110px !important;
+        height: 110px !important; overflow: hidden;
+      }
       .card.card-h .cb { padding: 12px 14px 0; }
+      .card.card-h:not(.expanded) .cb { justify-content: center; padding: 10px 14px; }
       /* card-h expanded — 세로 전환 */
       .card.card-h.expanded { flex-direction: column !important; }
       .card.card-h.expanded .ci-h {
@@ -3713,7 +3764,6 @@
       }
       .card.expanded .c-hook      { display: flex !important; }
       .card.expanded .che-section { display: flex !important; }
-      .card.expanded 
       .card.expanded .vp-section   { display: block !important; }
       .card.expanded .c-chips { display: flex; }
       .card.expanded .c-cmt   { display: block; }
@@ -4530,17 +4580,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
-    <!-- Cure White Clear Gel — 껍데기 -->
+    <!-- Cure White Clear Gel (id:26) -->
     <div class="c1"><div class="card" data-id="26" onclick="handleCardClick(26,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure"><span class="c-cat">スキンケア</span><div class="cpill"><span class="cpill-n">準備中</span></div></div>
-      <div class="cb">
+      <div class="ci has-video"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure White Clear Gel"><span class="c-cat">美容護理</span><div class="cpill"><span class="cpill-n">¥1,650</span><span class="cpill-s">250g</span></div></div>
+      <div class="cb" onclick="handleCardClick(26,event)">
         <div class="c-brand">Cure</div>
         <div class="c-name">Cure 角質美白凝膠<span class="c-jp">ホワイトクリアジェル</span></div>
         <div class="c-hook"><i class="fas fa-droplet hic"></i><span class="htx">角質護理×美白雙效。日本熱銷限定角質凝膠。</span></div>
         <div class="c-chips"><span class="chip">角質護理</span><span class="chip">美白成分</span><span class="chip">日本限定</span></div>
-        <p class="c-coming">商品詳情準備中，敬請期待。</p>
+        <div class="che-section"><div class="che-meta"><div class="che-name-line">― 鄭老師</div><p class="che-text">Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。</p></div></div>
+        <a href="https://www.japankuru.com/tw/shopping/257656/" class="column-preview c-long" target="_blank" onclick="event.stopPropagation()">
+          <div class="column-preview-icon"><i class="fas fa-book-open"></i></div>
+          <div class="column-preview-content">
+            <p class="column-preview-label">詳細解說專欄</p>
+            <p class="column-preview-title">「Cure 角質美白凝膠」徹底評測！</p>
+          </div>
+          <span class="column-preview-arrow"><i class="fas fa-chevron-right"></i></span>
+        </a>
+        <div class="vp-section">
+          <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
+          <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#E91E63">J</div><span class="vp-nm">ジャリンリン</span><span class="vp-attr">30代・会社員</span></div><p class="vp-text">最近保養桌上多了一瓶默默很有存在感的——Cure 藥用去角質凝膠。</p></div>
+          <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#9C27B0">苦</div><span class="vp-nm">苦逼留學生的碎念</span><span class="vp-attr">30代・会社員</span></div><p class="vp-text">最近覺得背長很多小顆粒 剛好來用看看這個去角質凝膠</p></div>
+        </div>
       </div>
-      <div class="cf"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:var(--ink3)">評價收集中</span></div><span class="c-btn" style="opacity:.3">詳情 <i class="fas fa-arrow-right"></i></span></div>
+      <div class="cf">
+        <div class="koc"><div class="kav" style="background:#E91E63">J</div><div class="kav" style="background:#9C27B0">苦</div><div class="kav" style="background:#3F51B5">3</div><div class="kav" style="background:#009688">C</div><div class="kav" style="background:#FF5722">R</div><span class="kn">5則</span></div>
+        <button class="c-btn" onclick="event.stopPropagation();openDetailModal(26)">詳情 <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- トランシーノ — 껍데기 -->
@@ -5485,10 +5552,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Mobile Bottom Sheet -->
   <div class="bottomsheet-overlay" id="bsOverlay" onclick="closeBottomSheet()">
     <div class="bottomsheet" onclick="event.stopPropagation()">
-      <div class="bs-handle"><div class="bs-handle-bar"></div></div>
+      <div class="bs-handle">
+        <div class="bs-handle-bar"></div>
+        <button class="bs-close-btn" onclick="closeBottomSheet()"><i class="fas fa-times"></i> 關閉</button>
+      </div>
       
       <div class="bs-product-visual" id="bsVisual">
         <img loading="lazy" decoding="async" src="" alt="" id="bsImg">
+        <div class="bs-scroll-hint" id="bsScrollHint"><i class="fas fa-chevron-down" style="font-size:8px"></i> 向下滑動查看詳情</div>
       </div>
 
       <div class="bs-product-info-bar">
@@ -5607,7 +5678,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             originalUrl: 'https://eclore.jp/',
             tip: 'Dr.Oral 3D WHITE口腔亮白護理系列，採用奈米級3D蛋殼生物磷灰石，協助吸附牙齒表面污漬，維持清新亮白印象。牙粉蛋殼生物磷灰石含量高達40%，搭配多種潔淨與保濕成分，',
             tipFull: 'Dr.Oral 3D WHITE口腔亮白護理系列，採用奈米級3D蛋殼生物磷灰石，協助吸附牙齒表面污漬，維持清新亮白印象。牙粉蛋殼生物磷灰石含量高達40%，搭配多種潔淨與保濕成分，日常刷牙即可兼顧清潔與口腔保養。另有薬用牙膏款，輔助維持牙齦健康，是重視自然系亮白護理者的人氣選擇。',
-            column: null, hasVideo: false,
+            column: null, hasVideo: true, videoId: '73ffThRqZ9M',
             voices: [
               { initial: 'S', name: 'sacuralin',   attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid0QxLhS5ZfpA6oHoehXyCF7su7pb3T3SYKaBwFJuoKfD8BHA1HTiTAZhVLqb7Wshwvl' },
               { initial: 'I', name: 'IG體驗者①',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV98gOREhkk/?img_index=1' },
@@ -5618,6 +5689,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               { initial: 'I', name: 'IG體驗者④',  attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DV7cpPSDx_i/?igsh=MW1mMWV3M2RyZjhvYQ%3D%3D&img_index=1' },
               { initial: '新', name: '新日一成',    attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid09YZjzgTDsqonnDkJ3iaqePpkRuohDPszUWWvjmiYkGuxha1K5sGSJvNXR65bs58ol' }
             ], voiceCount: 8
+          },
+          {
+            id: 26, slug: 'cure-white-clear-gel', name: 'Cure 角質美白凝膠', brand: 'Cure',
+            price: 1650, priceNote: '250g ¥1,650',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg',
+            label: 'type-exclusive', labelText: '日本限定', plan: 'gold',
+            originalUrl: 'https://cure-online.com/',
+            tip: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。',
+            tipFull: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
+            column: 'https://www.japankuru.com/tw/shopping/257656/', hasVideo: true, videoId: 'lYlS9VmR0ZI',
+            voices: [
+              { initial: 'J', name: 'ジャリンリン', attr: '30代・会社員', text: '最近保養桌上多了一瓶默默很有存在感的——Cure 藥用去角質凝膠。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/jialing.shies/posts/pfbid0MeEmLeRhTFejHHzq9GqPdk3pE74GF4KX728oCFtCiQnq3kob7uLbNWETgRc8WRmKl' },
+              { initial: '苦', name: '苦逼留學生的碎念', attr: '30代・会社員', text: '最近覺得背長很多小顆粒 剛好來用看看這個去角質凝膠', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02wsZc68pNckakhU2Asx9RtDjFJCZJV3LLDSnq73DfpZsTF9igXoUWNQETjuGnqaMPl&id=100052568835647&rdid=KQIqDkaFmpOrt5e2#' },
+              { initial: '3', name: '31803', attr: '40代・主婦', text: '最近用到一罐還蠻好用的去角質', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/osakapleb/posts/pfbid031dSJnTWkiVFXNPMjjsxHTTZxCeUWc7Ucu3CPtypNrzCGqemwuttv38DntxxyQmfql' },
+              { initial: 'C', name: 'Chiu-wei Liu', attr: '30代・会社員', text: '這次是介紹Cure這款 去角質Gel，洗澡的時候一起去角質 超方便!!!!', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/chiuwei.liu/posts/pfbid0ff3vdZyZAUFPUP4ZBZjTcGpQXkxXTvmPoNwphHN5D6dgtPF2jLWuRXCaHGZrxPhRl' },
+              { initial: 'R', name: 'Rebecca528', attr: '30代・会社員', text: '我自己其實已經默默用到 第三罐了。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV063CPj2B-/' }
+            ], voiceCount: 5
           }
         ]
       },
@@ -5676,7 +5764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             originalUrl: 'https://www.kenei-pharm.com/',
             tip: '健榮製藥－氧化鎂Ｅ便秘藥，日本藥妝店常見的非刺激性便秘藥。採用國產氧化鎂透過滲透壓機制增加腸道水分，協助軟化糞便，較不易引發腹痛與依賴性。',
             tipFull: '健榮製藥－氧化鎂Ｅ便秘藥，日本藥妝店常見的非刺激性便秘藥。採用國產氧化鎂透過滲透壓機制增加腸道水分，協助軟化糞便，較不易引發腹痛與依賴性。速崩技術錠劑，搭配微甜檸檬風味，提升適口性，接受度較高。成人可依體質調整劑量，輕巧包裝方便攜帶，是慢性便秘管理的選擇之一。非刺激性瀉藥效果較溫和，是日本藥妝店便秘藥的新話題，也是慢性便秘管理的新選擇。',
-            column: null, hasVideo: false,
+            column: null, hasVideo: true, videoId: '9m6r4sCWBrw',
             voices: [
               { initial: 'W', name: 'Wei Wei', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02vNkKin39zi89gjSKPA7NNozyURvonfkLDmYBLkwa2gtLBPyd3Dq3uPLJ5cEU64LFl&id=100001466739903' },
               { initial: '新', name: '新日一成', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0E938bxNDG3zkg2dqYHL981CiDUmiF1EtrEToUrom28V9gagqfhE45KG2LY1gbuwKl' },
@@ -5727,7 +5815,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             originalUrl: 'https://www.itohkampo.co.jp/',
             tip: '井藤漢方「NAISHI-DOWN減脂錠」為一款採用黑薑由來多甲氧基黃酮（PMF）為關鍵成分的日本機能性表示食品。具備有助於BMI偏高者輔助減少腹部脂肪的機能性。',
             tipFull: '井藤漢方「NAISHI-DOWN減脂錠」為一款採用黑薑由來多甲氧基黃酮（PMF）為關鍵成分的日本機能性表示食品。黑薑由來的多甲氧基黃酮，在日本有研究報告指出，具備「有助於BMI偏高者輔助減少腹部脂肪（包含內臟脂肪與皮下脂肪）」的機能性。同時，也有報告指出在日常生活的基礎能量代謝下，幫助脂肪更有效率被消耗。每日建議攝取兩粒。草本氣味較弱，適合作為飲食控制期間的日常代謝輔助選擇。',
-            column: null, hasVideo: false,
+            column: null, hasVideo: true, videoId: 'i2f4VD2aeVs',
             voices: [
               { initial: '新', name: '新日一成', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0XzgFB6A6q2rUkE7rXSBuYYYN7fYZvNWYqojqrp25jnsSkjhNXPV67cYKVYvtE8HYl' },
               { initial: 'I', name: 'IG體驗者①', attr: '●代・●●●', text: '●●●●●', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV7X9uzD5uq/?igsh=MWgwa2p4OHZwMWhtNA%3D%3D&img_index=1' },
@@ -5809,7 +5897,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       html += '</div>';
 
       html += '<div class="che-section"><div class="che-header"><img loading="lazy" decoding="async" src="' + chePhoto + '" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
-      html += '<div class="che-comment-box"><p class="che-text' + '' + '">' + p.tip + '</p></div></div>';
+      html += '<div class="che-comment-box"><p class="che-text">' + (p.tipFull || p.tip) + '</p></div></div>';
 
       // Column preview for plans with column (standard, gold, platinum)
       if (p.column) {
@@ -6046,6 +6134,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function closeBottomSheet() {
+      const id = currentBsId;
+
       // Clear URL parameter
       const url = new URL(window.location.href);
       url.searchParams.delete('product');
@@ -6054,6 +6144,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.getElementById('bsOverlay').classList.remove('is-open');
       document.body.style.overflow = '';
       currentBsId = null;
+
+      // 닫은 후 해당 카드의 카테고리 섹션으로 스크롤 복귀
+      if (id) {
+        setTimeout(function() {
+          var cardEl = document.querySelector('.card[data-id="' + id + '"]');
+          if (cardEl) {
+            var catSection = null;
+            // 카드의 상위 cat-hd 섹션 찾기 (이전 형제 순회)
+            var el = cardEl;
+            while (el && el.parentElement) {
+              el = el.parentElement;
+              var prevCat = el.previousElementSibling;
+              while (prevCat) {
+                if (prevCat.classList && prevCat.classList.contains('cat-hd')) {
+                  catSection = prevCat;
+                  break;
+                }
+                prevCat = prevCat.previousElementSibling;
+              }
+              if (catSection) break;
+            }
+            var target = catSection || cardEl;
+            var offset = 80;
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          } else {
+            // 동적 카드(탭 렌더링)인 경우 products-section으로
+            var sec = document.getElementById('products-section');
+            if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 150);
+      }
     }
 
     function updateBsHeartBtn() {
