@@ -3646,158 +3646,126 @@
     .tip-c1-title { font-family:'Noto Serif TC',serif; font-size:14px; font-weight:700; color:var(--ink); line-height:1.45; margin-bottom:8px; }
     .tip-c1-text  { font-size:11px; color:var(--ink2); line-height:1.9; }
     @media(max-width:680px){ .tip-c2,.tip-c1{ height:auto; } .tip-full{ padding:24px 0 8px; } .tip-full::before{ font-size:52px; margin-right:10px; } }
-    /* ── 모바일 카드 compact / expanded ── */
+    /* ── 모바일 카드 ── */
     @media (max-width: 580px) {
-      /* 그리드: 1열 세로 */
       .card-grid { flex-direction: column; gap: 10px; }
       .c1, .c2 { flex: 0 0 100%; width: 100%; }
 
-      /* ── compact: 가로형 (썸네일 좌 + 내용 우 + chevron 절대위치) ── */
+      /* expand-toggle 모바일에서 완전 숨김 — 탭=바로 바텀시트 */
+      .expand-toggle { display: none !important; }
+
+      /* 카드: 가로형 레이아웃 */
       .card {
         flex-direction: row !important;
-        min-height: 110px;
-        border-radius: 12px;
-        position: relative;
+        min-height: 100px;
+        border-radius: 14px;
         overflow: hidden;
+        cursor: pointer;
       }
 
-      /* 이미지 영역 — compact 좌측 고정 */
+      /* 썸네일 — 좌측 고정 정사각형 */
       .card .ci {
-        width: 110px; min-width: 110px;
+        width: 100px; min-width: 100px; flex-shrink: 0;
         aspect-ratio: unset; height: auto;
-        border-radius: 12px 0 0 12px;
-        flex-shrink: 0;
+        border-radius: 14px 0 0 14px;
+        align-self: stretch;
       }
+      .card .ci img { object-fit: cover; width: 100%; height: 100%; }
       .card .ci::after { display: none; }
-      .card .ci img { object-fit: cover; }
-
-      /* ci-empty compact */
       .card .ci-empty {
-        width: 110px; min-width: 110px;
-        aspect-ratio: unset; height: auto;
-        border-radius: 12px 0 0 12px;
+        width: 100px; min-width: 100px; flex-shrink: 0;
+        align-self: stretch;
+        border-radius: 14px 0 0 14px;
       }
 
-      /* 바디 — compact (우측 영역, chevron 공간 38px 확보) */
-      .card .cb { padding: 10px 46px 10px 14px; gap: 3px; flex: 1; min-width: 0; }
-      .card:not(.expanded) .cb { justify-content: center; }
-
-      /* compact 시 cf — 숨김 (chevron으로 대체) */
-      .card:not(.expanded) .cf { display: none; }
-
-      /* 가격 pill — compact 숨김 */
-      .card:not(.expanded) .cpill { display: none; }
-      .card:not(.expanded) .c-cat { font-size: 8px; padding: 2px 6px; }
-
-      /* compact 시 숨길 요소 */
-      .card:not(.expanded) .c-brand { display: none; }
-      .card:not(.expanded) .c-hook  { display: none; }
-      .card:not(.expanded) .c-chips { display: none; }
-      .card:not(.expanded) .c-cmt   { display: none; }
-      .card:not(.expanded) .c-long  { display: none; }
-      .card:not(.expanded) .c-mprice { display: none; }
-      .card:not(.expanded) .c-coming { display: none; }
-      .card:not(.expanded) .c-drug-info { display: none; }
-      .card:not(.expanded) .che-section { display: none; }
-      .card:not(.expanded) .vp-section  { display: none; }
-
-      /* 상품명 compact — 2줄까지 허용 */
-      .card:not(.expanded) .c-name {
-        font-size: 14px; line-height: 1.4;
-        display: -webkit-box; -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical; overflow: hidden;
-      }
-      .card:not(.expanded) .c-jp { display: none; }
-
-      /* compact KOC 미리보기 */
-      .card:not(.expanded) .koc-compact {
-        display: flex; align-items: center; gap: 4px; margin-top: 4px;
-      }
-      .koc-compact .kav { width: 18px; height: 18px; font-size: 8px; }
-      .koc-compact .kn  { font-size: 10px; color: var(--ink-muted); }
-
-      /* expand toggle — compact 시 우측 절대위치 chevron */
-      .expand-toggle {
-        display: flex !important;
-        position: absolute; right: 0; top: 0; bottom: 0;
-        width: 38px; border: none; border-left: 1px solid var(--line);
-        background: #f8f6f4;
-        flex-direction: column; align-items: center; justify-content: center;
-        cursor: pointer; gap: 3px;
-        border-radius: 0 12px 12px 0;
-        padding: 0;
-      }
-      .expand-toggle i { font-size: 12px; color: #8a7e78; transition: transform 0.3s; }
-      .expand-toggle span { font-size: 8px; color: #aaa; writing-mode: vertical-rl; letter-spacing: 0.05em; }
-      .card:not(.expanded) .expand-toggle span::after { content: '詳情'; }
-
-      /* ── expanded 상태 ── */
-      .card.expanded {
-        flex-direction: column !important;
-      }
-      .card.expanded .ci {
-        width: 100%; min-width: unset;
-        aspect-ratio: 1/1;
-        border-radius: 12px 12px 0 0;
-      }
-      .card.expanded .ci-empty {
-        width: 100%; min-width: unset;
-        aspect-ratio: 16/10;
-        border-radius: 12px 12px 0 0;
-      }
-      .card.expanded .ci::after { display: block; }
-      .card.expanded .cpill { display: flex; }
-      .card.expanded .cb { padding: 14px 16px; gap: 8px; }
-      .card.expanded .c-name {
-        font-size: 16px; -webkit-line-clamp: unset;
-      }
-      .card.expanded .cf { display: flex; border-top: 1px solid var(--line); padding: 10px 16px 12px; }
-      .card.expanded .c-hook      { display: flex !important; }
-      .card.expanded .che-section { display: flex !important; }
-      .card.expanded .vp-section  { display: block !important; }
-      .card.expanded .c-chips { display: flex; }
-      .card.expanded .c-cmt   { display: block; }
-      .card.expanded .c-long  { display: flex; }
-      .card.expanded .c-mprice { display: flex; }
-      .card.expanded .c-coming { display: block; }
-
-      /* expand toggle — expanded 시 sticky 하단 바 */
-      .card.expanded .expand-toggle {
-        position: sticky; bottom: 0; right: unset;
-        width: 100%; border-left: none; border-top: 1px solid var(--line);
-        border-radius: 0 0 12px 12px; flex-direction: row;
-        padding: 9px; gap: 6px; z-index: 5;
-        background: rgba(248,246,244,.97);
-      }
-      .card.expanded .expand-toggle i { transform: rotate(180deg); font-size: 11px; }
-      .card.expanded .expand-toggle span { font-size: 11px; color: #8a7e78; writing-mode: horizontal-tb; }
-      .card.expanded .expand-toggle span::after { content: '收起'; }
-
-      /* card-h compact — 동일 구조 적용 */
-      .card.card-h { flex-direction: row !important; min-height: 110px; }
+      /* card-h 동일 처리 */
+      .card.card-h { flex-direction: row !important; min-height: 100px; }
       .card.card-h .ci-h {
-        width: 110px !important; min-width: 110px !important; flex: none !important;
-        aspect-ratio: unset !important; height: auto !important;
-        border-radius: 12px 0 0 12px !important; overflow: hidden;
+        width: 100px !important; min-width: 100px !important; flex: none !important;
+        aspect-ratio: unset !important; align-self: stretch !important; height: auto !important;
+        border-radius: 14px 0 0 14px !important; overflow: hidden;
       }
       .card.card-h .ci-h img { width: 100%; height: 100%; object-fit: cover; display: block; }
-      .card.card-h:not(.expanded) .c-long { display: none; }
-      .card.card-h:not(.expanded) .c-chips { display: none; }
-      .card.card-h:not(.expanded) .c-hook { display: none; }
-      .card.card-h:not(.expanded) .che-section { display: none; }
-      .card.card-h:not(.expanded) .c-drug-info { display: none; }
-      .card.card-h:not(.expanded) .vp-section { display: none; }
-      .card.card-h:not(.expanded) .ci-drug { display: none; }
-      .card.card-h .cb { padding: 10px 46px 10px 14px; }
-      .card.card-h:not(.expanded) .cb { justify-content: center; }
-      .card.card-h.expanded { flex-direction: column !important; }
-      .card.card-h.expanded .ci-h {
-        width: 100% !important; min-width: unset !important;
-        aspect-ratio: 16/9 !important; height: auto !important;
-        border-radius: 12px 12px 0 0 !important;
+      .card.card-h .ci-drug { display: none; }
+
+      /* 카드 바디 — 우측 flex column */
+      .card .cb {
+        flex: 1; min-width: 0;
+        display: flex; flex-direction: column;
+        padding: 10px 12px 0; gap: 3px;
+        justify-content: flex-start;
       }
-      .card.card-h.expanded .cb { padding: 14px 16px 0; }
-      .card.card-h.expanded .vp-section { display: block !important; }
+
+      /* 모바일 compact: cpill → 가격 인라인 표시 */
+      .card .cpill {
+        display: inline-flex !important;
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important; gap: 4px;
+        align-items: baseline;
+      }
+      .card .cpill-n {
+        font-size: 14px !important; font-weight: 700;
+        color: var(--accent) !important; line-height: 1;
+      }
+      .card .cpill-s {
+        font-size: 10px !important;
+        color: var(--ink-muted) !important;
+      }
+
+      /* 숨길 요소 */
+      .card .c-jp { display: none; }
+      .card .c-hook { display: none; }
+      .card .c-chips { display: none; }
+      .card .c-cmt { display: none; }
+      .card .c-long { display: none; }
+      .card .c-mprice { display: none; }
+      .card .c-coming { display: none; }
+      .card .c-drug-info { display: none; }
+      .card .che-section { display: none; }
+      .card .vp-section { display: none; }
+      .card .cpill { display: none; }
+
+      /* 브랜드 */
+      .card .c-brand {
+        font-size: 10px; color: var(--ink-muted);
+        letter-spacing: 0.1em; text-transform: uppercase;
+      }
+
+      /* 상품명 — 2줄 */
+      .card .c-name {
+        font-size: 14px; font-weight: 700; line-height: 1.35;
+        display: -webkit-box; -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; overflow: hidden;
+        color: var(--ink);
+      }
+
+      /* 가격 — compact 표시 */
+      .card .c-price-compact {
+        font-size: 13px; font-weight: 700;
+        color: var(--accent); margin-top: 2px;
+      }
+
+      /* 카테고리 태그 */
+      .card .c-cat { font-size: 9px; padding: 2px 6px; }
+
+      /* footer — 「查看詳情」 풀위드 버튼 */
+      .card .cf {
+        display: flex !important;
+        border-top: none; padding: 4px 10px 10px;
+        margin-top: auto; flex-shrink: 0;
+        justify-content: stretch; align-items: center;
+      }
+      .card .cf .koc { display: none; }
+      .card .cf .c-btn {
+        flex: 1; text-align: center;
+        padding: 8px 0; font-size: 12px; font-weight: 600;
+        background: var(--accent); color: #fff;
+        border-radius: 8px; border: none;
+        justify-content: center; cursor: pointer;
+      }
+
+      .card { flex-wrap: nowrap; align-items: stretch; }
     }
 
     /* PC: expand-toggle 숨김 */
@@ -4333,7 +4301,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#3F51B5">K</div><div class="kav" style="background:#009688">N</div><span class="kn">10則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(4)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- パブロンエースPro-X (id:5) -->
@@ -4375,7 +4342,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#3F51B5">K</div><div class="kav" style="background:#009688">N</div><span class="kn">10則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(5)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- トラフルダイレクトa — 껍데기 -->
@@ -4474,7 +4440,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">W</div><div class="kav" style="background:#9C27B0">新</div><div class="kav" style="background:#3F51B5">S</div><span class="kn">9則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(20)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- 大正胃腸薬K (id:25) — c2 가로카드 -->
@@ -4589,7 +4554,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#FF5722">W</div><span class="kn">8則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(21)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- Cure White Clear Gel (id:26) -->
@@ -4619,7 +4583,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">J</div><div class="kav" style="background:#9C27B0">苦</div><div class="kav" style="background:#3F51B5">3</div><div class="kav" style="background:#009688">C</div><div class="kav" style="background:#FF5722">R</div><span class="kn">5則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(26)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- トランシーノ — 껍데기 -->
@@ -4724,7 +4687,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="koc"><div class="kav" style="background:#E91E63">新</div><div class="kav" style="background:#9C27B0">I</div><span class="kn">4則</span></div>
         <button class="c-btn" onclick="event.stopPropagation();openDetailModal(22)">詳情 <i class="fas fa-arrow-right"></i></button>
       </div>
-      <button class="expand-toggle" onclick="toggleCardExpand(this,event)"><i class="fas fa-chevron-down"></i> <span></span></button>
     </div></div>
 
     <!-- リポビタンDX (id:24) — c2 가로카드 -->
