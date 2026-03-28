@@ -10,8 +10,8 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PNDM26');</script>
   <!-- End Google Tag Manager -->
-  <title>鄭老師的推薦 2026春 | JAPANKURU × 日本藥妝研究室</title>
-  <meta property="og:title" content="鄭老師的推薦 2026春 | 日本藥妝購物攻略">
+  <title>鄭老師的推薦 2026春季 | JAPANKURU × 日本藥妝研究室</title>
+  <meta property="og:title" content="鄭老師的推薦 2026春季 | 日本藥妝購物攻略">
   <meta property="og:description" content="14年日本藥妝研究經驗，鄭老師嚴選推薦商品＋免稅攻略＋藥妝店指南。2026櫻花季購物必看！">
   <meta property="og:image" content="https://www.japankuru.com/gld-kanri/data/uploads/2025/02/IMG_9994-1-150x150.jpg">
   <meta property="og:url" content="https://www.japankuru.com/tw/special/sakura-shopping-2026/">
@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
@@ -40,7 +40,7 @@
       --paper-warm: #faf9f7;
       --accent: #d4707a;
       --accent-soft: #f2e4e6;
-      --sakura: #FFB7C5;
+      --sakura: #88dda0;
       --gold: #C9A962;
       --blue: #5B8DB8;
       --green: #7A9A7E;
@@ -219,7 +219,7 @@
       position: absolute;
       width: 12px;
       height: 12px;
-      background: linear-gradient(135deg, var(--sakura) 0%, #FFD6E0 100%);
+      background: linear-gradient(135deg, #a8e6b0 0%, #c8f0d0 100%);
       border-radius: 150% 0 150% 0;
       opacity: 0;
       animation: fall linear infinite;
@@ -620,14 +620,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .split-bg-pabron { object-position: center top !important; }
+    .split-panel-pabron::before {
+      background: linear-gradient(to top, rgba(0,0,0,.98) 0%, rgba(0,0,0,.9) 20%, rgba(0,0,0,.3) 35%, rgba(0,0,0,0) 50%) !important;
     }
 
     .split-panel::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(45, 35, 38, 0.9) 0%, rgba(45, 35, 38, 0.4) 40%, rgba(212, 112, 122, 0.1) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,.82) 28%, rgba(0,0,0,.18) 58%, transparent 100%);
       z-index: 1;
       transition: all 0.5s;
     }
@@ -639,26 +644,13 @@
       display: none !important;
     }
 
-    .split-logo {
-      position: absolute;
-      top: 25px;
-      left: 25px;
-      z-index: 3;
-      background: #fff;
-      padding: 10px 16px;
-    }
-
-    .split-logo-text {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--ink);
-    }
+    .split-logo { display: none; }
+    .split-logo-text { display: none; }
 
     .split-content { position: relative; z-index: 2; }
 
-    .split-num {
+    .split-num { display: none; }
+    .split-num-hidden {
       font-family: 'Noto Sans TC', sans-serif;
       font-size: 48px;
       font-weight: 400;
@@ -671,24 +663,28 @@
     }
 
     .split-brand {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.2em;
+      font-family: 'DM Sans', 'Noto Sans TC', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      background: var(--accent);
-      color: #fff;
-      padding: 5px 12px;
+      color: var(--accent);
       display: inline-block;
-      margin-bottom: 16px;
-      font-weight: 600;
+      margin-bottom: 10px;
+      font-weight: 700;
+      border-radius: 0;
+      border: none;
+      background: none;
+      padding: 0;
+      backdrop-filter: none;
     }
 
     .split-headline {
-      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.5;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -.01em;
+      text-shadow: 0 2px 16px rgba(0,0,0,.4);
     }
 
     .split-desc {
@@ -708,22 +704,33 @@
     }
 
     .split-btn {
-      margin-top: 20px;
-      font-size: 12px;
-      font-weight: 600;
+      margin-top: 18px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(12px);
       transition: all 0.4s ease 0.1s;
-      color: var(--accent-soft);
+      color: #fff;
     }
-
+    .split-btn::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      margin-left: 12px;
+      transition: width .4s ease .2s;
+    }
     .split-panel:hover .split-btn {
       opacity: 1;
       transform: translateY(0);
     }
+    .split-panel:hover .split-btn::after { width: 32px; }
 
     .split-footer {
       text-align: center;
@@ -768,19 +775,25 @@
       .split-panel {
         flex: none !important;
         width: 100%;
-        height: 200px;
+        height: 240px;
         margin-left: 0 !important;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-        padding: 24px 20px;
+        border-radius: 14px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        padding: 20px 18px;
       }
       .split-panel:last-child { margin-right: 0; }
       .split-panel:not(:last-child) { border-right: none; }
       .split-panel:hover { flex: none; }
+      .split-brand { font-size: 8px; margin-bottom: 7px; }
+      .split-headline { font-size: 20px; line-height: 1.3; }
+      .split-desc { max-height: 60px !important; opacity: 1 !important; margin-top: 8px !important; font-size: 11px; }
+      .split-btn { opacity: 1 !important; transform: none !important; margin-top: 12px; font-size: 9px; }
+      .split-btn::after { width: 20px !important; }
       .split-desc { max-height: unset; opacity: 1; margin-top: 8px; }
       .split-btn { opacity: 1; transform: translateY(0); margin-top: 10px; }
       .split-title { font-size: 20px; }
-      .split-num { font-size: 11px; }
+      .split-num { display: none; }
+    .split-num-hidden { font-size: 11px; }
       .split-headline { font-size: 16px; }
       .sakura-float { display: none; }
     }
@@ -837,24 +850,18 @@
     }
 
     .featured-carousel {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 10px 0 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 10px 24px 24px;
       max-width: 1200px;
       margin: 0 auto;
-      -webkit-overflow-scrolling: touch;
     }
 
-    .featured-carousel::-webkit-scrollbar { height: 4px; }
-    .featured-carousel::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
-    .featured-carousel::-webkit-scrollbar-thumb { background: var(--accent); }
+    .featured-carousel::-webkit-scrollbar { display: none; }
 
     .featured-card {
-      flex: 0 0 280px;
-      height: 360px;
-      scroll-snap-align: start;
+      height: 380px;
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
@@ -862,8 +869,8 @@
       position: relative;
     }
 
-    .featured-card:first-child { margin-left: 24px; }
-    .featured-card:last-child { margin-right: 24px; }
+    .featured-card:first-child { margin-left: 0; }
+    .featured-card:last-child { margin-right: 0; }
 
     .featured-card:hover {
       transform: translateY(-6px) scale(1.02);
@@ -884,7 +891,7 @@
     .featured-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,.95) 0%, rgba(0,0,0,.65) 35%, rgba(0,0,0,.1) 65%, transparent 100%);
     }
 
     .featured-card-inner {
@@ -902,36 +909,48 @@
     }
 
         .featured-card-title {
-      font-family: 'Noto Sans TC', 'Noto Serif JP', serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      margin-bottom: 8px;
     }
 
     .featured-card-copy {
       font-size: 12px;
       line-height: 1.7;
-      opacity: 0.9;
-      margin-bottom: 16px;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 18px;
     }
 
     .featured-card-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 600;
+      gap: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
       color: #fff;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      padding: 10px 16px;
-      border-radius: 25px;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
       width: fit-content;
       transition: all 0.3s;
+      opacity: .85;
     }
-
-    .featured-card:hover .featured-card-btn { background: var(--accent); }
+    .featured-card-btn::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: #fff;
+      margin-left: 10px;
+      transition: width .35s ease;
+    }
+    .featured-card:hover .featured-card-btn { opacity: 1; }
+    .featured-card:hover .featured-card-btn::after { width: 36px; }
 
     .scroll-hint {
       display: flex;
@@ -954,23 +973,28 @@
       .featured-section { padding: 40px 0 30px; }
       .featured-header { padding: 0 16px; }
       .featured-carousel {
-        display: grid !important;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         padding: 0 16px;
-        overflow-x: unset;
       }
       .featured-card {
         flex: none !important;
         width: 100% !important;
-        height: 180px;
+        height: 200px;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        border-radius: 10px;
+        border-radius: 12px;
       }
       .featured-card:first-child { margin-left: 0; }
       .featured-card:last-child { margin-right: 0; }
-      .featured-card-title { font-size: 13px; }
+      .featured-card-overlay {
+        background: linear-gradient(to top, rgba(0,0,0,.98) 0%, rgba(0,0,0,.7) 40%, rgba(0,0,0,.2) 75%, transparent 100%) !important;
+      }
+      .featured-card-title { font-size: 15px; font-weight: 700; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+      .featured-card-copy { font-size: 11px; color: rgba(255,255,255,.85) !important; }
+      .featured-card-btn { opacity: 1 !important; font-size: 9px; }
+      .featured-card-btn::after { width: 14px !important; }
+      .featured-card-inner { padding: 14px; }
       .featured-card-copy { font-size: 11px; }
       .scroll-hint { display: none; }
     }
@@ -1182,13 +1206,34 @@
 
     
 
-    .che-name { font-size: 13px; font-weight: 700; color: var(--ink); }
-
-    .che-comment-box {
-      background: var(--accent-soft);
-      padding: 14px;
-      border-radius: 0 12px 12px 12px;
-      border-left: 3px solid var(--accent);
+    .che-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .che-face {
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2.5px solid #fff;
+      box-shadow: 0 3px 12px rgba(0,0,0,.12);
+    }
+    .che-header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .che-name { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .che-title { font-size: 11px; color: var(--ink3); letter-spacing: .05em; }
+    .che-section .che-text {
+      font-size: 13.5px;
+      color: var(--ink2);
+      line-height: 1.85;
+      font-style: normal;
+      white-space: pre-line;
     }
 
     .che-text {
@@ -1344,15 +1389,15 @@
 
         .sakura-hero {
       position: relative;
-      background: linear-gradient(160deg, #FFF7F8 0%, #FFEFF3 50%, #FFF5F0 100%);
-      min-height: 480px;
+      background: linear-gradient(160deg, #F5FBF8 0%, #F0F8F4 40%, #FAFAF5 70%, #FFF9F0 100%);
+      min-height: 360px;
       overflow: visible;
       z-index: 1;
     }
     .sakura-hero-inner::before {
       content: ''; position: absolute; top: -60px; right: -60px;
       width: 240px; height: 240px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,96,122,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(80,160,100,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1385,13 +1430,13 @@
     .sakura-speech {
       pointer-events: auto;
       background: #fff;
-      border: 1px solid rgba(212,96,122,0.15);
+      border: 1px solid rgba(80,160,100,0.18);
       border-radius: 14px;
       padding: 10px 14px;
       font-size: 13px; line-height: 1.6;
       color: #2d2926;
       max-width: 220px;
-      box-shadow: 0 2px 12px rgba(212,96,122,0.08);
+      box-shadow: 0 2px 12px rgba(80,160,100,0.10);
       position: relative;
       z-index: 10;
       margin-bottom: 0;
@@ -1409,7 +1454,7 @@
       filter: drop-shadow(0 1px 1px rgba(212,96,122,0.1));
     }
     .sakura-speech-name {
-      font-size: 10px; color: #C85070; font-weight: 700; margin-bottom: 3px;
+      font-size: 10px; color: #4a9a6a; font-weight: 700; margin-bottom: 3px;
     }
     .sakura-hero-cutout {
       width: 100%;
@@ -1440,7 +1485,7 @@
       display: inline-block;
       font-size: 10px; letter-spacing: 0.15em;
       padding: 5px 14px;
-      background: #C85070; color: #fff;
+      background: linear-gradient(135deg, #4a9a6a, #6ab88a); color: #fff;
       border-radius: 999px;
       margin-bottom: 14px;
     }
@@ -1464,7 +1509,7 @@
     }
     .sakura-hero h2 em {
       font-style: normal;
-      background: linear-gradient(transparent 55%, rgba(212,96,122,0.25) 55%);
+      background: linear-gradient(transparent 55%, rgba(255,200,50,0.3) 55%);
     }
     .sakura-hero-quote {
       font-size: 13.5px; line-height: 1.85;
@@ -1475,10 +1520,10 @@
     /* Date Picker */
     .sakura-hero-picker {
       background: #fff;
-      border: 1px solid rgba(212,96,122,0.12);
+      border: 1px solid rgba(80,160,100,0.15);
       border-radius: 16px;
       padding: 18px 20px;
-      box-shadow: 0 4px 20px rgba(212,96,122,0.06);
+      box-shadow: 0 4px 20px rgba(80,160,100,0.08);
     }
     .sakura-hero-picker-title {
       font-size: 14px; font-weight: 700; color: #2d2926; margin: 0 0 3px;
@@ -1498,14 +1543,14 @@
       width: 128px; padding: 8px 10px; border: none; border-radius: 999px;
       font-size: 13px; background: transparent; color: #2d2926;
     }
-    .sakura-date-input:focus { outline: 2px solid #FFB7C5; background: #fff; }
+    .sakura-date-input:focus { outline: 2px solid #80c8a0; background: #fff; }
     .sakura-date-label { font-size: 11px; color: #9a918a; }
     .sakura-date-btn {
       padding: 10px 22px; font-size: 13px; font-weight: 700;
       border: none; border-radius: 999px;
-      background: linear-gradient(135deg, #C85070, #D4607A); color: #fff;
+      background: linear-gradient(135deg, #4a9a6a, #3a8a5a); color: #fff;
       cursor: pointer; transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(200,80,112,0.3);
+      box-shadow: 0 2px 8px rgba(60,140,90,0.3);
     }
     .sakura-date-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(200,80,112,0.4); }
     .sakura-date-retry {
@@ -1515,8 +1560,8 @@
     .sakura-date-retry-btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 10px 20px; font-size: 13px; font-weight: 600;
-      border: 1.5px solid #C85070; border-radius: 999px;
-      background: #fff; color: #C85070;
+      border: 1.5px solid #4a9a6a; border-radius: 999px;
+      background: #fff; color: #4a9a6a;
       cursor: pointer; transition: all 0.2s;
     }
     .sakura-date-retry-btn:hover { background: #FFF0F3; }
@@ -1555,7 +1600,7 @@
     .sakura-result-inline {
       display: none; margin-top: 14px;
       background: #fff;
-      border: 1px solid rgba(212,96,122,0.15);
+      border: 1px solid rgba(80,160,100,0.18);
       border-radius: 14px;
       padding: 16px;
       animation: skFadeIn 0.35s ease-out;
@@ -1572,7 +1617,7 @@
     .sk-result-badge {
       font-size: 9px; letter-spacing: 0.06em;
       padding: 2px 8px; border-radius: 999px;
-      background: #C85070; color: #fff; font-weight: 700;
+      background: linear-gradient(135deg, #4a9a6a, #6ab88a); color: #fff; font-weight: 700;
     }
     .sk-result-status {
       font-size: 12px; color: #6b635d; margin-bottom: 12px;
@@ -1670,7 +1715,7 @@
       font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
       color: #C85070; margin-bottom: 8px;
     }
-    .sakura-section-title {
+    .spring-section-title, .sakura-section-title {
       font-family: 'Noto Sans TC', serif;
       font-size: 20px; font-weight: 700; color: #2d2926; margin: 0 0 24px;
     }
@@ -1692,7 +1737,7 @@
     .sakura-stage-num {
       position: absolute; top: 8px; left: 8px;
       width: 24px; height: 24px; border-radius: 50%;
-      background: #C85070; color: #fff;
+      background: linear-gradient(135deg, #4a9a6a, #6ab88a); color: #fff;
       font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
     }
@@ -1902,7 +1947,7 @@
     }
     .sg-tax-how-step-num {
       width: 22px; height: 22px; border-radius: 50%;
-      background: #C85070; color: #fff;
+      background: linear-gradient(135deg, #4a9a6a, #6ab88a); color: #fff;
       font-size: 11px; font-weight: 700;
       display: inline-flex; align-items: center; justify-content: center;
       margin-bottom: 4px;
@@ -2482,23 +2527,34 @@
     }
 
     .tei-voice-head img {
-      width: 52px;
-      height: 52px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 15%;
-      border: 2px solid var(--accent-soft);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-position: center 10%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,.14);
+      flex-shrink: 0;
     }
 
     .tei-voice-meta { flex: 1; }
-    .tei-voice-name { font-size: 14px; font-weight: 700; color: var(--ink); }
-    .tei-voice-title { font-size: 11px; color: var(--ink-muted); }
+    .tei-voice-name { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .tei-voice-title { font-size: 11px; color: var(--ink3); margin-top: 3px; letter-spacing: .04em; }
 
     .tei-voice-text {
-      font-size: 13px;
-      color: var(--ink-light);
-      line-height: 1.8;
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+    .tip-disclaimer {
+      display: block;
+      font-size: 11px;
+      color: var(--ink3);
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      line-height: 1.6;
     }
 
     .tei-voice-text strong { color: var(--accent); }
@@ -3554,23 +3610,26 @@
     @media(max-width:1000px){ .c1{ flex:0 0 calc(50% - 10px); width:calc(50% - 10px); } .c2{ flex:0 0 100%; width:100%; } }
     @media(max-width:580px){ .c1,.c2{ flex:0 0 100%; width:100%; } }
     /* 카드 */
-    .card { background:#FFFBFC; border-radius:var(--r); overflow:hidden; border:1px solid var(--line); cursor:pointer; box-shadow:0 2px 14px rgba(0,0,0,.05); transition:transform .3s,box-shadow .3s,border-color .3s; display:flex; flex-direction:column; height:100%; }
+    .card { background:#FFFBFC; border-radius:var(--r); overflow:hidden; border:1px solid var(--line); cursor:pointer; box-shadow:0 2px 14px rgba(0,0,0,.05); transition:transform .3s,box-shadow .3s,border-color .3s; display:flex; flex-direction:column; height:100%; position:relative; }
     .card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(200,80,100,.14); border-color:rgba(200,80,100,.2); }
     /* 이미지 영역 */
-    .ci { aspect-ratio:4/3; overflow:hidden; background:var(--warm2); position:relative; flex-shrink:0; }
-    .ci img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .55s; }
+    .ci { aspect-ratio:4/3; overflow:hidden; background:#f8f6f4; position:relative; flex-shrink:0; }
+    .ci img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .55s; }
+    .ci img.img-fill { object-fit:cover; }
+    .ci img.img-blend { mix-blend-mode: multiply; }
     .card:hover .ci img { transform:scale(1.05); }
     .ci::after { content:''; position:absolute; bottom:0; left:0; right:0; height:70px; background:linear-gradient(to top,rgba(0,0,0,.45),transparent); z-index:1; pointer-events:none; }
     .ci-empty { aspect-ratio:3/2; background:var(--warm2); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; flex-shrink:0; position:relative; overflow:hidden; }
     .ci-empty i { font-size:26px; color:rgba(26,22,20,.12); }
     .ci-empty span { font-size:10px; color:var(--ink3); letter-spacing:.15em; }
     /* 가로 카드 */
-    .card-h { flex-direction:row !important; align-items:stretch; }
-    .card-h .ci-h { width:200px; flex:0 0 200px; overflow:hidden; border-radius:var(--r) 0 0 var(--r); position:relative; background:var(--warm2); display:flex; flex-direction:column; }
-    .card-h .ci-h img { width:100%; height:200px; flex-shrink:0; object-fit:contain; padding:14px 10px; display:block; transition:transform .55s; }
+    .card-h { flex-direction:row !important; align-items:flex-start; }
+    .card-h .ci-h { width:260px; flex:0 0 260px; overflow:hidden; border-radius:var(--r) 0 0 var(--r); position:relative; background:var(--warm2); display:flex; flex-direction:column; }
+    .card-h .ci-h img { width:100%; height:240px; flex-shrink:0; object-fit:contain; padding:14px 10px; display:block; transition:transform .55s; }
     .card-h:hover .ci-h img { transform:scale(1.05); }
     .card-h .cb { flex:1; min-width:0; display:flex; flex-direction:column; padding:18px 20px 14px; }
-    @media(max-width:680px){ .card-h{ flex-direction:column !important; } .card-h .ci-h{ width:100%; flex:none; border-radius:var(--r) var(--r) 0 0; aspect-ratio:3/2; } }
+    @media(max-width:680px){ .card-h{ flex-direction:column !important; } .card-h .ci-h{ width:100% !important; flex:none; border-radius:var(--r) var(--r) 0 0; aspect-ratio:4/3; } .card-h .ci-h img { height:100% !important; } .card-h .cpill { top:auto !important; bottom:10px !important; } }
+    .card-h .cpill { top: calc(240px - 38px); bottom: auto; }
     /* 오버레이 요소 */
     .c-cat { position:absolute; top:10px; left:10px; z-index:2; background:rgba(255,255,255,.93); backdrop-filter:blur(6px); font-size:10px; font-weight:700; color:var(--ink2); padding:3px 9px; border-radius:14px; }
     .cpill { position:absolute; bottom:10px; right:10px; z-index:2; background:rgba(20,16,14,.82); backdrop-filter:blur(6px); border-radius:14px; padding:4px 11px; display:flex; align-items:baseline; gap:3px; }
@@ -3578,8 +3637,15 @@
     .cpill-s { font-size:9px; color:rgba(255,255,255,.55); }
     /* 카드 바디 */
     .cb { padding:18px 20px 0; flex:1; display:flex; flex-direction:column; gap:7px; }
-    .c-brand { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); }
+    .c-brand { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); display:flex; align-items:center; justify-content:space-between; gap:6px; }
+    .c-type-tag { font-size:9px; font-weight:700; letter-spacing:.04em; text-transform:none; color:var(--ink3); background:var(--warm2); padding:2px 7px; border-radius:4px; flex-shrink:0; margin-left:auto; }
     .c-name  { font-family:'Noto Serif TC',serif; font-size:15px; font-weight:700; line-height:1.4; color:var(--ink); }
+    .c-type-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      color: var(--ink3); background: var(--warm2);
+      padding: 2px 8px; border-radius: 4px;
+      letter-spacing: .05em; margin-bottom: 4px;
+    }
     @media(min-width:1000px){ .c-name { font-size:16px; } }
     .c-jp    { display:block; font-size:10px; color:var(--ink3); font-weight:400; margin-top:1px; }
     .c-mprice { background:var(--warm2); border-radius:8px; padding:8px 11px; display:flex; flex-direction:column; gap:4px; }
@@ -3639,6 +3705,7 @@
         overflow: hidden;
         cursor: pointer;
         height: auto;
+        position: relative;
       }
 
       /* 썸네일 — 왼쪽 고정, 높이 통일 */
@@ -3648,7 +3715,8 @@
         border-radius: 14px 0 0 14px;
         overflow: hidden; flex-shrink: 0;
       }
-      .card .ci img { object-fit: cover; width: 100%; height: 100%; }
+      .card .ci img { object-fit: contain; width: 100%; height: 100%; }
+      .card .ci img.img-fill { object-fit: cover; }
       .card .ci::after { display: none; }
       .card .ci-empty {
         grid-column: 1; grid-row: 1 / 3;
@@ -3671,7 +3739,7 @@
         border-radius: 14px 0 0 14px !important; overflow: hidden;
         flex: unset !important;
       }
-      .card.card-h .ci-h img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .card.card-h .ci-h img { width: 100%; height: 100%; object-fit: contain; padding: 8px; box-sizing: border-box; display: block; }
       .card.card-h .ci-drug { display: none; }
       .card.card-h .cb { grid-column: 2; grid-row: 1; }
       .card.card-h .cf { grid-column: 2; grid-row: 2; }
@@ -3688,7 +3756,7 @@
       .card .cf {
         grid-column: 2; grid-row: 2;
         display: flex !important;
-        padding: 0 10px 10px; align-items: center;
+        padding: 0 10px 10px; align-items: center; gap: 6px;
       }
       .card .cf .koc { display: none; }
       .card .cf .c-btn {
@@ -3699,6 +3767,12 @@
         display: flex; justify-content: center; align-items: center;
         cursor: pointer; gap: 4px; letter-spacing: 0.03em;
       }
+      /* 모바일 column-preview: cf 안에서 작은 pill */
+      .card .column-preview {
+        display: none !important;
+      }
+      /* column-preview가 cb 안에 있을 때는 숨기고 cf 안에 표시 */
+      .card .cb .column-preview { display: none !important; }
 
       /* 숨길 요소 */
       .card .c-jp { display: none; }
@@ -3746,7 +3820,23 @@
       }
 
       /* 카테고리 태그 */
-      .card .c-cat { font-size: 9px; padding: 2px 6px; }
+      .card .c-cat { display: none !important; }
+
+      /* 모바일: 하트 버튼 → ci 이미지 우상단 */
+      .card .ci .btn-like-float,
+      .card .ci-h .btn-like-float {
+        display: flex !important;
+        position: absolute !important;
+        top: 6px !important;
+        right: 6px !important;
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 12px !important;
+        background: rgba(255,255,255,.92) !important;
+        border: 1.5px solid rgba(212,112,122,.35) !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,.12) !important;
+        z-index: 10 !important;
+      }
     }
 
     /* PC: expand-toggle 숨김 */
@@ -3782,7 +3872,7 @@
       top: -4px; left: 6px;
       pointer-events: none;
     }
-        .che-face       { display: none; }
+        .card .che-face { display: none; }
     
     .che-meta {
       display: flex;
@@ -3796,12 +3886,140 @@
     }
     
     .che-text {
-      font-size: 11.5px;
-      color: var(--ink2);
+      font-size: 12.5px;
+      color: var(--ink);
       line-height: 1.8;
       margin: 0;
       font-style: italic;
     }
+
+    /* ===== basic plan 카드 전용 레이아웃 ===== */
+    .bcard-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .bcard-comment {
+      background: #fff8f9;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      position: relative;
+    }
+    .bcard-comment::before {
+      content: '\201C';
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: .12;
+      position: absolute;
+      top: -6px; left: 6px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .bcard-comment-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .bcard-comment p {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.85;
+      margin: 0 0 8px;
+    }
+    .bcard-comment p:last-child { margin-bottom: 0; }
+
+    .bcard-info {
+      background: var(--warm2);
+      border-radius: 8px;
+      padding: 10px 13px;
+    }
+    .bcard-info-row {
+      display: flex;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      align-items: flex-start;
+    }
+    .bcard-info-row:last-of-type { border-bottom: none; }
+    .bcard-info-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 48px;
+    }
+    .bcard-info-val {
+      font-size: 12.5px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .bcard-disclaimer {
+      font-size: 10px;
+      color: var(--ink3);
+      margin: 6px 0 0;
+      line-height: 1.5;
+    }
+
+    .bcard-voices {
+      margin-top: 2px;
+    }
+    .bcard-voices-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink3);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .bcard-voice-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .bcard-voice-item:last-child { border-bottom: none; }
+    .bcard-voice-text { flex: 1; }
+    .bcard-voice-nm {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-right: 6px;
+    }
+    .bcard-voice-attr {
+      font-size: 11px;
+      color: var(--ink3);
+    }
+    .bcard-voice-text p {
+      font-size: 12.5px;
+      color: var(--ink2);
+      line-height: 1.7;
+      margin: 4px 0 0;
+    }
+
+    .bcard-official-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(200,80,100,.25);
+      padding: 5px 13px;
+      border-radius: 20px;
+      transition: all .2s;
+    }
+    .bcard-official-link:hover {
+      background: var(--accent-soft);
+    }
+    .bcard-official-link i { font-size: 10px; }
 
         /* KOC 미리보기 — vp-section */
     .vp-section { display: block; }
@@ -3832,18 +4050,19 @@
     /* ci-h 패널 하단 약품정보 */
     .ci-drug {
       flex: 1;
-      background: rgba(0,0,0,.04);
-      border-top: 1px solid rgba(0,0,0,.06);
-      padding: 8px 10px;
-      font-size: 9.5px;
-      color: var(--ink3);
-      line-height: 1.7;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 10px 12px;
+      font-size: 11.5px;
+      color: var(--ink);
+      line-height: 1.8;
     }
-    .ci-drug p { margin: 0; }
+    .ci-drug p { margin: 0 0 3px; }
     .ci-drug .ci-drug-disclaimer {
-      font-size: 8.5px;
-      opacity: .7;
-      margin-top: 2px;
+      font-size: 10px;
+      color: var(--ink3);
+      opacity: .85;
+      margin-top: 4px;
     }
 
     /* 약품 정보 블록 */
@@ -4050,7 +4269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             查看2026年春季推薦
             <i class="fas fa-shopping-bag"></i>
           </button>
-          <p class="hero-cta-sub">本季嚴選 <strong>6款</strong> 必買好物</p>
+          <p class="hero-cta-sub">嚴選 <strong>10大品牌 · 13款</strong> 必買好物</p>
         </div>
       </div>
       <div class="hero-visual-area">
@@ -4105,11 +4324,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Split Banner -->
   <section class="split-banner-section">
-    <span class="sakura-float left">❀</span>
-    <span class="sakura-float right">❀</span>
-
     <div class="split-header">
-      <span class="split-eyebrow">Special Feature 2026 Spring</span>
+      <span class="split-eyebrow">嚴選推薦 2026 春季</span>
       <h2 class="split-title">鄭老師嚴選推薦<br>3款必買家庭藥妝</h2>
       <p class="split-subtitle">
         14年藥妝研究，嚴選推薦。附詳細解說專欄＋體驗者評價。
@@ -4117,11 +4333,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="split-container">
-      <div class="split-panel" onclick="scrollToProduct(4)">
-        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-aceprox-man-holding-two.jpg" class="split-bg" alt="パブロン">
+      <div class="split-panel split-panel-pabron" onclick="scrollToProduct(4)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-aceprox-man-holding-two.jpg" class="split-bg split-bg-pabron" alt="パブロン" style="top:-18%;height:118%;object-position:center center;">
         <div class="split-logo"><span class="split-logo-text">大正製藥</span></div>
         <div class="split-content">
-          <span class="split-num">01</span>
           <span class="split-brand">パブロン 綜合感冒藥</span>
           <h3 class="split-headline">ゴールドA ／ エースPro-X<br>日本國民感冒藥。</h3>
           <p class="split-desc">近百年長銷品牌。針對咳嗽、喉痛、鼻塞等症狀設計，台日人氣家庭常備藥。</p>
@@ -4133,7 +4348,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg" class="split-bg" alt="健榮製藥氧化鎂E便秘藥">
         <div class="split-logo"><span class="split-logo-text">健榮製藥</span></div>
         <div class="split-content">
-          <span class="split-num">02</span>
           <span class="split-brand">氧化鎂Ｅ便秘藥</span>
           <h3 class="split-headline">非刺激性。<br>日本便秘藥新話題。</h3>
           <p class="split-desc">國產氧化鎂，滲透壓機制軟化糞便，較不易引發腹痛與依賴性。微甜檸檬風味。</p>
@@ -4145,7 +4359,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg" class="split-bg" alt="eclore美白牙齒系列">
         <div class="split-logo"><span class="split-logo-text">eclore</span></div>
         <div class="split-content">
-          <span class="split-num">03</span>
           <span class="split-brand">蛋殼生物磷灰石美白系列</span>
           <h3 class="split-headline">牙膏 ／ 潔牙粉。<br>自然系亮白護理。</h3>
           <p class="split-desc">奈米級3D蛋殼生物磷灰石，日常刷牙兼顧清潔與口腔保養。兩款各¥1,595。</p>
@@ -4162,7 +4375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Featured Carousel -->
   <section class="featured-section">
     <div class="featured-header">
-      <span class="featured-eyebrow">Trending Now 2026 Spring</span>
+      <span class="featured-eyebrow">話題嚴選 2026 春季</span>
       <h2 class="featured-title">話題嚴選商品</h2>
       <p class="featured-subtitle">附解說專欄＋體驗者評價的推薦商品。</p>
     </div>
@@ -4190,27 +4403,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </article>
 
       <!-- ⚠️ 第一三共 2종 - 고료 확답 후 교체 예정 -->
-      <article class="featured-card featured-card-coming">
+      <article class="featured-card" onclick="openDetailModal(31)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/04Traful-Tablets-A-scaled.jpg" alt="TRAFUL口內炎貼片a" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <h3 class="featured-card-title">第一三共<br>準備中</h3>
-          <p class="featured-card-copy">Coming Soon</p>
+          <h3 class="featured-card-title">TRAFUL<br>口內炎貼片a</h3>
+          <p class="featured-card-copy">極薄0.16mm自然溶解<br>第一三共口內炎貼片</p>
+          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
         </div>
       </article>
 
-      <article class="featured-card featured-card-coming">
+      <article class="featured-card" onclick="openDetailModal(30)">
+        <img loading="lazy" decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/04-pelack-T-scaled.jpg" alt="PELACK-T喉嚨消炎錠a" class="featured-card-bg">
         <div class="featured-card-overlay"></div>
         <div class="featured-card-inner">
-          <h3 class="featured-card-title">第一三共<br>準備中</h3>
-          <p class="featured-card-copy">Coming Soon</p>
+          <h3 class="featured-card-title">PELACK-T<br>喉嚨消炎錠a</h3>
+          <p class="featured-card-copy">傳明酸高劑量配方<br>喉嚨紅腫痛精準對症</p>
+          <span class="featured-card-btn">查看詳情 <i class="fas fa-chevron-down"></i></span>
         </div>
       </article>
     </div>
 
-    <div class="scroll-hint">
-      <span>滑動查看更多</span>
-      <i class="fas fa-arrow-right"></i>
-    </div>
+
   </section>
 
   <!-- Section Transition -->
@@ -4247,9 +4461,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- パブロンゴールドA (id:4) -->
     <div class="c1"><div class="card" data-id="4" onclick="handleCardClick(4,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-official-product.jpg" alt="パブロンゴールドA"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥2,057</span><span class="cpill-s">130錠〜</span></div></div>
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-golda-1.png" class="img-blend" alt="パブロンゴールドA"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥2,057</span><span class="cpill-s">130錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(4,event)">
-        <div class="c-brand">大正製藥</div>
+        <div class="c-brand">大正製藥<span class="c-type-tag">感冒藥</span></div>
         <div class="c-name">百保能 綜合感冒藥<span class="c-jp">パブロンゴールドA</span></div>
         <div class="c-hook"><i class="fas fa-shield-halved hic"></i><span class="htx">乙醯胺酚配方。多症狀全效型，全家皆可使用。</span></div>
         <div class="c-chips"><span class="chip">乙醯胺酚</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">全家可用</span></div>
@@ -4289,9 +4503,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- パブロンエースPro-X (id:5) -->
     <div class="c1"><div class="card" data-id="5" onclick="handleCardClick(5,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-official-product.jpg" alt="パブロンエースProX"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥1,518</span><span class="cpill-s">18錠〜</span></div></div>
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-1.png" class="img-blend" alt="パブロンエースProX"><span class="c-cat">感冒藥</span><div class="cpill"><span class="cpill-n">¥1,518</span><span class="cpill-s">18錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(5,event)">
-        <div class="c-brand">大正製藥</div>
+        <div class="c-brand">大正製藥<span class="c-type-tag">感冒錠</span></div>
         <div class="c-name">百保能 強效感冒錠<span class="c-jp">パブロンエースPro-X</span></div>
         <div class="c-hook"><i class="fas fa-bolt hic"></i><span class="htx">布洛芬配方升級版。症狀明顯・發燒時的強效選擇。</span></div>
         <div class="c-chips"><span class="chip">布洛芬</span><span class="chip">15歲以上</span><span class="chip">錠劑 ／ 微粒</span></div>
@@ -4321,7 +4535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="vp-text">只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。</p>
         </div>
       </div>
-      <<a href="https://www.japankuru.com/tw/shopping/264144/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「百保能GOLD A・Pro-X」徹底評測！</span><span class="column-preview-arrow">›</span></a>
+      <a href="https://www.japankuru.com/tw/shopping/264144/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「百保能GOLD A・Pro-X」徹底評測！</span><span class="column-preview-arrow">›</span></a>
       </div>
       <div class="cf">
         <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">I</div><div class="kav" style="background:#3F51B5">K</div><div class="kav" style="background:#009688">N</div><span class="kn">10則</span></div>
@@ -4331,9 +4545,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- トラフルダイレクトa (id:31) -->
     <div class="c1"><div class="card" data-id="31" onclick="handleCardClick(31,event)">
-      <div class="ci has-video"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/traful-mouth-patch-direct-a.jpg" alt="TRAFUL口內炎貼片a"><span class="c-cat">口腔護理</span><div class="cpill"><span class="cpill-n">¥748</span><span class="cpill-s">10片</span></div></div>
+      <div class="ci has-video"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/TRAFUL.jpg" alt="TRAFUL口內炎貼片a"><span class="c-cat">口腔護理</span><div class="cpill"><span class="cpill-n">¥748</span><span class="cpill-s">10片</span></div></div>
       <div class="cb" onclick="handleCardClick(31,event)">
-        <div class="c-brand">第一三共</div>
+        <div class="c-brand">第一三共<span class="c-type-tag">口內炎</span></div>
         <div class="c-name">TRAFUL口內炎貼片a<span class="c-jp">トラフルダイレクトa</span></div>
         <div class="c-hook"><i class="fas fa-comment-medical hic"></i><span class="htx">0.16mm極薄。貼附患部30～60分自然溶解。</span></div>
         <div class="c-chips"><span class="chip">口腔潰瘍</span><span class="chip">貼附型</span><span class="chip">5歲以上OK</span></div>
@@ -4356,9 +4570,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- ペラックT錠a (id:30) -->
     <div class="c1"><div class="card" data-id="30" onclick="handleCardClick(30,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pelack-t-throat-tablet.jpg" alt="PELACK-T喉嚨消炎錠a"><span class="c-cat">喉嚨護理</span><div class="cpill"><span class="cpill-n">¥1,430</span><span class="cpill-s">18錠〜</span></div></div>
+      <div class="ci has-video"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pelack-T3.png" alt="PELACK-T喉嚨消炎錠a"><span class="c-cat">喉嚨護理</span><div class="cpill"><span class="cpill-n">¥1,430</span><span class="cpill-s">18錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(30,event)">
-        <div class="c-brand">第一三共</div>
+        <div class="c-brand">第一三共<span class="c-type-tag">消炎錠</span></div>
         <div class="c-name">PELACK-T喉嚨消炎錠a<span class="c-jp">ペラックT錠a</span></div>
         <div class="c-hook"><i class="fas fa-lungs hic"></i><span class="htx">傳明酸高劑量配方。喉嚨紅腫痛精準對症。</span></div>
         <div class="c-chips"><span class="chip">傳明酸</span><span class="chip">7歲以上OK</span><span class="chip">第3類医薬品</span></div>
@@ -4381,9 +4595,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- ロキソニンEXテープ (id:32) -->
     <div class="c1"><div class="card" data-id="32" onclick="handleCardClick(32,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/loxonin-ex-tape-patch.jpg" alt="LOXONIN樂松EX貼布"><span class="c-cat">痠痛貼布</span><div class="cpill"><span class="cpill-n">¥1,408</span><span class="cpill-s">7片〜</span></div></div>
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/loxonin.webp" alt="LOXONIN樂松EX貼布" class="img-blend"><span class="c-cat">痠痛貼布</span><div class="cpill"><span class="cpill-n">¥1,408</span><span class="cpill-s">7片〜</span></div></div>
       <div class="cb" onclick="handleCardClick(32,event)">
-        <div class="c-brand">第一三共</div>
+        <div class="c-brand">第一三共<span class="c-type-tag">止痛貼布</span></div>
         <div class="c-name">LOXONIN樂松EX貼布<span class="c-jp">ロキソニンEXテープ</span></div>
         <div class="c-hook"><i class="fas fa-bandage hic"></i><span class="htx">洛索洛芬鈉8.1%最高濃度。輕薄服貼不易脫落。</span></div>
         <div class="c-chips"><span class="chip">洛索洛芬鈉</span><span class="chip">貼布型</span><span class="chip">第2類医薬品</span></div>
@@ -4407,9 +4621,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 팁 c1 -->
     <div class="c1" style="align-self:stretch;">
       <div class="tip-c1">
-        <span class="tip-c1-tag">🌸 春日旅遊提醒</span>
+        <span class="tip-c1-tag">🌿 春季旅遊提醒</span>
         <div class="tip-c1-title">花粉症季節，出發前必備！</div>
-        <p class="tip-c1-text">春天是花粉高峰期。對花粉敏感的旅人建議備好抗組織胺與眼藥水。<br><br>感冒藥選法：有發燒選エースPro-X，一般咳嗽選ゴールドA。</p>
+        <p class="tip-c1-text">春季是花粉高峰期。對花粉敏感的旅人建議備好抗組織胺與眼藥水。<br><br>感冒藥選法：有發燒選エースPro-X，一般咳嗽選ゴールドA。</p>
       </div>
     </div>
 
@@ -4427,7 +4641,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="c1"><div class="card" data-id="20" onclick="handleCardClick(20,event)">
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/kenei-product-detail-1-2048x1536.jpg" alt="酸化マグネシウム"><span class="c-cat">便秘藥</span><div class="cpill"><span class="cpill-n">¥680</span><span class="cpill-s">40錠〜</span></div></div>
       <div class="cb" onclick="handleCardClick(20,event)">
-        <div class="c-brand">健榮製藥</div>
+        <div class="c-brand">健榮製藥<span class="c-type-tag">便秘藥</span></div>
         <div class="c-name">健榮氧化鎂Ｅ便秘藥<span class="c-jp">酸化マグネシウムE便秘薬</span></div>
         <div class="c-hook"><i class="fas fa-leaf hic"></i><span class="htx">非刺激性。較不易引發腹痛與依賴性，溫和有效。</span></div>
         <div class="c-chips"><span class="chip">國產氧化鎂</span><span class="chip">微甜檸檬風味</span></div>
@@ -4443,7 +4657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#E91E63">W</div><span class="vp-nm">Wei Wei</span><span class="vp-attr">30代・会社員</span></div><p class="vp-text">最近日本開始回溫，出門小旅行的機會變多。我發現他們家出的旅行裝（隨身包）真的是大救星！</p></div>
         <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#9C27B0">新</div><span class="vp-nm">新日一成</span><span class="vp-attr">40代・個人事業主</span></div><p class="vp-text">家裡有個小一的孩子，這種溫和型的產品，家裡備著就很安心。</p></div>
       </div>
-      <<a href="https://www.japankuru.com/tw/shopping/263178/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「健榮製藥 氧化鎂Ｅ便秘藥」徹底評測！</span><span class="column-preview-arrow">›</span></a>
+      <a href="https://www.japankuru.com/tw/shopping/263178/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「健榮製藥 氧化鎂Ｅ便秘藥」徹底評測！</span><span class="column-preview-arrow">›</span></a>
       </div>
       <div class="cf">
         <div class="koc"><div class="kav" style="background:#E91E63">W</div><div class="kav" style="background:#9C27B0">新</div><div class="kav" style="background:#3F51B5">S</div><div class="kav" style="background:#009688">李</div><div class="kav" style="background:#FF5722">優</div><span class="kn">10則</span></div>
@@ -4465,37 +4679,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cb" onclick="handleCardClick(25,event)">
-        <div class="c-brand">大正製藥</div>
+        <div class="c-brand">大正製藥<span class="c-type-tag">漢方胃腸</span></div>
         <div class="c-name">大正胃腸藥K<span class="c-jp">大正胃腸薬K</span></div>
         <div class="c-hook"><i class="fas fa-pills hic"></i><span class="htx">兼顧敏弱胃調理與舒緩緊張胃。日本上班族高人氣胃腸藥。</span></div>
         <div class="c-chips"><span class="chip">5歲以上OK</span><span class="chip">錠劑 ／ 微粒</span><span class="chip">1978年誕生</span></div>
         <div class="che-section">
           <div class="che-meta">
             <div class="che-name-line">― 鄭老師</div>
-            <p class="che-text">日本藥妝店裡陳列的眾多胃腸藥當中，誕生於1978年的大正漢方胃腸藥也是眾多日本人推崇的經典家庭常備藥。獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」，能夠應對消化不良到壓力大引起的胃部不適，不少忙碌的日本上班族的抽屜或包包當中，都可見到這款長銷多年的胃腸藥。</p>
-            <p class="che-text" style="margin-top:6px;">說到「大正胃腸藥K」，則是日本藥妝通才知道的大正漢方胃腸藥「芍薬甘草湯增量版」！同樣是5歲以上就可服用，但「芍藥甘草湯」的添加劑量則是從140毫克增量至170毫克！</p>
+            <p class="che-text">誕生於1978年，獨家結合「安中散」＋「芍藥甘草湯」，應對消化不良到壓力型胃部不適。大正胃腸藥K是芍薬甘草湯增量版（170mg↑），5歲以上可用。詳細內容請點擊「詳情」。</p>
           </div>
         </div>
-
-        
-        <div class="vp-section">
-        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
-        <div class="vp-card">
-          <div class="vp-top">
-            <div class="vp-av" style="background:#E91E63">P</div>
-            <span class="vp-nm">purple</span>
-            <span class="vp-attr">30代・会社員</span>
-          </div>
-          <p class="vp-text">最喜歡的是它的微粒設計，顆粒非常細，小小的很好入口，也很容易溶於水。</p>
-        </div><div class="vp-card">
-          <div class="vp-top">
-            <div class="vp-av" style="background:#9C27B0">S</div>
-            <span class="vp-nm">Sharon Hsieh</span>
-            <span class="vp-attr">20代・会社員</span>
-          </div>
-          <p class="vp-text">最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。</p>
-        </div>
-      </div>
         <div class="cf">
           <div class="koc"><div class="kav" style="background:#E91E63">R</div><div class="kav" style="background:#9C27B0">劉</div><div class="kav" style="background:#3F51B5">P</div><div class="kav" style="background:#009688">S</div><div class="kav" style="background:#FF5722">花</div><span class="kn">5則</span></div>
           <button class="c-btn" onclick="event.stopPropagation();openDetailModal(25)">詳情 <i class="fas fa-arrow-right"></i></button>
@@ -4525,7 +4718,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="c1"><div class="card" data-id="21" onclick="handleCardClick(21,event)">
       <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/eclore-whitening-powder-tube-jars.jpg" alt="eclore"><span class="c-cat">口腔美白</span><div class="cpill"><span class="cpill-n">¥1,595〜</span></div></div>
       <div class="cb" onclick="handleCardClick(21,event)">
-        <div class="c-brand">eclore</div>
+        <div class="c-brand">eclore<span class="c-type-tag">潔牙系列</span></div>
         <div class="c-name">eclore 3D美白潔牙粉・牙膏<span class="c-jp">３Dホワイトニングパウダー・ペースト</span></div>
         <div class="c-mprice">
           <div class="c-mrow"><span class="c-mnm">潔牙粉 <small style="color:var(--ink3);font-size:9px">25g</small></span><span class="c-mpr">¥1,595</span></div>
@@ -4545,7 +4738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#E91E63">S</div><span class="vp-nm">sacuraisho</span><span class="vp-attr">40代・主婦</span></div><p class="vp-text">裡面還添加了「3D蛋殼羥基磷灰石」這個成分，感覺蠻特別的，就想說一定要試試看。</p></div>
         <div class="vp-card"><div class="vp-top"><div class="vp-av" style="background:#9C27B0">C</div><span class="vp-nm">Chiu-wei Liu</span><span class="vp-attr">30代・会社員</span></div><p class="vp-text">在日本各大藥妝店與生活雜貨店（像是 Loft）都是長期熱銷的人氣商品，非常值得入手試試！</p></div>
       </div>
-      <<a href="https://www.japankuru.com/tw/shopping/263339/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「3D蛋殼生物磷灰石潔牙粉・藥用牙膏」徹底評測！</span><span class="column-preview-arrow">›</span></a>
+      <a href="https://www.japankuru.com/tw/shopping/263339/" class="column-preview" target="_blank" onclick="event.stopPropagation()"><span class="column-preview-label">鄭老師專欄</span><span class="column-preview-title">「3D蛋殼生物磷灰石潔牙粉・藥用牙膏」徹底評測！</span><span class="column-preview-arrow">›</span></a>
       </div>
       <div class="cf">
         <div class="koc"><div class="kav" style="background:#E91E63">S</div><div class="kav" style="background:#9C27B0">C</div><div class="kav" style="background:#3F51B5">蔡</div><div class="kav" style="background:#009688">C</div><div class="kav" style="background:#FF5722">L</div><span class="kn">10則</span></div>
@@ -4557,7 +4750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="c1"><div class="card" data-id="26" onclick="handleCardClick(26,event)">
       <div class="ci has-video"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/cure-white-clear-gel-wooden-bucket.jpg" alt="Cure White Clear Gel"><span class="c-cat">美容護理</span><div class="cpill"><span class="cpill-n">¥2,750</span><span class="cpill-s">200g</span></div></div>
       <div class="cb" onclick="handleCardClick(26,event)">
-        <div class="c-brand">Cure</div>
+        <div class="c-brand">Cure<span class="c-type-tag">去角質</span></div>
         <div class="c-name">Cure 角質美白凝膠<span class="c-jp">ホワイトクリアジェル</span></div>
         <div class="c-hook"><i class="fas fa-droplet hic"></i><span class="htx">角質護理×美白雙效。日本熱銷限定角質凝膠。</span></div>
         <div class="c-chips"><span class="chip">角質護理</span><span class="chip">美白成分</span><span class="chip">日本限定</span></div>
@@ -4577,9 +4770,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- トランシーノ (id:33) -->
     <div class="c1"><div class="card" data-id="33" onclick="handleCardClick(33,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/transino-white-c-premium-box.jpg" alt="傳皙諾TRANSINO WHITE C PREMIUM"><span class="c-cat">美白補充品</span><div class="cpill"><span class="cpill-n">¥3,278</span><span class="cpill-s">120錠</span></div></div>
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/05-transino-white-c-premium-package-scaled.jpg" alt="傳皙諾TRANSINO WHITE C PREMIUM"><span class="c-cat">美白補充品</span><div class="cpill"><span class="cpill-n">¥3,278</span><span class="cpill-s">120錠</span></div></div>
       <div class="cb" onclick="handleCardClick(33,event)">
-        <div class="c-brand">第一三共</div>
+        <div class="c-brand">第一三共<span class="c-type-tag">美白錠</span></div>
         <div class="c-name">傳皙諾TRANSINO WHITE C PREMIUM<span class="c-jp">トランシーノWhiteCプレミアム</span></div>
         <div class="c-hook"><i class="fas fa-sun hic"></i><span class="htx">L-半胱胺酸＋維C雙核心。由內輔助淡斑美白。</span></div>
         <div class="c-chips"><span class="chip">L-半胱胺酸</span><span class="chip">維生素C</span><span class="chip">指定医薬部外品</span></div>
@@ -4603,7 +4796,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- オロナイン (id:23) — c2 가로카드 -->
     <div class="c2"><div class="card card-h" data-id="23" onclick="handleCardClick(23,event)">
       <div class="ci-h">
-        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg" alt="オロナイン">
+        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine_group_optimized.png" alt="Oronine H軟膏" class="img-fill">
         <span class="c-cat">外傷用藥</span>
         <div class="cpill"><span class="cpill-n">¥385</span><span class="cpill-s">11g〜</span></div>
         <div class="ci-drug">
@@ -4614,19 +4807,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cb" onclick="handleCardClick(23,event)">
-        <div class="c-brand">大塚製藥 <span class="pr-inline">PR</span></div>
-        <div class="c-name">Oronine H應急軟膏<span class="c-jp">オロナインH軟膏</span></div>
+        <div class="c-brand">大塚製藥 <span class="pr-inline">PR</span><span class="c-type-tag">外傷軟膏</span></div>
+        <div class="c-name">Oronine H軟膏<span class="c-jp">オロナインH軟膏</span></div>
         <div class="c-hook"><i class="fas fa-kit-medical hic"></i><span class="htx">低調卻有記憶點的深棕色外盒。在日長銷73年的家庭常備外傷用藥。</span></div>
         <div class="c-chips"><span class="chip">指定第2類医薬品</span><span class="chip">11g ／ 50g</span></div>
         <div class="che-section">
           <div class="che-meta">
             <div class="che-name-line">― 鄭老師</div>
-            <p class="che-text">身邊有很多日本朋友跟我說，發跡於四國・徳島縣的「Oronine H軟膏」根本就是他們童年回憶的一部分。因為許多人的家中都會常備有這一瓶，只要調皮搗蛋擦傷，或是粗心大意不小心被燙到，甚至是冬天皮膚乾裂時，家人就會拿出這罐軟膏。不過也有11公克和50公克的條裝版本，方便攜帶可以放在包包作為隨身應急藥膏。</p>
-            <p class="che-text" style="margin-top:6px;">「Oronine H軟膏」主要含有葡萄糖酸氯己定溶液（Chlorhexidine Gluconate），這是廣泛用於殺菌、消毒的有效成分。除了可以用於擦傷、刀傷、裂傷、乾裂、以及輕微燙傷等部位之外，亦可依適應症使用於痤瘡與粉刺等皮膚狀況。</p>
+            <p class="che-text">發跡於四國的長銷73年家庭常備藥。主成分葡萄糖酸氯己定溶液，可用於擦傷、燙傷、乾裂，亦可依症使用於痤瘡・粉刺。詳細內容請點擊「詳情」。</p>
           </div>
         </div>
         <div class="cf">
-          <a href="https://www.otsuka.co.jp/ohn/lang_hk/" target="_blank" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--acc);text-decoration:none;border:1px solid rgba(200,80,100,.25);padding:5px 13px;border-radius:20px;"><i class="fas fa-external-link-alt" style="font-size:10px;"></i> 官方網站</a>
+          <a href="https://www.otsuka.co.jp/ohn/lang_hk/" target="_blank" onclick="event.stopPropagation()" class="bcard-official-link"><i class="fas fa-external-link-alt"></i> 官方網站</a>
           <button class="c-btn" onclick="event.stopPropagation();openDetailModal(23)">詳情 <i class="fas fa-arrow-right"></i></button>
         </div>
       </div>
@@ -4653,9 +4845,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- ナイシダウン (id:22) -->
     <div class="c1"><div class="card" data-id="22" onclick="handleCardClick(22,event)">
-      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg" alt="ナイシダウン"><span class="c-cat">健康食品</span><div class="cpill"><span class="cpill-n">¥1,980</span><span class="cpill-s">60粒</span></div></div>
+      <div class="ci"><img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/naishidown-ito-kampo-visceral-fat-supplement.jpg" alt="ナイシダウン" class="img-blend"><span class="c-cat">健康食品</span><div class="cpill"><span class="cpill-n">¥1,980</span><span class="cpill-s">60粒</span></div></div>
       <div class="cb" onclick="handleCardClick(22,event)">
-        <div class="c-brand">井藤漢方製藥</div>
+        <div class="c-brand">井藤漢方製藥<span class="c-type-tag">機能食品</span></div>
         <div class="c-name">NAISHI-DOWN 減脂錠<span class="c-jp">ナイシダウン</span></div>
         <div class="c-hook"><i class="fas fa-fire-flame-curved hic"></i><span class="htx">日本機能性表示食品。輔助減少腹部內臟脂肪。</span></div>
         <div class="c-chips"><span class="chip">黑薑PMF成分</span><span class="chip">每日2粒</span><span class="chip">60粒30日份</span></div>
@@ -4682,7 +4874,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- リポビタンDX (id:24) — c2 가로카드 -->
     <div class="c2"><div class="card card-h" data-id="24" onclick="handleCardClick(24,event)">
       <div class="ci-h">
-        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg" alt="リポビタンDX">
+        <img loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/Lipovitan.jpg" alt="力保美達DX">
         <span class="c-cat">抗疲勞</span>
         <div class="cpill"><span class="cpill-n">¥1,650</span><span class="cpill-s">30錠〜</span></div>
         <div class="ci-drug">
@@ -4693,37 +4885,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="cb" onclick="handleCardClick(24,event)">
-        <div class="c-brand">大正製藥</div>
-        <div class="c-name">力保美達DX 疲勞回復錠<span class="c-jp">リポビタンDX</span></div>
+        <div class="c-brand">大正製藥<span class="c-type-tag">疲勞回復</span></div>
+        <div class="c-name">力保美達DX<span class="c-jp">リポビタンDX</span></div>
         <div class="c-hook"><i class="fas fa-moon hic"></i><span class="htx">日本元氣補充飲系列的錠劑版本。改善疲勞同時兼顧睡眠情況。</span></div>
         <div class="c-chips"><span class="chip">指定医薬部外品</span><span class="chip">30〜270錠</span><span class="chip">日飲3粒</span></div>
         <div class="che-section">
           <div class="che-meta">
             <div class="che-name-line">― 鄭老師</div>
-            <p class="che-text">誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒，至今仍有許多日本上班族習慣「喝了再上」。力保美達的靈魂核心成分「牛磺酸」是胺基酸的一種，廣為人知的消除疲勞作用成分。</p>
-            <p class="che-text" style="margin-top:6px;">錠劑版本的「力保美達DX」，是近幾年異軍突起的抗疲B群人氣新選擇。每日建議攝取的3粒當中，不僅含有500毫克的牛磺酸和維生素B群，還搭配助眠系胺基酸「甘胺酸」，超級適合忙碌的現代人用來抵抗疲勞，同時輔助隨年齡增加而出現的難以入睡、淺眠或不易醒來等狀況。</p>
+            <p class="che-text">日本元氣飲先鋒的錠劑版。每日3粒含牛磺酸500mg＋B群，加上助眠胺基酸「甘胺酸」，抗疲勞同時改善難以入睡・淺眠問題。詳細內容請點擊「詳情」。</p>
           </div>
         </div>
-
-        
-        <div class="vp-section">
-        <div class="vp-header"><i class="fas fa-comment-dots"></i> 體驗者心得</div>
-        <div class="vp-card">
-          <div class="vp-top">
-            <div class="vp-av" style="background:#E91E63">林</div>
-            <span class="vp-nm">林桑的日本遊記</span>
-            <span class="vp-attr">40代・会社員</span>
-          </div>
-          <p class="vp-text">這款是日本大正製藥的產品，在日本藥妝店其實滿常看到的！</p>
-        </div><div class="vp-card">
-          <div class="vp-top">
-            <div class="vp-av" style="background:#9C27B0">優</div>
-            <span class="vp-nm">優妮帶你遊大阪不踩雷</span>
-            <span class="vp-attr">30代・会社員</span>
-          </div>
-          <p class="vp-text">它沒咖啡因，所以我最常是「晚餐後～睡前」那段時間吃</p>
-        </div>
-      </div>
         <div class="cf">
           <div class="koc"><div class="kav" style="background:#E91E63">林</div><div class="kav" style="background:#9C27B0">優</div><div class="kav" style="background:#3F51B5">劉</div><div class="kav" style="background:#009688">S</div><div class="kav" style="background:#FF5722">P</div><span class="kn">5則</span></div>
           <button class="c-btn" onclick="event.stopPropagation();openDetailModal(24)">詳情 <i class="fas fa-arrow-right"></i></button>
@@ -4751,24 +4922,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="sakura-hero-visual">
         <div class="sakura-speech" id="skSpeech">
           <div class="sakura-speech-name">鄭老師</div>
-          <span id="skSpeechText">日期輸入好了嗎？我來幫你找最適合的城市！🌸</span>
+          <span id="skSpeechText">日期輸入好了嗎？我來幫你找最適合的城市！🌿</span>
         </div>
         <img class="sakura-hero-cutout" loading="eager" width="380" height="500" decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_9999-拷贝-scaled.png" alt="鄭老師">
       </div>
 
       <!-- RIGHT: Text + Picker -->
       <div class="sakura-hero-text">
-        <span class="sakura-hero-label">🌸 SAKURA × SHOPPING 2026</span>
-        <h2>賞櫻季節，<br>也是<em>藥妝購物</em>的最佳時機</h2>
+        <span class="sakura-hero-label">🌿 春季藥妝 × SHOPPING 2026</span>
+        <h2>春遊日本，<br>也是<em>藥妝購物</em>的最佳時機</h2>
         <p class="sakura-hero-quote" id="skSenseiText">
-          每年3～4月，日本的藥妝店都會推出櫻花限定商品。<br>
+          每年春天，日本藥妝店聚集了全球旅客的目光。<br>
           什麼時候去、去哪個城市、在哪買最划算？<br>
           先輸入你的旅行日期，我來幫你安排！
         </p>
 
         <div class="sakura-hero-picker">
           <div class="sakura-hero-picker-title">🗓️ 你的旅行日期是？</div>
-          <p class="sakura-hero-picker-sub">幫你找出最適合賞櫻＋購物的城市</p>
+          <p class="sakura-hero-picker-sub">幫你找出最適合春遊＋購物的城市</p>
           <div class="sakura-date-form" id="skDateForm">
             <div class="sakura-date-wrap">
               <input type="date" class="sakura-date-input" id="skTravelStart" value="2026-03-28">
@@ -4869,7 +5040,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="sakura-stage" data-stage-idx="3">
           <div class="sakura-stage-img">
             <span class="sakura-stage-num">4</span>
-            <img decoding="async" src="https://www.543life.com/content/wp-content/uploads/2024/04/main_240407-670x670.webp" alt="桜吹雪" loading="lazy">
+            <img decoding="async" src="https://www.543life.com/content/wp-content/uploads/2024/04/main_240407-670x670.webp" alt="春天" loading="lazy">
           </div>
           <div class="sakura-stage-body">
             <div class="sakura-stage-name">櫻花吹雪</div>
@@ -4880,7 +5051,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="sakura-stage-msg">
-        🌸 開花後約<strong>2週</strong>都能賞櫻！即使錯過滿開，散落和吹雪也非常美 ✨
+        🌸 開花後約<strong>2週</strong>都能賞花！即使錯過滿開，散落和吹雪也非常美 ✨
       </div>
 
       <div class="sakura-section-label">FORECAST 2026</div>
@@ -4946,7 +5117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="sakura-footer">
-        <p class="sakura-source">資料來源：日本氣象株式會社（JMC）<a href="https://n-kishou.com/corp/news-contents/sakura/" target="_blank">2026年第8次預報</a>（3/12更新）</p>
+        <p class="sakura-source">資料來源：日本氣象株式會社（JMC）<a href="https://n-kishou.com/corp/news-contents/sakura/" target="_blank">2026年第10次預報</a>（3/26更新）</p>
         <div class="sakura-tip">
           <i class="fas fa-lightbulb"></i>
           台灣旅客推薦<strong>3/19〜4/1</strong>東京・京都・大阪賞櫻！今年提早，3月底就是黃金期 🌸
@@ -5039,7 +5210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- 1. 唐吉訶德 -->
           <div class="sg-store-card">
-            <div class="sg-store-hero" style="background: linear-gradient(135deg, #1E40AF, #6366F1);">
+            <div class="sg-store-hero" style="background-image: url('https://img.japankuru.com/prg_img/thumbnail1/img2023080314000850157500.jpg'); background-color: #1E40AF;">
               <span class="sg-store-hero-name">ドン・キホーテ</span>
               <span class="sg-store-badge">深夜購物天堂</span>
             </div>
@@ -5048,7 +5219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>唐吉訶德</h3>
                 <span class="sg-store-jp">ドン・キホーテ</span>
               </div>
-              <p class="sg-store-desc">近年大幅強化藥妝品項，甚至規劃整層樓的空間宛如塞了一間藥妝店。24小時或深夜營業，觀光完再去也來得及。</p>
+              <p class="sg-store-desc">因為藥妝市場實在太大，是眾多訪日觀光客都會規劃的購物行程，因此像是唐吉訶德這類的雜貨店，近年來都強化藥妝品項，甚至規劃出一整個樓層的空間，宛如將一間藥妝店塞在裡頭。</p>
               <div class="sg-store-highlights">
                 <span>深夜營業</span>
                 <span>藥妝整層</span>
@@ -5056,9 +5227,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span>伴手禮豐富</span>
               </div>
               <div class="sg-store-detail">
-                <p>不只是藥妝，零食、家電、伴手禮一站搞定。藥妝市場太大，唐吉訶德和BIC CAMERA、友都八喜等電器量販店近年都強化藥妝品項。</p>
+                <p>不只是藥妝，零食、家電、伴手禮通通一站搞定。24小時或深夜營業，白天觀光逛完行程，晚上再來採購也來得及，是旅日購物的終極救援據點。</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】唐吉訶德推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：在唐吉訶德採購時，建議先在App領取優惠券，搭配免稅服務，往往可以達到非常驚人的折扣。深夜逛唐吉訶德也是日本旅遊的獨特體驗之一！</div>
             </div>
           </div>
 
@@ -5073,7 +5244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>大國藥妝</h3>
                 <span class="sg-store-jp">ダイコクドラッグ</span>
               </div>
-              <p class="sg-store-desc">全國超過120家，鬧區必見的橘色招牌。價格破壞力驚人，購物清單上的必買品項幾乎都能用最優惠價格買到。</p>
+              <p class="sg-store-desc">無論是日本藥妝通或是新手，大家絕對都逛過大國藥妝。包括大阪及東京在內，從沖繩到北海道，日本全國的大國藥妝門市超過120家，任何訪日觀光客出沒的鬧區或商店街，都能見到大國藥妝那搶眼又熟悉的橘色招牌。</p>
               <div class="sg-store-highlights">
                 <span>價格破壞力</span>
                 <span>一站式購足</span>
@@ -5081,9 +5252,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span>原店退稅</span>
               </div>
               <div class="sg-store-detail">
-                <p>大阪心齋橋・道頓堀旗艦店設有免稅熱門商品專區。部分門市有退稅專屬樓層，大幅加快退稅速度。</p>
+                <p>大阪的心齋橋、道頓堀和東京等地的大國旗艦店，都設置有免稅的熱門商品專區，貼心地把熱門品項集中在一起，讓旅客不必耗費太多時間尋找購物清單上的商品。不只是常備藥、保養品或彩妝品，還有大家平時愛吃的零食，甚至是送給親朋好友的伴手禮，都能在大國藥妝一站式購足！</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】大國藥妝推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：大國藥妝最廣為臺灣旅客所熟知的特色，就是具有破壞力的價格優勢。尤其是大家購物清單上的必買品項，幾乎都能用極為優惠的價格購入。十分重視外國旅客的大國藥妝，從相當早期就開始配置大量會講中文的店員，就算不會日文也能毫無障礙地放手血拚！</div>
             </div>
           </div>
 
@@ -5098,16 +5269,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>OS藥妝</h3>
                 <span class="sg-store-jp">オーエスドラッグ</span>
               </div>
-              <p class="sg-store-desc">大阪發跡，全國約70家。規模不大但重點商品常以驚喜價銷售，許多代購和掃貨者的愛店。OTC醫藥品品項齊全。</p>
+              <p class="sg-store-desc">來自大阪，許多日本藥妝掃貨者和代購再也熟悉不過的價格友善型連鎖藥妝。目前日本全國約有70間，在連鎖藥妝店中規模不算大，且至今仍未提供退稅服務，但因為許多重點商品都以驚喜價銷售，仍吸引許多人前往掃貨。</p>
               <div class="sg-store-highlights">
                 <span>驚喜價格</span>
                 <span>OTC齊全</span>
                 <span>代購最愛</span>
               </div>
               <div class="sg-store-detail">
-                <p>⚠️ 至今仍未提供退稅服務，但價格本身已經夠便宜。美妝保養品和生活用品相對較少，適合代購常備藥一次購齊。</p>
+                <p>OS藥妝的OTC醫藥品品項齊全，但美妝保養品和生活用品相對較少，較適合親朋好友委託代購常備藥時過來一次購齊。⚠️ 至今仍未提供退稅服務，但價格本身已經夠便宜。</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】OS藥妝推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：OS藥妝的價格破壞力有時甚至可以超越大國藥妝，非常適合已經鎖定購物目標、擬好購物清單的人前往快速掃貨。</div>
             </div>
           </div>
 
@@ -5122,16 +5293,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>COSMOS</h3>
                 <span class="sg-store-jp">コスモス</span>
               </div>
-              <p class="sg-store-desc">九州發跡，全國約1,300家。針對人氣品項不定時推出驚人的破盤價，在藥妝激戰中殺出血路。</p>
+              <p class="sg-store-desc">原為九州地區之連鎖藥妝店，疫情前便開始積極朝向東京與大阪這些城市的藥妝重點激戰區展店。目前日本大約有1,300間分店，但東京與大阪兩地門市總數不到60家。即便如此，COSMOS依舊針對掃貨人氣品項以驚人的破盤價不定時推出購物優惠，在競爭激烈的藥妝市場中殺出一條血路。</p>
               <div class="sg-store-highlights">
                 <span>破盤價</span>
                 <span>九州發跡</span>
                 <span>免稅對應</span>
               </div>
               <div class="sg-store-detail">
-                <p>⚠️ 許多破盤價商品僅限第一件，第二件起回到促銷價或正常價。掃貨時一定要注意店內遊戲規則！</p>
+                <p>⚠️ COSMOS藥妝所推出的許多破盤價商品都僅限於第一件商品，第二件起就會回到其他促銷價或正常價，掃貨時一定要注意店內遊戲規則。</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】COSMOS推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：COSMOS的破盤價有時令人驚喜，但記住「第一件最便宜」規則，建議和朋友分頭各買一件，比買兩件更划算！</div>
             </div>
           </div>
 
@@ -5146,7 +5317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>松本清</h3>
                 <span class="sg-store-jp">マツモトキヨシ</span>
               </div>
-              <p class="sg-store-desc">創立超過90年，全日本超過1,900家，華語圈知名度最高。OTC醫藥品、保健食品到美妝保養品，品項最齊全。</p>
+              <p class="sg-store-desc">新型態店設計為灰黃色配色的松本清，創立超過90年，全日本門市超過1,900間，在臺灣也積極展店的松本清，可說是華語圈中知名度最高的日本連鎖藥妝。從OTC醫藥品、保健輔助食品到美妝保養品，品項可說是相當齊全。</p>
               <div class="sg-store-highlights">
                 <span>品項最多</span>
                 <span>限定組合</span>
@@ -5154,9 +5325,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span>台灣也有</span>
               </div>
               <div class="sg-store-detail">
-                <p>花王、高絲、資生堂等大廠都會推出松本清專賣版本或限定組合。喜歡特殊版本的人非常適合來挖寶！</p>
+                <p>由於知名度高且分店數量多，包括花王、高絲、資生堂在內的美妝大廠，也都會推出松本清專賣版本或限定組合。喜歡特殊版本或限定組合的人，還蠻適合來挖寶的呢！</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】松本清推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：松本清適合慢慢逛、慢慢挖寶的人。尤其是大廠聯名或限定組合，往往只在松本清獨家販售，如果有看到喜歡的就不要猶豫！</div>
             </div>
           </div>
 
@@ -5171,16 +5342,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>可開嘉來</h3>
                 <span class="sg-store-jp">ココカラファイン</span>
               </div>
-              <p class="sg-store-desc">2021年與松本清合併，集團約3,500家，日本規模第一大。松本清自有品牌和限定品這裡也買得到！</p>
+              <p class="sg-store-desc">雖然在華人圈的知名度不算高，不過卻是松本清集團的一分子。日本全國擁有超過1,500間分店的可開嘉來，在2021年10月與松本清合併後，成為集團門市約3,500間、日本規模第一大的連鎖藥妝集團。</p>
               <div class="sg-store-highlights">
                 <span>日本最大集團</span>
                 <span>松本清PB共享</span>
                 <span>全國展開</span>
               </div>
               <div class="sg-store-detail">
-                <p>華人圈知名度不算高，但其實是松本清集團一員。許多松本清限定品也能在這裡找到。</p>
+                <p>正因如此，許多松本清自有品牌或限定品，也都能在可開嘉來看得到。對於住在松本清分店不方便的地區的人來說，可開嘉來是很好的替代選擇！</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】可開嘉來推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：許多人不知道可開嘉來和松本清是同集團，所以門市內人潮相對較少，反而能悠閒地慢慢挑選松本清系列商品。</div>
             </div>
           </div>
 
@@ -5195,16 +5366,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>AINZ&TULPE</h3>
                 <span class="sg-store-jp">アインズ＆トルぺ</span>
               </div>
-              <p class="sg-store-desc">北海道發跡，美妝保養品才是強項。資生堂人氣品牌AYURA納入旗下，自有品牌LIPS and HIPS也受歡迎。</p>
+              <p class="sg-store-desc">來自北海道的連鎖藥妝，近年積極向一線大城市的藥妝激戰區展店。例如東京的新宿與銀座，或是大阪的梅田等地，都可見AINZ&TULPE的蹤影。相較於OTC醫藥品，其實美妝保養品才是它的強項，在幾年前將資生堂人氣品牌AYURA納入旗下，許多分店裡都能找到完整的AYURA產品。</p>
               <div class="sg-store-highlights">
                 <span>美妝特化</span>
                 <span>AYURA專櫃</span>
                 <span>自有品牌</span>
               </div>
               <div class="sg-store-detail">
-                <p>新宿東口外的分店是許多日本美妝迷必訪的藥妝聖地。近年積極向東京、大阪的藥妝激戰區展店。</p>
+                <p>除此之外，自有品牌LIPS and HIPS也是相當受歡迎的香氛美妝與生活雜貨品牌。其中，位於新宿東口外的分店，更是許多日本美妝迷必訪的藥妝聖地。</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】AINZ&TULPE推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：想挖掘小眾美妝品牌、或是想找AYURA完整商品的人，AINZ&TULPE絕對是首選。新宿東口外的旗艦店規模尤其大，建議特地前往朝聖。</div>
             </div>
           </div>
 
@@ -5219,16 +5390,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>SUGI藥局</h3>
                 <span class="sg-store-jp">スギ薬局</span>
               </div>
-              <p class="sg-store-desc">在台灣與大樹藥局合作跨境購物，知名度急速上升。疫情期間大舉在上野、新宿、心齋橋等激戰區展店。</p>
+              <p class="sg-store-desc">在臺灣與大樹藥局合作跨境購物服務的SUGI藥局，近期內的知名度明顯竄升許多。而在日本境內，SUGI藥局也可說是動作頻頻。原本主攻住宅區的SUGI藥局，在疫情期間大舉在東京的上野、新宿以及大阪的心齋橋等藥妝激戰區展店，大幅提升其門市能見度。</p>
               <div class="sg-store-highlights">
                 <span>台灣合作</span>
                 <span>激戰區展店</span>
                 <span>處方藥對應</span>
               </div>
               <div class="sg-store-detail">
-                <p>原本主攻住宅區，近年積極進入觀光客密集區域，門市能見度大幅提升。</p>
+                <p>在臺灣就已經可以透過大樹藥局的跨境服務購買SUGI藥局的商品，來到日本當然更要親自逛逛，說不定能挖到線上買不到的限定品！</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】SUGI藥局推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：SUGI藥局的PB（自有品牌）商品品質不錯，而且價格合理，是很多日本藥妝通的低調愛店之一。</div>
             </div>
           </div>
 
@@ -5243,16 +5414,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>welcia藥局</h3>
                 <span class="sg-store-jp">ウェルシア薬局</span>
               </div>
-              <p class="sg-store-desc">大部分門市在住宅區，但新宿西口旗艦店兩層樓，OTC、美妝、零食齊全，像塞了一間小超商。24小時營業！</p>
+              <p class="sg-store-desc">絕大部分的門市都座落在住宅區或郊區，業務也著重在處方箋領藥，因此在華語圈中的存在感相對薄弱。不過這幾年在東京新宿西口開了一家兩層樓的旗艦店，不只是OTC醫藥品和美妝保養品齊全，就連零食和食品類選擇也相當多，感覺就像塞了一間小超商在裡頭。</p>
               <div class="sg-store-highlights">
                 <span>24小時</span>
                 <span>零食也有</span>
                 <span>新宿旗艦店</span>
               </div>
               <div class="sg-store-detail">
-                <p>新宿西口旗艦店地點佳，成為深夜時段除唐吉訶德以外的新購物綠洲。</p>
+                <p>由於地點相當棒，而且是24小時營業，便成為深夜時段中，除唐吉訶德以外的新購物綠洲。深夜血拚、或是臨時需要藥品時非常方便！</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】welcia藥局推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：新宿西口welcia旗艦店是深夜購物的救星，加上和TSUTAYA合作，有時還有獨家優惠，值得特別前往探索一番。</div>
             </div>
           </div>
 
@@ -5267,16 +5438,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h3>鶴羽藥妝</h3>
                 <span class="sg-store-jp">ツルハドラッグ</span>
               </div>
-              <p class="sg-store-desc">北海道旭川市誕生，歷史將近百年的北海道藥妝集團。近年強化大阪心齋橋、道頓堀一帶的大型門市展店。</p>
+              <p class="sg-store-desc">誕生於北海道旭川市的鶴羽藥妝，其實是一家歷史將近百年的北海道藥妝集團。大部分的分店集中於北海道，不過近年來也強化其在大阪地區的展店計畫，在關西藥妝一級戰區的心齋橋、道頓堀一帶開設許多大型門市。</p>
               <div class="sg-store-highlights">
                 <span>北海道老舖</span>
                 <span>大阪擴張中</span>
                 <span>大型門市</span>
               </div>
               <div class="sg-store-detail">
-                <p>大部分分店集中於北海道，近年在關西心齋橋、道頓堀一帶開設多家大型門市。</p>
+                <p>北海道旅遊的人幾乎一定會遇到鶴羽藥妝，大阪心齋橋・道頓堀的門市也越來越多，規模都很大，逛起來非常舒適。</p>
               </div>
-              <div class="sg-store-sensei">💡【待鄭老師提供】鶴羽藥妝推薦重點</div>
+              <div class="sg-store-sensei">💡 鄭老師推薦重點：去北海道旅遊時，隨處可見的鶴羽藥妝就是你的最佳掃貨據點。大阪心齋橋的大型門市空間寬敞，逛起來比較不會人擠人，也是我個人喜歡的採購地點之一。</div>
             </div>
           </div>
 
@@ -5460,7 +5631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div class="modal-tei-voice">
           <div class="tei-voice-head">
-            <img decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭老師" loading="lazy">
+            <img decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/teisensei.png" alt="鄭世彬" loading="lazy">
             <div class="tei-voice-meta">
               <p class="tei-voice-name">鄭世彬</p>
               <p class="tei-voice-title">日本藥妝研究家</p>
@@ -5534,7 +5705,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="bs-content">
         <div class="bs-tei-voice">
           <div class="tei-voice-head">
-            <img decoding="async" src="https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png" alt="鄭老師" loading="lazy">
+            <img decoding="async" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/03/teisensei.png" alt="鄭世彬" loading="lazy">
             <div class="tei-voice-meta">
               <p class="tei-voice-name">鄭世彬</p>
               <p class="tei-voice-title">日本藥妝研究家</p>
@@ -5584,7 +5755,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="toast" id="toast"><i class="fas fa-check"></i> <span id="toastText"></span></div>
 
   <script>
-    const chePhoto = 'https://www.gldaily.com/gld-kanri/wp-content/uploads/2026/02/IMG_0005-拷贝-1-scaled.png';
+    const chePhoto = 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/teisensei.png';
 
     function isMobile() { return window.innerWidth <= 768; }
 
@@ -5644,16 +5815,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             tipFull: 'Dr.Oral 3D WHITE口腔亮白護理系列，採用奈米級3D蛋殼生物磷灰石，協助吸附牙齒表面污漬，維持清新亮白印象。牙粉蛋殼生物磷灰石含量高達40%，搭配多種潔淨與保濕成分，日常刷牙即可兼顧清潔與口腔保養。另有薬用牙膏款，輔助維持牙齦健康，是重視自然系亮白護理者的人氣選擇。',
             column: 'https://www.japankuru.com/tw/shopping/263339/', hasVideo: true, videoId: '73ffThRqZ9M',
             voices: [
-              { initial: 'S', name: 'sacuraisho',       attr: '40代・主婦',       text: '裡面還添加了「3D蛋殼羥基磷灰石」這個成分，感覺蠻特別的，就想說一定要試試看。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid0QxLhS5ZfpA6oHoehXyCF7su7pb3T3SYKaBwFJuoKfD8BHA1HTiTAZhVLqb7Wshwvl' },
-              { initial: 'C', name: 'Chiu-wei Liu',     attr: '30代・会社員',      text: '在日本各大藥妝店與生活雜貨店（像是 Loft）都是長期熱銷的人氣商品，非常值得入手試試！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/chiuwei.liu/posts/pfbid0ewzUBFK6pEgAMYUVe5FRLVdt3St55bXp98PGjRHcBk8EXD9Z9TuQC4UJ2LQS6kGPl' },
-              { initial: '蔡', name: '蔡徐嘉',           attr: '30代・会社員',      text: '刷完之後會有一種清新乾淨的感覺，睡覺的時候連帶覺得自己呼吸到的空氣都更清新了', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/hsuchia.tsai/posts/pfbid02yRT7QQ7och2zu1Zj6ffmBgDVFQAwMnnXztZ7WPeye1c6QYYSSHCWFZWvzGBvbELkl' },
-              { initial: 'C', name: 'Chih Lin Kung',    attr: '30代・留学生',      text: '另外我也很喜歡潔牙粉的設計。粉末非常細緻，搭配牙刷使用時可以更深入清潔牙齒表面。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV98gOREhkk/?img_index=1' },
-              { initial: 'L', name: 'lori7906',         attr: '30代・会社員',      text: '使用完牙齒整體感覺非常光滑，早上起床時口臭也比以前變淡許多～', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV8qTpIj8qt/?img_index=1' },
-              { initial: 'K', name: 'Kelly',            attr: '30代・会社員',      text: '我自己本身的牙齒白到牙醫問我是不是做過美白牙齒😂 但真的完全沒有，是因為用對了牙膏！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DV8oDEjiULt/?img_index=1' },
-              { initial: 'W', name: 'Wei Wei',          attr: '30代・会社員',      text: '最近換了這組日本的 Dr.Oral 藥用美白牙膏跟潔牙粉，目前用下來覺得很對我的胃。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0E6xomLfbTaGgPKNcAs1HHVKMNY9JDspMALoBt2EpF3Nsz1FvMixWyMejYecgfRazl&id=100001466739903&locale=ja_JP' },
-              { initial: 'K', name: 'Kelly Lau',        attr: '20代・会社員',      text: '如果你也是茶飲或咖啡重度愛好者，真的很推薦試試看這款牙粉，效果真的比想像中還好！', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26286331127664089&id=100001416789118&mibextid=wwXIfr&rdid=e5mww2xKSLxbbedj#' },
-              { initial: 'Ko', name: 'Kobayashi Celine', attr: '40代・フリーランス', text: '粉末很細緻，用牙刷沾一點刷牙🪥 刷完牙齒真的會有那種很乾淨、很清爽、牙齒滑滑的感覺', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/DV7cpPSDx_i/?igsh=MW1mMWV3M2RyZjhvYQ%3D%3D&img_index=1' },
-              { initial: '新', name: '新日一成',          attr: '40代・個人事業主', text: '對於像我這種每天咖啡不離手的中年男士來說，能同時做到美白、預防蛀牙、減少口臭、保持清新口氣，真的很加分。', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid09YZjzgTDsqonnDkJ3iaqePpkRuohDPszUWWvjmiYkGuxha1K5sGSJvNXR65bs58ol' }
+              { initial: 'S', name: 'sacuraisho',       attr: '40多歲・家庭主婦',       text: '裡面還添加了「3D蛋殼羥基磷灰石」這個成分，感覺蠻特別的，就想說一定要試試看。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid0QxLhS5ZfpA6oHoehXyCF7su7pb3T3SYKaBwFJuoKfD8BHA1HTiTAZhVLqb7Wshwvl' },
+              { initial: 'C', name: 'Chiu-wei Liu',     attr: '30多歲・上班族',      text: '在日本各大藥妝店與生活雜貨店（像是 Loft）都是長期熱銷的人氣商品，非常值得入手試試！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/chiuwei.liu/posts/pfbid0ewzUBFK6pEgAMYUVe5FRLVdt3St55bXp98PGjRHcBk8EXD9Z9TuQC4UJ2LQS6kGPl' },
+              { initial: '蔡', name: '蔡徐嘉',           attr: '30多歲・上班族',      text: '刷完之後會有一種清新乾淨的感覺，睡覺的時候連帶覺得自己呼吸到的空氣都更清新了', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/hsuchia.tsai/posts/pfbid02yRT7QQ7och2zu1Zj6ffmBgDVFQAwMnnXztZ7WPeye1c6QYYSSHCWFZWvzGBvbELkl' },
+              { initial: 'C', name: 'Chih Lin Kung',    attr: '30多歲・留學生',      text: '另外我也很喜歡潔牙粉的設計。粉末非常細緻，搭配牙刷使用時可以更深入清潔牙齒表面。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV98gOREhkk/?img_index=1' },
+              { initial: 'L', name: 'lori7906',         attr: '30多歲・上班族',      text: '使用完牙齒整體感覺非常光滑，早上起床時口臭也比以前變淡許多～', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV8qTpIj8qt/?img_index=1' },
+              { initial: 'K', name: 'Kelly',            attr: '30多歲・上班族',      text: '我自己本身的牙齒白到牙醫問我是不是做過美白牙齒😂 但真的完全沒有，是因為用對了牙膏！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DV8oDEjiULt/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',          attr: '30多歲・上班族',      text: '最近換了這組日本的 Dr.Oral 藥用美白牙膏跟潔牙粉，目前用下來覺得很對我的胃。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0E6xomLfbTaGgPKNcAs1HHVKMNY9JDspMALoBt2EpF3Nsz1FvMixWyMejYecgfRazl&id=100001466739903&locale=ja_JP' },
+              { initial: 'K', name: 'Kelly Lau',        attr: '20多歲・上班族',      text: '如果你也是茶飲或咖啡重度愛好者，真的很推薦試試看這款牙粉，效果真的比想像中還好！', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26286331127664089&id=100001416789118&mibextid=wwXIfr&rdid=e5mww2xKSLxbbedj#' },
+              { initial: 'Ko', name: 'Kobayashi Celine', attr: '40多歲・自由工作者', text: '粉末很細緻，用牙刷沾一點刷牙🪥 刷完牙齒真的會有那種很乾淨、很清爽、牙齒滑滑的感覺', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/DV7cpPSDx_i/?igsh=MW1mMWV3M2RyZjhvYQ%3D%3D&img_index=1' },
+              { initial: '新', name: '新日一成',          attr: '40多歲・個人創業者', text: '對於像我這種每天咖啡不離手的中年男士來說，能同時做到美白、預防蛀牙、減少口臭、保持清新口氣，真的很加分。', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid09YZjzgTDsqonnDkJ3iaqePpkRuohDPszUWWvjmiYkGuxha1K5sGSJvNXR65bs58ol' }
             ], voiceCount: 10
           },
           {
@@ -5666,11 +5837,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             tipFull: 'Cure「White Clear Gel四效去角質凝膠」是每週保養必備的美肌橡皮擦，溫和去除老廢角質，同時提亮膚色、滋潤保濕並預防痘痘。含水溶性胎盤素與甘草酸二鉀等薬用成分，加上多種草本保濕精華，使用後肌膚光滑透亮，後續保養吸收加成，也適合初階與敏弱肌膚，每週2次即可維持最佳膚況。',
             column: 'https://www.japankuru.com/tw/shopping/257656/', hasVideo: true, videoId: 'lYlS9VmR0ZI',
             voices: [
-              { initial: 'J', name: 'ジャリンリン', attr: '30代・会社員', text: '最近保養桌上多了一瓶默默很有存在感的——Cure 藥用去角質凝膠。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/jialing.shies/posts/pfbid0MeEmLeRhTFejHHzq9GqPdk3pE74GF4KX728oCFtCiQnq3kob7uLbNWETgRc8WRmKl' },
-              { initial: '苦', name: '苦逼留學生的碎念', attr: '30代・会社員', text: '最近覺得背長很多小顆粒 剛好來用看看這個去角質凝膠', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02wsZc68pNckakhU2Asx9RtDjFJCZJV3LLDSnq73DfpZsTF9igXoUWNQETjuGnqaMPl&id=100052568835647&rdid=KQIqDkaFmpOrt5e2#' },
-              { initial: '3', name: '31803', attr: '40代・主婦', text: '最近用到一罐還蠻好用的去角質', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/osakapleb/posts/pfbid031dSJnTWkiVFXNPMjjsxHTTZxCeUWc7Ucu3CPtypNrzCGqemwuttv38DntxxyQmfql' },
-              { initial: 'C', name: 'Chiu-wei Liu', attr: '30代・会社員', text: '這次是介紹Cure這款 去角質Gel，洗澡的時候一起去角質 超方便!!!!', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/chiuwei.liu/posts/pfbid0ff3vdZyZAUFPUP4ZBZjTcGpQXkxXTvmPoNwphHN5D6dgtPF2jLWuRXCaHGZrxPhRl' },
-              { initial: 'R', name: 'Rebecca528', attr: '30代・会社員', text: '我自己其實已經默默用到 第三罐了。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV063CPj2B-/' }
+              { initial: 'J', name: 'ジャリンリン', attr: '30多歲・上班族', text: '最近保養桌上多了一瓶默默很有存在感的——Cure 藥用去角質凝膠。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/jialing.shies/posts/pfbid0MeEmLeRhTFejHHzq9GqPdk3pE74GF4KX728oCFtCiQnq3kob7uLbNWETgRc8WRmKl' },
+              { initial: '苦', name: '苦逼留學生的碎念', attr: '30多歲・上班族', text: '最近覺得背長很多小顆粒 剛好來用看看這個去角質凝膠', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02wsZc68pNckakhU2Asx9RtDjFJCZJV3LLDSnq73DfpZsTF9igXoUWNQETjuGnqaMPl&id=100052568835647&rdid=KQIqDkaFmpOrt5e2#' },
+              { initial: '3', name: '31803', attr: '40多歲・家庭主婦', text: '最近用到一罐還蠻好用的去角質', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/osakapleb/posts/pfbid031dSJnTWkiVFXNPMjjsxHTTZxCeUWc7Ucu3CPtypNrzCGqemwuttv38DntxxyQmfql' },
+              { initial: 'C', name: 'Chiu-wei Liu', attr: '30多歲・上班族', text: '這次是介紹Cure這款 去角質Gel，洗澡的時候一起去角質 超方便!!!!', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/chiuwei.liu/posts/pfbid0ff3vdZyZAUFPUP4ZBZjTcGpQXkxXTvmPoNwphHN5D6dgtPF2jLWuRXCaHGZrxPhRl' },
+              { initial: 'R', name: 'Rebecca528', attr: '30多歲・上班族', text: '我自己其實已經默默用到 第三罐了。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV063CPj2B-/' }
             ], voiceCount: 5
           }
         ]
@@ -5681,45 +5852,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           { 
             id: 4, slug: 'pabron-gold-a', name: '百保能GOLD A (パブロンゴールドA) 綜合感冒藥', brand: '大正製藥',
             price: 2057, priceNote: '130錠・28包 ¥2,057 ／ 210錠・44包 ¥3,025',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-goldA-official-product.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/teisensei_pabron_golda.jpg',
             label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
             originalUrl: 'https://www.taisho.co.jp/pabron/',
             tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；',
             tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: 'https://www.japankuru.com/tw/shopping/264144/', hasVideo: false,
             voices: [
-              { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
-              { initial: 'I', name: 'IG體驗者①', attr: '40代・会社員', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
-              { initial: 'I', name: 'IG體驗者②', attr: '30代・会社員', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
-              { initial: 'I', name: 'IG體驗者③', attr: '30代・フリーランス', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
-              { initial: 'K', name: 'kid0804', attr: '30代・会社員', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
-              { initial: 'I', name: 'IG體驗者④', attr: '30代・会社員', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
-              { initial: 'F', name: 'FB體驗者①', attr: '20代・会社員', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
-              { initial: 'N', name: 'natsuki.chin', attr: '30代・フリーランス', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
-              { initial: '新', name: '新日一成', attr: '40代・個人事業主', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
-              { initial: 'F', name: 'FB體驗者②', attr: '30代・会社員', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
+              { initial: 'S', name: 'Sharon Hsieh', attr: '20多歲・上班族', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: 'I', name: 'IG體驗者①', attr: '40多歲・上班族', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '30多歲・上班族', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
+              { initial: 'I', name: 'IG體驗者③', attr: '30多歲・自由工作者', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
+              { initial: 'K', name: 'kid0804', attr: '30多歲・上班族', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
+              { initial: 'I', name: 'IG體驗者④', attr: '30多歲・上班族', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
+              { initial: 'F', name: 'FB體驗者①', attr: '20多歲・上班族', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
+              { initial: 'N', name: 'natsuki.chin', attr: '30多歲・自由工作者', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
+              { initial: '新', name: '新日一成', attr: '40多歲・個人創業者', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
+              { initial: 'F', name: 'FB體驗者②', attr: '30多歲・上班族', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
             ], voiceCount: 10
           },
           { 
             id: 5, slug: 'pabron-ace-prox', name: '百保能Pro-X (パブロンエースPro-X) 感冒藥', brand: '大正製藥',
             price: 1518, priceNote: '18錠・6包 ¥1,518 ／ 36錠・12包 ¥2,178',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pabron-aceprox-official-product.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/column-pabron-aceprox-back-label.jpg',
             label: 'type-exclusive', labelText: '日本限定', plan: 'platinum',
             originalUrl: 'https://www.taisho.co.jp/pabron/',
             tip: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。藍金版「Pro-X」採用布洛芬作為退燒止痛成分（限15歲以上使用）。',
             tipFull: '大正製藥「PABRON百保能」為創立近百年的經典綜合感冒藥品牌，主以呼吸道黏膜防禦為設計理念。紅金「GOLD A」含乙醯胺酚，適合多症狀初期緩解；藍金版「Pro-X」，採用布洛芬作為退燒止痛成分（限15歲以上使用）。兩款皆針對咳嗽、喉痛、鼻塞等症狀設計，是臺日人氣家庭常備藥熱門選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: 'https://www.japankuru.com/tw/shopping/264144/', hasVideo: false,
             voices: [
-              { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
-              { initial: 'I', name: 'IG體驗者①', attr: '40代・会社員', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
-              { initial: 'I', name: 'IG體驗者②', attr: '30代・会社員', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
-              { initial: 'I', name: 'IG體驗者③', attr: '30代・フリーランス', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
-              { initial: 'K', name: 'kid0804', attr: '30代・会社員', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
-              { initial: 'I', name: 'IG體驗者④', attr: '30代・会社員', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
-              { initial: 'F', name: 'FB體驗者①', attr: '20代・会社員', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
-              { initial: 'N', name: 'natsuki.chin', attr: '30代・フリーランス', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
-              { initial: '新', name: '新日一成', attr: '40代・個人事業主', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
-              { initial: 'F', name: 'FB體驗者②', attr: '30代・会社員', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
+              { initial: 'S', name: 'Sharon Hsieh', attr: '20多歲・上班族', text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: 'I', name: 'IG體驗者①', attr: '40多歲・上班族', text: '這款是日本大正製藥的產品，在日本算是滿有名的老品牌，很多人逛藥妝店應該都看過！', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV3QDCtkqiZ/?img_index=1' },
+              { initial: 'I', name: 'IG體驗者②', attr: '30多歲・上班族', text: '我最喜歡它的錠劑設計，完全沒有粉末感冒藥常見的那種苦味。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVdNKKrklYv/?igsh=c251N3UxZW1zZWI4&img_index=1' },
+              { initial: 'I', name: 'IG體驗者③', attr: '30多歲・自由工作者', text: 'パブロンゴールドA，是在日本很常見的家庭常備藥之一。', date: '2026.03', color: '#009688', snsUrl: 'https://www.instagram.com/p/DV5MG-mEqyl/' },
+              { initial: 'K', name: 'kid0804', attr: '30多歲・上班族', text: '只要有任何感冒前兆都可以喝一包，讓我的突發感冒可以先壓壓。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.facebook.com/kid0804/posts/pfbid02LoRRVmigQ33XsvCQBKUtQe8hNhpq5QJR5kQP8nyrQrtJcMYmNsq1moy5oHFgJGFQl' },
+              { initial: 'I', name: 'IG體驗者④', attr: '30多歲・上班族', text: '這是我們家中必備的「感冒藥」，可以用來緩解各式各樣的感冒症狀，真的太全能太好用了！', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DVntk4BGpdZ/?img_index=1' },
+              { initial: 'F', name: 'FB體驗者①', attr: '20多歲・上班族', text: '粉末型的綜合感冒藥，一包一包分好，其實還蠻方便的。', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid031SjxEMnTAgBnoYGh9oHU9G4GPoLuYcfjHdtDdTwEUAuSeY6r7iso9htZ8PaadJf3l&id=100001498612711' },
+              { initial: 'N', name: 'natsuki.chin', attr: '30多歲・自由工作者', text: '其實最早的パブロン是止咳藥，之後才演變為感冒藥💊，我都拿來當家裡常備藥。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/natsuki.chin.7/posts/pfbid06VY12vPT9e52fifhschY4BJUbrKL6iBPkkgTePfGV7JAxiJmQTRgmeMgTVpNW9oQl' },
+              { initial: '新', name: '新日一成', attr: '40多歲・個人創業者', text: '如果是像我一樣，常常一感冒就先從喉嚨痛開始的人，這款真的可以放在家裡備著。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0kVwaP1MQ8PtaWQ8UypMGDDea1G1kBMniiFtbGV5pvBNwxDGuGbvgHh3urtq7vvsVl' },
+              { initial: 'F', name: 'FB體驗者②', attr: '30多歲・上班族', text: '製藥老牌廠商的藥，值得信賴而且我個人是覺得蠻有效果又好吞還不會愛睡覺～', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=35337702805828358&id=100000462608255&mibextid=wwXIfr&rdid=3EvRqFa0oMasAJ7w#' }
             ], voiceCount: 10
           },
           { 
@@ -5732,22 +5903,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             tipFull: '健榮製藥－氧化鎂Ｅ便秘藥，日本藥妝店常見的非刺激性便秘藥。採用國產氧化鎂透過滲透壓機制增加腸道水分，協助軟化糞便，較不易引發腹痛與依賴性。速崩技術錠劑，搭配微甜檸檬風味，提升適口性，接受度較高。成人可依體質調整劑量，輕巧包裝方便攜帶，是慢性便秘管理的選擇之一。非刺激性瀉藥效果較溫和，是日本藥妝店便秘藥的新話題，也是慢性便秘管理的新選擇。',
             column: 'https://www.japankuru.com/tw/shopping/263178/', hasVideo: true, videoId: '9m6r4sCWBrw',
             voices: [
-              { initial: 'W', name: 'Wei Wei',          attr: '30代・会社員',      text: '最近日本開始回溫，出門小旅行的機會變多。我發現他們家出的旅行裝（隨身包）真的是大救星！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02vNkKin39zi89gjSKPA7NNozyURvonfkLDmYBLkwa2gtLBPyd3Dq3uPLJ5cEU64LFl&id=100001466739903' },
-              { initial: '新', name: '新日一成',         attr: '40代・個人事業主', text: '家裡有個小一的孩子，有時候因為飲食不均衡或水喝太少，也會有便便不順的情況。這種溫和型的產品，家裡備著就很安心。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0E938bxNDG3zkg2dqYHL981CiDUmiF1EtrEToUrom28V9gagqfhE45KG2LY1gbuwKl' },
-              { initial: 'S', name: 'Sharon Hsieh',     attr: '20代・会社員',      text: '現在我的行李裡，有個專門裝藥的小袋子，裡面除了胃藥和感冒藥之外，也多放了這個腸胃的小備品。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid028tT3vj9iSgPR5E8JZ9hmmk8bRwA6cDhBwSiSMkN9j1tYc8YNkkuSNCkYM5BMY4vDl' },
-              { initial: '李', name: '李映宣',           attr: '20代・会社員',      text: '偶爾不太順的時候用，可以讓狀態慢慢回到正常，也不會有太強烈的不適感', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02fT9dv8vmFpenvA1giybBKXNwW56UyLg92QEHBhrNfG8pw6554SnvrMF8JrYNNdZsl&id=100001498612711' },
-              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30代・会社員', text: '旅行裝放包包超方便，真的就是那種「欸我有帶，心就定一半」的安心感', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DVU-hr4krds/?img_index=1' },
-              { initial: '日', name: '日本零食好吃驚',   attr: '30代・会社員',      text: '這款產品的核心成分是氧化鎂，不是那種強行刺激腸道的瀉藥，而是透過「吸收水分」來軟化便便', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DV4zkhXD7Kb/?img_index=1' },
-              { initial: 'C', name: 'Chih Lin Kun',     attr: '30代・留学生',      text: '實際服用後覺得錠劑大小適中，吞服也很方便', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DV9-_pyki69/?img_index=1' },
-              { initial: 'P', name: 'pudding🍮',        attr: '30代・会社員',      text: '它與市面上強迫腸胃蠕動的瀉藥完全不同，這種不絞痛、溫和的排便體驗，真的非常實用。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/DV8zHNnkhwb/' },
-              { initial: 'S', name: 'shark_dosa',       attr: '20代・会社員',      text: '像我這種飲食一亂掉、腸胃就容易出狀況的人，看到這種實用型常備藥真的會默默記下來。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/DV8pTwsD1kM/?img_index=1' },
-              { initial: '蔡', name: '蔡昀臻',           attr: '20代・会社員',      text: '身為外食族，有的時候工作壓力大，肚子總是卡卡的，這時就需要這個好幫手', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26081505711511890&id=100002374528664&mibextid=wwXIfr&rdid=KbFxdcK1fawc7zq3#' }
+              { initial: 'W', name: 'Wei Wei',          attr: '30多歲・上班族',      text: '最近日本開始回溫，出門小旅行的機會變多。我發現他們家出的旅行裝（隨身包）真的是大救星！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02vNkKin39zi89gjSKPA7NNozyURvonfkLDmYBLkwa2gtLBPyd3Dq3uPLJ5cEU64LFl&id=100001466739903' },
+              { initial: '新', name: '新日一成',         attr: '40多歲・個人創業者', text: '家裡有個小一的孩子，有時候因為飲食不均衡或水喝太少，也會有便便不順的情況。這種溫和型的產品，家裡備著就很安心。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0E938bxNDG3zkg2dqYHL981CiDUmiF1EtrEToUrom28V9gagqfhE45KG2LY1gbuwKl' },
+              { initial: 'S', name: 'Sharon Hsieh',     attr: '20多歲・上班族',      text: '現在我的行李裡，有個專門裝藥的小袋子，裡面除了胃藥和感冒藥之外，也多放了這個腸胃的小備品。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid028tT3vj9iSgPR5E8JZ9hmmk8bRwA6cDhBwSiSMkN9j1tYc8YNkkuSNCkYM5BMY4vDl' },
+              { initial: '李', name: '李映宣',           attr: '20多歲・上班族',      text: '偶爾不太順的時候用，可以讓狀態慢慢回到正常，也不會有太強烈的不適感', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02fT9dv8vmFpenvA1giybBKXNwW56UyLg92QEHBhrNfG8pw6554SnvrMF8JrYNNdZsl&id=100001498612711' },
+              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30多歲・上班族', text: '旅行裝放包包超方便，真的就是那種「欸我有帶，心就定一半」的安心感', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DVU-hr4krds/?img_index=1' },
+              { initial: '日', name: '日本零食好吃驚',   attr: '30多歲・上班族',      text: '這款產品的核心成分是氧化鎂，不是那種強行刺激腸道的瀉藥，而是透過「吸收水分」來軟化便便', date: '2026.03', color: '#795548', snsUrl: 'https://www.instagram.com/p/DV4zkhXD7Kb/?img_index=1' },
+              { initial: 'C', name: 'Chih Lin Kun',     attr: '30多歲・留學生',      text: '實際服用後覺得錠劑大小適中，吞服也很方便', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DV9-_pyki69/?img_index=1' },
+              { initial: 'P', name: 'pudding🍮',        attr: '30多歲・上班族',      text: '它與市面上強迫腸胃蠕動的瀉藥完全不同，這種不絞痛、溫和的排便體驗，真的非常實用。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.instagram.com/p/DV8zHNnkhwb/' },
+              { initial: 'S', name: 'shark_dosa',       attr: '20多歲・上班族',      text: '像我這種飲食一亂掉、腸胃就容易出狀況的人，看到這種實用型常備藥真的會默默記下來。', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.instagram.com/p/DV8pTwsD1kM/?img_index=1' },
+              { initial: '蔡', name: '蔡昀臻',           attr: '20多歲・上班族',      text: '身為外食族，有的時候工作壓力大，肚子總是卡卡的，這時就需要這個好幫手', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/story.php?story_fbid=26081505711511890&id=100002374528664&mibextid=wwXIfr&rdid=KbFxdcK1fawc7zq3#' }
             ], voiceCount: 10
           },
           { 
             id: 23, slug: 'oronine-h-ointment', name: 'Oronine H軟膏', brand: '大塚製藥',
             price: 385, priceNote: '11g軟管裝 ¥385 ／ 50g軟管裝 ¥770',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine-h-ointment-50g-tube-official.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/oronine_portrait_under_1mb.jpg',
             label: 'type-exclusive', labelText: 'PR', plan: 'basic', isPR: true,
             originalUrl: 'https://www.otsuka.co.jp/',
             tip: '「PR」大塚製藥－Oronine H應急軟膏，在日長銷73年的家庭常備外傷用藥。含葡萄糖酸氯己定溶液，適用擦傷、乾裂、輕微燙傷及痤瘡等。11g與50g兩種尺寸，方便隨身攜帶。',
@@ -5757,18 +5928,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           { 
             id: 25, slug: 'taisho-gaichoyaku-k', name: '大正胃腸藥K', brand: '大正製藥',
             price: 1670, priceNote: '16包/70錠 ¥1,670 ／ 24包/110錠 ¥2,299 ／ 38包/190錠 ¥3,388 ／ 50包/230錠 ¥4,054',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-official-product.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/taisho-gaichoyaku-k-man-holding-1.jpg',
             label: 'type-exclusive', labelText: '日本限定', plan: 'basic',
             originalUrl: 'https://www.taisho.co.jp/',
             tip: '大正製藥－大正胃腸藥K，兼顧敏弱胃調理，幫助消化與舒緩緊張胃。獨家結合「安中散」與「芍藥甘草湯」，應對消化不良到壓力大引起的胃部不適。日本上班族高人氣家庭常備藥。',
             tipFull: '日本藥妝店裡陳列的眾多胃腸藥當中，誕生於1978年的大正漢方胃腸藥也是眾多日本人推崇的經典家庭常備藥。獨家結合能夠促進胃腸消化機能的「安中散」，以及舒緩胃部緊張狀態的「芍藥甘草湯」，能夠應對消化不良到壓力大引起的胃部不適，不少忙碌的日本上班族的抽屜或包包當中，都可見到這款長銷多年的胃腸藥。\n說到「大正胃腸藥K」，則是日本藥妝通才知道的大正漢方胃腸藥「芍薬甘草湯增量版」！同樣是5歲以上就可服用，但「芍藥甘草湯」的添加劑量則是從140毫克增量至170毫克！\n\n名稱：大正胃腸薬Ｋ\n醫藥分類：第2類医薬品\n適應症：胃痛、胃脹、胃炎、胃部不適、食慾不振、打嗝、腹痛、胸口灼熱、噁心、胃酸過多、腹部膨脹感\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
-              { initial: 'R', name: 'RUBY Lee',     attr: '20代・会社員',      text: '我自己覺得用起來算是比較溫和，不會有太強烈的刺激感，但又可以慢慢讓腸胃舒服一點。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid032mWxeYHKL1JKqorutHXjhPozw197trNdT61mfuyEBSwYgsBv9vNSk189kSEYypvol&id=100001498612711' },
-              { initial: '劉', name: '劉采蓉',       attr: '30代・留学生',      text: '裡面結合了「安中散」（針對胃痛、胃酸過多）以及「芍藥甘草湯」（偏鎮痛作用），整體是比較溫和的調理型胃藥。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid09ukmjszJhKUuMKEdoPNAo5Qz9wpjXtjN9kidRJ5cpnpRQs2JUNyykRFkYSf9eWZGl' },
-              { initial: 'P', name: 'purple',       attr: '30代・会社員',      text: '最喜歡的是它的微粒設計，顆粒非常細，小小的很好入口，也很容易溶於水。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVk6NJvmWOu/?img_index=1' },
-              { initial: 'S', name: 'Sharon Hsieh', attr: '20代・会社員',      text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
-              { initial: '花', name: '花森米米',     attr: '30代・フリーランス', text: '獨立包裝，隨身攜帶方便，在外如果突然胃不舒服，就能馬上吃一包', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV5MYIhEkKm/?img_index=1' }
+              { initial: 'R', name: 'RUBY Lee',     attr: '20多歲・上班族',      text: '我自己覺得用起來算是比較溫和，不會有太強烈的刺激感，但又可以慢慢讓腸胃舒服一點。', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid032mWxeYHKL1JKqorutHXjhPozw197trNdT61mfuyEBSwYgsBv9vNSk189kSEYypvol&id=100001498612711' },
+              { initial: '劉', name: '劉采蓉',       attr: '30多歲・留學生',      text: '裡面結合了「安中散」（針對胃痛、胃酸過多）以及「芍藥甘草湯」（偏鎮痛作用），整體是比較溫和的調理型胃藥。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid09ukmjszJhKUuMKEdoPNAo5Qz9wpjXtjN9kidRJ5cpnpRQs2JUNyykRFkYSf9eWZGl' },
+              { initial: 'P', name: 'purple',       attr: '30多歲・上班族',      text: '最喜歡的是它的微粒設計，顆粒非常細，小小的很好入口，也很容易溶於水。', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVk6NJvmWOu/?img_index=1' },
+              { initial: 'S', name: 'Sharon Hsieh', attr: '20多歲・上班族',      text: '最近開始養成一個習慣—— 出國或回台灣一定會帶胃藥。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/sharonxhsieh/posts/pfbid02CMHbUCU9sm7cG5pFfBS6suNG1CRewaphiA58r61JT3JJmqwMvQ7y8Z6GqwqCUCp7l' },
+              { initial: '花', name: '花森米米',     attr: '30多歲・自由工作者', text: '獨立包裝，隨身攜帶方便，在外如果突然胃不舒服，就能馬上吃一包', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV5MYIhEkKm/?img_index=1' }
             ], voiceCount: 5
           }
         ]
@@ -5786,28 +5957,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             tipFull: '井藤漢方「NAISHI-DOWN減脂錠」為一款採用黑薑由來多甲氧基黃酮（PMF）為關鍵成分的日本機能性表示食品。黑薑由來的多甲氧基黃酮，在日本有研究報告指出，具備「有助於BMI偏高者輔助減少腹部脂肪（包含內臟脂肪與皮下脂肪）」的機能性。同時，也有報告指出在日常生活的基礎能量代謝下，幫助脂肪更有效率被消耗。每日建議攝取兩粒。草本氣味較弱，適合作為飲食控制期間的日常代謝輔助選擇。',
             column: 'https://www.japankuru.com/tw/shopping/263542/', hasVideo: true, videoId: 'i2f4VD2aeVs',
             voices: [
-              { initial: '新', name: '新日一成',        attr: '40代・個人事業主', text: '對像我這種 BMI大概24以上、開始擔心肚子越來越大的中年族群，確實會比較有感覺', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0XzgFB6A6q2rUkE7rXSBuYYYN7fYZvNWYqojqrp25jnsSkjhNXPV67cYKVYvtE8HYl' },
-              { initial: 'K', name: 'Kobayashi Celine', attr: '40代・フリーランス', text: '很適合BMI24以上未滿30，在意體態與健康數值的人。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV7X9uzD5uq/?igsh=MWgwa2p4OHZwMWhtNA%3D%3D&img_index=1' },
-              { initial: '花', name: '花森米米',         attr: '30代・フリーランス', text: '這款在日本藥妝店一直很有討論度的內脂輕，真的很適合像我們這種生活忙碌、沒時間（懶得）運動的人', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DV5MsQwkjrK/?img_index=1' },
-              { initial: 'A', name: 'Aya Mikazuki',     attr: '30代・会社員',      text: '最近開始更在意體態跟健康數值，發現其實「日常生活」也可以成為管理的一部分', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/vminqi/posts/pfbid021mkEcYvhezJeCkuCabH8mm2jCSbRxoLx3wBZU6tkNU5nfCoGXK77yDh8f3QbNoRql' },
-              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30代・会社員', text: '2月跟妹妹暢遊九州一路大吃，回到日常照鏡子，我真的開始在意腹部線條＋健康數值…所以最近把井藤漢方製藥內脂輕加進我的日常保養清單。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DVU_IsDkh7a/?img_index=1' }
+              { initial: '新', name: '新日一成',        attr: '40多歲・個人創業者', text: '對像我這種 BMI大概24以上、開始擔心肚子越來越大的中年族群，確實會比較有感覺', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.facebook.com/hu.wei.7/posts/pfbid0XzgFB6A6q2rUkE7rXSBuYYYN7fYZvNWYqojqrp25jnsSkjhNXPV67cYKVYvtE8HYl' },
+              { initial: 'K', name: 'Kobayashi Celine', attr: '40多歲・自由工作者', text: '很適合BMI24以上未滿30，在意體態與健康數值的人。', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DV7X9uzD5uq/?igsh=MWgwa2p4OHZwMWhtNA%3D%3D&img_index=1' },
+              { initial: '花', name: '花森米米',         attr: '30多歲・自由工作者', text: '這款在日本藥妝店一直很有討論度的內脂輕，真的很適合像我們這種生活忙碌、沒時間（懶得）運動的人', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DV5MsQwkjrK/?img_index=1' },
+              { initial: 'A', name: 'Aya Mikazuki',     attr: '30多歲・上班族',      text: '最近開始更在意體態跟健康數值，發現其實「日常生活」也可以成為管理的一部分', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/vminqi/posts/pfbid021mkEcYvhezJeCkuCabH8mm2jCSbRxoLx3wBZU6tkNU5nfCoGXK77yDh8f3QbNoRql' },
+              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30多歲・上班族', text: '2月跟妹妹暢遊九州一路大吃，回到日常照鏡子，我真的開始在意腹部線條＋健康數值…所以最近把井藤漢方製藥內脂輕加進我的日常保養清單。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DVU_IsDkh7a/?img_index=1' }
             ], voiceCount: 5
           },
           { 
             id: 24, slug: 'lipovitan-dx', name: '力保美達DX（リポビタンDX）', brand: '大正製藥',
             price: 1650, priceNote: '30錠 ¥1,650 ／ 90錠 ¥4,268 ／ 180錠 ¥6,468 ／ 270錠 ¥8,668',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-official-product.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/lipovitan-dx-man-holding-window.jpg',
             label: 'type-hot', labelText: '話題', plan: 'basic',
             originalUrl: 'https://www.taisho.co.jp/',
             tip: '大正製藥－Lipovitan力保美達DX，日本元氣補充飲的錠劑版本。含牛磺酸500mg＋維生素B群＋助眠胺基酸「甘胺酸」，抗疲勞同時輔助改善淺眠等狀況。指定医薬部外品。',
+            tipFull: '日本元氣補充飲系列的錠劑版本。改善疲勞同時兼顧睡眠情況。\n\n誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒，至今仍有許多日本上班族習慣「喝了再上」。力保美達的靈魂核心成分「牛磺酸」是胺基酸的一種，廣為人知的消除疲勞作用成分。\n\n錠劑版本的「力保美達DX」，是近幾年異軍突起的抗疲B群人氣新選擇。每日建議攝取的3粒當中，不僅含有500毫克的牛磺酸和維生素B群，還搭配助眠系胺基酸「甘胺酸」，超級適合忙碌的現代人用來抵抗疲勞，同時輔助隨年齡增加而出現的難以入睡、淺眠或不易醒來等狀況。\n\n名稱：LIPOVITAN DX\n醫藥分類：指定医薬部外品\n效能、效果：恢復及預防疲勞／改善難以入睡・淺睡・難以睡醒／維持及改善體力、身體抵抗力及集中力\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             tipFull: '誕生於1960年代的力保美達，堪稱是日本元氣補充飲的先鋒，至今仍有許多日本上班族習慣「喝了再上」。力保美達的靈魂核心成分「牛磺酸」是胺基酸的一種，廣為人知的消除疲勞作用成分。\n錠劑版本的「力保美達DX」，是近幾年異軍突起的抗疲B群人氣新選擇。每日建議攝取的3粒當中，不僅含有500毫克的牛磺酸和維生素B群，還搭配助眠系胺基酸「甘胺酸」，超級適合忙碌的現代人用來抵抗疲勞，同時輔助隨年齡增加而出現的難以入睡、淺眠或不易醒來等狀況。\n\n名稱：LIPOVITAN DX\n醫藥分類：指定医薬部外品\n效能、效果：恢復及預防疲勞／改善難以入睡・淺睡・難以睡醒／維持及改善體力、身體抵抗力及集中力\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: null, hasVideo: false,
             voices: [
-              { initial: '林', name: '林桑的日本遊記',   attr: '40代・会社員', text: '這款是日本大正製藥的產品，在日本藥妝店其實滿常看到的！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DV54EL0EuHH/?img_index=1' },
-              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30代・会社員', text: '它沒咖啡因，加上睡眠支持成分グリシン、以及生藥シゴカ，所以我最常是「晚餐後～睡前」那段時間吃', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DVU6niYEi4V/?img_index=1' },
-              { initial: '劉', name: '劉采蓉',           attr: '30代・留学生', text: '我自己是在覺得有點累、或是壓力比較大、比較忙的時候會吃', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0zpGbKmihEmwSD4TSVE6Cqi7Zmb8hGt3nf36QMmoF3UAwRM92Z6ZSFtaTNyAZvpBql' },
-              { initial: 'S', name: 'Shanyu Lin',       attr: '40代・主婦',   text: '同時改善睡眠問題，感覺根本就是我現在狀況設計的救星。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid02dJYFqBrcUBvnDoey24oD1prWWecrBedDWbEGYtZuSxPzQYfqNbwEBt5CggoRYiNLl' },
-              { initial: 'P', name: 'purple',           attr: '30代・会社員', text: '我自己蠻喜歡的一點是它沒有咖啡因☕️❌ 所以就算是睡前也可以吃，不用擔心影響睡眠。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV8K6MombB5/?img_index=1' }
+              { initial: '林', name: '林桑的日本遊記',   attr: '40多歲・上班族', text: '這款是日本大正製藥的產品，在日本藥妝店其實滿常看到的！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DV54EL0EuHH/?img_index=1' },
+              { initial: '優', name: '優妮帶你遊大阪不踩雷', attr: '30多歲・上班族', text: '它沒咖啡因，加上睡眠支持成分グリシン、以及生藥シゴカ，所以我最常是「晚餐後～睡前」那段時間吃', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.instagram.com/p/DVU6niYEi4V/?img_index=1' },
+              { initial: '劉', name: '劉采蓉',           attr: '30多歲・留學生', text: '我自己是在覺得有點累、或是壓力比較大、比較忙的時候會吃', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0zpGbKmihEmwSD4TSVE6Cqi7Zmb8hGt3nf36QMmoF3UAwRM92Z6ZSFtaTNyAZvpBql' },
+              { initial: 'S', name: 'Shanyu Lin',       attr: '40多歲・家庭主婦',   text: '同時改善睡眠問題，感覺根本就是我現在狀況設計的救星。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/sacuralin/posts/pfbid02dJYFqBrcUBvnDoey24oD1prWWecrBedDWbEGYtZuSxPzQYfqNbwEBt5CggoRYiNLl' },
+              { initial: 'P', name: 'purple',           attr: '30多歲・上班族', text: '我自己蠻喜歡的一點是它沒有咖啡因☕️❌ 所以就算是睡前也可以吃，不用擔心影響睡眠。', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DV8K6MombB5/?img_index=1' }
             ], voiceCount: 5
           }
         ]
@@ -5818,89 +5990,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           {
             id: 30, slug: 'pelack-t-throat', name: 'PELACK-T喉嚨消炎錠a', brand: '第一三共',
             price: 1430, priceNote: '18錠 ¥1,430 ／ 36錠 ¥2,640 ／ 54錠 ¥3,410',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pelack-t-throat-tablet.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/pelack-T3.png',
             label: 'type-exclusive', labelText: '日本限定', plan: 'gold',
             originalUrl: 'https://www.daiichisankyo-hc.co.jp/',
             tip: 'PELACK-T喉嚨消炎錠a為日本第三類醫藥品，主成分傳明酸（Tranexamic Acid）可透過抑制纖維蛋白溶解反應，降低發炎相關物質活性，協助改善喉嚨紅腫與疼痛不適。建議於症狀初期使用，有助於控制不適感。除喉嚨疼痛外，也可作為口內炎期間的輔助對症用藥。',
             tipFull: 'PELACK-T喉嚨消炎錠a為日本第三類醫藥品，主成分傳明酸（Tranexamic Acid）可透過抑制纖維蛋白溶解反應，降低發炎相關物質活性，協助改善喉嚨紅腫與疼痛不適。建議於症狀初期使用，有助於控制不適感。除喉嚨疼痛外，也可作為口內炎期間的輔助對症用藥。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
-            column: 'https://www.japankuru.com/tw/shopping/264456/', hasVideo: false,
+            column: 'https://www.japankuru.com/tw/shopping/264456/', hasVideo: true, videoId: '41SH1U8NWH8',
             voices: [
-              { initial: 'H', name: 'HimiKo',          attr: '20代・フリーランス', text: '是許多需要頻繁用嗓音工作者的護身符♪', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWE8pMTAXn2/?img_index=1' },
-              { initial: 'W', name: 'Wei Wei',          attr: '30代・会社員',      text: '這款在旅遊圈被封為「喉嚨痛神藥」真的不是開玩笑', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid034dxkuKTKXHqMpSkihYcV9hbU8YzV37nnmfs1nsUW64L46kX46p8ey49hL32Bk7ttl&id=100001466739903' },
-              { initial: 'フ', name: 'ファン ナwナ',    attr: '40代・会社員',      text: '不含容易讓人想睡的成分，白天要上班或外出時吃也比較安心', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnbtNcEqMS/?igsh=MXRpdWRieTcwenl5cg%3D%3D' },
-              { initial: '劉', name: '劉采蓉',          attr: '30代・留学生',      text: '對於需要長時間講話、或是喉嚨容易反覆不舒服的人來說，真的蠻實用的', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0givUT7EP7QLWkFTW4e8aQ8696Ms1PNvEARQnds9WnbFMBFrai6upXhQhSZ9SVvRl' },
-              { initial: 'Y', name: 'Yu Shan',          attr: '40代・会社員',      text: '最近喉嚨乾乾又有點痛，吃了之後真的有明顯緩解', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWOOZVokVXZ/?img_index=1' },
-              { initial: '呂', name: '呂明怡',          attr: '20代・会社員',      text: '有時候換季、講話太多，或是感覺喉嚨開始乾乾痛痛的時候，我就會想到它', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0MdUXQAhgKAhCgtc6D3bd9f7GFxa3dfeBbMr5GXZAgAKrMCgYpyt6hit7T6oM8AFNl&id=100002589505586' },
-              { initial: '花', name: '花森米米',        attr: '30代・フリーランス', text: '如果有喉嚨不舒服或容易嘴破的困擾，有來日本逛藥妝時也可以參考看看', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsxPd6kgIF/' },
-              { initial: '青', name: '青醬的日本小確幸', attr: '40代・会社員',     text: '這款在日本算是知名度很高的喉嚨藥，很多人只要覺得「喉嚨怪怪的」，就會先吃。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/pfbid0Gy5KviNi4fT48Ghew3NemnGabWbLFN3C1cKZd7HviUSMeL79VekTyx2FsAx79diQl' },
-              { initial: 'B', name: 'BBQ in Japan',     attr: '40代・個人事業主', text: '不知道實際效果如果，下次喉嚨開始不妙時來試看看', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid0UiDRZdu9kTD6LVtCSYMPKVCnWXPXCfWder2vnN25Dj1kWk5CMfeQgwFHFAhSkiUZl' },
-              { initial: '廖', name: '廖小白',          attr: '40代・会社員',      text: '有時候口腔破，除了貼布，直接口服是比較快的', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/100000142974546/posts/27152243391030393/?mibextid=wwXIfr&rdid=xdupk6r98viWkSGw#' }
+              { initial: 'H', name: 'HimiKo',          attr: '20多歲・自由工作者', text: '是許多需要頻繁用嗓音工作者的護身符♪', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWE8pMTAXn2/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',          attr: '30多歲・上班族',      text: '這款在旅遊圈被封為「喉嚨痛神藥」真的不是開玩笑', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid034dxkuKTKXHqMpSkihYcV9hbU8YzV37nnmfs1nsUW64L46kX46p8ey49hL32Bk7ttl&id=100001466739903' },
+              { initial: 'フ', name: 'ファン ナwナ',    attr: '40多歲・上班族',      text: '不含容易讓人想睡的成分，白天要上班或外出時吃也比較安心', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnbtNcEqMS/?igsh=MXRpdWRieTcwenl5cg%3D%3D' },
+              { initial: '劉', name: '劉采蓉',          attr: '30多歲・留學生',      text: '對於需要長時間講話、或是喉嚨容易反覆不舒服的人來說，真的蠻實用的', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0givUT7EP7QLWkFTW4e8aQ8696Ms1PNvEARQnds9WnbFMBFrai6upXhQhSZ9SVvRl' },
+              { initial: 'Y', name: 'Yu Shan',          attr: '40多歲・上班族',      text: '最近喉嚨乾乾又有點痛，吃了之後真的有明顯緩解', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWOOZVokVXZ/?img_index=1' },
+              { initial: '呂', name: '呂明怡',          attr: '20多歲・上班族',      text: '有時候換季、講話太多，或是感覺喉嚨開始乾乾痛痛的時候，我就會想到它', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0MdUXQAhgKAhCgtc6D3bd9f7GFxa3dfeBbMr5GXZAgAKrMCgYpyt6hit7T6oM8AFNl&id=100002589505586' },
+              { initial: '花', name: '花森米米',        attr: '30多歲・自由工作者', text: '如果有喉嚨不舒服或容易嘴破的困擾，有來日本逛藥妝時也可以參考看看', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsxPd6kgIF/' },
+              { initial: '青', name: '青醬的日本小確幸', attr: '40多歲・上班族',     text: '這款在日本算是知名度很高的喉嚨藥，很多人只要覺得「喉嚨怪怪的」，就會先吃。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/pfbid0Gy5KviNi4fT48Ghew3NemnGabWbLFN3C1cKZd7HviUSMeL79VekTyx2FsAx79diQl' },
+              { initial: 'B', name: 'BBQ in Japan',     attr: '40多歲・個人創業者', text: '不知道實際效果如果，下次喉嚨開始不妙時來試看看', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid0UiDRZdu9kTD6LVtCSYMPKVCnWXPXCfWder2vnN25Dj1kWk5CMfeQgwFHFAhSkiUZl' },
+              { initial: '廖', name: '廖小白',          attr: '40多歲・上班族',      text: '有時候口腔破，除了貼布，直接口服是比較快的', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/100000142974546/posts/27152243391030393/?mibextid=wwXIfr&rdid=xdupk6r98viWkSGw#' }
             ], voiceCount: 10
           },
           {
             id: 31, slug: 'traful-mouth-patch', name: 'TRAFUL口內炎貼片a', brand: '第一三共',
             price: 1485, priceNote: '12片 ¥1,485 ／ 24片 ¥2,200',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/traful-mouth-patch-direct-a.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/81rSZNyHgL._AC_SY879_.jpg',
             label: 'type-hot', labelText: '話題', plan: 'gold',
             originalUrl: 'https://www.daiichisankyo-hc.co.jp/',
             tip: '第一三共HealthCare「TRAFUL口內炎貼片a」為日本熱銷對症用藥，專為復發性口內炎設計。0.16mm極薄貼片可直接貼附患部形成保護層，減少摩擦刺激，並釋放主要成分曲安奈德。約30～60分鐘自然溶解，無須撕除。輕巧好攜帶，適合復發性口內炎（嘴破）時備用。',
             tipFull: '第一三共HealthCare「TRAFUL口內炎貼片a」為日本熱銷對症用藥，專為復發性口內炎設計。0.16mm極薄貼片可直接貼附患部形成保護層，減少摩擦刺激，並釋放主要成分曲安奈德。約30～60分鐘自然溶解，無須撕除。輕巧好攜帶，適合復發性口內炎（嘴破）時備用。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: 'https://www.japankuru.com/tw/shopping/264744/', hasVideo: true, videoId: 'b3h2Ybw2BW4',
             voices: [
-              { initial: 'H', name: 'HimiKo',           attr: '20代・フリーランス', text: '貼上後大約30分～1小時就會自動溶解在口中，非常方便！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWE8pMTAXn2/?img_index=1' },
-              { initial: 'W', name: 'Wei Wei',           attr: '30代・会社員',      text: '最方便的是它貼上去後會慢慢融化，不用擔心還要撕下來', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid034dxkuKTKXHqMpSkihYcV9hbU8YzV37nnmfs1nsUW64L46kX46p8ey49hL32Bk7ttl&id=100001466739903' },
-              { initial: 'フ', name: 'ファン ナwナ',     attr: '40代・会社員',      text: '貼片薄薄一片貼在患處，幾乎沒有什麼存在感', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnbtNcEqMS/?igsh=MXRpdWRieTcwenl5cg%3D%3D' },
-              { initial: '劉', name: '劉采蓉',           attr: '30代・留学生',      text: '口內炎吃東西會痛、講話會摩擦到，真的很困擾的時候，這種貼片型產品就很方便。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0givUT7EP7QLWkFTW4e8aQ8696Ms1PNvEARQnds9WnbFMBFrai6upXhQhSZ9SVvRl' },
-              { initial: 'Y', name: 'Yu Shan',           attr: '40代・会社員',      text: '貼片型真的超方便，貼上後會慢慢溶解，不需要一直撕來撕去', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWOOZVokVXZ/?img_index=1' },
-              { initial: '呂', name: '呂明怡',           attr: '20代・会社員',      text: 'Traful 的口內炎貼片，會慢慢自己溶解，不需要特別撕下來', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0MdUXQAhgKAhCgtc6D3bd9f7GFxa3dfeBbMr5GXZAgAKrMCgYpyt6hit7T6oM8AFNl&id=100002589505586' },
-              { initial: '花', name: '花森米米',         attr: '30代・フリーランス', text: '以前都用塗藥的方式，改用這款之後只要貼一下就好～', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsxPd6kgIF/' },
-              { initial: '青', name: '青醬的日本小確幸', attr: '40代・会社員',      text: '一累就嘴破、或很容易咬到自己的人，這款真的可以先筆記。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/pfbid0Gy5KviNi4fT48Ghew3NemnGabWbLFN3C1cKZd7HviUSMeL79VekTyx2FsAx79diQl' },
-              { initial: 'B', name: 'BBQ in Japan',      attr: '40代・個人事業主', text: '好處是會溶於你口，不用怕睡一覺起來後發現吞下去了！', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid0UiDRZdu9kTD6LVtCSYMPKVCnWXPXCfWder2vnN25Dj1kWk5CMfeQgwFHFAhSkiUZl' },
-              { initial: '廖', name: '廖小白',           attr: '40代・会社員',      text: '有這個口內炎貼布，貼著吃東西，完全可以放心吃', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/100000142974546/posts/27152243391030393/?mibextid=wwXIfr&rdid=xdupk6r98viWkSGw#' }
+              { initial: 'H', name: 'HimiKo',           attr: '20多歲・自由工作者', text: '貼上後大約30分～1小時就會自動溶解在口中，非常方便！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWE8pMTAXn2/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',           attr: '30多歲・上班族',      text: '最方便的是它貼上去後會慢慢融化，不用擔心還要撕下來', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid034dxkuKTKXHqMpSkihYcV9hbU8YzV37nnmfs1nsUW64L46kX46p8ey49hL32Bk7ttl&id=100001466739903' },
+              { initial: 'フ', name: 'ファン ナwナ',     attr: '40多歲・上班族',      text: '貼片薄薄一片貼在患處，幾乎沒有什麼存在感', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnbtNcEqMS/?igsh=MXRpdWRieTcwenl5cg%3D%3D' },
+              { initial: '劉', name: '劉采蓉',           attr: '30多歲・留學生',      text: '口內炎吃東西會痛、講話會摩擦到，真的很困擾的時候，這種貼片型產品就很方便。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid0givUT7EP7QLWkFTW4e8aQ8696Ms1PNvEARQnds9WnbFMBFrai6upXhQhSZ9SVvRl' },
+              { initial: 'Y', name: 'Yu Shan',           attr: '40多歲・上班族',      text: '貼片型真的超方便，貼上後會慢慢溶解，不需要一直撕來撕去', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWOOZVokVXZ/?img_index=1' },
+              { initial: '呂', name: '呂明怡',           attr: '20多歲・上班族',      text: 'Traful 的口內炎貼片，會慢慢自己溶解，不需要特別撕下來', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0MdUXQAhgKAhCgtc6D3bd9f7GFxa3dfeBbMr5GXZAgAKrMCgYpyt6hit7T6oM8AFNl&id=100002589505586' },
+              { initial: '花', name: '花森米米',         attr: '30多歲・自由工作者', text: '以前都用塗藥的方式，改用這款之後只要貼一下就好～', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsxPd6kgIF/' },
+              { initial: '青', name: '青醬的日本小確幸', attr: '40多歲・上班族',      text: '一累就嘴破、或很容易咬到自己的人，這款真的可以先筆記。', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/pfbid0Gy5KviNi4fT48Ghew3NemnGabWbLFN3C1cKZd7HviUSMeL79VekTyx2FsAx79diQl' },
+              { initial: 'B', name: 'BBQ in Japan',      attr: '40多歲・個人創業者', text: '好處是會溶於你口，不用怕睡一覺起來後發現吞下去了！', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid0UiDRZdu9kTD6LVtCSYMPKVCnWXPXCfWder2vnN25Dj1kWk5CMfeQgwFHFAhSkiUZl' },
+              { initial: '廖', name: '廖小白',           attr: '40多歲・上班族',      text: '有這個口內炎貼布，貼著吃東西，完全可以放心吃', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/100000142974546/posts/27152243391030393/?mibextid=wwXIfr&rdid=xdupk6r98viWkSGw#' }
             ], voiceCount: 10
           },
           {
             id: 32, slug: 'loxonin-ex-tape', name: 'LOXONIN樂松EX貼布（ロキソニンEXテープ）', brand: '第一三共',
             price: 1408, priceNote: '7片 ¥1,408 ／ 14片 ¥2,178 ／ 21片 ¥2,948',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/loxonin-ex-tape-patch.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/loxonin_portrait_under_1mb.jpg',
             label: 'type-exclusive', labelText: '日本限定', plan: 'gold',
             originalUrl: 'https://www.daiichisankyo-hc.co.jp/',
             tip: '樂松EX貼布，日本製藥大廠研發，含洛索洛芬鈉水合物8.1%，為系列最高濃度。適用於腰痛、肩頸痠痛、關節痛與肌肉拉傷等不適。貼布輕薄服貼、不易脫落，並添加維生素E與L-薄荷醇，使用方便。請依說明書指示正確使用。',
             tipFull: '樂松EX貼布，日本製藥大廠研發，含洛索洛芬鈉水合物8.1%，為系列最高濃度。適用於腰痛、肩頸痠痛、關節痛與肌肉拉傷等不適。貼布輕薄服貼、不易脫落，並添加維生素E與L-薄荷醇，使用方便。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: 'https://www.japankuru.com/tw/shopping/264791/', hasVideo: false,
             voices: [
-              { initial: 'H', name: 'HimiKo',           attr: '20代・フリーランス', text: '含有與處方藥同級的止痛成分洛索洛芬鈉，針對肩膀僵硬、腰痛、小腿痠痛效果極佳', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWCQnXmga10/?img_index=1' },
-              { initial: 'W', name: 'Wei Wei',           attr: '30代・会社員',      text: '自己覺得蠻不錯的一點是，它的味道其實很淡，不像有些痠痛貼布會有很重的藥味', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02W2fKVWxL1xEHaqVpP2WxbGK8gBtyao18quDnkhzqBjxpfpVLkSfbpPJfAMSaAUr5l&id=100001466739903' },
-              { initial: 'フ', name: 'ファン ナwナ',     attr: '40代・会社員',      text: '貼著活動時比較不會有很明顯的存在感，難怪在日本一直都很受歡迎', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnWrIfEuNa/' },
-              { initial: '劉', name: '劉采蓉',           attr: '30代・留学生',      text: '由第一三共研發，原本就是醫院臨床使用的成分，因此效果一直很受到信賴', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid02og544RVfHZ3gCtWegjLraKU2a2DgqECWK7tFsTUsZTdjYG7rVX4qtxRioFtwNG6Ql' },
-              { initial: 'Y', name: 'Yu Shan',           attr: '40代・会社員',      text: '這款是醫療級的痠痛貼布，止痛成分濃度高，貼上後真的很有感', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWONsWREfDX/?img_index=1' },
-              { initial: '呂', name: '呂明怡',           attr: '20代・会社員',      text: '貼布本身也蠻薄的，黏性剛剛好，睡覺貼著也不太會掉', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0dQsg4vtbufWayhw173kesuvpV24NLheJWj8YucaZJFZHJNZ69phetJYo7jfctadol&id=100002589505586' },
-              { initial: '花', name: '花森米米',         attr: '30代・フリーランス', text: '像我平常如果有腰酸、肩頸不舒服，就會貼一下放鬆舒緩', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsqd7Xklwp/' },
-              { initial: '青', name: '青醬的日本小確幸', attr: '40代・会社員',      text: '去年因為手腕關節炎去醫院治療，那時醫生開給我的貼布就是這家品牌', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/1719113232402175?ref=embed_post' },
-              { initial: 'B', name: 'BBQ in Japan',      attr: '40代・個人事業主', text: '這個成分的貼布能真正的抑制深層的酸痛，並且不會涼到睡不著', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid08dhyHMXChtkoue5gsoxytadiTidvCcHCeK2kGTsA82uxWMsHvtF1kigX1XTNDUh6l' },
-              { initial: '廖', name: '廖小白',           attr: '40代・会社員',      text: '日本同事挫傷去醫院，醫師就是開Loxonin EX貼布給他！', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0uAxutCadifhTYW45h7LF21gZMF5vZ62HXLQA3W8WgpKivAEgGRXpQgrr58q8Hpwbl&id=100000142974546' }
+              { initial: 'H', name: 'HimiKo',           attr: '20多歲・自由工作者', text: '含有與處方藥同級的止痛成分洛索洛芬鈉，針對肩膀僵硬、腰痛、小腿痠痛效果極佳', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWCQnXmga10/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',           attr: '30多歲・上班族',      text: '自己覺得蠻不錯的一點是，它的味道其實很淡，不像有些痠痛貼布會有很重的藥味', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02W2fKVWxL1xEHaqVpP2WxbGK8gBtyao18quDnkhzqBjxpfpVLkSfbpPJfAMSaAUr5l&id=100001466739903' },
+              { initial: 'フ', name: 'ファン ナwナ',     attr: '40多歲・上班族',      text: '貼著活動時比較不會有很明顯的存在感，難怪在日本一直都很受歡迎', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnWrIfEuNa/' },
+              { initial: '劉', name: '劉采蓉',           attr: '30多歲・留學生',      text: '由第一三共研發，原本就是醫院臨床使用的成分，因此效果一直很受到信賴', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid02og544RVfHZ3gCtWegjLraKU2a2DgqECWK7tFsTUsZTdjYG7rVX4qtxRioFtwNG6Ql' },
+              { initial: 'Y', name: 'Yu Shan',           attr: '40多歲・上班族',      text: '這款是醫療級的痠痛貼布，止痛成分濃度高，貼上後真的很有感', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWONsWREfDX/?img_index=1' },
+              { initial: '呂', name: '呂明怡',           attr: '20多歲・上班族',      text: '貼布本身也蠻薄的，黏性剛剛好，睡覺貼著也不太會掉', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0dQsg4vtbufWayhw173kesuvpV24NLheJWj8YucaZJFZHJNZ69phetJYo7jfctadol&id=100002589505586' },
+              { initial: '花', name: '花森米米',         attr: '30多歲・自由工作者', text: '像我平常如果有腰酸、肩頸不舒服，就會貼一下放鬆舒緩', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsqd7Xklwp/' },
+              { initial: '青', name: '青醬的日本小確幸', attr: '40多歲・上班族',      text: '去年因為手腕關節炎去醫院治療，那時醫生開給我的貼布就是這家品牌', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/1719113232402175?ref=embed_post' },
+              { initial: 'B', name: 'BBQ in Japan',      attr: '40多歲・個人創業者', text: '這個成分的貼布能真正的抑制深層的酸痛，並且不會涼到睡不著', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid08dhyHMXChtkoue5gsoxytadiTidvCcHCeK2kGTsA82uxWMsHvtF1kigX1XTNDUh6l' },
+              { initial: '廖', name: '廖小白',           attr: '40多歲・上班族',      text: '日本同事挫傷去醫院，醫師就是開Loxonin EX貼布給他！', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0uAxutCadifhTYW45h7LF21gZMF5vZ62HXLQA3W8WgpKivAEgGRXpQgrr58q8Hpwbl&id=100000142974546' }
             ], voiceCount: 10
           },
           {
             id: 33, slug: 'transino-white-c-premium', name: '傳皙諾TRANSINO WHITE C PREMIUM（トランシーノホワイトCプレミアム）', brand: '第一三共',
             price: 2310, priceNote: '90錠 ¥2,310 ／ 180錠 ¥3,520 ／ 270錠 ¥4,840',
-            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/transino-white-c-premium-box.jpg',
+            image: 'https://www.japankuru.com/gld-kanri/data/uploads/2026/03/01-Transino-white-C-premium-0318-scaled.jpg',
             label: 'type-hot', labelText: '話題', plan: 'gold',
             originalUrl: 'https://www.daiichisankyo-hc.co.jp/',
             tip: '傳皙諾TRANSINO WHITE C PREMIUM是日本人氣美白錠，主打 L-半胱胺酸與維生素C 雙核心成分，搭配五種美肌支持維生素，輔助抑制黑色素、協助促進肌膚代謝與抗氧化。適合想改善斑點、雀斑及日曬色素沉澱者，每日依指示服用，搭配日常保養，成為美肌輕鬆補給的好選擇。',
             tipFull: '傳皙諾TRANSINO WHITE C PREMIUM是日本人氣美白錠，主打 L-半胱胺酸與維生素C 雙核心成分，搭配五種美肌支持維生素，輔助抑制黑色素、協助促進肌膚代謝與抗氧化。適合想改善斑點、雀斑及日曬色素沉澱者，每日依指示服用，搭配日常保養，成為美肌輕鬆補給的好選擇。\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。',
             column: 'https://www.japankuru.com/tw/shopping/264796/', hasVideo: false,
             voices: [
-              { initial: 'H', name: 'HimiKo',           attr: '20代・フリーランス', text: '如果想要擁有日本女生那種透明感肌膚，除了外擦，平時內服的補給保養也是關鍵！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWCQnXmga10/?img_index=1' },
-              { initial: 'W', name: 'Wei Wei',           attr: '30代・会社員',      text: '由內而外的調理也很重要。這款算是日本開架美白錠裡面比較高階的版本', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02W2fKVWxL1xEHaqVpP2WxbGK8gBtyao18quDnkhzqBjxpfpVLkSfbpPJfAMSaAUr5l&id=100001466739903' },
-              { initial: 'フ', name: 'ファン ナwナ',     attr: '40代・会社員',      text: '這系列在日本真的很常看到，不只是觀光客會買，其實很多日本人也會長期補充', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnWrIfEuNa/' },
-              { initial: '劉', name: '劉采蓉',           attr: '30代・留学生',      text: '如果平常有在關注日本藥妝的人，應該對這款不陌生。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid02og544RVfHZ3gCtWegjLraKU2a2DgqECWK7tFsTUsZTdjYG7rVX4qtxRioFtwNG6Ql' },
-              { initial: 'Y', name: 'Yu Shan',           attr: '40代・会社員',      text: '它含有日本醫藥級、最高規格的L-半胱胺酸（240mg），再加上2000mg的維他命C', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWONsWREfDX/?img_index=1' },
-              { initial: '呂', name: '呂明怡',           attr: '20代・会社員',      text: '這款在日本算是很有名的美白維他命，維生素C含量很高', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0dQsg4vtbufWayhw173kesuvpV24NLheJWj8YucaZJFZHJNZ69phetJYo7jfctadol&id=100002589505586' },
-              { initial: '花', name: '花森米米',         attr: '30代・フリーランス', text: '這款美白錠在日本很有人氣！是日本知名製藥公司第一三共的品牌', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsqd7Xklwp/' },
-              { initial: '青', name: '青醬的日本小確幸', attr: '40代・会社員',      text: '這款也是日本藥妝店很常看到的熱銷商品', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/1719113232402175?ref=embed_post' },
-              { initial: 'B', name: 'BBQ in Japan',      attr: '40代・個人事業主', text: '效果怎樣我不太清楚，不過有買過的老婆覺得效果還可以', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid08dhyHMXChtkoue5gsoxytadiTidvCcHCeK2kGTsA82uxWMsHvtF1kigX1XTNDUh6l' },
-              { initial: '廖', name: '廖小白',           attr: '40代・会社員',      text: '第一三共是日本藥妝大公司，對於日常生活所需的產品非常重視', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0uAxutCadifhTYW45h7LF21gZMF5vZ62HXLQA3W8WgpKivAEgGRXpQgrr58q8Hpwbl&id=100000142974546' }
+              { initial: 'H', name: 'HimiKo',           attr: '20多歲・自由工作者', text: '如果想要擁有日本女生那種透明感肌膚，除了外擦，平時內服的補給保養也是關鍵！', date: '2026.03', color: '#E91E63', snsUrl: 'https://www.instagram.com/p/DWCQnXmga10/?img_index=1' },
+              { initial: 'W', name: 'Wei Wei',           attr: '30多歲・上班族',      text: '由內而外的調理也很重要。這款算是日本開架美白錠裡面比較高階的版本', date: '2026.03', color: '#9C27B0', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02W2fKVWxL1xEHaqVpP2WxbGK8gBtyao18quDnkhzqBjxpfpVLkSfbpPJfAMSaAUr5l&id=100001466739903' },
+              { initial: 'フ', name: 'ファン ナwナ',     attr: '40多歲・上班族',      text: '這系列在日本真的很常看到，不只是觀光客會買，其實很多日本人也會長期補充', date: '2026.03', color: '#3F51B5', snsUrl: 'https://www.instagram.com/p/DVnWrIfEuNa/' },
+              { initial: '劉', name: '劉采蓉',           attr: '30多歲・留學生',      text: '如果平常有在關注日本藥妝的人，應該對這款不陌生。', date: '2026.03', color: '#009688', snsUrl: 'https://www.facebook.com/teresa.liu.1293/posts/pfbid02og544RVfHZ3gCtWegjLraKU2a2DgqECWK7tFsTUsZTdjYG7rVX4qtxRioFtwNG6Ql' },
+              { initial: 'Y', name: 'Yu Shan',           attr: '40多歲・上班族',      text: '它含有日本醫藥級、最高規格的L-半胱胺酸（240mg），再加上2000mg的維他命C', date: '2026.03', color: '#FF5722', snsUrl: 'https://www.instagram.com/p/DWONsWREfDX/?img_index=1' },
+              { initial: '呂', name: '呂明怡',           attr: '20多歲・上班族',      text: '這款在日本算是很有名的美白維他命，維生素C含量很高', date: '2026.03', color: '#795548', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0dQsg4vtbufWayhw173kesuvpV24NLheJWj8YucaZJFZHJNZ69phetJYo7jfctadol&id=100002589505586' },
+              { initial: '花', name: '花森米米',         attr: '30多歲・自由工作者', text: '這款美白錠在日本很有人氣！是日本知名製藥公司第一三共的品牌', date: '2026.03', color: '#607D8B', snsUrl: 'https://www.instagram.com/p/DVsqd7Xklwp/' },
+              { initial: '青', name: '青醬的日本小確幸', attr: '40多歲・上班族',      text: '這款也是日本藥妝店很常看到的熱銷商品', date: '2026.03', color: '#4CAF50', snsUrl: 'https://www.facebook.com/chinchaninjp/posts/1719113232402175?ref=embed_post' },
+              { initial: 'B', name: 'BBQ in Japan',      attr: '40多歲・個人創業者', text: '效果怎樣我不太清楚，不過有買過的老婆覺得效果還可以', date: '2026.03', color: '#FF9800', snsUrl: 'https://www.facebook.com/BBQinJP/posts/pfbid08dhyHMXChtkoue5gsoxytadiTidvCcHCeK2kGTsA82uxWMsHvtF1kigX1XTNDUh6l' },
+              { initial: '廖', name: '廖小白',           attr: '40多歲・上班族',      text: '第一三共是日本藥妝大公司，對於日常生活所需的產品非常重視', date: '2026.03', color: '#2196F3', snsUrl: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0uAxutCadifhTYW45h7LF21gZMF5vZ62HXLQA3W8WgpKivAEgGRXpQgrr58q8Hpwbl&id=100000142974546' }
             ], voiceCount: 10
           }
         ]
@@ -5956,8 +6128,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (p.labelText) html += '<span class="price-label">' + p.labelText + '</span>';
       html += '</div>';
 
-      html += '<div class="che-section"><div class="che-header"><img loading="lazy" decoding="async" src="' + chePhoto + '" class="che-face"><span class="che-name">鄭老師的推薦</span></div>';
-      html += '<div class="che-comment-box"><p class="che-text">' + (p.tipFull || p.tip) + '</p></div></div>';
+      html += '<div class="che-section">';
+      html += '<div class="che-header">';
+      html += '<img loading="lazy" decoding="async" src="' + chePhoto + '" class="che-face">';
+      html += '<div class="che-header-info"><span class="che-name">鄭世彬</span><span class="che-title">日本藥粧研究家</span></div>';
+      html += '</div>';
+      html += '<p class="che-text">' + (p.tipFull || p.tip) + '</p>';
+      html += '</div>';
 
       // Column preview for plans with column (standard, gold, platinum)
       if (p.column) {
@@ -6101,7 +6278,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       document.getElementById('modalName').textContent = p.name;
       document.getElementById('modalPrice').textContent = '¥' + p.price.toLocaleString();
-      document.getElementById('modalTip').innerHTML = p.tipFull || p.tip;
+      const modalTipText = p.tipFull || p.tip || '';
+      const modalDisc = '※：使用前請詳閱說明書並依指示之適應症與用法用量使用。';
+      document.getElementById('modalTip').innerHTML = modalTipText.includes('※') ? modalTipText : modalTipText + '<br><span class="tip-disclaimer">' + modalDisc + '</span>';
 
       const voicesDiv = document.getElementById('modalVoices');
       const voiceList = document.getElementById('modalVoiceList');
@@ -6151,7 +6330,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       document.getElementById('bsName').textContent = p.name;
       document.getElementById('bsPrice').textContent = '¥' + p.price.toLocaleString();
-      document.getElementById('bsTip').innerHTML = p.tipFull || p.tip;
+      const tipText = p.tipFull || p.tip || '';
+      const bsDisc = '※：使用前請詳閱說明書並依指示之適應症與用法用量使用。';
+      document.getElementById('bsTip').innerHTML = tipText.includes('※') ? tipText : tipText + '<br><span class="tip-disclaimer">' + bsDisc + '</span>';
 
       const columnLink = document.getElementById('bsColumn');
       if (p.column) {
@@ -6633,14 +6814,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* === Sakura Date Matcher + Seasonal Switch === */
     (function() {
       var skCities = [
-        { name:'名古屋', bloom:'3/17', full:'3/25', fall:'3/29', snow:'4/1', img:'', tip:'', sensei:'名古屋城和鶴舞公園是賞櫻好去處！今年東海地區提早開花，觀光客比東京少，可以悠閒享受 🎌' },
-        { name:'東京', bloom:'3/19', full:'3/27', fall:'3/31', snow:'4/3', img:'', tip:'', sensei:'東京推薦上野公園和目黑川！今年提早，3月下旬就是滿開！記得做好花粉對策再出門 😷' },
-        { name:'福岡', bloom:'3/20', full:'3/28', fall:'4/1', snow:'4/4', img:'', tip:'', sensei:'福岡是日本最早開花的城市之一！舞鶴公園和西公園是賞櫻名所，搭配太宰府一日遊剛剛好 🚃' },
-        { name:'大阪', bloom:'3/24', full:'3/31', fall:'4/4', snow:'4/7', img:'', tip:'', sensei:'大阪城公園和造幣局通り抜け是必去！今年3月底就是滿開，造幣局只開放一週，要注意時間 🏯' },
-        { name:'京都', bloom:'3/23', full:'4/1', fall:'4/5', snow:'4/8', img:'', tip:'', sensei:'京都的哲學之道和蹴上傾斜鐵道超美！今年3/23就開花，4月初是滿開黃金期，建議一大早去 🌸' },
-        { name:'仙台', bloom:'4/5', full:'4/11', fall:'4/15', snow:'4/18', img:'', tip:'', sensei:'仙台的一目千本櫻超壯觀！白石川沿岸8公里的櫻花隧道，東北最美的賞櫻點 🚂' },
-        { name:'札幌', bloom:'4/25', full:'5/2', fall:'5/6', snow:'5/9', img:'', tip:'', sensei:'5月的札幌完全沒有花粉！圓山公園可以邊烤肉邊賞櫻，是北海道獨特的體驗 🦌' },
-        { name:'沖繩', bloom:'1/15', full:'2/1', fall:'2/8', snow:'2/12', img:'', tip:'', sensei:'沖繩的寒緋櫻是深粉色，和本州染井吉野完全不同。1～2月在今帰仁城跡就能看到！已結束' }
+        { name:'名古屋', bloom:'3/17', full:'3/27', fall:'3/31', snow:'4/3', img:'', tip:'', sensei:'名古屋城和鶴舞公園是賞櫻好去處！今年東海地區已提早開花，目前正值滿開，週末是最佳賞花時機 🎌' },
+        { name:'東京', bloom:'3/19', full:'3/27', fall:'3/31', snow:'4/3', img:'', tip:'', sensei:'東京推薦上野公園和目黑川！今年3/19開花，3/27已滿開！週末5月暖陽，賞花最佳時期 😊' },
+        { name:'福岡', bloom:'3/24', full:'3/30', fall:'4/3', snow:'4/6', img:'', tip:'', sensei:'福岡已開花！舞鶴公園和西公園是賞櫻名所，搭配太宰府一日遊剛剛好，3/30預計滿開 🚃' },
+        { name:'大阪', bloom:'3/26', full:'4/1', fall:'4/5', snow:'4/8', img:'', tip:'', sensei:'大阪3/26開花！大阪城公園和造幣局通り抜け是必去，4月初就是滿開黃金期，造幣局只開放一週 🏯' },
+        { name:'京都', bloom:'3/23', full:'3/31', fall:'4/5', snow:'4/8', img:'', tip:'', sensei:'京都3/23開花！哲學之道和蹴上傾斜鐵道超美，3/31預計滿開，4月初是黃金賞花期，建議一大早去 🌸' },
+        { name:'仙台', bloom:'3/31', full:'4/5', fall:'4/9', snow:'4/13', img:'', tip:'', sensei:'仙台3/31預計開花，比平年早8天！白石川沿岸8公里的一目千本櫻超壯觀，4月上旬是最佳時機 🚂' },
+        { name:'札幌', bloom:'4/23', full:'4/27', fall:'5/1', snow:'5/4', img:'', tip:'', sensei:'北海道今年也比平年早，4/23開花！5月的札幌完全沒有花粉，圓山公園可以邊烤肉邊賞櫻 🦌' },
+        { name:'沖繩', bloom:'1/15', full:'2/1', fall:'2/8', snow:'2/12', img:'', tip:'', sensei:'沖繩的寒緋櫻是深粉色，和本州染井吉野完全不同。1～2月在今帰仁城跡就能看到！今年已結束' }
       ];
 
       function skParseDate(str, yr) {
@@ -6783,7 +6964,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.querySelectorAll('.sakura-stage').forEach(function(el) {
           el.classList.remove('is-highlight');
         });
-        document.getElementById('skSpeechText').textContent = '日期輸入好了嗎？我來幫你找最適合的城市！🌸';
+        document.getElementById('skSpeechText').textContent = '日期輸入好了嗎？我來幫你找最適合的城市！🌿';
         document.getElementById('skTravelStart').focus();
       });
     // Store Guide Tabs & Scroll Arrows
