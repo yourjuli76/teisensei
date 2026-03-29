@@ -2857,14 +2857,14 @@
     .bs-product-visual {
       position: relative;
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       background: #fff;
       border-bottom: 1px solid #f0f0f0;
       overflow: hidden;
     }
 
     .bs-product-visual.has-video {
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       background: #000;
     }
 
@@ -2872,10 +2872,10 @@
     .bs-product-visual::before {
       content: '';
       display: block;
-      padding-top: 75%; /* 4:3 */
+      padding-top: 100%; /* 1:1 */
     }
     .bs-product-visual.has-video::before {
-      padding-top: 75%; /* 4:3 */
+      padding-top: 56.25%; /* 16:9 */
     }
     .bs-product-visual img,
     .bs-product-visual iframe {
@@ -2887,7 +2887,7 @@
 
     .bs-product-visual img {
       object-fit: contain;
-      padding: 8px;
+      padding: 16px;
       box-sizing: border-box;
     }
 
@@ -3117,6 +3117,19 @@
       border: none;
       border-radius: 10px;
       font-size: 20px;
+      cursor: pointer;
+    }
+
+    .bs-copy-btn {
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #999;
       cursor: pointer;
     }
 
@@ -5755,6 +5768,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="bs-line-btn" onclick="shareToLineFromBS()">
           <i class="fab fa-line"></i>
         </button>
+        <button class="bs-copy-btn" onclick="copyUrlFromBS()" title="複製商品網址">
+          <i class="fas fa-link"></i>
+        </button>
         <button class="bs-heart-btn" id="bsHeartBtn" onclick="toggleListFromBottomSheet()">
           <i class="far fa-heart"></i>
         </button>
@@ -6583,6 +6599,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       const text = encodeURIComponent('【鄭老師的推薦2026春】我的購物清單\n\n' + items + '\n\n詳情請看：' + location.href);
       window.open('https://line.me/R/msg/text/?' + text, '_blank');
+    }
+
+    function copyUrlFromBS() {
+      if (!currentBsId) return;
+      const all = getAllProducts();
+      const p = all.find(function(x) { return x.id === currentBsId; });
+      if (!p) return;
+      const productUrl = window.location.origin + window.location.pathname + '?product=' + p.slug;
+      navigator.clipboard.writeText(productUrl).then(function() {
+        showToast('已複製商品網址！');
+      }).catch(function() {
+        showToast('複製失敗，請重試');
+      });
     }
 
     function copyUrl() {
