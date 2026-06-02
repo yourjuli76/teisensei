@@ -7128,720 +7128,27 @@ body {
 }
 
 
-/* ══════════════════════════════
-   Kazoku Product Photo Card UI
-   全商品：商品写真 + 区分 + カテゴリ + 商品名 + 症状
-══════════════════════════════ */
-
-/* 전체 영역 */
-.kazoku-product-area {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 0 56px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 34px;
-}
-
-/* 섹션 박스 */
-.kazoku-product-group {
-  background: rgba(255, 253, 248, 0.92);
-  border: 1px solid rgba(180, 155, 110, 0.24);
-  border-radius: 14px;
-  padding: 26px;
-  box-shadow:
-    0 1px 4px rgba(0,0,0,0.04),
-    0 16px 44px rgba(60, 45, 25, 0.07);
-}
-
-.kazoku-product-group--medicine {
-  border-top: 4px solid #8a6b36;
-}
-
-.kazoku-product-group--food {
-  border-top: 4px solid #5f9658;
-  background: rgba(249, 255, 247, 0.95);
-}
-
-/* 섹션 헤더 */
-.kazoku-group-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 22px;
-}
-
-.kazoku-group-label {
-  flex-shrink: 0;
-  min-width: 78px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: #2a2218;
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
-.kazoku-product-group--food .kazoku-group-label {
-  background: #4f7f45;
-}
-
-.kazoku-group-head h3 {
-  margin: 0 0 5px;
-  font-family: 'Shippori Mincho B1','Noto Serif JP','Noto Serif TC',serif;
-  font-size: 24px;
-  line-height: 1.45;
-  color: #2a2218;
-  letter-spacing: 0.02em;
-}
-
-.kazoku-group-head p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.75;
-  color: #8a7a68;
-}
-
-/* 카드 그리드 */
-.kazoku-product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.kazoku-product-grid--food {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* 상품 카드 공통 */
-.kazoku-product-card {
-  position: relative;
-  width: 100%;
-  min-height: 300px;
-  padding: 0;
-  border: 1px solid rgba(180, 155, 110, 0.28);
-  border-radius: 12px;
-  background: #fffdf8;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: center;
-  appearance: none;
-  transition:
-    transform .28s ease,
-    box-shadow .28s ease,
-    border-color .28s ease,
-    background .28s ease;
-}
-
-.kazoku-product-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(180, 155, 110, 0.62);
-  box-shadow: 0 16px 36px rgba(120, 92, 42, 0.16);
-}
-
-.kazoku-product-card--food {
-  background: #fbfff8;
-  border-color: rgba(111, 155, 99, 0.34);
-}
-
-.kazoku-product-card--food:hover {
-  border-color: rgba(111, 155, 99, 0.66);
-  box-shadow: 0 16px 36px rgba(90, 130, 80, 0.15);
-}
-
-/* 区分 배지 */
-.kazoku-card-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 3;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(42, 34, 24, 0.88);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  line-height: 1.3;
-}
-
-.kazoku-product-card--food .kazoku-card-badge {
-  background: rgba(79, 127, 69, 0.92);
-}
-
-/* 상품사진 영역 */
-.kazoku-card-photo {
-  height: 168px;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,1) 0%, rgba(248,244,238,0.9) 60%, rgba(243,237,230,0.72) 100%);
-  border-bottom: 1px solid rgba(180, 155, 110, 0.16);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kazoku-product-card--food .kazoku-card-photo {
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,1) 0%, rgba(245,252,244,0.94) 60%, rgba(230,244,226,0.72) 100%);
-  border-bottom-color: rgba(111, 155, 99, 0.18);
-}
-
-.kazoku-card-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 24px 28px 20px;
-  transition: transform .4s ease;
-}
-
-.kazoku-product-card:hover .kazoku-card-photo img {
-  transform: scale(1.045);
-}
-
-/* 카드 텍스트 */
-.kazoku-card-body {
-  padding: 18px 18px 22px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.kazoku-card-category {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #9a8050;
-  letter-spacing: .08em;
-  line-height: 1.5;
-}
-
-.kazoku-product-card--food .kazoku-card-category {
-  color: #4f7f45;
-}
-
-.kazoku-card-name {
-  display: block;
-  margin-bottom: 7px;
-  font-family: 'Shippori Mincho B1','Noto Serif JP','Noto Serif TC',serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.45;
-  color: #2a2218;
-  letter-spacing: 0.02em;
-}
-
-.kazoku-card-symptom {
-  display: block;
-  font-size: 12px;
-  line-height: 1.65;
-  color: #a09080;
-}
-
-.kazoku-product-card--food .kazoku-card-symptom {
-  color: #7f9278;
-}
-
-/* 섹션 하단 주의문: 상품 카드와 분리 */
-.kazoku-section-note {
-  margin-top: 16px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: rgba(138, 107, 54, 0.07);
-  border: 1px dashed rgba(138, 107, 54, 0.28);
-  font-size: 11px;
-  line-height: 1.75;
-  color: #8a7a68;
-}
-
-.kazoku-product-group--food .kazoku-section-note {
-  background: rgba(95, 150, 88, 0.07);
-  border-color: rgba(95, 150, 88, 0.28);
-  color: #6f8468;
-}
-
-.kazoku-section-note strong {
-  color: #2a2218;
-  font-weight: 700;
-}
-
-/* tablet */
-@media (max-width: 900px) {
-  .kazoku-product-area {
-    padding: 0 18px 48px;
-  }
-
-  .kazoku-product-grid,
-  .kazoku-product-grid--food {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .kazoku-product-card {
-    min-height: 286px;
-  }
-
-  .kazoku-card-photo {
-    height: 154px;
-  }
-}
-
-/* mobile */
-@media (max-width: 620px) {
-  .kazoku-product-area {
-    padding: 0 14px 42px;
-    gap: 26px;
-  }
-
-  .kazoku-product-group {
-    padding: 18px 14px;
-    border-radius: 12px;
-  }
-
-  .kazoku-group-head {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .kazoku-group-label {
-    min-width: auto;
-    font-size: 12px;
-  }
-
-  .kazoku-group-head h3 {
-    font-size: 19px;
-  }
-
-  .kazoku-group-head p {
-    font-size: 11px;
-  }
-
-  .kazoku-product-grid,
-  .kazoku-product-grid--food {
-    grid-template-columns: 1fr;
-    gap: 13px;
-  }
-
-  .kazoku-product-card {
-    min-height: auto;
-  }
-
-  .kazoku-card-photo {
-    height: 146px;
-  }
-
-  .kazoku-card-photo img {
-    padding: 20px 26px 18px;
-  }
-
-  .kazoku-card-body {
-    padding: 16px 14px 18px;
-  }
-
-  .kazoku-card-category {
-    font-size: 10px;
-  }
-
-  .kazoku-card-name {
-    font-size: 17px;
-  }
-
-  .kazoku-card-symptom {
-    font-size: 11px;
-  }
-}
-/* ══════════════════════════════
-   FINAL Kazoku Product Photo UI
-   商品写真 + 区分 + カテゴリ + 商品名 + 症状
+  /* ══════════════════════════════
+   FINAL Kazoku Layout Fix
+   PC: 医薬品 left / 食品 compact right
+   Mobile: stacked
 ══════════════════════════════ */
 
 .kazoku-product-area {
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 0 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
-}
-
-.kazoku-product-group {
-  background: rgba(255, 253, 248, 0.94);
-  border: 1px solid rgba(180, 155, 110, 0.24);
-  border-radius: 14px;
-  padding: 26px;
-  box-shadow:
-    0 1px 4px rgba(0,0,0,0.04),
-    0 16px 44px rgba(60, 45, 25, 0.07);
-}
-
-.kazoku-product-group--medicine {
-  border-top: 4px solid #8a6b36;
-}
-
-.kazoku-product-group--food {
-  border-top: 4px solid #5f9658;
-  background: rgba(249, 255, 247, 0.96);
-}
-
-.kazoku-group-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 22px;
-}
-
-.kazoku-group-label {
-  flex-shrink: 0;
-  min-width: 78px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: #2a2218;
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
-.kazoku-product-group--food .kazoku-group-label {
-  background: #4f7f45;
-}
-
-.kazoku-group-head h3 {
-  margin: 0 0 5px;
-  font-family: 'Shippori Mincho B1','Noto Serif JP','Noto Serif TC',serif;
-  font-size: 24px;
-  line-height: 1.45;
-  color: #2a2218;
-  letter-spacing: 0.02em;
-}
-
-.kazoku-group-head p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.75;
-  color: #8a7a68;
-}
-
-/* 医薬品: PC에서는 5개 한 줄 */
-.kazoku-product-grid--medicine {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
-}
-
-/* 상품 카드 공통 */
-.kazoku-product-card {
-  position: relative;
-  width: 100%;
-  min-height: 300px;
-  padding: 0;
-  border: 1px solid rgba(180, 155, 110, 0.28);
-  border-radius: 12px;
-  background: #fffdf8;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: center;
-  appearance: none;
-  transition:
-    transform .28s ease,
-    box-shadow .28s ease,
-    border-color .28s ease,
-    background .28s ease;
-}
-
-.kazoku-product-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(180, 155, 110, 0.62);
-  box-shadow: 0 16px 36px rgba(120, 92, 42, 0.16);
-}
-
-.kazoku-product-card--food {
-  max-width: 560px;
-  min-height: 260px;
-  background: #fbfff8;
-  border-color: rgba(111, 155, 99, 0.34);
-}
-
-.kazoku-product-card--food:hover {
-  border-color: rgba(111, 155, 99, 0.66);
-  box-shadow: 0 16px 36px rgba(90, 130, 80, 0.15);
-}
-
-/* 区分 배지 */
-.kazoku-card-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 3;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(42, 34, 24, 0.88);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  line-height: 1.3;
-}
-
-.kazoku-product-card--food .kazoku-card-badge {
-  background: rgba(79, 127, 69, 0.92);
-}
-
-/* 상품사진 */
-.kazoku-card-photo {
-  height: 168px;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,1) 0%, rgba(248,244,238,0.9) 60%, rgba(243,237,230,0.72) 100%);
-  border-bottom: 1px solid rgba(180, 155, 110, 0.16);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kazoku-product-card--food .kazoku-card-photo {
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255,255,255,1) 0%, rgba(245,252,244,0.94) 60%, rgba(230,244,226,0.72) 100%);
-  border-bottom-color: rgba(111, 155, 99, 0.18);
-}
-
-.kazoku-card-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 22px 24px 18px;
-  transition: transform .4s ease;
-}
-
-.kazoku-product-card:hover .kazoku-card-photo img {
-  transform: scale(1.045);
-}
-
-/* 카드 텍스트 */
-.kazoku-card-body {
-  padding: 18px 16px 22px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.kazoku-card-category {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #9a8050;
-  letter-spacing: .08em;
-  line-height: 1.5;
-}
-
-.kazoku-product-card--food .kazoku-card-category {
-  color: #4f7f45;
-}
-
-.kazoku-card-name {
-  display: block;
-  margin-bottom: 7px;
-  font-family: 'Shippori Mincho B1','Noto Serif JP','Noto Serif TC',serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.45;
-  color: #2a2218;
-  letter-spacing: 0.02em;
-}
-
-.kazoku-card-symptom {
-  display: block;
-  font-size: 12px;
-  line-height: 1.65;
-  color: #a09080;
-}
-
-.kazoku-product-card--food .kazoku-card-symptom {
-  color: #7f9278;
-}
-
-/* 하단 안내문 */
-.kazoku-section-note {
-  margin-top: 16px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 11px;
-  line-height: 1.75;
-}
-
-.kazoku-section-note strong {
-  color: #2a2218;
-  font-weight: 700;
-}
-
-.kazoku-section-note--medicine {
-  background: rgba(138, 107, 54, 0.07);
-  border: 1px dashed rgba(138, 107, 54, 0.28);
-  color: #8a7a68;
-}
-
-.kazoku-section-note--food {
-  margin-top: 0;
-  background: rgba(95, 150, 88, 0.07);
-  border: 1px dashed rgba(95, 150, 88, 0.28);
-  color: #6f8468;
-}
-
-/* 食品: 설명 + 카드 레이아웃 */
-.kazoku-food-layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.75fr) minmax(320px, 1.25fr);
+  grid-template-columns: minmax(0, 3.2fr) minmax(250px, 0.9fr);
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
 }
 
-.kazoku-food-copy {
-  padding: 22px 20px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.5);
-  border: 1px solid rgba(95, 150, 88, 0.16);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-}
-
-.kazoku-food-lead {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.9;
-  color: #6f8468;
-}
-
-/* tablet */
-@media (max-width: 1100px) {
-  .kazoku-product-grid--medicine {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .kazoku-product-card {
-    min-height: 286px;
-  }
-}
-
-@media (max-width: 900px) {
-  .kazoku-product-area {
-    padding: 0 18px 48px;
-  }
-
-  .kazoku-product-grid--medicine {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .kazoku-food-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .kazoku-product-card--food {
-    max-width: none;
-  }
-}
-
-/* mobile */
-@media (max-width: 620px) {
-  .kazoku-product-area {
-    padding: 0 14px 42px;
-    gap: 26px;
-  }
-
-  .kazoku-product-group {
-    padding: 18px 14px;
-    border-radius: 12px;
-  }
-
-  .kazoku-group-head {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .kazoku-group-label {
-    min-width: auto;
-    font-size: 12px;
-  }
-
-  .kazoku-group-head h3 {
-    font-size: 19px;
-  }
-
-  .kazoku-group-head p {
-    font-size: 11px;
-  }
-
-  .kazoku-product-grid--medicine {
-    grid-template-columns: 1fr;
-    gap: 13px;
-  }
-
-  .kazoku-product-card {
-    min-height: auto;
-  }
-
-  .kazoku-card-photo {
-    height: 146px;
-  }
-
-  .kazoku-card-photo img {
-    padding: 20px 26px 18px;
-  }
-
-  .kazoku-card-body {
-    padding: 16px 14px 18px;
-  }
-
-  .kazoku-card-category {
-    font-size: 10px;
-  }
-
-  .kazoku-card-name {
-    font-size: 17px;
-  }
-
-  .kazoku-card-symptom {
-    font-size: 11px;
-  }
-
-  .kazoku-food-copy {
-    padding: 16px 14px;
-  }
-
-  .kazoku-food-lead {
-    font-size: 13px;
-  }
-}
-/* ══════════════════════════════
-   FINAL override: equal product photo cards
-   全商品同一カード + 大きい写真
-══════════════════════════════ */
-
-/* 전체 섹션: 세로형으로 통일 */
-.kazoku-product-area {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 0 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-/* 섹션 박스 */
 .kazoku-product-group {
   background: rgba(255, 253, 248, 0.95);
   border: 1px solid rgba(180, 155, 110, 0.22);
   border-radius: 16px;
-  padding: 26px;
+  padding: 24px;
   box-shadow:
     0 1px 4px rgba(0,0,0,0.035),
     0 16px 44px rgba(60, 45, 25, 0.06);
@@ -7856,12 +7163,16 @@ body {
   background: rgba(250, 255, 248, 0.96);
 }
 
-/* 헤더 */
 .kazoku-group-head {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 22px;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.kazoku-product-group--food .kazoku-group-head {
+  flex-direction: column;
+  gap: 10px;
 }
 
 .kazoku-group-label {
@@ -7886,9 +7197,13 @@ body {
 .kazoku-group-head h3 {
   margin: 0 0 5px;
   font-family: 'Shippori Mincho B1','Noto Serif JP','Noto Serif TC',serif;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.45;
   color: #2a2218;
+}
+
+.kazoku-product-group--food .kazoku-group-head h3 {
+  font-size: 20px;
 }
 
 .kazoku-group-head p {
@@ -7898,26 +7213,30 @@ body {
   color: #8a7a68;
 }
 
-/* 医薬品: 5개 한 줄 */
-.kazoku-product-grid--medicine,
-.kazoku-product-grid {
+/* 医薬品: 왼쪽 영역 3열 */
+.kazoku-product-grid--medicine {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-/* 食品: 같은 카드 크기, 한 개만 배치 */
+/* 食品: 오른쪽 영역 1열 */
 .kazoku-product-grid--food {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
-/* 상품 카드 */
+/* 혹시 남아있는 기본 grid 영향을 차단 */
+.kazoku-product-grid {
+  display: grid;
+}
+
+/* 상품 카드 공통 */
 .kazoku-product-card {
   position: relative;
   width: 100%;
-  min-height: 330px;
+  min-height: 318px;
   padding: 0;
   border: 1px solid rgba(180, 155, 110, 0.26);
   border-radius: 14px;
@@ -7948,7 +7267,6 @@ body {
   box-shadow: 0 18px 40px rgba(90, 130, 80, 0.14);
 }
 
-/* 배지 */
 .kazoku-card-badge {
   position: absolute;
   top: 12px;
@@ -7968,9 +7286,8 @@ body {
   background: rgba(79, 127, 69, 0.92);
 }
 
-/* 사진 영역 크게 */
 .kazoku-card-photo {
-  height: 210px;
+  height: 206px;
   background: #f8f4ee;
   border-bottom: 1px solid rgba(180, 155, 110, 0.14);
   overflow: hidden;
@@ -7981,7 +7298,6 @@ body {
   border-bottom-color: rgba(111, 155, 99, 0.16);
 }
 
-/* 사진을 꽉 차게 */
 .kazoku-card-photo img {
   width: 100%;
   height: 100%;
@@ -7995,10 +7311,9 @@ body {
   transform: scale(1.06);
 }
 
-/* 텍스트 영역 */
 .kazoku-card-body {
-  min-height: 120px;
-  padding: 18px 14px 20px;
+  min-height: 112px;
+  padding: 16px 14px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8040,7 +7355,6 @@ body {
   color: #7f9278;
 }
 
-/* 안내문 */
 .kazoku-section-note {
   margin-top: 16px;
   padding: 12px 16px;
@@ -8067,31 +7381,23 @@ body {
 }
 
 /* tablet */
-@media (max-width: 1100px) {
-  .kazoku-product-grid--medicine,
-  .kazoku-product-grid,
-  .kazoku-product-grid--food {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .kazoku-product-card {
-    min-height: 320px;
-  }
-
-  .kazoku-card-photo {
-    height: 200px;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1020px) {
   .kazoku-product-area {
+    grid-template-columns: 1fr;
     padding: 0 18px 48px;
   }
 
-  .kazoku-product-grid--medicine,
-  .kazoku-product-grid,
-  .kazoku-product-grid--food {
+  .kazoku-product-grid--medicine {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kazoku-product-grid--food {
+    max-width: 360px;
+    grid-template-columns: 1fr;
+  }
+
+  .kazoku-product-group--food .kazoku-group-head {
+    flex-direction: row;
   }
 }
 
@@ -8107,7 +7413,8 @@ body {
     border-radius: 12px;
   }
 
-  .kazoku-group-head {
+  .kazoku-group-head,
+  .kazoku-product-group--food .kazoku-group-head {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 16px;
@@ -8118,7 +7425,8 @@ body {
     font-size: 12px;
   }
 
-  .kazoku-group-head h3 {
+  .kazoku-group-head h3,
+  .kazoku-product-group--food .kazoku-group-head h3 {
     font-size: 19px;
   }
 
@@ -8127,9 +7435,9 @@ body {
   }
 
   .kazoku-product-grid--medicine,
-  .kazoku-product-grid,
   .kazoku-product-grid--food {
     grid-template-columns: 1fr;
+    max-width: none;
     gap: 13px;
   }
 
@@ -9190,29 +8498,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <div class="kazoku-food-layout">
-    <div class="kazoku-food-copy">
-      <p class="kazoku-food-lead">
-        毎日のセルフケアに取り入れやすい、のどケア食品をご紹介します。
-      </p>
+  <div class="kazoku-product-grid kazoku-product-grid--food">
+  <button class="kazoku-product-card kazoku-product-card--food" onclick="openKazokuModal('ryukakusan')" type="button">
+    <span class="kazoku-card-badge">食品</span>
 
-      <div class="kazoku-section-note kazoku-section-note--food">
-        <strong>区分：</strong>本エリアの商品は食品です。医薬品ではありません。
-      </div>
+    <div class="kazoku-card-photo">
+      <img src="data:image/jpeg;base64,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" alt="龍角散 のどケア食品">
     </div>
 
-    <button class="kazoku-product-card kazoku-product-card--food" onclick="openKazokuModal('ryukakusan')" type="button">
-      <span class="kazoku-card-badge">食品</span>
-      <div class="kazoku-card-photo">
-        <img src="data:image/jpeg;base64,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" alt="龍角散 のどケア食品">
-      </div>
-      <div class="kazoku-card-body">
-        <span class="kazoku-card-category">のどケア食品</span>
-        <span class="kazoku-card-name">龍角散</span>
-        <span class="kazoku-card-symptom">のどをうるおす毎日のケアに</span>
-      </div>
-    </button>
-  </div>
+    <div class="kazoku-card-body">
+      <span class="kazoku-card-category">のどケア食品</span>
+      <span class="kazoku-card-name">龍角散</span>
+      <span class="kazoku-card-symptom">のどをうるおす毎日のケアに</span>
+    </div>
+  </button>
+</div>
+
+<div class="kazoku-section-note kazoku-section-note--food">
+  <strong>区分：</strong>本エリアの商品は食品です。医薬品ではありません。
+</div>
 </section>
 </div>
 
