@@ -7468,7 +7468,7 @@ body {
 }
 
 
-.c-drug-class{display:inline-block;border:1px solid #333;color:#333;font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px;margin:2px 0 8px;letter-spacing:.04em;line-height:1.4;background:#fff;}
+.c-drug-class{display:table;width:auto;border:1.5px solid #1a1a1a;color:#1a1a1a;font-size:11px;font-weight:600;padding:3px 9px;border-radius:1px;margin:4px 0 9px;letter-spacing:.06em;line-height:1.3;background:#fff;}
 </style>
 <style id="kzc-addon">
 .kz-modal.kzc{display:block!important;padding:0!important;width:min(900px,94vw)!important;max-width:900px!important;
@@ -10525,7 +10525,7 @@ body {
       // Phase 1 (default): as-is
 
       /* --- Date Matcher --- */
-      document.getElementById('skDateBtn').addEventListener('click', function() {
+      var _skDateBtn=document.getElementById('skDateBtn'); if(_skDateBtn) _skDateBtn.addEventListener('click', function() {
         var sv = document.getElementById('skTravelStart').value;
         var ev = document.getElementById('skTravelEnd').value;
         if (!sv || !ev) return;
@@ -10616,7 +10616,7 @@ body {
       });
 
       // Retry
-      document.getElementById('skResultRetry').addEventListener('click', function() {
+      var _skRetry=document.getElementById('skResultRetry'); if(_skRetry) _skRetry.addEventListener('click', function() {
         document.getElementById('skResultInline').classList.remove('is-visible');
         document.querySelectorAll('.sakura-stage').forEach(function(el) {
           el.classList.remove('is-highlight');
