@@ -7511,6 +7511,8 @@ body {
 .kzc-price{color:var(--accent-dark,#3B7C4A);font-size:15px;}
 .kzc-note{margin:13px 30px 0;font-size:11.5px;color:#6B6359;line-height:1.6;display:flex;gap:6px;}
 .kzc-note::before{content:"※";color:var(--accent-dark,#3B7C4A);}
+.kzc-note.has-extra::before{content:none;}
+.kzc-note.has-extra{display:block;}
 .kzc-actions{display:flex;gap:10px;margin:20px 30px 28px;padding-top:18px;border-top:1px solid #C9BCA0;flex-wrap:wrap;}
 .kzc-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;padding:11px 16px;border-radius:3px;cursor:pointer;text-decoration:none;}
 .kzc-btn-main{background:#2B2722;color:#F4EFE4;flex:1;min-width:190px;}
@@ -7629,7 +7631,7 @@ body {
             查看2026年夏季推薦
             <i class="fas fa-shopping-bag"></i>
 </button>
-<p class="hero-cta-sub">嚴選 <strong>10大品牌 · 13款</strong> 必買好物</p>
+<p class="hero-cta-sub">嚴選 <strong>14大品牌 · 20款</strong> 必買好物</p>
 </div>
 </div>
 <div class="hero-visual-area">
@@ -7715,7 +7717,7 @@ body {
 <section class="split-banner-section">
 <div class="split-header">
 <span class="split-eyebrow">嚴選推薦 2026 夏季</span>
-<h2 class="split-title">世彬老師嚴選推薦<br/>3款必買家庭藥妝</h2>
+<h2 class="split-title">世彬老師嚴選推薦<br/>6款必買家庭藥妝</h2>
 <p class="split-subtitle">
         14年藥妝研究，嚴選推薦。附詳細解說專欄＋體驗者評價。
       </p>
@@ -8277,7 +8279,13 @@ body {
       其背後都有著一段耐人尋味的故事。
     </h2>
 <p class="kazoku-body">
-      在日本為數眾多的 OTC 醫藥品當中，其實存在著一個名為『家庭藥』的類別。這些歷史動輒超過數十年甚至是上百年的『家庭藥』，其實就是日本民眾存放在自家醫藥箱當中，那些用來自我藥療的老藥。
+      為將寶貴的醫療資源保留給真正需要的民眾，日本政府大力推行「Self-Medication／自我藥療」（セルフメディケーション）多年，也就是在生病症狀尚輕的時候，自行前往藥局或藥妝店購買適合的藥物來自我應對。正因為如此，日本的藥局或藥妝店才會不斷推出新 OTC 醫藥品。
+    </p>
+<p class="kazoku-body">
+      在日本為數眾多的 OTC 醫藥品當中，其實存在著一個名為『家庭藥』的類別。這些歷史動輒超過數十年甚至是上百年的『家庭藥』，其實就是日本民眾存放在自家醫藥箱當中，那些用來自我藥療的經典老藥。
+    </p>
+<p class="kazoku-body">
+      在這些塵封於日本長輩記憶中的故事裡，不僅凝聚了先輩們的辛勞，更深藏著日本醫藥的歷史。從活用古人智慧與漢方生藥草本精華，到藥事法規修訂下碩果僅存的稀有處方，都是日本「家庭藥」備受信賴且歷久不衰的秘密。
     </p>
 <!-- ▲ kazoku-stats 수치라인 삭제됨 -->
 </div>
@@ -8317,51 +8325,51 @@ body {
 <button class="kazoku-product-card" data-id="201" onclick="openKazokuModal('okusa')" type="button">
 <span class="kazoku-card-badge">醫藥品</span>
 <div class="kazoku-card-photo">
-<img alt="大草胃腸散 顆粒（分包）" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/R5_09376-scaled.jpg" loading="lazy"/>
+<img alt="大草胃腸散 顆粒（分包）" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/R5_09376-scaled.jpg"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">大草胃腸散</span>
-<span class="kazoku-card-symptom">胃痛（胃悶）、胃部・腹部悶脹感</span>
+<span class="kazoku-card-symptom">胃腸藥</span>
 </div>
 </button>
 <button class="kazoku-product-card" data-id="202" onclick="openKazokuModal('kyushin')" type="button">
 <span class="kazoku-card-badge">醫藥品</span>
 <div class="kazoku-card-photo">
-<img alt="救心膠囊F" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/capsule-scaled.jpg" loading="lazy"/>
+<img alt="救心膠囊F" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/capsule-scaled.jpg"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">救心膠囊F</span>
-<span class="kazoku-card-symptom">氣促、心悸</span>
+<span class="kazoku-card-symptom">強心藥</span>
 </div>
 </button>
 <button class="kazoku-product-card" data-id="203" onclick="openKazokuModal('tomeful')" type="button">
 <span class="kazoku-card-badge">醫藥品</span>
 <div class="kazoku-card-photo">
-<img alt="TOFUMEL-A" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/tofumel.png" loading="lazy"/>
+<img alt="TOFUMEL-A" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/tofumel.png"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">TOFUMEL-A</span>
-<span class="kazoku-card-symptom">皮膚殺菌及消毒、燒燙傷、擦傷</span>
+<span class="kazoku-card-symptom">外傷用軟膏</span>
 </div>
 </button>
 <button class="kazoku-product-card" data-id="204" onclick="openKazokuModal('benpi')" type="button">
 <span class="kazoku-card-badge">醫藥品</span>
 <div class="kazoku-card-photo">
-<img alt="百毒下" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/100-scaled.jpg" loading="lazy"/>
+<img alt="百毒下" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/100-scaled.jpg"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">百毒下</span>
-<span class="kazoku-card-symptom">便祕</span>
+<span class="kazoku-card-symptom">便祕藥</span>
 </div>
 </button>
 <button class="kazoku-product-card" data-id="205" onclick="openKazokuModal('yuskin')" type="button">
 <span class="kazoku-card-badge">醫藥品</span>
 <div class="kazoku-card-photo">
-<img alt="悠斯晶 I 止癢乳膏" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/yusukin.jpg" loading="lazy"/>
+<img alt="悠斯晶 I 止癢乳膏" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/yusukin.jpg"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">悠斯晶 I 止癢乳膏</span>
-<span class="kazoku-card-symptom">皮膚瘙癢、皮膚炎、濕疹</span>
+<span class="kazoku-card-symptom">癢治療藥（乾燥引起的搔癢）</span>
 </div>
 </button>
 </div>
@@ -8382,11 +8390,11 @@ body {
 <button class="kazoku-product-card kazoku-product-card--food" data-id="206" onclick="openKazokuModal('ryukakusan')" type="button">
 <span class="kazoku-card-badge">食品</span>
 <div class="kazoku-card-photo">
-<img alt="龍角散草本無糖潤喉片" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/ryukakusan-scaled.jpg" loading="lazy"/>
+<img alt="龍角散草本無糖潤喉片" loading="lazy" src="https://www.japankuru.com/gld-kanri/data/uploads/2026/06/ryukakusan-scaled.jpg"/>
 </div>
 <div class="kazoku-card-body">
 <span class="kazoku-card-name">龍角散草本無糖潤喉片</span>
-</div>
+<span class="kazoku-card-symptom">喉嚨保養食品</span></div>
 </button>
 </div>
 <div class="kazoku-section-note kazoku-section-note--food">
@@ -8693,7 +8701,6 @@ body {
     </div>
 </div>
 </section></div>
-<div class="sim-note"><em>— store-guide / outro / footer —</em></div>
 <!-- Modal -->
 <div class="donki-modal-overlay" id="donkiModal" onclick="if(event.target===this) closeDonkiModal()">
 <div class="donki-modal">
@@ -9452,7 +9459,7 @@ body {
             label: "type-hot", labelText: "腸活", plan: "platinum",
             originalUrl: "https://hc.kowa.co.jp/otc/11806",
             tip: "不只是整腸，還能同時護胃消脹氣！添加納豆菌、乳酸菌以及比菲德氏菌等三種特性不同的好菌，能夠改善腸道環境的健康狀態。",
-            tipFull: "不只是整腸，還能同時護胃消脹氣！添加納豆菌、乳酸菌以及比菲德氏菌等三種特性不同的好菌，能夠改善腸道環境的健康狀態。同時添加能夠修復胃黏膜的氯化甲硫胺基酸（MMSC），以及多種健胃中藥成分、胃酸中和成分及消脹氣成分，是一款兼顧胃部健康的腸活＊醫藥品！ ＊指透過益生菌調整腸內環境。※：使用前請詳閱說明書並依指示之適應症與用法用量使用。",
+            tipFull: "<span class='c-drug-class'>第3類医薬品</span>\n不只是整腸，還能同時護胃消脹氣！添加納豆菌、乳酸菌以及比菲德氏菌等三種特性不同的好菌，能夠改善腸道環境的健康狀態。同時添加能夠修復胃黏膜的氯化甲硫胺基酸（MMSC），以及多種健胃中藥成分、胃酸中和成分及消脹氣成分，是一款兼顧胃部健康的腸活＊醫藥品！ ＊指透過益生菌調整腸內環境。\n\n<div style='background:#f8f8f8;border-radius:10px;padding:12px 14px;margin-top:8px;font-size:13px;line-height:1.9;'><div style='margin-bottom:4px;'><span style='font-weight:700;color:#4a4a4a;'>📋 名稱</span>　KOWA－顧多整腸錠α³+</div><div style='margin-bottom:4px;'><span style='font-weight:700;color:#4a4a4a;'>🏷 醫藥分類</span>　<span style='display:inline-block;border:1.5px solid #1a1a1a;font-size:11px;font-weight:600;padding:1px 7px;border-radius:1px;letter-spacing:.04em;'>第3類医薬品</span></div><div><span style='font-weight:700;color:#4a4a4a;'>✅ 適應症</span>　整腸（通便）、軟便、便祕、胃部・腹部膨滿感、消化不良、胃脹、胃機能低落、食欲不振、暴食、飲酒過量、想吐、嘔吐、胃酸逆流感、胸悶、胃部不舒服、胃重壓感、胃酸過多、打嗝、胃痛</div></div>\n※：使用前請詳閱說明書並依指示之適應症與用法用量使用。",
             column: 'https://www.japankuru.com/tw/shopping/285061', hasVideo: true, videoId: 'G0-5yVbGDhw',
             voices: [
               { initial: "1", name: "KOC1", attr: "（整理中）", text: "（體驗心得整理中，點擊查看實際貼文）", date: "2026.06", color: "#E91E63", snsUrl: "https://www.instagram.com/p/DZuAtN0kZd9/" },
@@ -10791,7 +10798,7 @@ body {
     "capacity": "10粒",
     "price": "¥1,500",
     "ingredients": "蟾酥、牛黃、鹿茸末、人蔘、藏紅花末、珍珠、龍腦、動物膽",
-    "indications": "氣促、心悸、気つけ**突發性眩暈·起立性眩暈等類似短暫腦部供血不足的症狀·意識模糊",
+    "indications": "氣促、心悸、気つけ※", "noteExtra": "気つけ：突發性眩暈·起立性眩暈等類似短暫腦部供血不足的症狀·意識模糊",
     "checkpoints": [
       {
         "label": "CHECK POINT 1",
@@ -10959,7 +10966,7 @@ body {
       if(d.ingredients) r+='<div class="kzc-row"><span class="kzc-th">有效成分</span><span class="kzc-td">'+d.ingredients+'</span></div>';
       if(d.indications) r+='<div class="kzc-row"><span class="kzc-th">適應症</span><span class="kzc-td">'+d.indications+'</span></div>';
       sp.innerHTML=r;}
-    var nt=document.getElementById('kzNote'); if(nt) nt.style.display=(d.label&&d.label.indexOf('醫藥品')>=0)?'flex':'none';
+    var nt=document.getElementById('kzNote'); if(nt) nt.style.display=(d.label&&(d.label.indexOf('醫藥品')>=0||d.label.indexOf('医薬品')>=0))?'flex':'none'; if(nt){ var baseNote='使用前請詳閱說明書，並依指示之適應症與用法用量使用。'; if(d.noteExtra){ nt.classList.add('has-extra'); nt.innerHTML='<span style="display:block;margin-bottom:5px;">※'+d.noteExtra+'</span><span style="display:block;">※'+baseNote+'</span>'; } else { nt.classList.remove('has-extra'); nt.innerHTML=baseNote; } }
     var bg = document.getElementById('kzBgLayer');
     if (bg) bg.style.backgroundImage = "url('" + d.img + "')";
     // CTAs
